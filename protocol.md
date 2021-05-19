@@ -78,6 +78,7 @@
   "string_value": "value"}  
 ```
 
+>For all examples 'alias' and 'timestamp' are omitted 
 ## Node types
 1. *PLC* - [a relative link](plc-node.md)
 2. *LC* -  [a relative link](lc-node.md)
