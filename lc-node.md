@@ -86,8 +86,7 @@
     { "name": "coordinates/latitude",                   "dataType": 10, "double_value": 55.751244},             /* Double */
     { "name": "coordinates/longitude",                  "dataType": 10, "double_value": 37.618423},             /* Double */
     { "name": "coordinates/update/time",                "dataType": 7,  "int_value": 0},                        /* UInt32 */
-    { "name": "coordinates/update/threshold",           "dataType": 10, "double_value": 0.001}                  /* Double */
-           
-    ]
+    { "name": "coordinates/update/threshold",           "dataType": 10, "double_value": 0.001}                  /* Double */           
+  ]
 }
 ```
