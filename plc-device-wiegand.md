@@ -33,14 +33,35 @@
     /* update threshold value for auto update  */      
     { "name": "sensors/update/temperature/threshold",   "dataType": 9,  "float_value": 3},                      /* Float */
 
-    { "name": "wiegand/1/code",                         "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "wiegand/1/type",                         "dataType": 12, "string_value": "Wiegand-26"},          /* String */
-    
-    { "name": "wiegand/2/code",                         "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "wiegand/2/type",                         "dataType": 12, "string_value": "Wiegand-26"},          /* String */
+    { "name": "wiegand/1/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */    
+    { "name": "wiegand/1/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
+    { "name": "wiegand/1/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
+    { "name": "wiegand/1/key/list",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["keys"],
+                        "types": [8], /* Uint64 */
+                        "rows": [ {"elements":[{"long_value": 0}]},
+                                  {"elements":[{"long_value": 1}]},
+                                  {"elements":[{"long_value": 2}]},
+                                  {"elements":[{"long_value": 3}]},
+                                  {"elements":[{"long_value": 4}]},
+                                  {"elements":[{"long_value": 5}]}  ] } },
 
-    { "name": "out/0",                                  "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "out/1",                                  "dataType": 11, "boolean_value": false},                /* Boolean */        
+    { "name": "wiegand/2/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */    
+    { "name": "wiegand/2/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
+    { "name": "wiegand/2/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
+    { "name": "wiegand/2/key/list",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["keys"],
+                        "types": [8], /* Uint64 */
+                        "rows": [ {"elements":[{"long_value": 0}]},
+                                  {"elements":[{"long_value": 1}]},
+                                  {"elements":[{"long_value": 2}]},
+                                  {"elements":[{"long_value": 3}]},
+                                  {"elements":[{"long_value": 4}]},
+                                  {"elements":[{"long_value": 5}]}  ] } },      
     
   ]
 }
