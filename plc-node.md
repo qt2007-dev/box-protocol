@@ -29,6 +29,7 @@
     { "name": "connection/modem/rssi",                  "dataType": 3,  "string_value": -60},                   /* Int32 */   
     { "name": "connection/thread/name",                 "dataType": 12, "string_value": "ThreadNetworkName"},   /* String */
     { "name": "connection/thread/panid",                "dataType": 6,  "int_value": 1234},                     /* UInt16 */
+    { "name": "connection/thread/channel",              "dataType": 5,  "int_value": 12},                       /* UInt8 */
     /* device role in thread network, values = ['child', 'router', 'leader']  */  
     { "name": "connection/thread/role",                 "dataType": 12, "string_value": "leader"},              /* String */
     { "name": "connection/thread/rloc16",               "dataType": 6,  "int_value": 1234},                     /* UInt16 */
