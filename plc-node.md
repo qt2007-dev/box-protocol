@@ -37,11 +37,11 @@
     { "name": "connection/thread/neighbors",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 5,
-                        "columns": ["role", "rloc16", "age", "avg-rssi", "last-rssi"],
+                        "columns": ["role", "rloc16", "avg-rssi", "last-rssi"],
                         "types": [12, 6, 6, 3, 3 ], /* String, UInt16, UInt16, Int32, Int32 */
-                        "rows": [ {"elements":[{"string_value":"child"},{"int_value":1235},{"int_value":1234},{"int_value":-60},{"int_value":-70} ]},
-                                  {"elements":[{"string_value":"router"},{"int_value":1235},{"int_value":1234},{"int_value":-60},{"int_value":-70} ]},
-                                  {"elements":[{"string_value":"leader"},{"int_value":1235},{"int_value":1234},{"int_value":-60},{"int_value":-70} ]}  ] } },
+                        "rows": [ {"elements":[{"string_value":"child"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]},
+                                  {"elements":[{"string_value":"router"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]},
+                                  {"elements":[{"string_value":"leader"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]}  ] } },
 
     { "name": "scenario/list",              
       "dataType": 16, /* DataSet */
