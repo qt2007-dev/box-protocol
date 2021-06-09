@@ -34,22 +34,57 @@
      
     /* in values in mV */ 
     { "name": "in/0",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    /* in mode values = ['voltage', 'current'] */ 
+    { "name": "in/0/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    /* in max voltage in mV values = [5000, 10000, 20000] */ 
+    { "name": "in/0/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    
     { "name": "in/1",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */    
     { "name": "in/2",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/3",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/4",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/5",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/6",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/7",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/8",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/9",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/10",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/11",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/12",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/13",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/14",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
     { "name": "in/15",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-
+    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    
     /* for update in values - send true */
     { "name": "in/update",                              "dataType": 11, "boolean_value": false},                /* Boolean */
     /* in update time in seconds, 0 - disable update*/
