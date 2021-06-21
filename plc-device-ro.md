@@ -33,9 +33,9 @@
     { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
       
     /* value is bitmask 0-7 input */    
-    { "name": "out/lsb",                                "dataType": 5,  "int_value": 0},                        /* UInt8 */
+    { "name": "bitmask/0",                              "dataType": 5,  "int_value": 0},                        /* UInt8 */
     /* value is bitmask 8-15 input */    
-    { "name": "out/msb",                                "dataType": 5,  "int_value": 0},                        /* UInt8 */
+    { "name": "bitmask/1",                              "dataType": 5,  "int_value": 0},                        /* UInt8 */
 
     { "name": "out/0",                                  "dataType": 11, "boolean_value": false},                /* Boolean */
     { "name": "out/1",                                  "dataType": 11, "boolean_value": false},                /* Boolean */       

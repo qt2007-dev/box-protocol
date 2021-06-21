@@ -32,65 +32,81 @@
     /* update threshold value for auto update  */      
     { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
      
-    /* in values in mV */ 
+    /* in values in voltage -mV, current - uA*/ 
     { "name": "in/0",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
     /* in mode values = ['voltage', 'current'] */ 
     { "name": "in/0/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    /* in max voltage in mV values = [5000, 10000, 20000] */ 
+    /* in max voltage in mV values = [2500, 5000, 10000, 20000] or max current [25000] */ 
     { "name": "in/0/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    /* in threshold value for auto update  */      
+    { "name": "in/0/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */   
     
     { "name": "in/1",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
     { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */    
+    { "name": "in/1/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/1/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */    
     { "name": "in/2",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/2/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/2/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/2/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/3",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/3/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/3/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/3/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/4",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/4/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/4/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/4/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/5",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/5/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/5/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/5/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/6",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/6/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/6/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/6/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/7",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/7/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/7/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/7/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/8",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/8/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/8/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/8/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/9",                                   "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/9/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/9/max",                               "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/9/threshold",                         "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/10",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/10/mode",                             "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/10/max",                              "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/10/threshold",                        "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/11",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/11/mode",                             "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/11/max",                              "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/11/threshold",                        "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/12",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/12/mode",                             "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/12/max",                              "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/12/threshold",                        "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/13",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/13/mode",                             "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/13/max",                              "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/13/threshold",                        "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/14",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/14/mode",                             "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/14/max",                              "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/14/threshold",                        "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     { "name": "in/15",                                  "dataType": 7,  "int_value": 5635},                     /* UInt32 */
-    { "name": "in/1/mode",                              "dataType": 12, "string_value": "voltage"},             /* String */
-    { "name": "in/1/max",                               "dataType": 7, "string_value": 10000},                  /* UInt32 */ 
+    { "name": "in/15/mode",                             "dataType": 12, "string_value": "voltage"},             /* String */
+    { "name": "in/15/max",                              "dataType": 7,  "string_value": 10000},                 /* UInt32 */
+    { "name": "in/15/threshold",                        "dataType": 7,  "int_value": 200}                       /* UInt32 */ 
     
     /* for update in values - send true */
     { "name": "in/update",                              "dataType": 11, "boolean_value": false},                /* Boolean */
     /* in update time in seconds, 0 - disable update*/
     { "name": "in/update/time",                         "dataType": 7,  "int_value": 0},                        /* UInt32 */
-    /* update threshold value for auto update  */      
-    { "name": "in/update/all/threshold",                "dataType": 7,  "int_value": 200}                       /* UInt32 */      
+   
   ]
 }
 //TODO: separate threshold for all inputs 
