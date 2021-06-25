@@ -15,7 +15,7 @@
     /* alias can be used instead id in topics and scenario */    
     { "name": "control/alias",                          "dataType": 12, "string_value": "ro"},                  /* String */
     { "name": "info/hardware/vendor",                   "dataType": 12, "string_value": "QuintTech"},           /* String */
-    { "name": "info/hardware/model",                    "dataType": 12, "string_value": "model"},               /* String */
+    { "name": "info/hardware/model",                    "dataType": 12, "string_value": "stm32g474ce"},         /* String */
     { "name": "info/firmware/version",                  "dataType": 12, "string_value": "0.1.012345678"},       /* String */
     { "name": "info/type",                              "dataType": 12, "string_value": "16 Relay outputs"},    /* String */
     { "name": "info/id",                                "dataType": 12, "string_value": "deba0002"},            /* String */
