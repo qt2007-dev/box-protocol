@@ -33,7 +33,12 @@
     /* update threshold value for auto update  */      
     { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
 
-    { "name": "wiegand/1/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */    
+    /* wiegand mode values = ['normal', 'add-keys'] */
+    { "name": "wiegand/1/mode",                         "dataType": 12, "string_value": "normal"},              /* String */
+    { "name": "wiegand/1/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */
+    /* wiegand open state values = ['high', 'low'] */
+    { "name": "wiegand/1/open/state",                   "dataType": 12, "string_value": "high"},                /* String */
+    { "name": "wiegand/1/open/time",                    "dataType": 7,  "int_value": 5},                        /* Int32 */   
     { "name": "wiegand/1/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
     { "name": "wiegand/1/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
     { "name": "wiegand/1/key/list",
@@ -48,7 +53,10 @@
                                   {"elements":[{"long_value": 4}]},
                                   {"elements":[{"long_value": 5}]}  ] } },
 
-    { "name": "wiegand/2/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */    
+    { "name": "wiegand/2/mode",                         "dataType": 12, "string_value": "normal"},              /* String */
+    { "name": "wiegand/2/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */
+    { "name": "wiegand/2/open/state",                   "dataType": 12, "string_value": "high"},                /* String */
+    { "name": "wiegand/2/open/time",                    "dataType": 7,  "int_value": 5},                        /* Int32 */     
     { "name": "wiegand/2/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
     { "name": "wiegand/2/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
     { "name": "wiegand/2/key/list",
