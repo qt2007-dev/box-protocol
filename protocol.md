@@ -95,3 +95,5 @@
 > Scenario description and examples - [a relative link](scenario.md)
 ## Schedule
 > Schedule description and examples - [a relative link](schedule.md)
+## Change server
+> Change server description and examples - [a relative link](change-server.md)

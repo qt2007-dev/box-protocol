@@ -42,6 +42,8 @@
                         "rows": [ {"elements":[{"string_value":"child"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]},
                                   {"elements":[{"string_value":"router"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]},
                                   {"elements":[{"string_value":"leader"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]}  ] } },
+    /* current server, to change send server:port with certificate in properties*/                              
+    { "name": "connection/server",                      "dataType": 12, "string_value": "84.201.159.12:1883"},  /* String */                                 
 
     { "name": "scenario/list",              
       "dataType": 16, /* DataSet */
@@ -50,7 +52,8 @@
                         "types": [12, 8, 8], /* String, UInt64, UInt64 */
                         "rows": [ {"elements":[{"string_value":"scenarioName1"},{"long_value":151515151515},{"long_value":151515151515} ]},
                                   {"elements":[{"string_value":"scenarioName2"},{"long_value":151515151515},{"long_value":151515151515} ]}  ] }
-                                  /* value = list of scenarioId and names, last - last used time, next - next time to be used */},      
+                                  /* value = list of scenarioId and names, last - last used time, next - next time to be used */},  
+                           
     /* value = scenarioId to add to list, in birth always null */
     { "name": "scenario/add",                           "dataType": 12, "is_null": true},                       /* String */ 
     /* value = scenarioId to delete from list, in birth always null */

@@ -42,6 +42,8 @@
                         "rows": [ {"elements":[{"string_value":"child"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]},
                                   {"elements":[{"string_value":"router"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]},
                                   {"elements":[{"string_value":"leader"},{"int_value":1235},{"int_value":-60},{"int_value":-70} ]}  ] } },
+    /* current server, to change send server:port with certificate in properties*/                              
+    { "name": "connection/server",                      "dataType": 12, "string_value": "84.201.159.12:1883"},  /* String */                                   
 
     { "name": "scenario/list",              
       "dataType": 16, /* DataSet */
