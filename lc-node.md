@@ -19,6 +19,7 @@
     { "name": "info/hardware/vendor",                   "dataType": 12, "string_value": "QuintTech"},           /* String */
     { "name": "info/hardware/model",                    "dataType": 12, "string_value": "model"},               /* String */
     { "name": "info/firmware/version",                  "dataType": 12, "string_value": "0.1.012345678"},       /* String */
+    { "name": "info/commit",                            "dataType": 12, "string_value": "4a920e480e6438d272fb69b2aff4e416d0c9a143"}, /* String */
     { "name": "info/type",                              "dataType": 12, "string_value": "LC"},                  /* String */
     { "name": "info/id",                                "dataType": 12, "string_value": "baab2020"},            /* String */
     /* metric for last error, in birth always null */       
