@@ -134,12 +134,22 @@
 ## **scenario/delete**
 >Удаляет сценарий с id равным value (значению метрики).
 >При успешном удалении сценария обновляется метрика "scenario/list"
+>При отправки специального значение "_all" удаляет все сценарии 
 
 >>Пример
 ```json
 {
 "metrics": [
   {"name": "scenario/delete", "dataType": 12, "string_value": "scenarioName1"}/* String */ 
+  ]
+}
+```
+
+>>Пример удаления всех сценариев
+```json
+{
+"metrics": [
+  {"name": "scenario/delete", "dataType": 12, "string_value": "_all"}/* String */ 
   ]
 }
 ```
