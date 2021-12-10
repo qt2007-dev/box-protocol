@@ -41,6 +41,7 @@
     { "name": "wiegand/1/open/time",                    "dataType": 7,  "int_value": 5},                        /* Int32 */   
     { "name": "wiegand/1/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
     { "name": "wiegand/1/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
+    { "name": "wiegand/1/key/slots",                    "dataType": 7,  "int_value": 1000},                     /* Int32 */   
     { "name": "wiegand/1/key/list",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
@@ -59,6 +60,7 @@
     { "name": "wiegand/2/open/time",                    "dataType": 7,  "int_value": 5},                        /* Int32 */     
     { "name": "wiegand/2/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
     { "name": "wiegand/2/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
+    { "name": "wiegand/1/key/slots",                    "dataType": 7,  "int_value": 1000},                     /* Int32 */   
     { "name": "wiegand/2/key/list",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,

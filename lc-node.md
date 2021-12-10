@@ -73,6 +73,8 @@
     { "name": "sensors/accelerometer/x",                "dataType": 9,  "float_value": 7852},                   /* Float */
     { "name": "sensors/accelerometer/y",                "dataType": 9,  "float_value": 7852},                   /* Float */
     { "name": "sensors/accelerometer/z",                "dataType": 9,  "float_value": 7852},                   /* Float */
+    { "name": "sensors/accelerometer/roll",             "dataType": 9,  "float_value": 7852},                   /* Float */
+    { "name": "sensors/accelerometer/pitch",            "dataType": 9,  "float_value": 7852},                   /* Float */
     { "name": "sensors/luminosity",                     "dataType": 9,  "float_value": 12.4},                   /* Float */
     { "name": "sensors/temperature",                    "dataType": 1,  "int_value": 22},                       /* Int8 */
     /* for update sensors values - send true */
@@ -84,7 +86,8 @@
     { "name": "sensors/update/luminosity",              "dataType": 11, "boolean_value": false},                /* Boolean */
     { "name": "sensors/update/temperature",             "dataType": 11, "boolean_value": false},                /* Boolean */
     /* update threshold value for auto update  */      
-    { "name": "sensors/update/accelerometer/threshold", "dataType": 9,  "float_value": 3},                      /* Float */
+    { "name": "sensors/update/accelerometer/acceleration/threshold", "dataType": 9,  "float_value": 3},         /* Float */
+    { "name": "sensors/update/accelerometer/angle/threshold", "dataType": 9,  "float_value": 3},                /* Float */
     { "name": "sensors/update/luminosity/threshold",    "dataType": 9,  "float_value": 3},                      /* Float */
     { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
 
