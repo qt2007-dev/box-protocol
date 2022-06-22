@@ -6,43 +6,29 @@
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "bdSeq",                                  "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "control/reboot",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "control/rebirth",                        "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* for receive new firmware in Base64 */
-    { "name": "control/firmware/new",                   "dataType": 17, "is_null": true},                       /* Bytes" */
-    /* save metrics values after reboot */
-    { "name": "control/metrics/save",                   "dataType": 11, "boolean_value": true },                /* Boolean */
-    /* alias can be used instead id in topics and scenario */    
-    { "name": "control/alias",                          "dataType": 12, "string_value": "wiegand"},             /* String */
-    { "name": "info/hardware/vendor",                   "dataType": 12, "string_value": "QuintTech"},           /* String */
-    { "name": "info/hardware/model",                    "dataType": 12, "string_value": "model"},               /* String */
-    { "name": "info/firmware/version",                  "dataType": 12, "string_value": "0.1.012345678"},       /* String */
-    { "name": "info/type",                              "dataType": 12, "string_value": "Wiegand 2"},            /* String */
-    { "name": "info/id",                                "dataType": 12, "string_value": "deba0007"},            /* String */
-    /* metric for last error, in birth always null */       
-    { "name": "info/error",                             "dataType": 12, "is_null": true},                       /* String */ 
+    { "name": "control/reboot",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Sofrware reboot device, send 'true' for reboot"} },
+    { "name": "control/rebirth",                        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Rebirth device, send 'true' for receive dbirth message again"} },
+    { "name": "control/firmware/new",                   "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"[W]Receive new device firmware, firmware send in Base64 format, in birth always null"} },
+    { "name": "control/metrics/save",                   "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
+    { "name": "control/group",                          "dataType": 12/* String */,  "string_value": "wiegand",          "metadata":{"description":"[RWP]Global group for device, can be used instead id in topics and scenarios"} },
 
-    { "name": "sensors/temperature",                    "dataType": 1,  "int_value": 22},                       /* Int8 */
-    /* for update sensors values - send true */
-    { "name": "sensors/update",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* sensors update time in seconds, 0 - disable update*/
-    { "name": "sensors/update/time",                    "dataType": 7,  "int_value": 0},                        /* UInt32 */
-    /* enabled/disabled update */
-    { "name": "sensors/update/temperature",             "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* update threshold value for auto update  */      
-    { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
+    { "name": "info/hardware/vendor",                   "dataType": 12/* String */,  "string_value": "QuintTech" ,       "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
+    { "name": "info/hardware/model",                    "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
+    { "name": "info/firmware/version",                  "dataType": 12/* String */,  "string_value": "0.1.220527.84852", "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
+    { "name": "info/type",                              "dataType": 12/* String */,  "string_value": "Wiegand 2",        "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
+    { "name": "info/id",                                "dataType": 12/* String */,  "string_value": "deba0007",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
+    { "name": "info/error",                             "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
-    /* wiegand mode values = ['normal', 'add-keys'] */
-    { "name": "wiegand/1/mode",                         "dataType": 12, "string_value": "normal"},              /* String */
-    { "name": "wiegand/1/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* wiegand open state values = ['high', 'low'] */
-    { "name": "wiegand/1/open/state",                   "dataType": 12, "string_value": "high"},                /* String */
-    { "name": "wiegand/1/open/time",                    "dataType": 7,  "int_value": 5},                        /* Int32 */   
-    { "name": "wiegand/1/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "wiegand/1/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "wiegand/1/key/slots",                    "dataType": 7,  "int_value": 1000},                     /* Int32 */   
-    { "name": "wiegand/1/key/list",
+    { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
+
+    { "name": "wiegand/0/mode",                         "dataType": 12/* String */,  "string_value": "normal",           "metadata":{"description":"[RW]Wiegand operational mode, list of values = ['normal', 'add-keys']"} },              
+    { "name": "wiegand/0/open",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RW]Door open value, 'true' - open, 'false' - close"} },                
+    { "name": "wiegand/0/open/state",                   "dataType": 12/* String */,  "string_value": "high",             "metadata":{"description":"[RW]Door open state, values = ['high', 'low']"} },                 
+    { "name": "wiegand/0/open/time",                    "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[RW]Door open time, value in seconds"} },                         
+    { "name": "wiegand/0/key/add",                      "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[W]Wiegand key add to allow list"} },                        
+    { "name": "wiegand/0/key/delete",                   "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[W]Wiegand key delete from allow list"} },                       
+    { "name": "wiegand/0/key/slots",                    "dataType": 7/* Int32 */ ,   "int_value": 1000,                  "metadata":{"description":"[R]Wiegand keys slots left"} },                       
+    { "name": "wiegand/0/key/list",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
                         "columns": ["keys"],
@@ -52,26 +38,8 @@
                                   {"elements":[{"long_value": 2}]},
                                   {"elements":[{"long_value": 3}]},
                                   {"elements":[{"long_value": 4}]},
-                                  {"elements":[{"long_value": 5}]}  ] } },
-
-    { "name": "wiegand/2/mode",                         "dataType": 12, "string_value": "normal"},              /* String */
-    { "name": "wiegand/2/open",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "wiegand/2/open/state",                   "dataType": 12, "string_value": "high"},                /* String */
-    { "name": "wiegand/2/open/time",                    "dataType": 7,  "int_value": 5},                        /* Int32 */     
-    { "name": "wiegand/2/key/add",                      "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "wiegand/2/key/delete",                   "dataType": 8,  "long_value": 0},                       /* Uint64 */
-    { "name": "wiegand/1/key/slots",                    "dataType": 7,  "int_value": 1000},                     /* Int32 */   
-    { "name": "wiegand/2/key/list",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1,
-                        "columns": ["keys"],
-                        "types": [8], /* Uint64 */
-                        "rows": [ {"elements":[{"long_value": 0}]},
-                                  {"elements":[{"long_value": 1}]},
-                                  {"elements":[{"long_value": 2}]},
-                                  {"elements":[{"long_value": 3}]},
-                                  {"elements":[{"long_value": 4}]},
-                                  {"elements":[{"long_value": 5}]}  ] } },      
+                                  {"elements":[{"long_value": 5}]}  ] },                                                 "metadata":{"description":"[R]Wiegand keys slots left"} }, 
+ 
     
   ]
 }
