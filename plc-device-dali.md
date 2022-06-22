@@ -6,208 +6,99 @@
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "control/reboot",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "control/rebirth",                        "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* for receive new firmware in Base64 */
-    { "name": "control/firmware/new",                   "dataType": 17, "is_null": true},                       /* Bytes" */
-    /* save metrics values after reboot */
-    { "name": "control/metrics/save",                   "dataType": 11, "boolean_value": true },                /* Boolean */
-    /* alias can be used instead id in topics and scenario */    
-    { "name": "control/alias",                          "dataType": 12, "string_value": "dali"},                /* String */
-    { "name": "info/hardware/vendor",                   "dataType": 12, "string_value": "QuintTech"},           /* String */
-    { "name": "info/hardware/model",                    "dataType": 12, "string_value": "model"},               /* String */
-    { "name": "info/firmware/version",                  "dataType": 12, "string_value": "0.1.012345678"},       /* String */
-    { "name": "info/type",                              "dataType": 12, "string_value": "DALI 128"},            /* String */
-    { "name": "info/id",                                "dataType": 12, "string_value": "deba0006"},            /* String */
-    /* metric for last error, in birth always null */       
-    { "name": "info/error",                             "dataType": 12, "is_null": true},                       /* String */ 
+    { "name": "control/reboot",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Sofrware reboot device, send 'true' for reboot"} },
+    { "name": "control/rebirth",                        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Rebirth device, send 'true' for receive dbirth message again"} },
+    { "name": "control/firmware/new",                   "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"Receive new device firmware, firmware send in Base64 format, in birth always null"} },
+    { "name": "control/metrics/save",                   "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"Save metrics states after reboot, send 'true' for enable"} },
+    { "name": "control/group",                          "dataType": 12/* String */,  "string_value": "io",               "metadata":{"description":"Global group for device, can be used instead id in topics and scenarios"} },
 
-    { "name": "sensors/temperature",                    "dataType": 1,  "int_value": 22},                       /* Int8 */
-    /* for update sensors values - send true */
-    { "name": "sensors/update",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* sensors update time in seconds, 0 - disable update*/
-    { "name": "sensors/update/time",                    "dataType": 7,  "int_value": 0},                        /* UInt32 */
-    /* enabled/disabled update */
-    { "name": "sensors/update/temperature",             "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* update threshold value for auto update  */      
-    { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
+    { "name": "info/hardware/vendor",                   "dataType": 12/* String */,  "string_value": "QuintTech" ,       "metadata":{"description":"Vendor name, hardcoded by vendor"} },
+    { "name": "info/hardware/model",                    "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"Mcu model, hardcoded by vendor"} },
+    { "name": "info/firmware/version",                  "dataType": 12/* String */,  "string_value": "0.1.220527.84852", "metadata":{"description":"Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
+    { "name": "info/type",                              "dataType": 12/* String */,  "string_value": "8 IO",             "metadata":{"description":"Device type, hardcoded by vendor"} },
+    { "name": "info/id",                                "dataType": 12/* String */,  "string_value": "deba0008",         "metadata":{"description":"Short id calculated by a hash from mcu uid"} },
+    { "name": "info/error",                             "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"Last error message"} },
 
-    /* dali/{bus}/{device}  */    
+    { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"Temperature sensor in mcu, value in Celsius"} },
 
-    /* Bus control metrics */
-    /* Bus status values=['online','dublicate','short-current','error','offline']*/
-    { "name": "dali/1/status",                          "dataType": 12, "string_value": "online"},              /* String */
-    /* Address devices values=['all', 'new', 'dublicate'] */
-    { "name": "dali/1/scan",                            "dataType": 12, "string_value": "all"},                 /* String */
-    { "name": "dali/1/update",                          "dataType": 11, "boolean_value": false},                /* Boolean */
+    /* Bus 0 control metrics */
+    { "name": "dali/0/status",                          "dataType": 12/* String */,  "string_value": "online",           "metadata":{"description":"Dali bus status, list of states = ['online','short-current','offline']"} },    
+    { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
     
-    { "name": "dali/1/dim",                             "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/scene",                           "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    
+    { "name": "dali/0/dim",                             "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Broadcast set dimming level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade"} },    
+    { "name": "dali/0/scene",                           "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Broadcast set current scene, dali cmd 'GO TO SCENE', values = [0-15]"} },    
+    { "name": "dali/0/fade/time",                       "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"Broadcast set fade time, dali cmd 'SET FADE TIME', values = [0-15]"} },    
+    { "name": "dali/0/fade/rate",                       "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"Broadcast set fade rate, dali cmd 'SET FADE RATE', values = [0-15]"} }, 
+        
     /* Group control metrics */
-    /* Group 1/16 on bus 1*/
-    { "name": "dali/1/group/1",
+    /* dali/{bus}/group/{group}    */ 
+    { "name": "dali/0/group/0",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
-                        "columns": ["devices"],
+                        "columns": ["gears"],
                         "types": [8], /* UInt8 */
                         "rows": [ {"elements":[{"int_value": 0}]},
                                   {"elements":[{"int_value": 1}]},
                                   {"elements":[{"int_value": 2}]},
                                   {"elements":[{"int_value": 3}]},
                                   {"elements":[{"int_value": 4}]},
-                                  {"elements":[{"int_value": 5}]}  ] } },
-    { "name": "dali/1/group/1/dim",                     "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/group/1/scene",                   "dataType": 5,  "int_value": 0},                        /* UInt8 */ 
+                                  {"elements":[{"int_value": 5}]}  ] },                                                  "metadata":{"description":"Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/0/dim",                     "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Group set dimming level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade "} },  
+    { "name": "dali/0/group/0/scene",                   "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Group set current scene, dali cmd 'GO TO SCENE', values = [0-15]"} },    
+    { "name": "dali/0/group/0/time",                    "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"Group set fade time, dali cmd 'SET FADE TIME', values = [0-15]"} },    
+    { "name": "dali/0/group/0/rate",                    "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"Group set fade rate, dali cmd 'SET FADE RATE', values = [0-15]"} }, 
+    
+    /* Control gear metrics */
+    /* dali/{bus}/gear/{gear}  */  
+    { "name": "dali/0/gear/0/type",                   "dataType": 12/* String */,  "string_value": "LED",              "metadata":{"description":"Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
+                                                                                                                                                  values = ['FLUORESCENT, 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                  'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
+                                                                                                                                                  can be multiple types at the same time ('LED|COLOR')"} }, 
+    { "name": "dali/0/gear/0/id",                     "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/0/dim",                    "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
+                                                                                                                                                  For read actual dim level using dali cmd 'QUERY ACTUAL LEVEL'"} },    
+    { "name": "dali/0/gear/0/dim/phyMin",             "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear physical minimum dim level(read-only), dali cmd 'QUERY PHYSICAL MINIMUM'"} },  
+    { "name": "dali/0/gear/0/dim/min",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear minimum dim level, dali cmd 'QUERY MIN LEVEL', 'SET MIN LEVEL'"} },  
+    { "name": "dali/0/gear/0/dim/max",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear maximum dim level, dali cmd 'QUERY MAX LEVEL', 'SET MAX LEVEL'"} },  
+    { "name": "dali/0/gear/0/dim/powerOn",            "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL'"} },  
+    { "name": "dali/0/gear/0/dim/failure",            "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
+                                                                                                                                                  value 255(MASK) disable react to bus failure"} },
+    { "name": "dali/0/gear/0/fade/time",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
+    { "name": "dali/0/gear/0/fade/rate",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
 
-    /* Group 2/16 on bus 1*/
-    { "name": "dali/1/group/2",
+    { "name": "dali/0/gear/0/status/controlFailure",  "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Control gear cannot operate as intended, dali cmd 'QUERY STATUS'"} },                  
+    { "name": "dali/0/gear/0/status/lampFailure",     "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Lamp cannot be operated as intended, dali cmd 'QUERY STATUS'"} },                
+    { "name": "dali/0/gear/0/status/lampOn",          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"Lamp on/off status, dali cmd 'QUERY STATUS'"} },                 
+    { "name": "dali/0/gear/0/status/limitError",      "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Last requested target level exceed limitations, dali cmd 'QUERY STATUS'"} },                
+    { "name": "dali/0/gear/0/status/fadeRunning",     "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Fade running status, dali cmd 'QUERY STATUS'"} },               
+    { "name": "dali/0/gear/0/status/resetState",      "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Control gear failure, dali cmd 'QUERY STATUS'"} },               
+    { "name": "dali/0/gear/0/status/powerCycle",      "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"Control gear failure, dali cmd 'QUERY STATUS'"} },                
+
+    { "name": "dali/0/gear/0/scene",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1, 
-                        "columns": ["devices"],
+                        "columns": ["level"],
                         "types": [8], /* UInt8 */
-                        "rows": [ ] } },
-    { "name": "dali/1/group/2/dim",                     "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/group/2/scene",                   "dataType": 5,  "int_value": 0},                        /* UInt8 */ 
-    
-    /* ...................*/
-    /* Group 16/16 on bus 1*/
-    { "name": "dali/1/group/16",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1, 
-                        "columns": ["devices"],
-                        "types": [8], /* UInt8 */
-                        "rows": [ ] } },
-    { "name": "dali/1/group/16/dim",                     "dataType": 5,  "int_value": 0},                       /* UInt8 */
-    { "name": "dali/1/group/16/scene",                   "dataType": 5,  "int_value": 0},                       /* UInt8 */ 
-    
-    /* Device control metrics */
-    /* Device 1 on bus 1*/
-    { "name": "dali/1/device/1/type",                   "dataType": 12, "string_value": "LED"},                 /* String */
-    { "name": "dali/1/device/1/id",                     "dataType": 12, "string_value": "0000-1121"},           /* String */
-   
-    { "name": "dali/1/device/1/dim",                    "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/dim/phyMin",             "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/dim/min",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/dim/max",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/dim/powerOn",            "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/dim/failure",            "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    
-    { "name": "dali/1/device/1/fade/time",              "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/fade/rate",              "dataType": 5,  "int_value": 0},                        /* UInt8 */    
+                        "rows": [ {"elements":[{"int_value": 128}]},     /* Scene 0 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 1 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 2 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 3 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 4 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 5 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 6 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 7 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 8 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 9 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 10 */ 
+                                  {"elements":[{"int_value": 128}]},     /* Scene 11 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 12 */ 
+                                  {"elements":[{"int_value": 128}]},     /* Scene 13 */
+                                  {"elements":[{"int_value": 128}]},     /* Scene 14 */  
+                                  {"elements":[{"int_value": 128}]} ] }, /* Scene 15 */                                  "metadata":{"description":"Dali gear scenes, dali cmd 'SET SCENE','QUERY SCENE LEVEL'"} }, 
 
-    { "name": "dali/1/device/1/gear/controlFailure",    "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/1/device/1/gear/lampFailure",       "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/1/device/1/gear/lampOn",            "dataType": 11, "boolean_value": true},                 /* Boolean */
-    { "name": "dali/1/device/1/gear/limitError",        "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/1/device/1/gear/fadeRunning",       "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/1/device/1/gear/resetState",        "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/1/device/1/gear/powerCycle",        "dataType": 11, "boolean_value": false},                /* Boolean */ 
 
-    { "name": "dali/1/device/1/scene/1",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/2",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/3",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/4",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/5",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/6",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/7",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/8",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/9",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/10",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/11",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/12",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/13",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/14",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/15",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/1/device/1/scene/16",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-
-    /* Bus control metrics */    
-    { "name": "dali/2/status",                          "dataType": 12, "string_value": "online"},              /* String */
-    { "name": "dali/2/scan",                            "dataType": 12, "string_value": "all"},                 /* String */
-    { "name": "dali/2/update",                          "dataType": 11, "boolean_value": false},                /* Boolean */
-    
-    { "name": "dali/2/dim",                             "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/scene",                           "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    
-    /* Group control metrics */
-    /* Group 1/16 on bus 2*/
-    { "name": "dali/2/group/1",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1,
-                        "columns": ["devices"],
-                        "types": [8], /* UInt8 */
-                        "rows": [ {"elements":[{"int_value": 0}]},
-                                  {"elements":[{"int_value": 1}]},
-                                  {"elements":[{"int_value": 2}]},
-                                  {"elements":[{"int_value": 3}]},
-                                  {"elements":[{"int_value": 4}]},
-                                  {"elements":[{"int_value": 5}]}  ] } },
-    { "name": "dali/2/group/1/dim",                     "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/group/1/scene",                   "dataType": 5,  "int_value": 0},                        /* UInt8 */ 
-
-    /* Group 2/16 on bus 1*/
-    { "name": "dali/2/group/2",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1, 
-                        "columns": ["devices"],
-                        "types": [8], /* UInt8 */
-                        "rows": [ ] } },
-    { "name": "dali/2/group/2/dim",                     "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/group/2/scene",                   "dataType": 5,  "int_value": 0},                        /* UInt8 */ 
-    
-    /* ...................*/
-    /* Group 16/16 on bus 1*/
-    { "name": "dali/2/group/16",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1, 
-                        "columns": ["devices"],
-                        "types": [8], /* UInt8 */
-                        "rows": [ ] } },
-    { "name": "dali/2/group/16/dim",                     "dataType": 5,  "int_value": 0},                       /* UInt8 */
-    { "name": "dali/2/group/16/scene",                   "dataType": 5,  "int_value": 0},                       /* UInt8 */ 
-    
-    /* Device control metrics */
-    /* Device 1 on bus 1*/
-    { "name": "dali/2/device/1/type",                   "dataType": 12, "string_value": "LED"},                 /* String */
-    { "name": "dali/2/device/1/id",                     "dataType": 12, "string_value": "0000-1121"},           /* String */
-   
-    { "name": "dali/2/device/1/dim",                    "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/dim/phyMin",             "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/dim/min",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/dim/max",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/dim/powerOn",            "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/dim/failure",            "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    
-    { "name": "dali/2/device/1/fade/time",              "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/fade/rate",              "dataType": 5,  "int_value": 0},                        /* UInt8 */    
-
-    { "name": "dali/2/device/1/gear/controlFailure",    "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/2/device/1/gear/lampFailure",       "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/2/device/1/gear/lampOn",            "dataType": 11, "boolean_value": true},                 /* Boolean */
-    { "name": "dali/2/device/1/gear/limitError",        "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/2/device/1/gear/fadeRunning",       "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/2/device/1/gear/resetState",        "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "dali/2/device/1/gear/powerCycle",        "dataType": 11, "boolean_value": false},                /* Boolean */ 
-
-    { "name": "dali/2/device/1/scene/1",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/2",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/3",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/4",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/5",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/6",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/7",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/8",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/9",                "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/10",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/11",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/12",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/13",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/14",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/15",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
-    { "name": "dali/2/device/1/scene/16",               "dataType": 5,  "int_value": 0},                        /* UInt8 */
 
          
-  ]
 }
 ```
 
