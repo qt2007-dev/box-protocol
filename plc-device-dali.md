@@ -27,13 +27,19 @@
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
     { "name": "dali/0/source/voltage",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus voltage"} },    
     { "name": "dali/0/source/current",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus current"} },    
-    
-    
+        
     { "name": "dali/0/dim",                             "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[W]Broadcast set dimming level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade"} },    
     { "name": "dali/0/scene",                           "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[W]Broadcast set current scene, dali cmd 'GO TO SCENE', values = [0-15]"} },    
     { "name": "dali/0/fade/time",                       "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"[W]Broadcast set fade time, dali cmd 'SET FADE TIME', values = [0-15]"} },    
     { "name": "dali/0/fade/rate",                       "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"[W]Broadcast set fade rate, dali cmd 'SET FADE RATE', values = [0-15]"} }, 
-        
+
+    { "name": "dali/0/swap",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["from", "target"],
+                        "types": [8,8], /* UInt8, UInt8 */
+                        "rows": [ {"elements":[{"int_value": 23,"int_value": 34,}]} ] },                                 "metadata":{"description":"[W]Dali swap short address on bus"} },
+
     /* Group control metrics */
     /* dali/{bus}/group/{group}    */ 
     { "name": "dali/0/group/0",
