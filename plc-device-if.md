@@ -6,67 +6,59 @@
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "control/reboot",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    { "name": "control/rebirth",                        "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* for receive new firmware in Base64 */
-    { "name": "control/firmware/new",                   "dataType": 17, "is_null": true},                       /* Bytes" */
-    /* save metrics values after reboot */
-    { "name": "control/metrics/save",                   "dataType": 11, "boolean_value": true },                /* Boolean */
-    /* alias can be used instead id in topics and scenario */    
-    { "name": "control/alias",                          "dataType": 12, "string_value": "if"},                  /* String */
-    { "name": "info/hardware/vendor",                   "dataType": 12, "string_value": "QuintTech"},           /* String */
-    { "name": "info/hardware/model",                    "dataType": 12, "string_value": "stm32g474ce"},         /* String */
-    { "name": "info/firmware/version",                  "dataType": 12, "string_value": "0.1.012345678"},       /* String */
-    { "name": "info/type",                              "dataType": 12, "string_value": "Interfaces"},          /* String */
-    { "name": "info/id",                                "dataType": 12, "string_value": "deba0004"},            /* String */
-    /* metric for last error, in birth always null */       
-    { "name": "info/error",                             "dataType": 12, "is_null": true},                       /* String */ 
+    { "name": "control/reboot",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Sofrware reboot device, send 'true' for reboot"} },
+    { "name": "control/rebirth",                "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Rebirth device, send 'true' for receive dbirth message again"} },
+    { "name": "control/firmware/new",           "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"[W]Receive new device firmware, firmware send in Base64 format, in birth always null"} },
+    { "name": "control/metrics/save",           "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
+    { "name": "control/metrics/metadata",       "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Show metrics metadata in birth, send 'true' for enable"} },
+    { "name": "control/group",                  "dataType": 12/* String */,  "string_value": "if",               "metadata":{"description":"[RWP]Global group for device, can be used instead id in topics and scenarios"} },
 
-    { "name": "sensors/temperature",                    "dataType": 1,  "int_value": 22},                       /* Int8 */
-    /* for update sensors values - send true */
-    { "name": "sensors/update",                         "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* sensors update time in seconds, 0 - disable update*/
-    { "name": "sensors/update/time",                    "dataType": 7,  "int_value": 0},                        /* UInt32 */
-    /* enabled/disabled update */
-    { "name": "sensors/update/temperature",             "dataType": 11, "boolean_value": false},                /* Boolean */
-    /* update threshold value for auto update  */      
-    { "name": "sensors/update/temperature/threshold",   "dataType": 5,  "int_value": 2},                        /* UInt8 */
+    { "name": "info/hardware/vendor",           "dataType": 12/* String */,  "string_value": "QuintTech" ,       "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
+    { "name": "info/hardware/model",            "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
+    { "name": "info/firmware/version",          "dataType": 12/* String */,  "string_value": "0.1.220527.84852", "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
+    { "name": "info/type",                      "dataType": 12/* String */,  "string_value": "Interfaces",       "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
+    { "name": "info/id",                        "dataType": 12/* String */,  "string_value": "deba0004",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
+    { "name": "info/error",                     "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
-    /* baudrate values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600] */
-    { "name": "RS485/1/settings/baudrate",              "dataType": 7,  "int_value": 9600},                     /* UInt32*/
-    /* databits values = [7,8,9] */
-    { "name": "RS485/1/settings/databits",              "dataType": 7,  "int_value": 8},                        /* UInt32*/
-    /* stopbits values = [1,1.5,2]*/
-    { "name": "RS485/1/settings/stopbits",              "dataType": 9,  "float_value": 1},                      /* Float */
-    /* parity values = ['none','even','odd'] */
-    { "name": "RS485/1/settings/parity",                "dataType": 12, "string_value": "none"},                /* String */
-    /* value in ms, wait time after last byte received */
-    { "name": "RS485/1/settings/timeout",               "dataType": 7,  "int_value": 0},                        /* UInt32*/
-    /* enable/disable terminator on bus */    
-    { "name": "RS485/1/settings/terminator",            "dataType": 11, "boolean_value": true },                /* Boolean */
-    { "name": "RS485/1/in",                             "dataType": 17, "bytes_value": "Base64 string"},        /* Bytes" */
-    { "name": "RS485/1/out",                            "dataType": 17, "bytes_value": "Base64 string"},        /* Bytes" */
+    { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
+
+    { "name": "RS485/0/settings/baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]RS485 baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
+    { "name": "RS485/0/settings/databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]RS485 databits, specified values = [7,8,9]"} },
+    { "name": "RS485/0/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]RS485 stopbits, specified values = [1,1.5,2]"} },                      
+    { "name": "RS485/0/settings/parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]RS485 parity, list of values = ['none','even','odd']"} },                
+    { "name": "RS485/0/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS485 timeout, wait time after last byte received before send to metric, value in ms"} },                         
+    { "name": "RS485/0/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} },                
+    { "name": "RS485/0/in",                     "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
+    { "name": "RS485/0/out",                    "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },        
     
-    { "name": "RS485/2/settings/baudrate",              "dataType": 7,  "int_value": 9600},                     /* UInt32*/
-    { "name": "RS485/2/settings/databits",              "dataType": 7,  "int_value": 8},                        /* UInt32*/
-    { "name": "RS485/2/settings/stopbits",              "dataType": 9,  "float_value": 1},                      /* Float */
-    { "name": "RS485/2/settings/parity",                "dataType": 12, "string_value": "none"},                /* String */
-    { "name": "RS485/2/settings/timeout",               "dataType": 7,  "int_value": 0},                        /* UInt32*/
-    { "name": "RS485/2/settings/terminator",            "dataType": 11, "boolean_value": true },                /* Boolean */
-    { "name": "RS485/2/in",                             "dataType": 17, "bytes_value": "Base64 string"},        /* Bytes" */
-    { "name": "RS485/2/out",                            "dataType": 17, "bytes_value": "Base64 string"},        /* Bytes" */
+    { "name": "RS485/1/settings/baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]RS485 baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
+    { "name": "RS485/1/settings/databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]RS485 databits, specified values = [7,8,9]"} },
+    { "name": "RS485/1/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]RS485 stopbits, specified values = [1,1.5,2]"} },                      
+    { "name": "RS485/1/settings/parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]RS485 parity, list of values = ['none','even','odd']"} },                
+    { "name": "RS485/1/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS485 timeout, wait time after last byte received before send to metric, value in ms"} },                         
+    { "name": "RS485/1/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} },                
+    { "name": "RS485/1/in",                     "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
+    { "name": "RS485/1/out",                    "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },  
 
-    { "name": "RS232/settings/baudrate",                "dataType": 7,  "int_value": 9600},                     /* UInt32*/
-    { "name": "RS232/settings/databits",                "dataType": 7,  "int_value": 8},                        /* UInt32*/
-    { "name": "RS232/settings/stopbits",                "dataType": 9,  "float_value": 1},                      /* Float */
-    { "name": "RS232/settings/parity",                  "dataType": 12, "string_value": "none"},                /* String */
-    { "name": "RS232/settings/timeout",                 "dataType": 7,  "int_value": 0},                        /* UInt32*/
-    { "name": "RS232/in",                               "dataType": 17, "bytes_value": "Base64 string"},        /* Bytes" */
-    { "name": "RS232/out",                              "dataType": 17, "bytes_value": "Base64 string"}         /* Bytes" */   
+    { "name": "RS232/settings/baudrate",        "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]RS232 baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
+    { "name": "RS232/settings/databits",        "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]RS232 databits, specified values = [7,8,9]"} },
+    { "name": "RS232/settings/stopbits",        "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]RS232 stopbits, specified values = [1,1.5,2]"} },                         
+    { "name": "RS232/settings/parity",          "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]RS232 parity, list of values = ['none','even','odd']"} },                
+    { "name": "RS232/settings/timeout",         "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS232 timeout, wait time after last byte received before send to metric, value in ms"} },                        
+    { "name": "RS232/in",                       "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS232, in base64 format"} },
+    { "name": "RS232/out",                      "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS232, in base64 format"} },  
+
+    { "name": "CAN/settings/baudrate",          "dataType": 7/* UInt32*/,    "int_value": 500,                   "metadata":{"description":"[RWP]CAN baudrate, specified values = [50, 100, 125, 250, 500, 1000] kbps"} },
+    { "name": "CAN/settings/terminator",        "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]CAN bus terminator control, 'true' - enable terminator"} },    
+    { "name": "CAN/in/indentifier",             "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[R]Received identifier, sets priority of the data frame"} },  
+    { "name": "CAN/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frane type"} },                     
+    { "name": "CAN/in",                         "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received data from CAN, in base64 format"} },
+    { "name": "CAN/out/indentifier",            "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RW]Send identifier, sets priority of the data frame"} },  
+    { "name": "CAN/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Send remote transmission request, define the frane type"} },                 
+    { "name": "CAN/out",                        "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to CAN, in base64 format"} },   
   ]
 }
 
-//TODO: add CAN metrics
 ```
 
 ## PLC device interface death example
