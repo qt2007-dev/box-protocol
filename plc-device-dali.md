@@ -27,18 +27,24 @@
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
     { "name": "dali/0/source/voltage",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus voltage"} },    
     { "name": "dali/0/source/current",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus current"} },    
-        
-    { "name": "dali/0/dim",                             "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[W]Broadcast set dimming level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade"} },    
-    { "name": "dali/0/scene",                           "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[W]Broadcast set current scene, dali cmd 'GO TO SCENE', values = [0-15]"} },    
-    { "name": "dali/0/fade/time",                       "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"[W]Broadcast set fade time, dali cmd 'SET FADE TIME', values = [0-15]"} },    
-    { "name": "dali/0/fade/rate",                       "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"[W]Broadcast set fade rate, dali cmd 'SET FADE RATE', values = [0-15]"} }, 
 
     { "name": "dali/0/swap",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
                         "columns": ["from", "target"],
-                        "types": [8,8], /* UInt8, UInt8 */
-                        "rows": [ {"elements":[{"int_value": 23,"int_value": 34,}]} ] },                                 "metadata":{"description":"[W]Dali swap short address on bus"} },
+                        "types": [5,5], /* UInt8, UInt8 */
+                        "rows": [ {"elements":[{"int_value": 23,"int_value": 34,}]} ] },                                 
+      "metadata":{"description":"[W]Dali swap short address on bus"} },
+    
+    { "name": "dali/0/cmd",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 4,
+                        "columns": ["addr-type", "addr", "cmd", "value"],
+                        "types": [12,5,12,5], /* String, UInt8, String, UInt8 */
+                        "rows": [ {"elements":[{"string_value": "group","int_value": 10,"string_value": "dim","int_value": 240}]} ] }, 
+      "metadata":{"description":"[W]Dali send comand to bus, 
+                                 'addr-type' list of values = ['broadcast', 'group', 'gear'],
+                                 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate']"} },                    
 
     /* Group control metrics */
     /* dali/{bus}/group/{group}    */ 
@@ -46,22 +52,19 @@
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
                         "columns": ["gears"],
-                        "types": [8], /* UInt8 */
+                        "types": [5], /* UInt8 */
                         "rows": [ {"elements":[{"int_value": 0}]},
                                   {"elements":[{"int_value": 1}]},
                                   {"elements":[{"int_value": 2}]},
                                   {"elements":[{"int_value": 3}]},
                                   {"elements":[{"int_value": 4}]},
-                                  {"elements":[{"int_value": 5}]}  ] },                                                  "metadata":{"description":"[RW]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
-    { "name": "dali/0/group/0/dim",                     "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[W]Group set dimming level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade "} },  
-    { "name": "dali/0/group/0/scene",                   "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[W]Group set current scene, dali cmd 'GO TO SCENE', values = [0-15]"} },    
-    { "name": "dali/0/group/0/time",                    "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"[W]Group set fade time, dali cmd 'SET FADE TIME', values = [0-15]"} },    
-    { "name": "dali/0/group/0/rate",                    "dataType": 5/* UInt8 */,    "int_value": 8,                     "metadata":{"description":"[W]Group set fade rate, dali cmd 'SET FADE RATE', values = [0-15]"} }, 
-    
+                                  {"elements":[{"int_value": 5}]}  ] },                                                  
+      "metadata":{"description":"[RW]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+   
     /* Control gear metrics */
     /* dali/{bus}/gear/{gear}  */  
     { "name": "dali/0/gear/0/type",                     "dataType": 12/* String */,  "string_value": "LED",              "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
-                                                                                                                                                    values = ['FLUORESCENT, 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                    values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
                                                                                                                                                     'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
                                                                                                                                                     can be multiple types at the same time ('LED|COLOR')"} }, 
     { "name": "dali/0/gear/0/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
@@ -87,8 +90,8 @@
     { "name": "dali/0/gear/0/scene",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1, 
-                        "columns": ["level"],
-                        "types": [8], /* UInt8 */
+                        "columns": ["dim"],
+                        "types": [5], /* UInt8 */
                         "rows": [ {"elements":[{"int_value": 128}]},     /* Scene 0 */
                                   {"elements":[{"int_value": 128}]},     /* Scene 1 */
                                   {"elements":[{"int_value": 128}]},     /* Scene 2 */
@@ -104,10 +107,9 @@
                                   {"elements":[{"int_value": 128}]},     /* Scene 12 */ 
                                   {"elements":[{"int_value": 128}]},     /* Scene 13 */
                                   {"elements":[{"int_value": 128}]},     /* Scene 14 */  
-                                  {"elements":[{"int_value": 128}]} ] }, /* Scene 15 */                                  "metadata":{"description":"[RW]Dali gear scenes, dali cmd 'SET SCENE','QUERY SCENE LEVEL'"} }, 
-
-
-
+                                  {"elements":[{"int_value": 128}]} ] }, /* Scene 15 */                                  
+      "metadata":{"description":"[RW]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} }, 
+  ]
          
 }
 ```
