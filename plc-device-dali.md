@@ -25,8 +25,8 @@
     /* Bus 0 control metrics */
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
     { "name": "dali/0/source/shortCurrent",             "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Dali bus power source short current"} },    
-    { "name": "dali/0/source/voltage",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus voltage"} },    
-    { "name": "dali/0/source/current",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus current"} },    
+    { "name": "dali/0/source/voltage",                  "dataType": 6/* UInt16 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus voltage, value in mV"} },    
+    { "name": "dali/0/source/current",                  "dataType": 6/* UInt16 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus current, value in mA"} },    
 
     { "name": "dali/0/swap",
       "dataType": 16, /* DataSet */
