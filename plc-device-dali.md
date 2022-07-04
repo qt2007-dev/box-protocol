@@ -23,8 +23,8 @@
     { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
     /* Bus 0 control metrics */
-    { "name": "dali/0/status",                          "dataType": 12/* String */,  "string_value": "online",           "metadata":{"description":"[R]Dali bus status, list of states = ['online','short-current','offline']"} },    
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
+    { "name": "dali/0/source/shortCurrent",             "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RW]Dali bus power source short current"} },    
     { "name": "dali/0/source/voltage",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus voltage"} },    
     { "name": "dali/0/source/current",                  "dataType": 7/* UInt32 */,   "int_value": 5635,                  "metadata":{"description":"[R]Dali bus current"} },    
 
