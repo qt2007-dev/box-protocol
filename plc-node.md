@@ -7,7 +7,7 @@
 "seq": 0,
 "metrics": [
     { "name": "bdSeq",                               "dataType": 8/* Uint64 */,   "long_value": 0,                      "metadata":{"description":"[R]Birth-death sequence, 'online' - [NBIRTH > NDEATH}, 'offline' - [NBIRTH <= NDEATH]  "} },                      
-    { "name": "control/reboot",                      "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[W]Sofrware reboot node, send 'true' for reboot"} },
+    { "name": "control/reboot",                      "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[W]Software reboot node, send 'true' for reboot"} },
     { "name": "control/rebirth",                     "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[W]Rebirth node, send 'true' for receive dbirth message again"} },
     { "name": "control/firmware/new",                "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,    "metadata":{"description":"[W]Receive new node firmware, firmware send in Base64 format, in birth always null"} },
     { "name": "control/metrics/save",                "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
@@ -21,22 +21,28 @@
     { "name": "info/id",                             "dataType": 12/* String */,  "string_value": "abba2020",           "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",                          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Last error message"} },
                 
-    { "name": "sensors/temperature",                 "dataType": 1/* Int8 */,     "int_value": 22,                      "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },    
+    { "name": "sensors/temperature",                 "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },    
     { "name": "coordinates/latitude",                "dataType": 10/* Double */,  "double_value": 55.751244,            "metadata":{"description":"[R]GNSS coordinates lattitude, value in degree"} },            
     { "name": "coordinates/longitude",               "dataType": 10/* Double */,  "double_value": 37.618423,            "metadata":{"description":"[R]GNSS coordinates longitude, value in degree"} },
     
     { "name": "connection/type",                     "dataType": 12/* String */,  "string_value": "ethernet",           "metadata":{"description":"[RWP]Active connection type, list of values = ['ethernet', 'modem', 'thread']"} },
-    { "name": "connection/server",                   "dataType": 12/* String */,  "string_value": "84.201.159.12:1883", "metadata":{"description":"[RWP]Mqtt broker address with port, certificate can be sent in properties"} },   
-   
+    { "name": "connection/server",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 4,
+                        "columns": ["address", "port", "tls", "certificate"],
+                        "types": [12, 6, 11 ,12], /* String, UInt16, Boolean, String  */
+                        "rows": [ {"elements":[{"string_value":"dev.qtsolar.com"},{"int_value":8883},{"boolean_value":true},{"string_value":"-----BEGIN CERTIFICATE-----"}]} ] }, 
+      "metadata":{"description":"[RWP]List of mqtt brokers with connection order"} },
+
     { "name": "connection/modem/operator",           "dataType": 12/* String */,  "string_value": "Beeline",            "metadata":{"description":"[R]Operator name"} },  
     { "name": "connection/modem/iccid",              "dataType": 12/* String */,  "string_value": "897010269709192239", "metadata":{"description":"[R]Show sim card iccid number"} },
-    { "name": "connection/modem/rssi",               "dataType": 3/* Int32 */,    "string_value": -60,                  "metadata":{"description":"[R]Cellular signal strenght"} },
+    { "name": "connection/modem/rssi",               "dataType": 3 /* Int32 */,    "string_value": -60,                 "metadata":{"description":"[R]Cellular signal strenght"} },
    
     { "name": "connection/thread/name",              "dataType": 12/* String */,  "string_value": "ThreadNetworkName",  "metadata":{"description":"[RWP]Thread network name"} },   
-    { "name": "connection/thread/panid",             "dataType": 6/* UInt16 */,   "int_value": 1234,                    "metadata":{"description":"[RWP]Thread network panid"} },                     
-    { "name": "connection/thread/channel",           "dataType": 5/* UInt8 */,    "int_value": 12,                      "metadata":{"description":"[RWP]Thread network channel"} },                       
+    { "name": "connection/thread/panid",             "dataType": 6 /* UInt16 */,   "int_value": 1234,                   "metadata":{"description":"[RWP]Thread network panid"} },                     
+    { "name": "connection/thread/channel",           "dataType": 5 /* UInt8 */,    "int_value": 12,                     "metadata":{"description":"[RWP]Thread network channel"} },                       
     { "name": "connection/thread/role",              "dataType": 12/* String */,  "string_value": "leader",             "metadata":{"description":"[R]Node role in thread network, list of values = ['child', 'router', 'leader']"} },            
-    { "name": "connection/thread/rloc16",            "dataType": 6/* UInt16 */,   "int_value": 1234,                    "metadata":{"description":"[R]Node rloc16 in thread network"} },                        
+    { "name": "connection/thread/rloc16",            "dataType": 6 /* UInt16 */,   "int_value": 1234,                   "metadata":{"description":"[R]Node rloc16 in thread network"} },                        
     { "name": "connection/thread/neighbors",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 4,
