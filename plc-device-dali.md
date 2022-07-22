@@ -84,15 +84,6 @@
                                                                                                                                                      'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
                                                                                                                                                     dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
                                                                                                                                                     can be multiple status at the same time ('lamp-falure|open-circuit')"} },                  
-
-    { "name": "dali/0/gear/0/status/controlFailure",    "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Control gear cannot operate as intended, dali cmd 'QUERY STATUS'"} },                  
-    { "name": "dali/0/gear/0/status/lampFailure",       "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Lamp cannot be operated as intended, dali cmd 'QUERY STATUS'"} },                
-    { "name": "dali/0/gear/0/status/lampOn",            "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Lamp on/off status, dali cmd 'QUERY STATUS'"} },                 
-    { "name": "dali/0/gear/0/status/limitError",        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Last requested target level exceed limitations, dali cmd 'QUERY STATUS'"} },                
-    { "name": "dali/0/gear/0/status/fadeRunning",       "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Fade running status, dali cmd 'QUERY STATUS'"} },               
-    { "name": "dali/0/gear/0/status/resetState",        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Control gear failure, dali cmd 'QUERY STATUS'"} },               
-    { "name": "dali/0/gear/0/status/powerCycle",        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Control gear failure, dali cmd 'QUERY STATUS'"} },                
-
     { "name": "dali/0/gear/0/scenes",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1, 
