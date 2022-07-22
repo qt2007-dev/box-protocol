@@ -6,7 +6,7 @@
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH}, 'offline' - [DBIRTH <= DDEATH]  "} },
+    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH], 'offline' - [DBIRTH <= DDEATH]  "} },
     { "name": "control/reboot",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Software reboot device, send 'true' for reboot"} },
     { "name": "control/rebirth",                        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Rebirth device, send 'true' for receive dbirth message again"} },
     { "name": "control/firmware/new",                   "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"[W]Receive new device firmware, firmware send in Base64 format, in birth always null"} },
@@ -52,7 +52,7 @@
     { "name": "dali/0/group/0",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
-                        "columns": ["gears"],
+                        "columns": ["gear"],
                         "types": [5], /* UInt8 */
                         "rows": [ {"elements":[{"int_value": 0}]},
                                   {"elements":[{"int_value": 1}]},
@@ -79,7 +79,12 @@
                                                                                                                                                     value 255(MASK) disable react to bus failure"} },
     { "name": "dali/0/gear/0/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
     { "name": "dali/0/gear/0/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
-  
+
+    { "name": "dali/0/gear/0/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-falure', 'short-circuit',
+                                                                                                                                                     'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
+                                                                                                                                                    can be multiple status at the same time ('lamp-falure|open-circuit')"} },                  
+
     { "name": "dali/0/gear/0/status/controlFailure",    "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Control gear cannot operate as intended, dali cmd 'QUERY STATUS'"} },                  
     { "name": "dali/0/gear/0/status/lampFailure",       "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Lamp cannot be operated as intended, dali cmd 'QUERY STATUS'"} },                
     { "name": "dali/0/gear/0/status/lampOn",            "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Lamp on/off status, dali cmd 'QUERY STATUS'"} },                 
@@ -88,7 +93,7 @@
     { "name": "dali/0/gear/0/status/resetState",        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Control gear failure, dali cmd 'QUERY STATUS'"} },               
     { "name": "dali/0/gear/0/status/powerCycle",        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Control gear failure, dali cmd 'QUERY STATUS'"} },                
 
-    { "name": "dali/0/gear/0/scene",
+    { "name": "dali/0/gear/0/scenes",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1, 
                         "columns": ["dim"],
@@ -122,7 +127,7 @@
 {
 "timestamp": 1486144502122,
 "metrics": [  
-    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH}, 'offline' - [DBIRTH <= DDEATH]  "} },  
+    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH], 'offline' - [DBIRTH <= DDEATH]  "} },  
 ]
 }
 ```

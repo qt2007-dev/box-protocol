@@ -1,12 +1,12 @@
 ## PLC device io birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0008  
+> spBv1.0/plc/DBIRTH/abba2020/deba0005  
 
 ```json
 {
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "bdSeq",                    "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH}, 'offline' - [DBIRTH <= DDEATH]  "} },
+    { "name": "bdSeq",                    "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH], 'offline' - [DBIRTH <= DDEATH]  "} },
     { "name": "control/reboot",           "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Software reboot device, send 'true' for reboot"} },
     { "name": "control/rebirth",          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Rebirth device, send 'true' for receive dbirth message again"} },
     { "name": "control/firmware/new",     "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"[W]Receive new device firmware, firmware send in Base64 format, in birth always null"} },
@@ -18,7 +18,7 @@
     { "name": "info/hardware/model",      "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
     { "name": "info/firmware/version",    "dataType": 12/* String */,  "string_value": "0.1.220527.84852", "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
     { "name": "info/type",                "dataType": 12/* String */,  "string_value": "8 IO",             "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
-    { "name": "info/id",                  "dataType": 12/* String */,  "string_value": "deba0008",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
+    { "name": "info/id",                  "dataType": 12/* String */,  "string_value": "deba0005",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",               "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
@@ -163,13 +163,13 @@
 ```
 
 ## PLC device io death example
-> spBv1.0/plc/DDEATH/abba2020/deba0008  
+> spBv1.0/plc/DDEATH/abba2020/deba0005  
 
 ```json
 {
 "timestamp": 1486144502122,
 "metrics": [  
-    { "name": "bdSeq",                    "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH}, 'offline' - [DBIRTH <= DDEATH]  "} },  
+    { "name": "bdSeq",                    "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH], 'offline' - [DBIRTH <= DDEATH]  "} },  
 ]
 }
 ```
