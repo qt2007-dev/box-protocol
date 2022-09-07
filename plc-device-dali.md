@@ -60,16 +60,20 @@
                                   {"elements":[{"int_value": 3}]},
                                   {"elements":[{"int_value": 4}]},
                                   {"elements":[{"int_value": 5}]}  ] },                                                  
-      "metadata":{"description":"[RW]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
    
     /* Control gear metrics */
     /* dali/{bus}/gear/{gear}  */  
+    { "name": "dali/0/gear/0/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/gear/0/type",                     "dataType": 12/* String */,  "string_value": "LED",              "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
                                                                                                                                                     values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
                                                                                                                                                     'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
                                                                                                                                                     can be multiple types at the same time ('LED|COLOR')"} }, 
-    { "name": "dali/0/gear/0/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
-    { "name": "dali/0/gear/0/dim",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
+    { "name": "dali/0/gear/0/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit',
+                                                                                                                                                     'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
+                                                                                                                                                    can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
+    { "name": "dali/0/gear/0/dim",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
                                                                                                                                                     For read actual dim level using dali cmd 'QUERY ACTUAL LEVEL'"} },    
     { "name": "dali/0/gear/0/dim/phyMin",               "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[R]Gear physical minimum dim level, dali cmd 'QUERY PHYSICAL MINIMUM'"} },  
     { "name": "dali/0/gear/0/dim/min",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear minimum dim level, dali cmd 'QUERY MIN LEVEL', 'SET MIN LEVEL'"} },  
@@ -78,12 +82,7 @@
     { "name": "dali/0/gear/0/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
                                                                                                                                                     value 255(MASK) disable react to bus failure"} },
     { "name": "dali/0/gear/0/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
-    { "name": "dali/0/gear/0/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
-
-    { "name": "dali/0/gear/0/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-falure', 'short-circuit',
-                                                                                                                                                     'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
-                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
-                                                                                                                                                    can be multiple status at the same time ('lamp-falure|open-circuit')"} },                  
+    { "name": "dali/0/gear/0/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 1,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
     { "name": "dali/0/gear/0/scenes",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1, 
@@ -105,7 +104,159 @@
                                   {"elements":[{"int_value": 128}]},     /* Scene 13 */
                                   {"elements":[{"int_value": 128}]},     /* Scene 14 */  
                                   {"elements":[{"int_value": 128}]} ] }, /* Scene 15 */                                  
-      "metadata":{"description":"[RW]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} }, 
+      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} }, 
+
+    { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/1/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
+                                                                                                                                                    values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                    'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
+                                                                                                                                                    can be multiple types at the same time ('LED|COLOR')"} }, 
+    { "name": "dali/0/gear/1/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit',
+                                                                                                                                                    'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS', 
+                                                                                                                                                    can be multiple status at the same time ('lamp-failure|open-circuit')"} },
+    { "name": "dali/0/gear/1/dim",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
+                                                                                                                                                    For read actual dim level using dali cmd 'QUERY ACTUAL LEVEL'"} },
+    { "name": "dali/0/gear/1/dim/phyMin",               "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[R]Gear physical minimum dim level, dali cmd 'QUERY PHYSICAL MINIMUM'"} },  
+    { "name": "dali/0/gear/1/dim/min",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear minimum dim level, dali cmd 'QUERY MIN LEVEL', 'SET MIN LEVEL'"} },  
+    { "name": "dali/0/gear/1/dim/max",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear maximum dim level, dali cmd 'QUERY MAX LEVEL', 'SET MAX LEVEL'"} },  
+    { "name": "dali/0/gear/1/dim/powerOn",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL'"} },  
+    { "name": "dali/0/gear/1/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
+                                                                                                                                                    value 255(MASK) disable react to bus failure"} },
+    { "name": "dali/0/gear/1/color",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 9,
+                        "columns": ["red","green","blue","white","amber","free", "temperature", "x","y"],
+                        "types": [5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'ACTIVATE '"} },
+    { "name": "dali/0/gear/1/color/powerOn",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 9,
+                        "columns": ["red","green","blue","white","amber","free", "temperature", "x","y"],
+                        "types": [5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear power on color, columns depends on color type, dali cmd 'QUERY POWER ON LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET POWER ON LEVEL'"} }, 
+    { "name": "dali/0/gear/1/color/failure",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 9,
+                        "columns": ["red","green","blue","white","amber","free", "temperature", "x","y"],
+                        "types": [5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear bus failure color, columns depends on color type, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET SYSTEM FAILURE LEVEL'"} },                                 
+
+    { "name": "dali/0/gear/1/color/temperature/coolest","dataType": 6/* UInt16 */,   "int_value": 0,                     "metadata":{"description":"[RWP]Gear coolest color temperature, dali cmd 'QUERY COLOUR VALUE', 
+                                                                                                                                                   'STORE COLOUR TEMPERATURE TC LIMIT'"} },
+    { "name": "dali/0/gear/1/color/temperature/warmest","dataType": 6/* UInt16 */,   "int_value": 0,                     "metadata":{"description":"[RWP]Gear warmest color temperature, dali cmd 'QUERY COLOUR VALUE', 
+                                                                                                                                                   'STORE COLOUR TEMPERATURE TC LIMIT'"} },
+
+
+    { "name": "dali/0/gear/1/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
+    { "name": "dali/0/gear/1/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 1,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
+    { "name": "dali/0/gear/1/scenes",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 10, 
+                        "columns": ["dim","red","green","blue","white","amber","free", "temperature", "x","y"],
+                        "types": [5, 5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 0 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 1 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 2 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 3 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 4 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 5 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 6 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 7 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 8 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 9 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 10 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 11 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 12 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 13 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 14 */  
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] }, /* Scene 15 */                                  
+      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL','REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET SCENE'"} },
+
+
+
+    /* Control device metrics */
+    /* dali/{bus}/device/{device}/instance/{instance}  */ 
+    { "name": "dali/0/device/0/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/device/0/instance/0/type",              "dataType": 12/* String */,  "string_value": "PUSH-BUTTON",             "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
+                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+    { "name": "dali/0/device/0/instance/0/value",             "dataType": 12/* String */,  "string_value": "released",                "metadata":{"description":"[R]Last button event, values = ['released', 'pressed', 'short-press','double-press',
+                                                                                                                                                                'long-press-start','long-press-repeat','long-press-stop','stuck','free'],
+                                                                                                                                                                dali cmd 'QUERY INPUT VALUE'"} },
+    { "name": "dali/0/device/0/instance/0/filter",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["released", "pressed", "short-press","double-press","long-press-start","long-press-repeat","long-press-stop","stuck/free"],
+                        "types": [11,11,11,11,11,11,11,11], /* Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean */
+                        "rows": [ {"elements":[{"boolean_value": false,"boolean_value": false,"boolean_value": true,"boolean_value": true,"boolean_value": true,"boolean_value": false,"boolean_value": true,"boolean_value": false}]} ] }, 
+      "metadata":{"description":"[RWP]Dali device enabled states, dali cmd 'SET EVENT FILTER', 'QUERY EVENT FILTER 0-7'"} }, 
+    { "name": "dali/0/device/0/instance/0/timer/short",       "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Time which differentiates a short press from a long press, 
+                                                                                                                                                                dali cmd 'SET SHORT TIMER', 'QUERY SHORT TIMER'"} },  
+    { "name": "dali/0/device/0/instance/0/timer/double",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Time which differentiates a single (short) press from a double press, 
+                                                                                                                                                                dali cmd 'SET DOUBLE TIMER', 'QUERY DOUBLE TIMER'"} },  
+    { "name": "dali/0/device/0/instance/0/timer/repeat",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Repetition interval of long press repeat events, 
+                                                                                                                                                                dali cmd 'SET REPEAT TIMER', 'QUERY REPEAT TIMER'"} },  
+    { "name": "dali/0/device/0/instance/0/timer/stuck",       "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Time when button is pressed or bouncing, 
+                                                                                                                                                                dali cmd 'SET STUCK TIMER', 'QUERY STUCK TIMER'"} },
+    { "name": "dali/0/device/0/instance/1/type",              "dataType": 12/* String */,  "string_value": "ABSOLUTE-INPUT-DEVICE",   "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
+                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+    { "name": "dali/0/device/0/instance/1/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Dali input device position, dali cmd 'QUERY INPUT VALUE'"} },
+    { "name": "dali/0/device/0/instance/1/filter",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 8,
+                        "columns": ["position"],
+                        "types": [11], /* Boolean */
+                        "rows": [ {"elements":[{"boolean_value": true}]} ] }, 
+      "metadata":{"description":"[RWP]Dali device enabled states, dali cmd 'SET EVENT FILTER', 'QUERY EVENT FILTER 0-7'"} },    
+    { "name": "dali/0/device/0/instance/1/timer/deadtime",    "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the deadtime timer is set, the instance shall not send out an event until the deadtime timer
+                                                                                                                                                                has expired, dali cmd 'SET DEADTIME TIMER', 'QUERY DEADTIME TIMER'"} },  
+    { "name": "dali/0/device/0/instance/1/timer/report",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the report timer is set, it shall trigger an event every tReport even if the value has not
+                                                                                                                                                                changed, dali cmd 'SET REPORT TIMER', 'QUERY REPORT TIMER'"} },  
+
+
+
+    { "name": "dali/0/device/1/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/device/1/instance/0/type",              "dataType": 12/* String */,  "string_value": "OCCUPANCY-SENSOR",        "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
+                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+    { "name": "dali/0/device/1/instance/0/value",             "dataType": 12/* String */,  "string_value": "vacant",                  "metadata":{"description":"[R]Last button event, values = ['vacant', 'occupied'], dali cmd 'QUERY INPUT VALUE'"} },
+    { "name": "dali/0/device/1/instance/0/filter",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 5,
+                        "columns": ["occupied", "vacant", "repeat", "movement", "no-movement"],
+                        "types": [11,11,11,11,11], /* Boolean, Boolean, Boolean, Boolean, Boolean */
+                        "rows": [ {"elements":[{"boolean_value": true,"boolean_value": false,"boolean_value": true,"boolean_value": true,"boolean_value": true}]} ] }, 
+      "metadata":{"description":"[RWP]Dali device enabled states, dali cmd 'SET EVENT FILTER', 'QUERY EVENT FILTER 0-7'"} },        
+    { "name": "dali/0/device/1/instance/0/timer/deadtime",    "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the deadtime timer is set, the instance shall not send out an event until the deadtime timer
+                                                                                                                                                                has expired, dali cmd 'SET DEADTIME TIMER', 'QUERY DEADTIME TIMER'"} },  
+    { "name": "dali/0/device/1/instance/0/timer/report",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the report timer is set, it shall trigger an event every tReport even if the value has not
+                                                                                                                                                                changed, dali cmd 'SET REPORT TIMER', 'QUERY REPORT TIMER'"} },  
+    { "name": "dali/0/device/1/instance/0/timer/hold",        "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Timeout value, which shall be (re)started each time movement is detected, 
+                                                                                                                                                                dali cmd 'SET HOLD TIMER', 'QUERY HOLD TIMER'"} },
+    { "name": "dali/0/device/1/instance/1/type",              "dataType": 12/* String */,  "string_value": "LIGHT-SENSOR",            "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
+                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+    { "name": "dali/0/device/1/instance/1/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Dali light sensor illuminance value, dali cmd 'QUERY INPUT VALUE'"} },
+    { "name": "dali/0/device/1/instance/1/filter",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 8,
+                        "columns": ["illuminance"],
+                        "types": [11], /* Boolean */
+                        "rows": [ {"elements":[{"boolean_value": true}]} ] }, 
+      "metadata":{"description":"[RWP]Dali device enabled states, dali cmd 'SET EVENT FILTER', 'QUERY EVENT FILTER 0-7'"} },        
+    { "name": "dali/0/device/1/instance/1/timer/deadtime",    "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the deadtime timer is set, the instance shall not send out an event until the deadtime timer
+                                                                                                                                                                has expired, dali cmd 'SET DEADTIME TIMER', 'QUERY DEADTIME TIMER'"} },  
+    { "name": "dali/0/device/1/instance/1/timer/report",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the report timer is set, it shall trigger an event every tReport even if the value has not
+                                                                                                                                                                changed, dali cmd 'SET REPORT TIMER', 'QUERY REPORT TIMER'"} },
+    { "name": "dali/0/device/1/instance/1/hysteresis",        "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Precentage from value when illuminance was updated, max value = 25%, 
+                                                                                                                                                                dali cmd 'SET HYSTERESIS', 'QUERY HYSTERESIS'"} },
+    { "name": "dali/0/device/1/instance/1/hysteresisMin",     "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Absolute value when illuminance was updated, 
+                                                                                                                                                                dali cmd 'SET HYSTERESIS MIN', 'QUERY HYSTERESIS MIN'"} },
   ]
          
 }
