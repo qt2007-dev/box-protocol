@@ -29,10 +29,10 @@
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 4,
-                        "columns": ["address", "port", "tls", "certificate"],
-                        "types": [12, 6, 11 ,12], /* String, UInt16, Boolean, String  */
-                        "rows": [ {"elements":[{"string_value":"dev.qtsolar.com"},{"int_value":8883},{"boolean_value":true},{"string_value":"-----BEGIN CERTIFICATE-----"}]} ] }, 
-      "metadata":{"description":"[RWP]List of mqtt brokers with connection order"} },
+                        "columns": ["address", "port", "tls", "server-certificate", "client-certificate", "username", "password"],
+                        "types": [12, 6, 11 , 12, 12, 12, 12], /* String, UInt16, Boolean, String, String , String , String   */
+                        "rows": [ {"elements":[{"string_value":"dev.qtsolar.com"},{"int_value":8883},{"boolean_value":true},{"string_value":"-----BEGIN CERTIFICATE-----"},{"string_value":"-----BEGIN CERTIFICATE-----"},{"string_value":"mqtt-username"},{"string_value":"mqtt-password"}]} ] }, 
+      "metadata":{"description":"[RWP]Current mqtt broker"} },
 
     { "name": "connection/modem/operator",           "dataType": 12/* String */,  "string_value": "Beeline",            "metadata":{"description":"[R]Operator name"} },  
     { "name": "connection/modem/iccid",              "dataType": 12/* String */,  "string_value": "897010269709192239", "metadata":{"description":"[R]Show sim card iccid number"} },

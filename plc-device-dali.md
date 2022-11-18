@@ -43,7 +43,7 @@
                         "columns": ["addr-type", "addr", "cmd", "value"],
                         "types": [12,5,12,5], /* String, UInt8, String, UInt8 */
                         "rows": [ {"elements":[{"string_value": "group","int_value": 10,"string_value": "dim","int_value": 240}]} ] }, 
-      "metadata":{"description":"[W]Dali send comand to bus, 
+      "metadata":{"description":"[W]Dali send command to bus, 
                                  'addr-type' list of values = ['broadcast', 'group', 'gear'],
                                  'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate']"} },                    
 
@@ -192,7 +192,7 @@
                                                                                                                                                                 dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/0/instance/0/filter",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1,
+      "dataset_value":{ "num_of_columns": 8,
                         "columns": ["released", "pressed", "short-press","double-press","long-press-start","long-press-repeat","long-press-stop","stuck/free"],
                         "types": [11,11,11,11,11,11,11,11], /* Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean */
                         "rows": [ {"elements":[{"boolean_value": false,"boolean_value": false,"boolean_value": true,"boolean_value": true,"boolean_value": true,"boolean_value": false,"boolean_value": true,"boolean_value": false}]} ] }, 
@@ -210,7 +210,7 @@
     { "name": "dali/0/device/0/instance/1/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Dali input device position, dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/0/instance/1/filter",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 8,
+      "dataset_value":{ "num_of_columns": 1,
                         "columns": ["position"],
                         "types": [11], /* Boolean */
                         "rows": [ {"elements":[{"boolean_value": true}]} ] }, 
@@ -244,7 +244,7 @@
     { "name": "dali/0/device/1/instance/1/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Dali light sensor illuminance value, dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/1/instance/1/filter",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 8,
+      "dataset_value":{ "num_of_columns": 1,
                         "columns": ["illuminance"],
                         "types": [11], /* Boolean */
                         "rows": [ {"elements":[{"boolean_value": true}]} ] }, 
@@ -253,7 +253,7 @@
                                                                                                                                                                 has expired, dali cmd 'SET DEADTIME TIMER', 'QUERY DEADTIME TIMER'"} },  
     { "name": "dali/0/device/1/instance/1/timer/report",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the report timer is set, it shall trigger an event every tReport even if the value has not
                                                                                                                                                                 changed, dali cmd 'SET REPORT TIMER', 'QUERY REPORT TIMER'"} },
-    { "name": "dali/0/device/1/instance/1/hysteresis",        "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Precentage from value when illuminance was updated, max value = 25%, 
+    { "name": "dali/0/device/1/instance/1/hysteresis",        "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Percentage from value when illuminance was updated, max value = 25%, 
                                                                                                                                                                 dali cmd 'SET HYSTERESIS', 'QUERY HYSTERESIS'"} },
     { "name": "dali/0/device/1/instance/1/hysteresisMin",     "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Absolute value when illuminance was updated, 
                                                                                                                                                                 dali cmd 'SET HYSTERESIS MIN', 'QUERY HYSTERESIS MIN'"} },

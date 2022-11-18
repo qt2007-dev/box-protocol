@@ -28,7 +28,8 @@
     { "name": "RS485/0/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]RS485 stopbits, specified values = [1,1.5,2]"} },                      
     { "name": "RS485/0/settings/parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]RS485 parity, list of values = ['none','even','odd']"} },                
     { "name": "RS485/0/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS485 timeout, wait time after last byte received before send to metric, value in ms"} },                         
-    { "name": "RS485/0/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} },                
+    { "name": "RS485/0/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} }, 
+    { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]RS485 mode, list of values = ['raw', 'modbus']"} }, 
     { "name": "RS485/0/in",                     "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
     { "name": "RS485/0/out",                    "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },        
     
@@ -37,7 +38,8 @@
     { "name": "RS485/1/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]RS485 stopbits, specified values = [1,1.5,2]"} },                      
     { "name": "RS485/1/settings/parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]RS485 parity, list of values = ['none','even','odd']"} },                
     { "name": "RS485/1/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS485 timeout, wait time after last byte received before send to metric, value in ms"} },                         
-    { "name": "RS485/1/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} },                
+    { "name": "RS485/1/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} },
+    { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]RS485 mode, list of values = ['raw', 'modbus']"} },                 
     { "name": "RS485/1/in",                     "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
     { "name": "RS485/1/out",                    "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },  
 
