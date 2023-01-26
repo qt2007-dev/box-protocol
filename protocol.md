@@ -10,7 +10,7 @@
 1. NBIRTH - node birth message, first message after connection to mqtt broker
 2. DBIRTH - device birth message
 3. NDEATH - node death message, last will message from broker, send after node disconnect 
-4. DDEATH - device death message, device not responce in time, send by node
+4. DDEATH - device death message, device not response in time, send by node
 5. NDATA - node data, from node to broker
 6. DDATA - device data, from device to broker
 7. NCMD - node command, from broker to node
