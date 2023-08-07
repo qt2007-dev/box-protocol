@@ -13,7 +13,8 @@
     { "name": "control/metrics/save",                "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
     { "name": "control/metrics/metadata",            "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Show metrics metadata in birth, send 'true' for enable"} },
     { "name": "control/group",                       "dataType": 12/* String */,  "string_value": "plc",                "metadata":{"description":"[RWP]Global group for node, can be used instead id in topics and scenarios"} },
-                
+    { "name": "control/bus/power",                   "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Bus enable, enable or disable bus power"} },             
+
     { "name": "info/hardware/vendor",                "dataType": 12/* String */,  "string_value": "QuintTech",          "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
     { "name": "info/hardware/model",                 "dataType": 12/* String */,  "string_value": "rpi4",               "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
     { "name": "info/firmware/version",               "dataType": 12/* String */,  "string_value": "0.1.220527.84852",   "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
@@ -21,7 +22,15 @@
     { "name": "info/id",                             "dataType": 12/* String */,  "string_value": "abba2020",           "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",                          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Last error message"} },
                 
-    { "name": "sensors/temperature",                 "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },    
+    { "name": "sensors/temperature",                 "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
+    { "name": "sensors/system/voltage",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System voltage, value in mV"} },
+    { "name": "sensors/system/current",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System current, value in mA"} },  
+    { "name": "sensors/modules/voltage",             "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Modules voltage, value in mV"} },
+    { "name": "sensors/modules/current",             "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Modules current, value in mA"} },  
+    { "name": "sensors/bus/voltage",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus voltage, value in mV"} },
+    { "name": "sensors/bus/current",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus current, value in mA"} },    
+   
+    
     { "name": "coordinates/latitude",                "dataType": 10/* Double */,  "double_value": 55.751244,            "metadata":{"description":"[R]GNSS coordinates latitude, value in degree"} },            
     { "name": "coordinates/longitude",               "dataType": 10/* Double */,  "double_value": 37.618423,            "metadata":{"description":"[R]GNSS coordinates longitude, value in degree"} },
     
