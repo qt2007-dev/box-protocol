@@ -94,7 +94,7 @@ for details - [protobuf](standart.proto)
 6. [2 channel Dali](box-dali.md)
 7. [3-phase Energymeter](box-em.md)
 8. [2 channel Step motor driver](box-em.md)
-9. [3 channel Termocontroller](box-tc.md)
+9. [3 channel Thermocontroller](box-tc.md)
 10. [2 channel Wiegand](box-wiegand.md)
 
 

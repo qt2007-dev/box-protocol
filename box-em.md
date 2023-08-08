@@ -56,6 +56,12 @@
     { "name": "neutral/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Neutral rms current, value in mA"} },
 
 
+    { "name": "out/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 0 control"} },
+    { "name": "out/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 1 control"} },
+
+    { "name": "in/0",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[R]Digital input 0 state"} },
+    { "name": "in/1",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[R]Digital input 1 state"} },
+
   ]
 }
 
