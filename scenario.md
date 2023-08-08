@@ -92,10 +92,10 @@
                                     { "propertyset":[   /* Device array with actions START */
                                         { "keys":["id", "type", "actions"],
                                           "values":[  {"type": 7, "int_value": 10012002},
-                                                      {"type": 12, "string_value": "NEMA"},
+                                                      {"type": 12, "string_value": "dali"},
                                                       {"type": 21, "propertysets_value":
                                                           { "propertyset":[   /* Device actions array */
-                                                              { "keys": ["duration", "dali/0/dim", "dali/0/fade/time"],
+                                                              { "keys": ["duration", "dali/0/gear/0/dim", "dali/0/gear/0/fade/time"],
                                                                 "values": [{"type": 7, "int_value": 0},{"type": 5, "int_value": 254},{"type": 5, "int_value": 5}] } ] 
                                                                                       } } ] } 
                                                      ]  /* Device array with actions END */
@@ -117,10 +117,10 @@
                                     { "propertyset":[   /* Device array with actions START */
                                         { "keys":["id", "type", "actions"],
                                           "values":[  {"type": 7, "int_value": 10012002},
-                                                      {"type": 12, "string_value": "NEMA"},
+                                                      {"type": 12, "string_value": "dali"},
                                                       {"type": 21, "propertysets_value":
                                                           { "propertyset":[   /* Device actions array */
-                                                              { "keys": ["duration", "dali/0/dim", "dali/0/fade/time"],
+                                                              { "keys": ["duration", "dali/0/gear/0/dim", "dali/0/gear/0/fade/time"],
                                                                 "values": [{"type": 7, "int_value": 0},{"type": 5, "int_value": 0},{"type": 5, "int_value": 5}] } ] 
                                                                                       } } ] } 
                                                      ]  /* Device array with actions END */

@@ -87,25 +87,3 @@
 }
 ```
 
-## **schedule/state**
-
->Метрика показывает запущенные сценарии их шаги и повторы
-1. **name** - Имя сценария
-2. **actionNumber** - Текущий шаг в сценарии
-3. **actionQuantity** - Количество шагов в сценарии
-4. **repeatNumber** - Текущий повтор сценария
-5. **repeatQuantity** - Количество повторов сценария, "-1" - повторять бесконечно 
-
-```json
-{
-"metrics": [
-  { "name": "schedule/state",
-    "dataType": 16, /* DataSet */
-    "dataset_value":{ "num_of_columns": 5,
-                      "columns": ["name", "actionNumber", "actionQuantity", "repeatNumber", "repeatQuantity"],
-                      "types": [12, 3, 3, 3, 3], /* String, Int32, Int32, Int32, Int32 */
-                      "rows": [ {"elements":[ {"string_value":"scenarioName1"},{"int_value":2},{"int_value":10},{"int_value":3},{"int_value":25} ]},
-                                {"elements":[ {"string_value":"scenarioName2"},{"int_value":2},{"int_value":10},{"int_value":3},{"int_value":-1} ]}  ] }
-      } ]
-}
-```

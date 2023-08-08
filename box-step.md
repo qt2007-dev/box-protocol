@@ -1,5 +1,5 @@
-## PLC device step birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0006 
+## BOX device step birth example
+> spBv1.0/box/DBIRTH/abba2020/deba0006 
 
 ```json
 {
@@ -64,8 +64,8 @@
 }
 ```
 
-## PLC device step death example
-> spBv1.0/plc/DDEATH/abba2020/deba0006 
+## BOX device step death example
+> spBv1.0/box/DDEATH/abba2020/deba0006 
 
 ```json
 {

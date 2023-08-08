@@ -1,5 +1,5 @@
-## PLC device digital input birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0003  
+## BOX device digital input birth example
+> spBv1.0/box/DBIRTH/abba2020/deba0003  
 
 ```json
 {
@@ -24,7 +24,7 @@
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                      "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },  
   
     { "name": "bitmask/0",                      "dataType": 5/* UInt8 */,    "int_value": 0,                       "metadata":{"description":"[R]Bitmask of digital inputs, [0-7] in"} },  
-    { "name": "bitmask/1",                      "dataType": 5/* UInt8 */,    "int_value": 0,                       "metadata":{"description":"[R]Bitmask of digital inputs, [8-18] in"} },
+    { "name": "bitmask/1",                      "dataType": 5/* UInt8 */,    "int_value": 0,                       "metadata":{"description":"[R]Bitmask of digital inputs, [8-15] in"} },
   
     { "name": "in/0",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[R]Digital input 0 state"} },
     { "name": "in/1",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[R]Digital input 1 state"} },
@@ -46,8 +46,8 @@
 }
 ```
 
-## PLC device digital input death example
-> spBv1.0/plc/DDEATH/abba2020/deba0003  
+## BOX device digital input death example
+> spBv1.0/box/DDEATH/abba2020/deba0003  
 
 ```json
 {

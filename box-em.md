@@ -1,5 +1,5 @@
-## PLC device energymeter birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0008 
+## BOX device energymeter birth example
+> spBv1.0/box/DBIRTH/abba2020/deba0008 
 
 ```json
 {
@@ -61,8 +61,8 @@
 
 ```
 
-## PLC device energymeter death example
-> spBv1.0/plc/DDEATH/abba2020/deba0008 
+## BOX device energymeter death example
+> spBv1.0/box/DDEATH/abba2020/deba0008 
 
 ```json
 {

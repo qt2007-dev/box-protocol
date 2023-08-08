@@ -1,5 +1,5 @@
-## PLC device relay output birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0002 
+## BOX device relay output birth example
+> spBv1.0/box/DBIRTH/abba2020/deba0002 
 
 ```json
 {
@@ -23,31 +23,26 @@
 
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },  
 
-    { "name": "bitmask/0",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of relay outputs, [0-7] out"} },  
-    { "name": "bitmask/1",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of relay outputs, [8-18] out"} },
+    { "name": "bitmask/0",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of mechanical relay outputs, [0-1] out"} },  
+    { "name": "bitmask/1",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of solid state relay outputs, [0-5] out"} },
 
-    { "name": "out/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 0 control"} },
-    { "name": "out/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 1 control"} },
-    { "name": "out/2",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 2 control"} },
-    { "name": "out/3",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 3 control"} },
-    { "name": "out/4",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 4 control"} },
-    { "name": "out/5",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 5 control"} },
-    { "name": "out/6",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 6 control"} },
-    { "name": "out/7",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 7 control"} },
-    { "name": "out/8",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 8 control"} },
-    { "name": "out/9",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 9 control"} },
-    { "name": "out/10",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 10 control"} },
-    { "name": "out/11",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 11 control"} },
-    { "name": "out/12",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 12 control"} },
-    { "name": "out/13",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 13 control"} },
-    { "name": "out/14",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 14 control"} },
-    { "name": "out/15",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Relay output 15 control"} },
+    { "name": "mr/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Mechanical relay output 0 control"} },
+    { "name": "mr/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Mechanical relay output 1 control"} },
+
+    { "name": "ssr/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 0 control"} },
+    { "name": "ssr/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 1 control"} },
+    { "name": "ssr/2",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 2 control"} },
+    { "name": "ssr/3",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 3 control"} },
+    { "name": "ssr/4",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 4 control"} },
+    { "name": "ssr/5",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 5 control"} },
+
+
   ]
 }
 ```
 
-## PLC device relay output death example
-> spBv1.0/plc/DDEATH/abba2020/deba0002  
+## BOX device relay output death example
+> spBv1.0/box/DDEATH/abba2020/deba0002  
 
 ```json
 {

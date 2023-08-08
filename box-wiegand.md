@@ -1,5 +1,5 @@
-## PLC device wiegand birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0007 
+## BOX device wiegand birth example
+> spBv1.0/box/DBIRTH/abba2020/deba0007 
 
 ```json
 {
@@ -47,8 +47,8 @@
 }
 ```
 
-## PLC device wiegand death example
-> spBv1.0/plc/DDEATH/abba2020/deba0007 
+## BOX device wiegand death example
+> spBv1.0/box/DDEATH/abba2020/deba0007 
 
 ```json
 {

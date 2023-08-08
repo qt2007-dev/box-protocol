@@ -1,5 +1,5 @@
-## PLC device dali birth example
-> spBv1.0/plc/DBIRTH/abba2020/deba0006 
+## BOX device dali birth example
+> spBv1.0/box/DBIRTH/abba2020/deba0006 
 
 ```json
 {
@@ -262,8 +262,8 @@
 }
 ```
 
-## PLC device dali death example
-> spBv1.0/plc/DDEATH/abba2020/deba0006 
+## BOX device dali death example
+> spBv1.0/box/DDEATH/abba2020/deba0006 
 
 ```json
 {
