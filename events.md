@@ -16,14 +16,74 @@
                                         { "keys": ["device", "metric", "compare", "target"],
                                           "values":[ {"type":12, "string_value": "1245abcd"},
                                                      {"type":12, "string_value": "metricName1"}, 
-                                                     {"type":12, "string_value": ">"},   /* values = ['=','<','>','>=','<='] */
+                                                     {"type":12, "string_value": ">"},   /* values = ['=','<','>','>=','<=','<>'] */
                                                      {"type":7, "int_value": 128} ] },   
                                                                 
                                         { "keys": ["device", "metric", "compare", "target"],
                                           "values":[ {"type":12, "string_value": "1245abcd"},
                                                      {"type":12, "string_value": "metricName1"}, 
-                                                     {"type":12, "string_value": "="},   /* values = ['=','<','>','>=','<='] */
+                                                     {"type":12, "string_value": "="},   /* values = ['=','<','>','>=','<=','<>'] */
                                                      {"type":11, "boolean_value": true} ] } 
+                                ] } } 
+    ] } } 
+          ]
+}
+```
+
+>Пример событий для включения\включения света по одной кнопке
+
+```json
+{
+"metrics": [
+  { "name": "event/add",
+    "dataType": 12, /* String */
+    "string_value": "eventButtonLightON",
+    "properties":{  "keys": ["scenario", "delay", "logic", "triggers"],
+                    "values": [ {"type":12, "string_value": "scenarioDaliON"},
+                                {"type":7,  "int_value": 0}, 
+                                {"type":12, "string_value": "and"}, 
+                                {"type":21, "propertysets_value":
+                                    { "propertyset": [  
+                                        { "keys": ["device", "metric", "compare", "target"],
+                                          "values":[ {"type":12, "string_value": "deba0006"},
+                                                     {"type":12, "string_value": "dali/0/device/0/instance/0/value"}, 
+                                                     {"type":12, "string_value": "="},  
+                                                     {"type":7, "string_value": "short-press"} ] },   
+                                                                
+                                        { "keys": ["device", "metric", "compare", "target"],
+                                          "values":[ {"type":12, "string_value": "deba0006"},
+                                                     {"type":12, "string_value": "dali/0/gear/0/dim"}, 
+                                                     {"type":12, "string_value": "="},   
+                                                     {"type":11, "int_value": 0} ] } 
+                                ] } } 
+    ] } } 
+          ]
+}
+```
+
+```json
+{
+"metrics": [
+  { "name": "event/add",
+    "dataType": 12, /* String */
+    "string_value": "eventButtonLightOFF",
+    "properties":{  "keys": ["scenario", "delay", "logic", "triggers"],
+                    "values": [ {"type":12, "string_value": "scenarioDaliOFF"},
+                                {"type":7,  "int_value": 0}, 
+                                {"type":12, "string_value": "and"}, 
+                                {"type":21, "propertysets_value":
+                                    { "propertyset": [  
+                                        { "keys": ["device", "metric", "compare", "target"],
+                                          "values":[ {"type":12, "string_value": "deba0006"},
+                                                     {"type":12, "string_value": "dali/0/device/0/instance/0/value"}, 
+                                                     {"type":12, "string_value": "="},  
+                                                     {"type":7, "string_value": "short-press"} ] },   
+                                                                
+                                        { "keys": ["device", "metric", "compare", "target"],
+                                          "values":[ {"type":12, "string_value": "deba0006"},
+                                                     {"type":12, "string_value": "dali/0/gear/0/dim"}, 
+                                                     {"type":12, "string_value": "<>"},   
+                                                     {"type":11, "int_value": 0} ] } 
                                 ] } } 
     ] } } 
           ]
