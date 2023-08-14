@@ -1,5 +1,5 @@
 ## BOX device io birth example
-> spBv1.0/box/DBIRTH/abba2020/deba0005  
+> spBv1.0/box/DBIRTH/abba2020/deba0004  
 
 ```json
 {
@@ -18,7 +18,7 @@
     { "name": "info/hardware/model",      "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
     { "name": "info/firmware/version",    "dataType": 12/* String */,  "string_value": "0.1.220527.84852", "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
     { "name": "info/type",                "dataType": 12/* String */,  "string_value": "8 IO",             "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
-    { "name": "info/id",                  "dataType": 12/* String */,  "string_value": "deba0005",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
+    { "name": "info/id",                  "dataType": 12/* String */,  "string_value": "deba0004",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",               "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
@@ -163,7 +163,7 @@
 ```
 
 ## BOX device io death example
-> spBv1.0/box/DDEATH/abba2020/deba0005  
+> spBv1.0/box/DDEATH/abba2020/deba0004  
 
 ```json
 {

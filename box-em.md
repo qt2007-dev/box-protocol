@@ -1,5 +1,5 @@
 ## BOX device energymeter birth example
-> spBv1.0/box/DBIRTH/abba2020/deba0008 
+> spBv1.0/box/DBIRTH/abba2020/deba0007 
 
 ```json
 {
@@ -18,7 +18,7 @@
     { "name": "info/hardware/model",            "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
     { "name": "info/firmware/version",          "dataType": 12/* String */,  "string_value": "0.1.220527.84852", "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
     { "name": "info/type",                      "dataType": 12/* String */,  "string_value": "Energymeter",      "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
-    { "name": "info/id",                        "dataType": 12/* String */,  "string_value": "deba0008",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
+    { "name": "info/id",                        "dataType": 12/* String */,  "string_value": "deba0007",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",                     "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
@@ -55,7 +55,6 @@
 
     { "name": "neutral/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Neutral rms current, value in mA"} },
 
-
     { "name": "out/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 0 control"} },
     { "name": "out/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 1 control"} },
 
@@ -68,7 +67,7 @@
 ```
 
 ## BOX device energymeter death example
-> spBv1.0/box/DDEATH/abba2020/deba0008 
+> spBv1.0/box/DDEATH/abba2020/deba0007 
 
 ```json
 {
