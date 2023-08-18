@@ -28,7 +28,7 @@
 
     { "name": "motor/0/current/boost",                  "dataType": 5/* UInt8 */,    "int_value": 160,                   "metadata":{"description":"[RWP]Motor boost current [0-254] 254 - max current (100%)"} },  
     { "name": "motor/0/current/drive",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor drive current [0-254] 254 - max current (100%)"} },  
-    { "name": "motor/0/current/boost",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },  
+    { "name": "motor/0/current/hold",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },  
         
     { "name": "motor/0/ramp/acceleration",              "dataType": 7/* UInt32 */,  "int_value": 80000,                  "metadata":{"description":"[RWP]Maxium motor acceleration value"} },                     
     { "name": "motor/0/ramp/deceleration",              "dataType": 7/* UInt32 */,  "int_value": 120000,                 "metadata":{"description":"[RWP]Maxium motor deceleration value"} },                     
@@ -45,7 +45,7 @@
 
     { "name": "motor/1/current/boost",                  "dataType": 5/* UInt8 */,    "int_value": 160,                   "metadata":{"description":"[RWP]Motor boost current [0-254] 254 - max current (100%)"} },  
     { "name": "motor/1/current/drive",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor drive current [0-254] 254 - max current (100%)"} },  
-    { "name": "motor/1/current/boost",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },  
+    { "name": "motor/1/current/hold",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },  
         
     { "name": "motor/1/ramp/acceleration",              "dataType": 7/* UInt32 */,  "int_value": 80000,                  "metadata":{"description":"[RWP]Maxium motor acceleration value"} },                     
     { "name": "motor/1/ramp/deceleration",              "dataType": 7/* UInt32 */,  "int_value": 120000,                 "metadata":{"description":"[RWP]Maxium motor deceleration value"} },                     
