@@ -225,7 +225,7 @@
     { "name": "dali/0/device/1/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/device/1/instance/0/type",              "dataType": 12/* String */,  "string_value": "OCCUPANCY-SENSOR",        "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
                                                                                                                                                                 values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
-    { "name": "dali/0/device/1/instance/0/value",             "dataType": 12/* String */,  "string_value": "vacant",                  "metadata":{"description":"[R]Last button event, values = ['vacant', 'occupied'], dali cmd 'QUERY INPUT VALUE'"} },
+    { "name": "dali/0/device/1/instance/0/value",             "dataType": 12/* String */,  "string_value": "vacant",                  "metadata":{"description":"[R]Last occupancy event, values = ['vacant', 'occupied'], dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/1/instance/0/filter",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 5,
