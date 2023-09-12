@@ -82,7 +82,7 @@
                                         { "keys": ["device", "metric", "compare", "target"],
                                           "values":[ {"type":12, "string_value": "deba0006"},
                                                      {"type":12, "string_value": "dali/0/gear/0/dim"}, 
-                                                     {"type":12, "string_value": "<>"},   
+                                                     {"type":12, "string_value": "!="},   
                                                      {"type":11, "int_value": 0} ] } 
                                 ] } } 
     ] } } 
