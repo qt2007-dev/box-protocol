@@ -125,63 +125,211 @@
     { "name": "dali/0/gear/1/dim/powerOn",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL'"} },  
     { "name": "dali/0/gear/1/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
                                                                                                                                                     value 255(MASK) disable react to bus failure"} },
+
+    { "name": "dali/0/gear/1/color/type",               "dataType": 12/* String */,  "string_value": "rgbwaf",           "metadata":{"description":"[RWP]Gear color type, dali cmd 'REPORT COLOUR TYPE', values = ['rgb','rgbw','wa','rgbwaf','temperature', 'xy']"} },
     { "name": "dali/0/gear/1/color",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 9,
-                        "columns": ["red","green","blue","white","amber","free", "temperature", "x","y"],
-                        "types": [5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
-                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
+      "dataset_value":{ "num_of_columns": 6,
+                        "columns": ["red","green","blue","white","amber","free"],
+                        "types": [5,5,5,5,5,5], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
       "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
-                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'ACTIVATE '"} },
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','ACTIVATE '"} },
     { "name": "dali/0/gear/1/color/powerOn",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 9,
-                        "columns": ["red","green","blue","white","amber","free", "temperature", "x","y"],
-                        "types": [5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
-                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
+      "dataset_value":{ "num_of_columns": 6,
+                        "columns": ["red","green","blue","white","amber","free"],
+                        "types": [5,5,5,5,5,5], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
       "metadata":{"description":"[RW]Gear power on color, columns depends on color type, dali cmd 'QUERY POWER ON LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
-                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET POWER ON LEVEL'"} }, 
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL', 'SET POWER ON LEVEL'"} }, 
     { "name": "dali/0/gear/1/color/failure",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 9,
-                        "columns": ["red","green","blue","white","amber","free", "temperature", "x","y"],
-                        "types": [5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
+      "dataset_value":{ "num_of_columns": 6,
+                        "columns": ["red","green","blue","white","amber","free"],
+                        "types": [5,5,5,5,5,5], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8 */
                         "rows": [ {"elements":[{"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] },                                                  
       "metadata":{"description":"[RW]Gear bus failure color, columns depends on color type, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
-                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET SYSTEM FAILURE LEVEL'"} },                                 
-
-    { "name": "dali/0/gear/1/color/temperature/coolest","dataType": 6/* UInt16 */,   "int_value": 0,                     "metadata":{"description":"[RWP]Gear coolest color temperature, dali cmd 'QUERY COLOUR VALUE', 
-                                                                                                                                                   'STORE COLOUR TEMPERATURE TC LIMIT'"} },
-    { "name": "dali/0/gear/1/color/temperature/warmest","dataType": 6/* UInt16 */,   "int_value": 0,                     "metadata":{"description":"[RWP]Gear warmest color temperature, dali cmd 'QUERY COLOUR VALUE', 
-                                                                                                                                                   'STORE COLOUR TEMPERATURE TC LIMIT'"} },
-
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL', 'SET SYSTEM FAILURE LEVEL'"} },                                 
 
     { "name": "dali/0/gear/1/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
     { "name": "dali/0/gear/1/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 1,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
     { "name": "dali/0/gear/1/scenes",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 10, 
-                        "columns": ["dim","red","green","blue","white","amber","free", "temperature", "x","y"],
-                        "types": [5, 5,5,5,5,5,5, 6, 6,6], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt16, UInt16, UInt16 */
-                        "rows": [ {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 0 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 1 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 2 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 3 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 4 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 5 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 6 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 7 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 8 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 9 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 10 */ 
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 11 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 12 */ 
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 13 */
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 14 */  
-                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] }, /* Scene 15 */                                  
+      "dataset_value":{ "num_of_columns": 7, 
+                        "columns": ["dim","red","green","blue","white","amber","free"],
+                        "types": [5, 5,5,5,5,5,5], /* UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8 */
+                        "rows": [ {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 0 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 1 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 2 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 3 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 4 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 5 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 6 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 7 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 8 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 9 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 10 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 11 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 12 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 13 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]},     /* Scene 14 */  
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0,"int_value": 0}]} ] }, /* Scene 15 */                                  
       "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL','REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
-                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET TEMPORARY COLOUR TEMPERATURE', 'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET SCENE'"} },
+                                'SET TEMPORARY RGB DIMLEVEL','SET TEMPORARY WAF DIMLEVEL','SET SCENE'"} },
 
+
+
+
+    { "name": "dali/0/gear/2/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/2/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
+    { "name": "dali/0/gear/2/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
+                                                                                                                                                    values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                    'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
+                                                                                                                                                    can be multiple types at the same time ('LED|COLOR')"} }, 
+    { "name": "dali/0/gear/2/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit',
+                                                                                                                                                    'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS', 
+                                                                                                                                                    can be multiple status at the same time ('lamp-failure|open-circuit')"} },
+    { "name": "dali/0/gear/2/dim",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
+                                                                                                                                                    For read actual dim level using dali cmd 'QUERY ACTUAL LEVEL'"} },
+    { "name": "dali/0/gear/2/dim/phyMin",               "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[R]Gear physical minimum dim level, dali cmd 'QUERY PHYSICAL MINIMUM'"} },  
+    { "name": "dali/0/gear/2/dim/min",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear minimum dim level, dali cmd 'QUERY MIN LEVEL', 'SET MIN LEVEL'"} },  
+    { "name": "dali/0/gear/2/dim/max",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear maximum dim level, dali cmd 'QUERY MAX LEVEL', 'SET MAX LEVEL'"} },  
+    { "name": "dali/0/gear/2/dim/powerOn",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL'"} },  
+    { "name": "dali/0/gear/2/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
+                                                                                                                                                    value 255(MASK) disable react to bus failure"} },
+
+    { "name": "dali/0/gear/2/color/type",               "dataType": 12/* String */,  "string_value": "temperature",      "metadata":{"description":"[RWP]Gear color type, dali cmd 'REPORT COLOUR TYPE', values = ['rgb','rgbw','wa','rgbwaf','temperature', 'xy']"} },
+    { "name": "dali/0/gear/2/color",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["temperature"],
+                        "types": [6], /* UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                'SET TEMPORARY COLOUR TEMPERATURE', 'ACTIVATE '"} },
+    { "name": "dali/0/gear/2/color/powerOn",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["temperature"],
+                        "types": [6], /* UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear power on color, columns depends on color type, dali cmd 'QUERY POWER ON LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
+                                'SET TEMPORARY COLOUR TEMPERATURE' 'SET POWER ON LEVEL'"} }, 
+    { "name": "dali/0/gear/2/color/failure",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["temperature"],
+                        "types": [6], /* UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear bus failure color, columns depends on color type, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
+                                'SET TEMPORARY COLOUR TEMPERATURE', 'SET SYSTEM FAILURE LEVEL'"} },                                 
+
+    { "name": "dali/0/gear/2/color/temperature/coolest","dataType": 6/* UInt16 */,   "int_value": 0,                     "metadata":{"description":"[RWP]Gear coolest color temperature, dali cmd 'QUERY COLOUR VALUE', 
+                                                                                                                                                   'STORE COLOUR TEMPERATURE TC LIMIT'"} },
+    { "name": "dali/0/gear/2/color/temperature/warmest","dataType": 6/* UInt16 */,   "int_value": 0,                     "metadata":{"description":"[RWP]Gear warmest color temperature, dali cmd 'QUERY COLOUR VALUE', 
+                                                                                                                                                   'STORE COLOUR TEMPERATURE TC LIMIT'"} },
+
+
+    { "name": "dali/0/gear/2/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
+    { "name": "dali/0/gear/2/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 1,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
+    { "name": "dali/0/gear/2/scenes",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 2, 
+                        "columns": ["dim", "temperature"],
+                        "types": [5, 6], /* UInt8, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 0 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 1 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 2 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 3 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 4 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 5 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 6 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 7 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 8 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 9 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 10 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 11 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 12 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 13 */
+                                  {"elements":[{"int_value": 128,"int_value": 0}]},     /* Scene 14 */  
+                                  {"elements":[{"int_value": 128,"int_value": 0}]} ] }, /* Scene 15 */                                  
+      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL','REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                'SET TEMPORARY COLOUR TEMPERATURE', 'SET SCENE'"} },
+
+
+    { "name": "dali/0/gear/3/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/3/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
+    { "name": "dali/0/gear/3/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
+                                                                                                                                                    values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                    'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
+                                                                                                                                                    can be multiple types at the same time ('LED|COLOR')"} }, 
+    { "name": "dali/0/gear/3/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit',
+                                                                                                                                                    'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS', 
+                                                                                                                                                    can be multiple status at the same time ('lamp-failure|open-circuit')"} },
+    { "name": "dali/0/gear/3/dim",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
+                                                                                                                                                    For read actual dim level using dali cmd 'QUERY ACTUAL LEVEL'"} },
+    { "name": "dali/0/gear/3/dim/phyMin",               "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[R]Gear physical minimum dim level, dali cmd 'QUERY PHYSICAL MINIMUM'"} },  
+    { "name": "dali/0/gear/3/dim/min",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear minimum dim level, dali cmd 'QUERY MIN LEVEL', 'SET MIN LEVEL'"} },  
+    { "name": "dali/0/gear/3/dim/max",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear maximum dim level, dali cmd 'QUERY MAX LEVEL', 'SET MAX LEVEL'"} },  
+    { "name": "dali/0/gear/3/dim/powerOn",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL'"} },  
+    { "name": "dali/0/gear/3/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
+                                                                                                                                                    value 255(MASK) disable react to bus failure"} },
+
+    { "name": "dali/0/gear/3/color/type",               "dataType": 12/* String */,  "string_value": "xy",           "metadata":{"description":"[RWP]Gear color type, dali cmd 'REPORT COLOUR TYPE', values = ['rgb','rgbw','wa','rgbwaf','temperature', 'xy']"} },
+    { "name": "dali/0/gear/3/color",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 2,
+                        "columns": ["x","y"],
+                        "types": [6,6], /*UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'ACTIVATE '"} },
+    { "name": "dali/0/gear/3/color/powerOn",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 2,
+                        "columns": ["x","y"],
+                        "types": [6,6], /* UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear power on color, columns depends on color type, dali cmd 'QUERY POWER ON LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
+                                'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET POWER ON LEVEL'"} }, 
+    { "name": "dali/0/gear/3/color/failure",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 2,
+                        "columns": ["x","y"],
+                        "types": [6,6], /* UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 0}]} ] },                                                  
+      "metadata":{"description":"[RW]Gear bus failure color, columns depends on color type, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE',
+                                'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET SYSTEM FAILURE LEVEL'"} },                                 
+
+
+    { "name": "dali/0/gear/3/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
+    { "name": "dali/0/gear/3/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 1,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
+    { "name": "dali/0/gear/3/scenes",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 3, 
+                        "columns": ["dim","x","y"],
+                        "types": [5, 6,6], /* UInt8, UInt16, UInt16 */
+                        "rows": [ {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 0 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 1 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 2 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 3 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 4 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 5 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 6 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 7 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 8 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 9 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 10 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 11 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 12 */ 
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 13 */
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]},     /* Scene 14 */  
+                                  {"elements":[{"int_value": 128,"int_value": 0,"int_value": 0}]} ] }, /* Scene 15 */                                  
+      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL','REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                'SET TEMPORARY x-COORDINATE','SET TEMPORARY y-COORDINATE', 'SET SCENE'"} },
 
 
     /* Control device metrics */
