@@ -65,7 +65,7 @@
     /* Control gear metrics */
     /* dali/{bus}/gear/{gear}  */  
     { "name": "dali/0/gear/0/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
-    { "name": "dali/0/gear/0/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gearr 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
+    { "name": "dali/0/gear/0/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
     { "name": "dali/0/gear/0/type",                     "dataType": 12/* String */,  "string_value": "LED",              "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
                                                                                                                                                     values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
                                                                                                                                                     'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
@@ -108,7 +108,7 @@
       "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} }, 
 
     { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
-    { "name": "dali/0/gear/1/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gearr 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
+    { "name": "dali/0/gear/1/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
     { "name": "dali/0/gear/1/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
                                                                                                                                                     values = ['FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
                                                                                                                                                     'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
