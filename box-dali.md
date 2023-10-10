@@ -126,6 +126,165 @@
     { "name": "dali/0/gear/1/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
                                                                                                                                                     value 255(MASK) disable react to bus failure"} },
 
+
+/**************************************************************************************************************/
+
+
+
+    { "name": "define/daliColorTemplate",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "v1",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "type",         "dataType": 12 /* String */},
+
+                          { "name": "x",            "dataType": 6  /* UInt16 */},
+                          { "name": "y",            "dataType": 6  /* UInt16 */},
+
+                          { "name": "temperature",  "dataType": 6  /* UInt16 */},
+
+                          { "name": "red",          "dataType": 5  /* UInt8 */},
+                          { "name": "green",        "dataType": 5  /* UInt8 */},
+                          { "name": "blue",         "dataType": 5  /* UInt8 */},
+                          { "name": "white",        "dataType": 5  /* UInt8 */},
+                          { "name": "amber",        "dataType": 5  /* UInt8 */},
+                          { "name": "free",         "dataType": 5  /* UInt8 */}
+                        ] }, 
+        "metadata":{"description":""} },
+
+    { "name": "define/daliSceneTemplate",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "v1",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "dim",          "dataType": 5  /* UInt8 */},
+                          { "name": "color",        "dataType": 19  /* Template - daliColorTemplate */}
+                        ] }, 
+        "metadata":{"description":""} },
+
+    { "name": "define/daliScenesTemplate",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "v1",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "0",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "1",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "2",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "3",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "4",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "5",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "6",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "7",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "8",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "9",        "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "10",       "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "11",       "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "12",       "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "13",       "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "14",       "dataType": 19  /* Template - daliSceneTemplate */},
+                          { "name": "15",       "dataType": 19  /* Template - daliSceneTemplate */}
+                        ] }, 
+        "metadata":{"description":""} },
+
+
+
+    { "name": "dali/0/gear/1/color",
+      "dataType": 19, /* DataSet */
+      "template_value":{ "version": "v1",
+                         "is_definition": false,
+                         "template_ref": "define/daliColorTemplate",
+                         "metrics":[
+                          { "name": "type",     "dataType": 12 /* String */, "string_value": "xy"},
+
+                          { "name": "x",        "dataType": 6  /* UInt16 */, "int_value": 0},
+                          { "name": "y",        "dataType": 6  /* UInt16 */, "int_value": 0}
+                        ] },                                                  
+      "metadata":{"description":""} },
+
+    { "name": "dali/0/gear/1/color",
+      "dataType": 19, /* DataSet */
+      "template_value":{ "version": "v1",
+                         "is_definition": false,
+                         "template_ref": "define/daliColorTemplate",
+                         "metrics":[
+                          { "name": "type",         "dataType": 12 /* String */, "string_value": "temperature"},
+
+                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "int_value": 0},
+                        ] },                                                  
+      "metadata":{"description":""} },
+
+
+    { "name": "dali/0/gear/1/color",
+      "dataType": 19, /* DataSet */
+      "template_value":{ "version": "v1",
+                         "is_definition": false,
+                         "template_ref": "define/daliColorTemplate",
+                         "metrics":[
+                          { "name": "type",         "dataType": 12 /* String */, "string_value": "rgbwaf"},
+
+                          { "name": "red",          "dataType": 5  /* UInt8 */, "int_value": 0},
+                          { "name": "green",        "dataType": 5  /* UInt8 */, "int_value": 0},
+                          { "name": "blue",         "dataType": 5  /* UInt8 */, "int_value": 0}
+                        ] },                                                  
+      "metadata":{"description":""} },      
+
+
+    { "name": "dali/0/gear/1/scenes",
+      "dataType": 16, /* DataSet */
+      "template_value":{ "version": "v1",
+                         "is_definition": false,
+                         "template_ref": "define/daliScenesTemplate",
+                         "metrics":[
+                          { "name": "0",  "dataType": 19 /* Template */, 
+                              "template_value":{ "version": "v1",
+                                                 "is_definition": false,
+                                                 "template_ref": "define/daliSceneTemplate",  
+                                                 "metrics":[
+                                                  { "name": "dim",   "dataType": 5  /* UInt8 */, "int_value": 255},
+                                                  { "name": "color", "dataType": 19  /* Template */, 
+                                                      "template_value":{ "version": "v1",
+                                                                         "is_definition": false,
+                                                                         "template_ref": "define/daliColorTemplate",
+                                                                         "metrics":[
+                                                                          { "name": "type",         "dataType": 12 /* String */, "string_value": "rgbwaf"},
+                                                                          { "name": "red",          "dataType": 5  /* UInt8 */,  "int_value": 0},
+                                                                          { "name": "green",        "dataType": 5  /* UInt8 */,  "int_value": 0},
+                                                                          { "name": "blue",         "dataType": 5  /* UInt8 */,  "int_value": 0} ] } } ] } },
+                          { "name": "1",  "dataType": 19 /* Template */, 
+                              "template_value":{ "version": "v1",
+                                                 "is_definition": false,
+                                                 "template_ref": "define/daliSceneTemplate",  
+                                                 "metrics":[
+                                                  { "name": "dim",   "dataType": 5  /* UInt8 */, "int_value": 255},
+                                                  { "name": "color", "dataType": 19  /* Template */, 
+                                                      "template_value":{ "version": "v1",
+                                                                         "is_definition": false,
+                                                                         "template_ref": "define/daliColorTemplate",
+                                                                         "metrics":[
+                                                                          { "name": "type",         "dataType": 12 /* String */, "string_value": "temperature"},
+                                                                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "int_value": 0} ] } } ] } },  
+                          { "name": "2",  "dataType": 19 /* Template */, 
+                              "template_value":{ "version": "v1",
+                                                 "is_definition": false,
+                                                 "template_ref": "define/daliSceneTemplate",  
+                                                 "metrics":[
+                                                  { "name": "dim",   "dataType": 5  /* UInt8 */, "int_value": 255},
+                                                  { "name": "color", "dataType": 19  /* Template */, 
+                                                      "template_value":{ "version": "v1",
+                                                                         "is_definition": false,
+                                                                         "template_ref": "define/daliColorTemplate",
+                                                                         "metrics":[
+                                                                          { "name": "type",         "dataType": 12 /* String */, "string_value": "xy"},
+                                                                          { "name": "x",            "dataType": 6  /* UInt16 */, "int_value": 0},
+                                                                          { "name": "y",            "dataType": 6  /* UInt16 */, "int_value": 0} ] } } ] } },                                                                                                                                                    
+                        ] },                                 
+      "metadata":{"description":""} },
+
+
+
+
+/**************************************************************************************************************/
+
     { "name": "dali/0/gear/1/color/type",               "dataType": 12/* String */,  "string_value": "rgbwaf",           "metadata":{"description":"[RWP]Gear color type, dali cmd 'REPORT COLOUR TYPE', values = ['rgb','rgbw','wa','rgbwaf','temperature', 'xy']"} },
     { "name": "dali/0/gear/1/color",
       "dataType": 16, /* DataSet */
