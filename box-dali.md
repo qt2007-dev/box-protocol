@@ -189,7 +189,7 @@
 
 
     { "name": "dali/0/gear/1/color",
-      "dataType": 19, /* DataSet */
+      "dataType": 19, /* Template */
       "template_value":{ "version": "v1",
                          "is_definition": false,
                          "template_ref": "define/daliColorTemplate",
@@ -202,7 +202,7 @@
       "metadata":{"description":""} },
 
     { "name": "dali/0/gear/1/color",
-      "dataType": 19, /* DataSet */
+      "dataType": 19, /* Template */
       "template_value":{ "version": "v1",
                          "is_definition": false,
                          "template_ref": "define/daliColorTemplate",
@@ -215,7 +215,7 @@
 
 
     { "name": "dali/0/gear/1/color",
-      "dataType": 19, /* DataSet */
+      "dataType": 19, /* Template */
       "template_value":{ "version": "v1",
                          "is_definition": false,
                          "template_ref": "define/daliColorTemplate",
@@ -230,7 +230,7 @@
 
 
     { "name": "dali/0/gear/1/scenes",
-      "dataType": 16, /* DataSet */
+      "dataType": 19, /* Template */
       "template_value":{ "version": "v1",
                          "is_definition": false,
                          "template_ref": "define/daliScenesTemplate",

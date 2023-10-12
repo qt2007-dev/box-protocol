@@ -65,6 +65,7 @@
     { "name": "schedule",                            "dataType": 12/* String */, "string_value": "on",                  "metadata":{"description":"[RWP]Schedule control metric, list of values = ['on', 'off', 'set', 'get'], schedule set and get in properties"} }, 
 
     { "name": "scenario/add",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario add to list, value = scenario name, scenario sent in properties"} },
+    { "name": "scenario/execute",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[RW]Execute scenario, value = scenario name, after execution the value is reset to null"} },
     { "name": "scenario/delete",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario delete from list. Special value '_all' delete all scenario from list"} }, 
     { "name": "scenario/get",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} },   
     { "name": "scenario/list",              
