@@ -9,11 +9,11 @@
   { "name": "scenario/list",
     "dataType": 16, /* DataSet */
     "dataset_value":{ "num_of_columns": 3,
-                      "columns": ["name", "last", "next"],
-                      "types": [12, 8, 8], /* String, UInt64, UInt64 */
-                      "rows": [ {"elements":[{"string_value":"scenarioName1"}, {"long_value":151515151515}, {"long_value":151515151515}] },
-                                {"elements":[{"string_value":"scenarioName2"}, {"long_value":151515151515}, {"long_value":151515151515}] }  ] }
-                                /* value = list of scenarioId and names, last - last used time, next - next time to be used */} ]
+                      "columns": ["name"],
+                      "types": [12, 8, 8], /* String */
+                      "rows": [ {"elements":[{"string_value":"scenarioName1"}] },
+                                {"elements":[{"string_value":"scenarioName2"}] }  ] }
+                                /* value = list of scenarioId and names */} ]
 }
 ```      
                             

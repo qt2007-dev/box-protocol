@@ -9,11 +9,11 @@
   { "name": "scenario/list",
     "dataType": 16, /* DataSet */
     "dataset_value":{ "num_of_columns": 3,
-                      "columns": ["name", "last", "next"],
-                      "types": [12, 8, 8], /* String, UInt64, UInt64 */
-                      "rows": [ {"elements":[{"string_value":"scenarioName1"}, {"long_value":151515151515}, {"long_value":151515151515}] },
-                                {"elements":[{"string_value":"scenarioName2"}, {"long_value":151515151515}, {"long_value":151515151515}] }  ] }
-                                /* value = list of scenarioId and names, last - last used time, next - next time to be used */} ]
+                      "columns": ["name"],
+                      "types": [12], /* String*/
+                      "rows": [ {"elements":[{"string_value":"scenarioName1"}] },
+                                {"elements":[{"string_value":"scenarioName2"}] }  ] }
+                                /* value = list of scenarioId and names*/} ]
 }
 ```      
                             
@@ -21,15 +21,15 @@
 >Добавляет сценарий описанный в поле "properties" метрики, с id равным value (значению метрики).
 >При успешном добавлении сценария обновляется метрика "scenario/list"
 **object** - объект управления
->- **scenario** - запускает сценарий с именем **{name}** с количеством повторений **{value}**
->- **event** - ждет срабатывание события с именем **{name}** указаное время в **{value}** в миллисекундах
->- **time** - объект с именем "delay" ждет время указаное в **{value}** в миллисекундах
->- **{groupName}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, во всех устройствах состоящих в группе **{groupName}**
->- **{deviceID}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, устройства с ID **{deviceID}**
+ - **scenario** - запускает сценарий с именем **{name}** с количеством повторений **{value}**
+ - **event** - ждет срабатывание события с именем **{name}** указаное время в **{value}** в миллисекундах
+ - **time** - объект с именем "delay" ждет время указаное в **{value}** в миллисекундах
+ - **{groupName}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, во всех устройствах состоящих в группе **{groupName}**
+ - **{deviceID}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, устройства с ID **{deviceID}**
 
 **name** - при управлении метрикой может быть двух типов
->- **String** - имя метрики
->- **Uint32** - alias метрики
+ - **String** - имя метрики
+ - **Uint32** - alias метрики
 
 
 >>Пример группового сценария на базе двух релейных выходов c двумя точками переключения.
@@ -149,6 +149,44 @@
         ]                            
 }
 ```   
+
+>>Пример сценариев для димирования групой dali светильников
+```json
+{
+"metrics": [
+  { "name": "scenario/add",
+    "dataType": 12, /* String */ 
+    "string_value": "daliGroup-2-ON-with-fade", /* scenarioName */ 
+    "properties":{  "keys": ["precision", "actions"],
+                    "values": [ {"type":12, "string_value":"100ms"},
+                                {"type":21, "propertysets_value": 
+                                    { "propertyset":[   /* Actions array START */
+                                      { "keys":["object", "name", "value"],
+                                        "values":[ {"type": 12, "string_value": "1245abcd"}, 
+                                                   {"type": 12, "string_value": "dali/0/cmd"}, 
+                                                   {"type": 20, "propertyset_value": { "keys":["addr-type", "addr", "cmd", "value"], 
+                                                                                       "values":[ {"type": 12, "string_value": "group"} 
+                                                                                                  {"type":  7, "int_value": 2},
+                                                                                                  {"type": 12, "string_value": "fade-time"} 
+                                                                                                  {"type":  7, "int_value": 2},
+                                                                                                  ]} }  ] },
+                                      { "keys":["object", "name", "value"],
+                                        "values":[ {"type": 12, "string_value": "1245abcd"}, 
+                                                   {"type": 12, "string_value": "dali/0/cmd"}, 
+                                                   {"type": 20, "propertyset_value": { "keys":["addr-type", "addr", "cmd", "value"], 
+                                                                                       "values":[ {"type": 12, "string_value": "group"} 
+                                                                                                  {"type":  7, "int_value": 2},
+                                                                                                  {"type": 12, "string_value": "dim"} 
+                                                                                                  {"type":  7, "int_value": 254},
+                                                                                                  ]} }  ] }                                  
+                                    ] }  /* Actions array END */     
+                                }
+  ] } }        
+        ]                            
+}
+```   
+
+
 
 >>Пример сценария для который по выполнению события запускает другие сценарии
 ```json
