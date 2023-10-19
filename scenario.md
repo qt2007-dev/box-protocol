@@ -9,10 +9,10 @@
   { "name": "scenario/list",
     "dataType": 16, /* DataSet */
     "dataset_value":{ "num_of_columns": 3,
-                      "columns": ["name"],
-                      "types": [12], /* String*/
-                      "rows": [ {"elements":[{"string_value":"scenarioName1"}] },
-                                {"elements":[{"string_value":"scenarioName2"}] }  ] }
+                      "columns": ["name", "enabled"],
+                      "types": [12, 11], /* String*/
+                      "rows": [ {"elements":[{"string_value":"scenarioName1"},{"boolean_value": true}] },
+                                {"elements":[{"string_value":"scenarioName2"},{"boolean_value": false}] }  ] }
                                 /* value = list of scenarioId and names*/} ]
 }
 ```      
@@ -39,8 +39,9 @@
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "name1", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "actions"],
+    "properties":{  "keys": ["precision", "enabled", "actions"],
                     "values": [ {"type":12, "string_value":"100ms"},
+                                {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
                                     
@@ -112,8 +113,9 @@
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliLampON", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "actions"],
+    "properties":{  "keys": ["precision", "enabled", "actions"],
                     "values": [ {"type":12, "string_value":"100ms"},
+                                {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
                                       { "keys":["object", "name", "value"],
@@ -134,8 +136,9 @@
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliLampOFF", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "actions"],
+    "properties":{  "keys": ["precision", "enabled", "actions"],
                     "values": [ {"type":12, "string_value":"100ms"},
+                                {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */ 
                                       { "keys":["object", "name", "value"],
@@ -157,8 +160,9 @@
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliGroup-2-ON-with-fade", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "actions"],
+    "properties":{  "keys": ["precision", "enabled", "actions"],
                     "values": [ {"type":12, "string_value":"100ms"},
+                                {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
                                       { "keys":["object", "name", "value"],
@@ -195,8 +199,9 @@
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliLampON", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "actions"],
+    "properties":{  "keys": ["precision", "enabled", "actions"],
                     "values": [ {"type":12, "string_value":"100ms"},
+                                {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
                                       { "keys":["object", "name", "value"],
@@ -229,7 +234,26 @@
   ]
 }
 ```
-
+## **scenario/enable**
+>Включает сценарий, включеный сценарии выполняют действия при запуске.
+>>Пример
+```json
+{
+"metrics": [
+  {"name": "scenario/enable", "dataType": 12, "string_value": "scenarioName1"}/* String */ 
+  ]
+}
+```
+## **scenario/disable**
+>Выключает сценарий, выключенный сценарии не выполняют действий при запуске.
+>>Пример
+```json
+{
+"metrics": [
+  {"name": "scenario/disable", "dataType": 12, "string_value": "scenarioName1"}/* String */ 
+  ]
+}
+```
 
 ## **scenario/delete**
 >Удаляет сценарий с id равным value (значению метрики).

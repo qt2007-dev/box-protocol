@@ -33,8 +33,6 @@
     { "name": "sensors/modules/current",             "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Modules current, value in mA"} },  
     { "name": "sensors/bus/voltage",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus voltage, value in mV"} },
     { "name": "sensors/bus/current",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus current, value in mA"} },    
-   
-
 
     { "name": "coordinates/latitude",                "dataType": 10/* Double */,  "double_value": 55.751244,            "metadata":{"description":"[R]GNSS coordinates latitude, value in degree"} },            
     { "name": "coordinates/longitude",               "dataType": 10/* Double */,  "double_value": 37.618423,            "metadata":{"description":"[R]GNSS coordinates longitude, value in degree"} },
@@ -72,26 +70,30 @@
     { "name": "scenario/add",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario add to list, value = scenario name, scenario sent in properties"} },
     { "name": "scenario/execute",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[RW]Execute scenario, value = scenario name, after execution the value is reset to null"} },
     { "name": "scenario/delete",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario delete from list. Special value '_all' delete all scenario from list"} }, 
-    { "name": "scenario/get",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} },   
+    { "name": "scenario/get",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} }, 
+    { "name": "scenario/enable",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable scenario, enabled scenario do actions on execute"} }, 
+    { "name": "scenario/disable",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario dont do any actions on execute"} },   
     { "name": "scenario/list",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 3,
-                        "columns": ["name"],
-                        "types": [12, 8, 8], /* String */
-                        "rows": [ {"elements":[{"string_value":"scenarioName1"} ]},
-                                  {"elements":[{"string_value":"scenarioName2"} ]}  ] },                                  
+                        "columns": ["name", "enabled"],
+                        "types": [12, 11], /* String, Boolean */
+                        "rows": [ {"elements":[{"string_value":"scenarioName1"},{"boolean_value": true} ]},
+                                  {"elements":[{"string_value":"scenarioName2"},{"boolean_value": false} ]}  ] },                                  
       "metadata":{"description":"[R]List of scenario names exist in node"} },                           
 
     { "name": "event/add",                           "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Event add to list, value = event name, event sent in properties"} },
     { "name": "event/delete",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Event delete from list. Special value '_all' delete all event from list"} }, 
-    { "name": "event/get",                           "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read event from list, event sent in properties"} }, 
+    { "name": "event/get",                           "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read event from list, event sent in properties"} },
+    { "name": "event/enable",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable event, enabled event execute scenario"} }, 
+    { "name": "event/disable",                       "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable event, disabled event dont execute scenario"} },    
     { "name": "event/list",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 3,
-                        "columns": ["name"],
-                        "types": [12], /* String */
-                        "rows": [ {"elements":[{"string_value":"eventName1"} ]},
-                                  {"elements":[{"string_value":"eventName2"} ]}  ] }, 
+                        "columns": ["name", "enabled"],
+                        "types": [12, 11], /* String, Boolean */
+                        "rows": [ {"elements":[{"string_value":"eventName1"},{"boolean_value": true} ]},
+                                  {"elements":[{"string_value":"eventName2"},{"boolean_value": false} ]}  ] }, 
       "metadata":{"description":"[R]List of events names exist in node"} },      
 
   ]
