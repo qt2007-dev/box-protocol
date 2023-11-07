@@ -40,7 +40,7 @@
     { "name": "connection/type",                     "dataType": 12/* String */,  "string_value": "ethernet",           "metadata":{"description":"[RWP]Active connection type, list of values = ['ethernet', 'modem', 'thread']"} },
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 4,
+      "dataset_value":{ "num_of_columns": 8,
                         "columns": ["address", "port", "tls", "ca-certificate", "client-certificate", "client-key", "username", "password"],
                         "types": [12, 6, 11 , 12, 12, 12, 12, 12], /* String, UInt16, Boolean, String, String, String, String, String   */
                         "rows": [ {"elements":[{"string_value":"dev.qtsolar.com"},{"int_value":8883},{"boolean_value":true},{"string_value":"cert"},{"string_value":"cert"},{"string_value":"key"},{"string_value":"mqtt-username"},{"string_value":"mqtt-password"}]} ] }, 
@@ -75,7 +75,7 @@
     { "name": "scenario/disable",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario don't do any actions on execute"} },   
     { "name": "scenario/list",              
       "dataType": 16/* DataSet */, 
-      "dataset_value":{ "num_of_columns": 3,
+      "dataset_value":{ "num_of_columns": 2,
                         "columns": ["name", "enabled"],
                         "types": [12, 11], /* String, Boolean */
                         "rows": [ {"elements":[{"string_value":"scenarioName1"},{"boolean_value": true} ]},
@@ -89,7 +89,7 @@
     { "name": "event/disable",                       "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable event, disabled event don't execute scenario"} },    
     { "name": "event/list",              
       "dataType": 16/* DataSet */, 
-      "dataset_value":{ "num_of_columns": 3,
+      "dataset_value":{ "num_of_columns": 2,
                         "columns": ["name", "enabled"],
                         "types": [12, 11], /* String, Boolean */
                         "rows": [ {"elements":[{"string_value":"eventName1"},{"boolean_value": true} ]},
