@@ -24,7 +24,7 @@
     { "name": "info/error",                          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Last error message"} },
     { "name": "info/date",                           "dataType": 12/* String */,  "string_value": "18.10.2023",         "metadata":{"description":"[R]Current date"} },
     { "name": "info/time",                           "dataType": 12/* String */,  "string_value": "14:50:00",           "metadata":{"description":"[R]Current time"} },
-    { "name": "info/daytime",                        "dataType": 12/* String */,  "string_value": "day",                "metadata":{"description":"[R]Current daytime, values = ['day','nigth','sunset','sunrise']"} },
+    { "name": "info/daytime",                        "dataType": 12/* String */,  "string_value": "day",                "metadata":{"description":"[R]Current daytime, values = ['day','night','sunset','sunrise']"} },
 
     { "name": "sensors/temperature",                 "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
     { "name": "sensors/system/voltage",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System voltage, value in mV"} },
@@ -48,7 +48,7 @@
 
     { "name": "connection/modem/operator",           "dataType": 12/* String */,  "string_value": "Beeline",            "metadata":{"description":"[R]Operator name"} },  
     { "name": "connection/modem/iccid",              "dataType": 12/* String */,  "string_value": "897010269709192239", "metadata":{"description":"[R]Show sim card iccid number"} },
-    { "name": "connection/modem/rssi",               "dataType": 3 /* Int32 */,    "string_value": -60,                 "metadata":{"description":"[R]Cellular signal strenght"} },
+    { "name": "connection/modem/rssi",               "dataType": 3 /* Int32 */,    "string_value": -60,                 "metadata":{"description":"[R]Cellular signal strength"} },
    
     { "name": "connection/thread/name",              "dataType": 12/* String */,  "string_value": "ThreadNetworkName",  "metadata":{"description":"[RWP]Thread network name"} },   
     { "name": "connection/thread/panid",             "dataType": 6 /* UInt16 */,   "int_value": 1234,                   "metadata":{"description":"[RWP]Thread network panid"} },                     
@@ -72,7 +72,7 @@
     { "name": "scenario/delete",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario delete from list. Special value '_all' delete all scenario from list"} }, 
     { "name": "scenario/get",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} }, 
     { "name": "scenario/enable",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable scenario, enabled scenario do actions on execute"} }, 
-    { "name": "scenario/disable",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario dont do any actions on execute"} },   
+    { "name": "scenario/disable",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario don't do any actions on execute"} },   
     { "name": "scenario/list",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 3,
@@ -86,7 +86,7 @@
     { "name": "event/delete",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Event delete from list. Special value '_all' delete all event from list"} }, 
     { "name": "event/get",                           "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read event from list, event sent in properties"} },
     { "name": "event/enable",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable event, enabled event execute scenario"} }, 
-    { "name": "event/disable",                       "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable event, disabled event dont execute scenario"} },    
+    { "name": "event/disable",                       "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable event, disabled event don't execute scenario"} },    
     { "name": "event/list",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 3,
