@@ -18,7 +18,7 @@
 
     { "name": "info/hardware/vendor",                "dataType": 12/* String */,  "string_value": "QuintTech",          "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
     { "name": "info/hardware/model",                 "dataType": 12/* String */,  "string_value": "rpi4",               "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
-    { "name": "info/firmware/version",               "dataType": 12/* String */,  "string_value": "0.1.220527.84852",   "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.YYMMDD.SSSSS"} },
+    { "name": "info/firmware/version",               "dataType": 12/* String */,  "string_value": "0.1.220527",         "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.buildOrCommit"} },
     { "name": "info/type",                           "dataType": 12/* String */,  "string_value": "BOX",                "metadata":{"description":"[R]Node type, hardcoded by vendor"} },
     { "name": "info/id",                             "dataType": 12/* String */,  "string_value": "abba2020",           "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",                          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Last error message"} },
