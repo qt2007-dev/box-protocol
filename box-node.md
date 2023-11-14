@@ -96,6 +96,9 @@
                                   {"elements":[{"string_value":"eventName2"},{"boolean_value": false} ]}  ] }, 
       "metadata":{"description":"[R]List of events names exist in node"} },      
 
+    { "name": "virtual/add",                        "dataType": 16/* DataSet */,"dataset_value":{},  "is_null": true,   "metadata":{"description":"[W]Add virtual metric to specific device or node"} },
+    { "name": "virtual/delete",                     "dataType": 16/* DataSet */,"dataset_value":{},  "is_null": true,   "metadata":{"description":"[W]Delete virtual metric from specific device or node"} },  
+
   ]
 }
 ```
