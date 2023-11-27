@@ -23,8 +23,7 @@
   
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                      "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },  
   
-    { "name": "bitmask/0",                      "dataType": 5/* UInt8 */,    "int_value": 0,                       "metadata":{"description":"[RWP]Bitmask of digital outputs, [0-7] out"} },  
-    { "name": "bitmask/1",                      "dataType": 5/* UInt8 */,    "int_value": 0,                       "metadata":{"description":"[RWP]Bitmask of digital outputs, [8-15] out"} },
+    { "name": "bitmask",                        "dataType": 6/* UInt16 */,   "int_value": 0,                       "metadata":{"description":"[RWP]Bitmask of digital outputs, [0-15] out"} },  
   
     { "name": "out/0",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 0 control"} },
     { "name": "out/1",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 1 control"} },

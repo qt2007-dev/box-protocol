@@ -23,11 +23,10 @@
 
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },  
 
-    { "name": "bitmask/0",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of mechanical relay outputs, [0-1] out"} },  
-    { "name": "bitmask/1",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of solid state relay outputs, [0-5] out"} },
+    { "name": "bitmask",                        "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Bitmask of relay outputs, [0-1] mechanical relay out, [2-7] solid state yeout"} },  
 
-    { "name": "mr/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Mechanical relay output 0 control"} },
-    { "name": "mr/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Mechanical relay output 1 control"} },
+    { "name": "mr/0",                           "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Mechanical relay output 0 control"} },
+    { "name": "mr/1",                           "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Mechanical relay output 1 control"} },
 
     { "name": "ssr/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 0 control"} },
     { "name": "ssr/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 1 control"} },

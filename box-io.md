@@ -23,6 +23,18 @@
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
+    { "name": "pid",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 2, 
+                        "columns": ["in-channel", "out-channel", "target", "Kp", "Ki", "Kd", "direction"],
+                        "types": [5, 5, 10, 10, 10, 10, 12], /* UInt8, UInt8, Double, Double, Double, Double, String */
+                        "rows": [ {"elements":[{"int_value": 0,"int_value": 1,"double_value":40,"double_value":10,"double_value":2,"double_value":3,"string_value":"direct"}]},   /* PID Channel 0 */
+                                  {"elements":[{"int_value": 2,"int_value": 3,"double_value":50,"double_value":10,"double_value":2,"double_value":3,"string_value":"inverse"}]},  /* PID Channel 1 */
+                                  {"elements":[{"int_value": 4,"int_value": 5,"double_value":60,"double_value":10,"double_value":2,"double_value":3,"string_value":"direct"}]},   /* PID Channel 2 */
+                                  {"elements":[{"int_value": 6,"int_value": 7,"double_value":70,"double_value":10,"double_value":2,"double_value":3,"string_value":"inverse"}]},  /* PID Channel 3 */ ] },
+
+      "metadata":{"description":"[RWP] PID controller for "} },
+
 
     { "name": "io/0/mode",                "dataType": 12/* String */,  "string_value": "high-impedance",   "metadata":{"description":"[RW]IO pin mode, list of values = ['high-impedance', 'voltage-output',
                                                                                                                                                                      'current-output', 'voltage-input',
