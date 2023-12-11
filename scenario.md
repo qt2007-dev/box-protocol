@@ -205,16 +205,16 @@
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
                                       { "keys":["object", "name", "value"],
-                                        "values":[ {"type": 12, "string_value": "event"}, {"type": 12, "string_value": "eventName1"}, {"type": 5, "int_value": 200000}  ] },
+                                        "values":[ {"type": 12, "string_value": "event"}, {"type": 12, "string_value": "eventName1"}, {"type": 7, "int_value": 200000}  ] },
 
                                       { "keys":["object", "name", "value"],
-                                        "values":[ {"type": 12, "string_value": "scenario"}, {"type": 12, "string_value": "scenarioName1"}, {"type": 5, "int_value": 3}  ] },
+                                        "values":[ {"type": 12, "string_value": "scenario"}, {"type": 12, "string_value": "scenarioName1"}, {"type": 7, "int_value": 3}  ] },
                                         
                                       { "keys":["object", "name", "value"],
                                         "values":[ {"type": 12, "string_value": "time"}, {"type": 12, "string_value": "delay"}, {"type": 7, "int_value": 2000}  ] },                                        
                                         
                                        { "keys":["object", "name", "value"],
-                                        "values":[ {"type": 12, "string_value": "scenario"}, {"type": 12, "string_value": "scenarioName2"}, {"type": 5, "int_value": 0}  ] },                                       
+                                        "values":[ {"type": 12, "string_value": "scenario"}, {"type": 12, "string_value": "scenarioName2"}, {"type": 7, "int_value": 0}  ] },                                       
                                         
                                     ] }  /* Actions array END */     
                                 }
