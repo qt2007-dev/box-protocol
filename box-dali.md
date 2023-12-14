@@ -45,7 +45,7 @@
                         "rows": [ {"elements":[{"string_value": "group","int_value": 10,"string_value": "dim","int_value": 240}]} ] }, 
       "metadata":{"description":"[W]Dali send command to bus, 
                                  'addr-type' list of values = ['broadcast', 'group', 'gear'],
-                                 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down']"} },                    
+                                 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down', 'on-and-step-up', 'step-down-and-off']"} },                    
 
     /* Group control metrics */
     /* dali/{bus}/group/{group}    */ 
