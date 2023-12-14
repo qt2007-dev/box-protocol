@@ -1,4 +1,4 @@
-# Metrics for setup events
+# Events metrics
 
 
 ```json
