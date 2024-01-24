@@ -23,6 +23,8 @@
 
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
+    { "name": "settings/transformer",           "dataType": 7/* Int32 */,    "int_value": 2000,                  "metadata":{"description":"[RWP]Current transformer ratio"} },
+
     { "name": "phase/a/voltage",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A rms voltage, value in mV"} },
     { "name": "phase/a/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A rms current, value in mA"} },
     { "name": "phase/a/power/active",           "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A active power, value in mW"} },

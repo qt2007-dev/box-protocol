@@ -92,6 +92,7 @@ Mqtt message payload in [***protobuf***](standart.proto)
     - string_value
     - bytes_value
     - dataset_value
+    - template_value
 
 ## Node types
 - [Node](box-node.md)
