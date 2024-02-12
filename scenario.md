@@ -1,19 +1,19 @@
 # Scenario metrics
 
 ## **scenario/list**
-Отображает лист(id и имен) заданных сценариев ноды
+Отображает лист заданных сценариев ноды
 
 ```json
 {  
 "metrics": [
-  { "name": "scenario/list",
-    "dataType": 16, /* DataSet */
-    "dataset_value":{ "num_of_columns": 3,
-                      "columns": ["name", "enabled"],
-                      "types": [12, 11], /* String*/
-                      "rows": [ {"elements":[{"string_value":"scenarioName1"},{"boolean_value": true}] },
-                                {"elements":[{"string_value":"scenarioName2"},{"boolean_value": false}] }  ] }
-                                /* value = list of scenarioId and names*/} ]
+    { "name": "scenario/list",              
+      "dataType": 16/* DataSet */, 
+      "dataset_value":{ "num_of_columns": 3,
+                        "columns": ["name", "version", "enabled"],
+                        "types": [12, 7, 11], /* String, Uint32, Boolean */
+                        "rows": [ {"elements":[{"string_value":"scenarioName1"},{"type": 7, "int_value": 1},{"boolean_value": true} ]},
+                                  {"elements":[{"string_value":"scenarioName2"},{"type": 7, "int_value": 1},{"boolean_value": false} ]}  ] },                                  
+      "metadata":{"description":"[R]List of scenario names exist in node"} } ]
 }
 ```      
                             
@@ -23,26 +23,27 @@
 
 - ***object*** - объект управления
   - **scenario** - запускает сценарий с именем **{name}** с количеством повторений **{value}**
-  - **event** - ждет срабатывание события с именем **{name}** указаное время в **{value}** в миллисекундах
-  - **time** - объект с именем "delay" ждет время указаное в **{value}** в миллисекундах
-  - **{groupName}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, во всех устройствах состоящих в группе **{groupName}**
-  - **{deviceID}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, устройства с ID **{deviceID}**
-  - **{nodeID}** - изменяет метрику с именем **{name}** на значение указаное в **{value}**, устройства с ID **{nodeID}**
+  - **event** - ждет срабатывание события с именем **{name}** указанное время в **{value}** в миллисекундах
+  - **time** - объект с именем "delay" ждет время указанное в **{value}** в миллисекундах
+  - **{groupName}** - изменяет метрику с именем **{name}** на значение указанное в **{value}**, во всех устройствах состоящих в группе **{groupName}**
+  - **{deviceID}** - изменяет метрику с именем **{name}** на значение указанное в **{value}**, устройства с ID **{deviceID}**
+  - **{nodeID}** - изменяет метрику с именем **{name}** на значение указанное в **{value}**, устройства с ID **{nodeID}**
 
 - ***name*** - при управлении метрикой может быть двух типов
   - **String** - имя метрики
   - **Uint32** - alias метрики
 
 ### Примеры
-1. Сценарий упрвления 16 выходами модуля цифровых выходов DO
+1. Сценарий управления 16 выходами модуля цифровых выходов DO
 ```json
 {   
 "metrics": [
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "name1", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "enabled", "actions"],
-                    "values": [ {"type":12, "string_value":"100ms"},
+    "properties":{  "keys": ["version", "precision", "enabled", "actions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value":"100ms"},                                
                                 {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
@@ -108,15 +109,16 @@
 }
 ```    
 
-2. Cценарий димирования на яркость 254 с фейдом 5 dali светильника на шине 0 с адрессом 0
+2. Сценарий димирования на яркость 254 с фейдом 5 dali светильника на шине 0 с адресом 0
 ```json
 {
 "metrics": [
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliLampON", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "enabled", "actions"],
-                    "values": [ {"type":12, "string_value":"100ms"},
+    "properties":{  "keys": ["version", "precision", "enabled", "actions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value":"100ms"},
                                 {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
@@ -131,15 +133,16 @@
         ]                            
 }
 ```   
-3. Cценарий димирования на яркость 0 с фейдом 5 dali светильника на шине 0 с адрессом 0
+3. Сценарий димирования на яркость 0 с фейдом 5 dali светильника на шине 0 с адресом 0
 ```json
 {
 "metrics": [
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliLampOFF", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "enabled", "actions"],
-                    "values": [ {"type":12, "string_value":"100ms"},
+    "properties":{  "keys": ["version", "precision", "enabled", "actions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value":"100ms"},
                                 {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */ 
@@ -155,15 +158,16 @@
 }
 ```   
 
-4. Cценариq димирования на якрость 254 с фейдом 2 группы dali 2
+4. Сценария димирования на яркость 254 с фейдом 2 группы dali 2
 ```json
 {
 "metrics": [
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliGroup-2-ON-with-fade", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "enabled", "actions"],
-                    "values": [ {"type":12, "string_value":"100ms"},
+    "properties":{  "keys": ["version", "precision", "enabled", "actions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value":"100ms"},
                                 {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
@@ -200,8 +204,9 @@
   { "name": "scenario/add",
     "dataType": 12, /* String */ 
     "string_value": "daliLampON", /* scenarioName */ 
-    "properties":{  "keys": ["precision", "enabled", "actions"],
-                    "values": [ {"type":12, "string_value":"100ms"},
+    "properties":{  "keys": ["version", "precision", "enabled", "actions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value":"100ms"},
                                 {"type":11, "boolean_value": true},
                                 {"type":21, "propertysets_value": 
                                     { "propertyset":[   /* Actions array START */
@@ -226,7 +231,7 @@
 
 ## **scenario/execute**
 Запускает сценарий с id равным value (значению метрики).
-После завершения метрика обнуляется, запись нулевого сценария в эту метрику останавливает запущеный сценарий
+После завершения метрика обнуляется, запись нулевого сценария в эту метрику останавливает запущенный сценарий
 ### Пример
 ```json
 {
@@ -237,7 +242,7 @@
 ```
 
 ## **scenario/enable**
-Включает сценарий, включеный сценарии выполняют действия при запуске.
+Включает сценарий, включенный сценарии выполняют действия при запуске.
 ### Пример
 ```json
 {

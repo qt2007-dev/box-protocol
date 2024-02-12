@@ -1,5 +1,27 @@
 # Events metrics
 
+## **event/list**
+Отображает лист заданных событий ноды
+
+```json
+{  
+"metrics": [
+    { "name": "event/list",              
+      "dataType": 16/* DataSet */, 
+      "dataset_value":{ "num_of_columns": 3,
+                        "columns": ["name", "version", "enabled"],
+                        "types": [12, 7, 11], /* String, Uint32, Boolean */
+                        "rows": [ {"elements":[{"string_value":"eventName1"},{"type": 7, "int_value": 1},{"boolean_value": true} ]},
+                                  {"elements":[{"string_value":"eventName2"},{"type": 7, "int_value": 1},{"boolean_value": false} ]}  ] }, 
+      "metadata":{"description":"[R]List of events names exist in node"} } ]  
+}
+```      
+          
+
+## **event/add**
+Добавляет события описанное в поле "properties" метрики, с id равным value (значению метрики).
+При успешном добавлении сценария обновляется метрика "event/list"
+
 
 ```json
 {
@@ -7,8 +29,9 @@
   { "name": "event/add",
     "dataType": 12, /* String */
     "string_value": "eventName1",
-    "properties":{  "keys": ["scenario", "enabled", "deadtime", "triggers", "logic", "conditions"],
-                    "values": [ {"type":12, "string_value": "ScenarioName1"},
+    "properties":{  "keys": ["version", "scenario", "enabled", "deadtime", "triggers", "logic", "conditions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value": "ScenarioName1"},
                                 {"type":11, "boolean_value": true},
                                 {"type":7,  "int_value": 200}, /* time between start scenario in ms, round to 100ms */
                                 {"type":21, "propertysets_value":
@@ -50,8 +73,9 @@
   { "name": "event/add",
     "dataType": 12, /* String */
     "string_value": "eventButtonLightON",
-    "properties":{  "keys": ["scenario", "enabled", "deadtime", "triggers", "logic", "conditions"],
-                    "values": [ {"type":12, "string_value": "scenarioDaliON"},
+    "properties":{  "keys": ["version", "scenario", "enabled", "deadtime", "triggers", "logic", "conditions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value": "scenarioDaliON"},
                                 {"type":11, "boolean_value": true},
                                 {"type":7,  "int_value": 200}, 
                                 {"type":21, "propertysets_value":
@@ -87,8 +111,9 @@
   { "name": "event/add",
     "dataType": 12, /* String */
     "string_value": "eventButtonLightOFF",
-    "properties":{  "keys": ["scenario", "enabled", "deadtime", "triggers", "logic", "conditions"],
-                    "values": [ {"type":12, "string_value": "scenarioDaliOFF"},
+    "properties":{  "keys": ["version", "scenario", "enabled", "deadtime", "triggers", "logic", "conditions"],
+                    "values": [ {"type": 7, "int_value": 1},
+                                {"type":12, "string_value": "scenarioDaliOFF"},
                                 {"type":11, "boolean_value": true},
                                 {"type":7,  "int_value": 200}, 
                                 {"type":12, "string_value": "and"}, 

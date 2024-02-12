@@ -1,11 +1,30 @@
 # Schedule metrics
 
+## **schedule/info**
+Отображает информацию о заданном расписании
+Содержит описания расписания, версию и количество точек в расписании
+
+```json
+    { "name": "schedule/info",              
+      "dataType": 16/* DataSet */, 
+      "dataset_value":{ "num_of_columns": 3,
+                        "columns": ["description", "version", "points"],
+                        "types": [12, 7, 7], /* String, Uint32, Uint32 */
+                        "rows": [ {"elements":[{"string_value":"scheduleDescription1"},{"type": 7, "int_value": 1},{"int_value": 18} ]} ] },                                  
+      "metadata":{"description":"[R]Schedule info metric"} },   
+```
+
+
+
+## **schedule**
+
 ```json
 { "name": "schedule",
   "dataType": 12, /* String */
   "string_value": "set", 
-  "properties":{  "keys": ["description", "points"],
-                  "values": [ {"type":12, "string_value": "Schedule description"},
+  "properties":{  "keys": ["description", "version", "points"],
+                  "values": [ {"type":12, "string_value": "ScheduleDescription1"},
+                              {"type": 7, "int_value": 1},
                               {"type":21, "propertysets_value": { "propertyset": [ { "keys": ["start", "name", "repeat", "delay"] } ] } } ] },
   "metadata":{"description":"[RWP]Schedule control metric, list of values = ['on', 'off', 'set', 'get'], schedule set and get in properties"} 
 }
@@ -35,8 +54,9 @@ Cвойство ***"start"*** может быть разных типов:
   { "name": "schedule",
     "dataType": 12, /* String */
     "string_value": "set", /* value = on/off/set/get */
-    "properties":{  "keys": ["description", "points"],
+    "properties":{  "keys": ["description", "version", "points"],
                     "values": [ {"type":12, "string_value": "Super schedule for work"},
+                                {"type": 7, "int_value": 1},
                                 {"type":21, "propertysets_value":
                                     { "propertyset": [  /* Points array for start scenario */
                                         { "keys": ["start", "name", "repeat", "delay"],
@@ -74,8 +94,9 @@ Cвойство ***"start"*** может быть разных типов:
   { "name": "schedule",
     "dataType": 12, /* String */
     "string_value": "set", /* value = on/off/set/get */
-    "properties":{  "keys": ["description", "points"],
+    "properties":{  "keys": ["description", "version", "points"],
                     "values": [ {"type":12, "string_value": "DaliLampDimSchedule"},
+                                {"type": 7, "int_value": 1},
                                 {"type":21, "propertysets_value":
                                     { "propertyset": [  /* Points array for start scenario */
                                         { "keys": ["start", "name", "repeat", "delay"],
