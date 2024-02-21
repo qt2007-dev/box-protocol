@@ -30,8 +30,8 @@
     { "name": "RS485/0/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS485 timeout, wait time after last byte received before send to metric, value in ms"} },                         
     { "name": "RS485/0/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} }, 
     { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]RS485 mode, list of values = ['raw', 'modbus']"} }, 
-    { "name": "RS485/0/in",                     "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
-    { "name": "RS485/0/out",                    "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },        
+    { "name": "RS485/0/in",                     "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
+    { "name": "RS485/0/out",                    "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },        
     
     { "name": "RS485/1/settings/baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]RS485 baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
     { "name": "RS485/1/settings/databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]RS485 databits, specified values = [7,8,9]"} },
@@ -40,25 +40,25 @@
     { "name": "RS485/1/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS485 timeout, wait time after last byte received before send to metric, value in ms"} },                         
     { "name": "RS485/1/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]RS485 bus terminator control, 'true' - enable terminator"} },
     { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]RS485 mode, list of values = ['raw', 'modbus']"} },                 
-    { "name": "RS485/1/in",                     "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
-    { "name": "RS485/1/out",                    "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },  
+    { "name": "RS485/1/in",                     "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS485, in base64 format"} },       
+    { "name": "RS485/1/out",                    "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS485, in base64 format"} },  
 
     { "name": "RS232/settings/baudrate",        "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]RS232 baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
     { "name": "RS232/settings/databits",        "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]RS232 databits, specified values = [7,8,9]"} },
     { "name": "RS232/settings/stopbits",        "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]RS232 stopbits, specified values = [1,1.5,2]"} },                         
     { "name": "RS232/settings/parity",          "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]RS232 parity, list of values = ['none','even','odd']"} },                
     { "name": "RS232/settings/timeout",         "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]RS232 timeout, wait time after last byte received before send to metric, value in ms"} },                        
-    { "name": "RS232/in",                       "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS232, in base64 format"} },
-    { "name": "RS232/out",                      "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS232, in base64 format"} },  
+    { "name": "RS232/in",                       "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[R]Received message from RS232, in base64 format"} },
+    { "name": "RS232/out",                      "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to RS232, in base64 format"} },  
 
     { "name": "CAN/settings/baudrate",          "dataType": 7/* UInt32*/,    "int_value": 500,                   "metadata":{"description":"[RWP]CAN baudrate, specified values = [50, 100, 125, 250, 500, 1000] kbps"} },
     { "name": "CAN/settings/terminator",        "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]CAN bus terminator control, 'true' - enable terminator"} },    
     { "name": "CAN/in/indentifier",             "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[R]Received identifier, sets priority of the data frame"} },  
     { "name": "CAN/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frane type"} },                     
-    { "name": "CAN/in",                         "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[R]Received data from CAN, in base64 format"} },
+    { "name": "CAN/in",                         "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[R]Received data from CAN, in base64 format"} },
     { "name": "CAN/out/indentifier",            "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RW]Send identifier, sets priority of the data frame"} },  
     { "name": "CAN/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Send remote transmission request, define the frane type"} },                 
-    { "name": "CAN/out",                        "dataType": 17/* Bytes" */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to CAN, in base64 format"} },   
+    { "name": "CAN/out",                        "dataType": 17/* Bytes */,  "bytes_value": "",                  "metadata":{"description":"[W]Send message to CAN, in base64 format"} },   
   ]
 }
 
