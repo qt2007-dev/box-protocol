@@ -105,7 +105,7 @@ Mqtt message payload in [***protobuf***](standart.proto)
 - [Interfaces](box-if.md)
 - [2 channel Dali](box-dali.md)
 - [3-phase Energymeter](box-em.md)
-- [2 channel Step motor driver](box-em.md)
+- [2 channel Step motor driver](box-step.md)
 - [2 channel Thermocontroller](box-tc.md)
 - [2 channel Wiegand](box-wiegand.md)
 
