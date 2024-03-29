@@ -54,10 +54,10 @@
     { "name": "CAN/settings/baudrate",          "dataType": 7/* UInt32*/,    "int_value": 500,                   "metadata":{"description":"[RWP]CAN baudrate, specified values = [50, 100, 125, 250, 500, 1000] kbps"} },
     { "name": "CAN/settings/terminator",        "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]CAN bus terminator control, 'true' - enable terminator"} },    
     { "name": "CAN/in/indentifier",             "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[R]Received identifier, sets priority of the data frame"} },  
-    { "name": "CAN/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frane type"} },                     
+    { "name": "CAN/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frame type"} },                     
     { "name": "CAN/in",                         "dataType": 17/* Bytes */,  "bytes_value": "",                   "metadata":{"description":"[R]Received data from CAN, in base64 format"} },
     { "name": "CAN/out/indentifier",            "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RW]Send identifier, sets priority of the data frame"} },  
-    { "name": "CAN/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Send remote transmission request, define the frane type"} },                 
+    { "name": "CAN/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Send remote transmission request, define the frame type"} },                 
     { "name": "CAN/out",                        "dataType": 17/* Bytes */,  "bytes_value": "",                   "metadata":{"description":"[W]Send message to CAN, in base64 format"} }
   ]
 }

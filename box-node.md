@@ -20,7 +20,7 @@
     { "name": "info/type",                           "dataType": 12/* String */,  "string_value": "BOX",                "metadata":{"description":"[R]Type, hardcoded by vendor"} },
     { "name": "info/id",                             "dataType": 12/* String */,  "string_value": "abba2020",           "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
     { "name": "info/error",                          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Last error message"} },
-    { "name": "info/daytime",                        "dataType": 12/* String */,  "string_value": "day",                "metadata":{"description":"[R]Current daytime, values = ['day','night','sunset','sunrise']"} },
+    { "name": "info/daytime",                        "dataType": 12/* String */,  "string_value": "day",                "metadata":{"description":"[R]Current daytime, values = ['day','night']"} },
 
     { "name": "sensors/temperature",                 "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
     { "name": "sensors/system/voltage",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System voltage, value in mV"} },
@@ -34,15 +34,9 @@
     { "name": "timezone",                            "dataType": 12/* String */,  "string_value": "UTC+0",              "metadata":{"description":"[RWP]Current timezone"} },         
 
     { "name": "datetime/auto",                       "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Enable/disable auto date and time update from NTP"} },         
-    { "name": "datetime",              
-      "dataType": 16/* DataSet */, 
-      "dataset_value":{ "num_of_columns": 2,
-                        "columns": ["date", "time"],
-                        "types": [12, 12], /* String, String */
-                        "rows": [ {"elements":[{"string_value":"18.10.2023"},{"string_value":"14:50:00"}]} ] },                                  
-      "metadata":{"description":"[RW]Current date and time"} },     
+    { "name": "datetime",                            "dataType": 12/* String */,  "string_value": "2023-10-18T14:50:00","metadata":{"description":"[RW]Current date and time in ISO 8601 format"} },  
     
-    { "name": "coordinates/auto",                    "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Enable/disable read coordinates from GNSS, WAN, if enabled - coordinates metrics are readonly"} },     
+    { "name": "coordinates/auto",                    "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Enable/disable read coordinates from GNSS, WAN"} },     
     { "name": "coordinates",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 2,
