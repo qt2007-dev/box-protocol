@@ -112,7 +112,7 @@
     { "name": "dali/0/device/0/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/device/0/identify",                     "dataType": 11/* Boolean */, "boolean_value": false,                    "metadata":{"description":"[W]Start device 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
     { "name": "dali/0/device/0/instance/0/type",              "dataType": 12/* String */,  "string_value": "PUSH-BUTTON",             "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
-                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+                                                                                                                                                                values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/0/instance/0/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
     { "name": "dali/0/device/0/instance/0/value",             "dataType": 12/* String */,  "string_value": "released",                "metadata":{"description":"[R]Last button event, values = ['released', 'pressed', 'short-press','double-press',
                                                                                                                                                                 'long-press-start','long-press-repeat','long-press-stop','stuck','free'],
@@ -133,7 +133,7 @@
     { "name": "dali/0/device/0/instance/0/timer/stuck",       "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Time when button is pressed or bouncing, 
                                                                                                                                                                 dali cmd 'SET STUCK TIMER', 'QUERY STUCK TIMER'"} },
     { "name": "dali/0/device/0/instance/1/type",              "dataType": 12/* String */,  "string_value": "ABSOLUTE-INPUT-DEVICE",   "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
-                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+                                                                                                                                                                values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/0/instance/1/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
     { "name": "dali/0/device/0/instance/1/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Dali input device position, dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/0/instance/1/filter",
@@ -152,7 +152,7 @@
 
     { "name": "dali/0/device/1/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/device/1/instance/0/type",              "dataType": 12/* String */,  "string_value": "OCCUPANCY-SENSOR",        "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
-                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+                                                                                                                                                                values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/1/instance/0/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
     { "name": "dali/0/device/1/instance/0/value",             "dataType": 12/* String */,  "string_value": "vacant",                  "metadata":{"description":"[R]Last occupancy event, values = ['vacant', 'occupied'], dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/1/instance/0/filter",
@@ -169,7 +169,7 @@
     { "name": "dali/0/device/1/instance/0/timer/hold",        "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Timeout value, which shall be (re)started each time movement is detected, 
                                                                                                                                                                 dali cmd 'SET HOLD TIMER', 'QUERY HOLD TIMER'"} },
     { "name": "dali/0/device/1/instance/1/type",              "dataType": 12/* String */,  "string_value": "LIGHT-SENSOR",            "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
-                                                                                                                                                                values = ['PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+                                                                                                                                                                values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/1/instance/1/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
     { "name": "dali/0/device/1/instance/1/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Dali light sensor illuminance value, dali cmd 'QUERY INPUT VALUE'"} },
     { "name": "dali/0/device/1/instance/1/filter",
@@ -187,6 +187,14 @@
                                                                                                                                                                 dali cmd 'SET HYSTERESIS', 'QUERY HYSTERESIS'"} },
     { "name": "dali/0/device/1/instance/1/hysteresisMin",     "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]Absolute value when illuminance was updated, 
                                                                                                                                                                 dali cmd 'SET HYSTERESIS MIN', 'QUERY HYSTERESIS MIN'"} },
+
+
+    { "name": "dali/0/device/1/instance/2/type",              "dataType": 12/* String */,  "string_value": "GENERIC",                 "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE',
+                                                                                                                                                                values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
+    { "name": "dali/0/device/1/instance/2/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
+    { "name": "dali/0/device/1/instance/2/value",             "dataType": 6/* UInt16 */,   "int_value": 0,                            "metadata":{"description":"[R]Instance generic value, dali cmd 'QUERY INPUT VALUE'"} },
+
+
   ]
          
 }
