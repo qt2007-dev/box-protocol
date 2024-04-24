@@ -35,6 +35,29 @@
 
       "metadata":{"description":"[RWP] PID controller for "} },
 
+    { "name": "diagnostic/0/agnd",        "dataType": 10/* Double */, "double_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/temperature", "dataType": 10/* Double */, "double_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 0, value in Celsius"} },      
+    { "name": "diagnostic/0/avdd",        "dataType": 10/* Double */, "double_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/avss",        "dataType": 10/* Double */, "double_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/refout",      "dataType": 10/* Double */, "double_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/aldo5v",      "dataType": 10/* Double */, "double_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/aldo1v8",     "dataType": 10/* Double */, "double_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/dldo1v8",     "dataType": 10/* Double */, "double_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/dvcc",        "dataType": 10/* Double */, "double_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/iovdd",       "dataType": 10/* Double */, "double_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/lvin",        "dataType": 10/* Double */, "double_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 0, value in mV"} },      
+
+    { "name": "diagnostic/1/agnd",        "dataType": 10/* Double */, "double_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/temperature", "dataType": 10/* Double */, "double_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 1, value in Celsius"} },      
+    { "name": "diagnostic/1/avdd",        "dataType": 10/* Double */, "double_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/avss",        "dataType": 10/* Double */, "double_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/refout",      "dataType": 10/* Double */, "double_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/aldo5v",      "dataType": 10/* Double */, "double_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/aldo1v8",     "dataType": 10/* Double */, "double_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/dldo1v8",     "dataType": 10/* Double */, "double_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/dvcc",        "dataType": 10/* Double */, "double_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/iovdd",       "dataType": 10/* Double */, "double_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/lvin",        "dataType": 10/* Double */, "double_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },      
 
     { "name": "ref/io/high-impedance",
       "dataType": 19, /* Template */
@@ -50,8 +73,8 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 7/* UInt32 */,    "metadata":{"description":"[RW]IO pin state, range of values - [0 - 10000] mV"} },
-                          { "name": "current",   "dataType": 3/* Int32 */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25000 - 25000] uA"} },
+                          { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[RW]IO pin state, range of values - [0 - 10000.0] mV"} },
+                          { "name": "current",   "dataType": 10/* Double */,   "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"} },
                           { "name": "limit",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"} },
                           { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off','38.6us','40.1us','73.6us','75.8us','113us',
                                                                                                                                                   '259us','280us','459us','520us','858us','1ms',
@@ -65,8 +88,8 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 7/* UInt32 */,    "metadata":{"description":"[RW]IO pin state, range of values - [0 - 25000] uA"} },
-                          { "name": "voltage",   "dataType": 3/* Int32 */,     "metadata":{"description":"[R]Current output voltage, values = [0 - 10000] mV"} },
+                          { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[RW]IO pin state, range of values - [0 - 25.0] mA"} },
+                          { "name": "voltage",   "dataType": 10/* Double */,   "metadata":{"description":"[R]Current output voltage, values = [0 - 10000.0] mV"} },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit']"} }        
                         ] }, 
@@ -77,8 +100,8 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 3/* Int32 */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 10000] mV, [0 - 2500] mV, [-2500 - 2500] mV, [-104000 - 104000] uV"} },
-                          { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['auto','0V to 10V','0V to 2.5V','-2.5V to 2.5V','-104mV to 104mV']"} },          
+                          { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[R]IO pin state, range of values - [-2500.0 - 10000.0] mV"} },
+                          { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V','-2.5V to 2.5V','-104mV to 104mV']"} },          
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Voltage input 200kOhm pulldown resistor"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage']"} },        
                         ] }, 
@@ -89,7 +112,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 7/* UInt32 */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 25000] uA"} },
+                          { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} },
                         ] }, 
@@ -100,19 +123,28 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 7/* UInt32 */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 25000] uA"} },
-                          { "name": "current",   "dataType": 3/* Int32 */,     "metadata":{"description":"[RWP]Current limit from io, values = [0 - 25000] uA"} },
-                          { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
+                          { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
+                          { "name": "current",   "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Current limit from io, values = [0 - 25.0] mA"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} },
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered"} },         
+
+      { "name": "ref/io/current-input-loop-hart",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} },
+                        ] }, 
+      "metadata":{"description":"Template definition of current input mode, loop powered with HART compatibility"} },   
 
      { "name": "ref/io/resistance-input",
        "dataType": 19, /* Template */
        "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 7/* UInt32 */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 1000000] Ohm"} }
+                          { "name": "value",     "dataType": 10/* Double */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 1000000.0] Ohm"} }
                         ] }, 
       "metadata":{"description":"Template definition of resistance measure mode"} },     
 
@@ -122,12 +154,8 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[R]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} },
-                          { "name": "threshold", "dataType": 12/* String */,   "metadata":{"description":"[RWP]Digital input high threshold voltage, list of value = ['0.4','1.2','2','2.8',...,'25.2'] V"} },
-                          { "name": "debounce",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]Digital input debounce time, list of value = ['bypass','0.013','0.018','0.024','0.032','0.042','0.056','0.075',
-                                                                                                                                                            '0.1','0.13','0.18','0.24','0.32','0.42','0.56','0.75',
-                                                                                                                                                            '1','1.3','1.8','2.4','3.2','4.2','5.6','7.5',
-                                                                                                                                                            '10','13','18','24','32','42','56','75'] ms"} },
-                          { "name": "sink",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Digital input sink current, values = ['2.4mA','7mA']"} }
+                          { "name": "threshold", "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0 - 16000] mV"} },
+                          { "name": "debounce",  "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Digital input debounce time, values = [0 - 75.0] ms"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital input mode"} },     
 
@@ -137,7 +165,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[RW]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} },                          ,
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital output mode"} },  
 
@@ -149,10 +177,10 @@
                           { "name": "value",    "dataType": 10/* Double */,    "metadata":{"description":"[R]IO pin state, range of values - [-200.0 - 2000.0] Celsius"} },
                           { "name": "type",     "dataType": 12/* String */,    "metadata":{"description":"[RWP]Temperature RTD type, values = ['PT100','PT1000',
                                                                                                                                                'TC-TYPE-B','TC-TYPE-E','TC-TYPE-J','TC-TYPE-K',
-                                                                                                                                               'TC-TYPE-N','TC-TYPE-R','TC-TYPE-S','TC-TYPE-T']"} }
+                                                                                                                                               'TC-TYPE-N','TC-TYPE-R','TC-TYPE-S','TC-TYPE-T']"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range']"} },
                         ] }, 
       "metadata":{"description":"Template definition of temperature probe input mode"} },     
-
    
     { "name": "io/0",
       "dataType": 19, /* Template */
@@ -169,8 +197,8 @@
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-output",
                          "metrics":[
-                          { "name": "value",     "int_value": 1332 },
-                          { "name": "current",   "int_value": 3000 },
+                          { "name": "value",     "double_value": 1332 },
+                          { "name": "current",   "double_value": 12.5 },
                           { "name": "limit",     "string_value": "30mA" },
                           { "name": "slew",      "string_value": "4ms" },
                           { "name": "error",     "string_value": "none" }        
@@ -182,9 +210,9 @@
                          "is_definition": false,
                          "template_ref": "ref/io/current-output",
                          "metrics":[
-                          { "name": "value",     "int_value": 1332 },
-                          { "name": "voltage",   "int_value": 3000 },
-                          { "name": "hart",  "boolean_value": false },
+                          { "name": "value",     "double_value": 13.32 },
+                          { "name": "voltage",   "double_value": 5000 },
+                          { "name": "hart",      "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
                         ] } },
 
@@ -194,7 +222,7 @@
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-input",
                          "metrics":[
-                          { "name": "value",     "int_value": 1332 },
+                          { "name": "value",     "double_value": 1332 },
                           { "name": "range",     "string_value": "auto" },          
                           { "name": "pulldown",  "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
@@ -206,7 +234,7 @@
                          "is_definition": false,
                          "template_ref": "ref/io/current-input",
                          "metrics":[
-                          { "name": "value",     "int_value": 1332 },
+                          { "name": "value",     "double_value": 13.32 },
                           { "name": "hart",      "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
                         ] } },
@@ -217,7 +245,7 @@
                          "is_definition": false,
                          "template_ref": "ref/io/resistance-input",
                          "metrics":[
-                          { "name": "value",     "int_value": 120000 }
+                          { "name": "value",     "double_value": 120.000 }
                         ] } },
 
     { "name": "io/6",
@@ -227,9 +255,8 @@
                          "template_ref": "ref/io/digital-input",
                          "metrics":[
                           { "name": "value",     "boolean_value": false },
-                          { "name": "threshold", "string_value": "8.4" },
-                          { "name": "debounce",  "string_value": "10" },
-                          { "name": "sink",      "string_value": "2.4mA" }
+                          { "name": "threshold", "double_value": 8.4 },
+                          { "name": "debounce",  "double_value": 10 }
                         ] } },
 
     { "name": "io/7",
