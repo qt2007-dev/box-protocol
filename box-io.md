@@ -124,7 +124,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 10/* Double */,   "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
-                          { "name": "current",   "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Current limit from io, values = [0 - 25.0] mA"} },
+                          { "name": "limit",     "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Current limit from io, values = [0 - 25.0] mA"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} },
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered"} },         
