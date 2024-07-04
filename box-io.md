@@ -189,7 +189,8 @@
                          "template_ref": "ref/io/high-impedance",
                          "metrics":[
                           { "name": "pulldown",  "boolean_value": true }
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 0, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/1",
       "dataType": 19, /* Template */
@@ -202,7 +203,8 @@
                           { "name": "limit",     "string_value": "30mA" },
                           { "name": "slew",      "string_value": "4ms" },
                           { "name": "error",     "string_value": "none" }        
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 1, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/2",
       "dataType": 19, /* Template */
@@ -214,7 +216,8 @@
                           { "name": "voltage",   "double_value": 5000 },
                           { "name": "hart",      "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 2, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/3",
       "dataType": 19, /* Template */
@@ -226,7 +229,8 @@
                           { "name": "range",     "string_value": "auto" },          
                           { "name": "pulldown",  "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 3, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/4",
       "dataType": 19, /* Template */
@@ -237,7 +241,8 @@
                           { "name": "value",     "double_value": 13.32 },
                           { "name": "hart",      "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 4, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/5",
       "dataType": 19, /* Template */
@@ -246,7 +251,8 @@
                          "template_ref": "ref/io/resistance-input",
                          "metrics":[
                           { "name": "value",     "double_value": 120.000 }
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 5, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/6",
       "dataType": 19, /* Template */
@@ -257,7 +263,8 @@
                           { "name": "value",     "boolean_value": false },
                           { "name": "threshold", "double_value": 8.4 },
                           { "name": "debounce",  "double_value": 10 }
-                        ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 6, 'template_ref' values = 'ref/io/..'"} },
 
     { "name": "io/7",
       "dataType": 19, /* Template */
@@ -267,7 +274,8 @@
                          "metrics":[
                           { "name": "value",     "boolean_value": false},
                           { "name": "error",     "string_value": "none" }
-                        ] } }                
+                        ] }, 
+      "metadata":{"description":"[RWP]Multifunctional IO pin 7, 'template_ref' values = 'ref/io/..'"} }                
 
   ]
 }
