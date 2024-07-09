@@ -23,18 +23,6 @@
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
-    { "name": "pid",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 2, 
-                        "columns": ["in-channel", "out-channel", "target", "Kp", "Ki", "Kd", "direction"],
-                        "types": [5, 5, 9, 9, 9, 9, 12], /* UInt8, UInt8, Float, Float, Float, Float, String */
-                        "rows": [ {"elements":[{"int_value": 0},{"int_value": 1},{"float_value":40},{"float_value":10},{"float_value":2},{"float_value":3},{"string_value":"direct"}]},   /* PID Channel 0 */
-                                  {"elements":[{"int_value": 2},{"int_value": 3},{"float_value":50},{"float_value":10},{"float_value":2},{"float_value":3},{"string_value":"inverse"}]},  /* PID Channel 1 */
-                                  {"elements":[{"int_value": 4},{"int_value": 5},{"float_value":60},{"float_value":10},{"float_value":2},{"float_value":3},{"string_value":"direct"}]},   /* PID Channel 2 */
-                                  {"elements":[{"int_value": 6},{"int_value": 7},{"float_value":70},{"float_value":10},{"float_value":2},{"float_value":3},{"string_value":"inverse"}]},  /* PID Channel 3 */ ] },
-
-      "metadata":{"description":"[RWP] PID controller for "} },
-
     { "name": "diagnostic/0/agnd",        "dataType": 9/* Float */, "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 0, value in mV"} },      
     { "name": "diagnostic/0/temperature", "dataType": 9/* Float */, "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 0, value in Celsius"} },      
     { "name": "diagnostic/0/avdd",        "dataType": 9/* Float */, "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 0, value in mV"} },      
@@ -58,6 +46,22 @@
     { "name": "diagnostic/1/dvcc",        "dataType": 9/* Float */, "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/iovdd",       "dataType": 9/* Float */, "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/lvin",        "dataType": 9/* Float */, "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },      
+
+    { "name": "ref/pid",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "enable",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable PID for specified channels"} },
+                          { "name": "in",          "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Input io channel, values = [0-7]"} },
+                          { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"} },
+                          { "name": "target",      "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel"} },
+                          { "name": "Kp",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Proportional coefficient of PID"} },
+                          { "name": "Ki",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Integral coefficient of PID"} },
+                          { "name": "Kd",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Differential coefficient of PID"} },                          
+                          { "name": "direction",   "dataType": 12/* String */,   "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"} }                
+                        ] }, 
+      "metadata":{"description":"Template definition of PID"} },
 
     { "name": "ref/io/high-impedance",
       "dataType": 19, /* Template */
@@ -182,6 +186,74 @@
                         ] }, 
       "metadata":{"description":"Template definition of temperature probe input mode"} },     
    
+    { "name": "pid/0",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/pid",
+                         "metrics":[
+                          { "name": "enable",     "boolean_value": false },
+                          { "name": "in",         "int_value": 0 },
+                          { "name": "out",        "int_value": 1 },
+                          { "name": "target",     "float_value": 100 },
+                          { "name": "Kp",         "float_value": 1 },
+                          { "name": "Ki",         "float_value": 1 },
+                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "direction",  "float_value": 1 }
+                        ] }, 
+      "metadata":{"description":"[RWP]PID controller channel 0"} },
+
+    { "name": "pid/1",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/pid",
+                         "metrics":[
+                          { "name": "enable",     "boolean_value": false },
+                          { "name": "in",         "int_value": 2 },
+                          { "name": "out",        "int_value": 3 },
+                          { "name": "target",     "float_value": 100 },
+                          { "name": "Kp",         "float_value": 1 },
+                          { "name": "Ki",         "float_value": 1 },
+                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "direction",  "float_value": 1 }
+                        ] }, 
+      "metadata":{"description":"[RWP]PID controller channel 1"} },
+
+    { "name": "pid/2",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/pid",
+                         "metrics":[
+                          { "name": "enable",     "boolean_value": false },
+                          { "name": "in",         "int_value": 4 },
+                          { "name": "out",        "int_value": 5 },
+                          { "name": "target",     "float_value": 100 },
+                          { "name": "Kp",         "float_value": 1 },
+                          { "name": "Ki",         "float_value": 1 },
+                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "direction",  "float_value": 1 }
+                        ] }, 
+      "metadata":{"description":"[RWP]PID controller channel 2"} },
+
+    { "name": "pid/3",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/pid",
+                         "metrics":[
+                          { "name": "enable",     "boolean_value": false },
+                          { "name": "in",         "int_value": 6 },
+                          { "name": "out",        "int_value": 7 },
+                          { "name": "target",     "float_value": 100 },
+                          { "name": "Kp",         "float_value": 1 },
+                          { "name": "Ki",         "float_value": 1 },
+                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "direction",  "float_value": 1 }
+                        ] }, 
+      "metadata":{"description":"[RWP]PID controller channel 3"} },
+
     { "name": "io/0",
       "dataType": 19, /* Template */
       "template_value":{ "version": "1",
