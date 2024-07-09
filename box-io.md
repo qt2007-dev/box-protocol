@@ -201,7 +201,7 @@
                           { "name": "Kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "direct" }
                         ] }, 
-      "metadata":{"description":"[RWP]PID controller channel 0"} },
+      "metadata":{"description":"PID controller channel 0"} },
 
     { "name": "pid/1",
       "dataType": 19, /* Template */
@@ -218,7 +218,7 @@
                           { "name": "Kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "direct" }
                         ] }, 
-      "metadata":{"description":"[RWP]PID controller channel 1"} },
+      "metadata":{"description":"PID controller channel 1"} },
 
     { "name": "pid/2",
       "dataType": 19, /* Template */
@@ -235,7 +235,7 @@
                           { "name": "Kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "reverse" }
                         ] }, 
-      "metadata":{"description":"[RWP]PID controller channel 2"} },
+      "metadata":{"description":"PID controller channel 2"} },
 
     { "name": "pid/3",
       "dataType": 19, /* Template */
@@ -252,7 +252,7 @@
                           { "name": "Kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "reverse" }
                         ] }, 
-      "metadata":{"description":"[RWP]PID controller channel 3"} },
+      "metadata":{"description":"PID controller channel 3"} },
 
     { "name": "io/0",
       "dataType": 19, /* Template */
