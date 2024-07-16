@@ -56,9 +56,9 @@
                           { "name": "in",          "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Input io channel, values = [0-7]"} },
                           { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"} },
                           { "name": "target",      "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel"} },
-                          { "name": "Kp",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Proportional coefficient of PID"} },
-                          { "name": "Ki",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Integral coefficient of PID"} },
-                          { "name": "Kd",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Differential coefficient of PID"} },                          
+                          { "name": "kp",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Proportional coefficient of PID"} },
+                          { "name": "ki",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Integral coefficient of PID"} },
+                          { "name": "kd",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Differential coefficient of PID"} },                          
                           { "name": "direction",   "dataType": 12/* String */,   "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"} }                
                         ] }, 
       "metadata":{"description":"Template definition of PID"} },
@@ -77,10 +77,10 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RW]IO pin state, range of values - [0 - 10000.0] mV"} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values - [0.0 - 10000.0] mV"} },
                           { "name": "current",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"} },
                           { "name": "limit",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"} },
-                          { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off','38.6us','40.1us','73.6us','75.8us','113us','259us','280us','459us','520us','858us','1ms','1.1ms','2ms','4ms','17ms','31.7ms']"} },
+                          { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off', '38.6us', '40.1us', '73.6us', '75.8us', '113us', '259us', '280us', '459us', '520us', '858us', '1ms', '1.1ms', '2ms', '4ms', '17ms', '31.7ms']"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of voltage output mode"} },
@@ -90,7 +90,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RW]IO pin state, range of values - [0 - 25.0] mA"} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values - [0.0 - 25.0] mA"} },
                           { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0 - 10000.0] mV"} },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit']"} }        
@@ -103,7 +103,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [-2500.0 - 10000.0] mV"} },
-                          { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V','-2.5V to 2.5V','-104mV to 104mV']"} },          
+                          { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V', '-2.5V to 2.5V', '-104mV to 104mV']"} },          
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Voltage input 200kOhm pulldown resistor"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage']"} }        
                         ] }, 
@@ -126,7 +126,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
-                          { "name": "limit",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Current limit from io, values = [0 - 25.0] mA"} },
+                          { "name": "limit",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Current limit from io, values = [0.0 - 25.0] mA"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered"} },         
@@ -157,7 +157,7 @@
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[R]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} },
                           { "name": "threshold", "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0 - 16000] mV"} },
-                          { "name": "debounce",  "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input debounce time, values = [0 - 75.0] ms"} }
+                          { "name": "debounce",  "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input debounce time, values = [0.0 - 75.0] ms"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital input mode"} },     
 
@@ -166,7 +166,7 @@
        "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[RW]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} }, 
+                          { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} }, 
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital output mode"} },  
@@ -177,7 +177,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",    "dataType": 9/* Float */,      "metadata":{"description":"[R]IO pin state, range of values - [-200.0 - 2000.0] Celsius"} },
-                          { "name": "type",     "dataType": 12/* String */,    "metadata":{"description":"[RWP]Temperature RTD type, values = ['PT100','PT1000','TC-TYPE-B','TC-TYPE-E','TC-TYPE-J','TC-TYPE-K','TC-TYPE-N','TC-TYPE-R','TC-TYPE-S','TC-TYPE-T']"} },
+                          { "name": "type",     "dataType": 12/* String */,    "metadata":{"description":"[RWP]Temperature RTD type, values = ['PT100', 'PT1000', 'TC-TYPE-B', 'TC-TYPE-E', 'TC-TYPE-J', 'TC-TYPE-K', 'TC-TYPE-N', 'TC-TYPE-R', 'TC-TYPE-S', 'TC-TYPE-T']"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range']"} }
                         ] }, 
       "metadata":{"description":"Template definition of temperature probe input mode"} },     
@@ -192,9 +192,9 @@
                           { "name": "in",         "int_value": 0 },
                           { "name": "out",        "int_value": 1 },
                           { "name": "target",     "float_value": 100 },
-                          { "name": "Kp",         "float_value": 1 },
-                          { "name": "Ki",         "float_value": 1 },
-                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "kp",         "float_value": 1 },
+                          { "name": "ki",         "float_value": 1 },
+                          { "name": "kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "direct" }
                         ] }, 
       "metadata":{"description":"PID controller channel 0"} },
@@ -209,9 +209,9 @@
                           { "name": "in",         "int_value": 2 },
                           { "name": "out",        "int_value": 3 },
                           { "name": "target",     "float_value": 100 },
-                          { "name": "Kp",         "float_value": 1 },
-                          { "name": "Ki",         "float_value": 1 },
-                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "kp",         "float_value": 1 },
+                          { "name": "ki",         "float_value": 1 },
+                          { "name": "kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "direct" }
                         ] }, 
       "metadata":{"description":"PID controller channel 1"} },
@@ -226,9 +226,9 @@
                           { "name": "in",         "int_value": 4 },
                           { "name": "out",        "int_value": 5 },
                           { "name": "target",     "float_value": 100 },
-                          { "name": "Kp",         "float_value": 1 },
-                          { "name": "Ki",         "float_value": 1 },
-                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "kp",         "float_value": 1 },
+                          { "name": "ki",         "float_value": 1 },
+                          { "name": "kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "reverse" }
                         ] }, 
       "metadata":{"description":"PID controller channel 2"} },
@@ -243,9 +243,9 @@
                           { "name": "in",         "int_value": 6 },
                           { "name": "out",        "int_value": 7 },
                           { "name": "target",     "float_value": 100 },
-                          { "name": "Kp",         "float_value": 1 },
-                          { "name": "Ki",         "float_value": 1 },
-                          { "name": "Kd",         "float_value": 1 },
+                          { "name": "kp",         "float_value": 1 },
+                          { "name": "ki",         "float_value": 1 },
+                          { "name": "kd",         "float_value": 1 },
                           { "name": "direction",  "string_value": "reverse" }
                         ] }, 
       "metadata":{"description":"PID controller channel 3"} },
