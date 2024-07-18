@@ -23,29 +23,31 @@
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
-    { "name": "diagnostic/0/agnd",        "dataType": 9/* Float */, "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/temperature", "dataType": 9/* Float */, "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 0, value in Celsius"} },      
-    { "name": "diagnostic/0/avdd",        "dataType": 9/* Float */, "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/avss",        "dataType": 9/* Float */, "float_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/refout",      "dataType": 9/* Float */, "float_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/aldo5v",      "dataType": 9/* Float */, "float_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/aldo1v8",     "dataType": 9/* Float */, "float_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/dldo1v8",     "dataType": 9/* Float */, "float_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/dvcc",        "dataType": 9/* Float */, "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/iovdd",       "dataType": 9/* Float */, "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/lvin",        "dataType": 9/* Float */, "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/agnd",        "dataType": 9/* Float */,    "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 0, value in Celsius"} },      
+    { "name": "diagnostic/0/avdd",        "dataType": 9/* Float */,    "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/avss",        "dataType": 9/* Float */,    "float_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/refout",      "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/aldo5v",      "dataType": 9/* Float */,    "float_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/aldo1v8",     "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/dldo1v8",     "dataType": 9/* Float */,    "float_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/dvcc",        "dataType": 9/* Float */,    "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/iovdd",       "dataType": 9/* Float */,    "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 0, value in mV"} },      
+    { "name": "diagnostic/0/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 0, value in mV"} },
+    { "name": "diagnostic/0/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch0 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} }      
 
-    { "name": "diagnostic/1/agnd",        "dataType": 9/* Float */, "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/temperature", "dataType": 9/* Float */, "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 1, value in Celsius"} },      
-    { "name": "diagnostic/1/avdd",        "dataType": 9/* Float */, "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/avss",        "dataType": 9/* Float */, "float_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/refout",      "dataType": 9/* Float */, "float_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/aldo5v",      "dataType": 9/* Float */, "float_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/aldo1v8",     "dataType": 9/* Float */, "float_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/dldo1v8",     "dataType": 9/* Float */, "float_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/dvcc",        "dataType": 9/* Float */, "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/iovdd",       "dataType": 9/* Float */, "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/lvin",        "dataType": 9/* Float */, "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/agnd",        "dataType": 9/* Float */,    "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 1, value in Celsius"} },      
+    { "name": "diagnostic/1/avdd",        "dataType": 9/* Float */,    "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/avss",        "dataType": 9/* Float */,    "float_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/refout",      "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/aldo5v",      "dataType": 9/* Float */,    "float_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/aldo1v8",     "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/dldo1v8",     "dataType": 9/* Float */,    "float_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/dvcc",        "dataType": 9/* Float */,    "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/iovdd",       "dataType": 9/* Float */,    "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 1, value in mV"} },      
+    { "name": "diagnostic/1/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },
+    { "name": "diagnostic/1/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch1 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} }            
 
     { "name": "ref/pid",
       "dataType": 19, /* Template */
@@ -68,7 +70,8 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable 200kOhm pulldown resistor"} }
+                          { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable 200kOhm pulldown resistor"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of high impedance mode"} },
 
@@ -81,7 +84,7 @@
                           { "name": "current",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"} },
                           { "name": "limit",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"} },
                           { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off', '38.6us', '40.1us', '73.6us', '75.8us', '113us', '259us', '280us', '459us', '520us', '858us', '1ms', '1.1ms', '2ms', '4ms', '17ms', '31.7ms']"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }        
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of voltage output mode"} },
 
@@ -93,7 +96,7 @@
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values - [0.0 - 25.0] mA"} },
                           { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0 - 10000.0] mV"} },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit']"} }        
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of current output mode"} },
 
@@ -105,7 +108,7 @@
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [-2500.0 - 10000.0] mV"} },
                           { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V', '-2.5V to 2.5V', '-104mV to 104mV']"} },          
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Voltage input 200kOhm pulldown resistor"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage']"} }        
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage', 'afe-fail']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of voltage input mode"} },
 
@@ -116,7 +119,7 @@
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, external powered"} },        
       
@@ -127,7 +130,7 @@
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
                           { "name": "limit",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Current limit from io, values = [0.0 - 25.0] mA"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered"} },         
 
@@ -137,7 +140,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered with HART compatibility"} },   
 
@@ -146,7 +149,8 @@
        "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 1000000.0] Ohm"} }
+                          { "name": "value",     "dataType": 9/* Float */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 1000000.0] Ohm"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of resistance measure mode"} },     
 
@@ -157,7 +161,8 @@
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[R]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} },
                           { "name": "threshold", "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0 - 16000] mV"} },
-                          { "name": "debounce",  "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input debounce time, values = [0.0 - 75.0] ms"} }
+                          { "name": "debounce",  "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input debounce time, values = [0.0 - 75.0] ms"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital input mode"} },     
 
@@ -167,7 +172,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} }, 
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} },
                         ] }, 
       "metadata":{"description":"Template definition of digital output mode"} },  
 
@@ -178,7 +183,7 @@
                          "metrics":[
                           { "name": "value",    "dataType": 9/* Float */,      "metadata":{"description":"[R]IO pin state, range of values - [-200.0 - 2000.0] Celsius"} },
                           { "name": "type",     "dataType": 12/* String */,    "metadata":{"description":"[RWP]Temperature RTD type, values = ['PT100', 'PT1000', 'TC-TYPE-B', 'TC-TYPE-E', 'TC-TYPE-J', 'TC-TYPE-K', 'TC-TYPE-N', 'TC-TYPE-R', 'TC-TYPE-S', 'TC-TYPE-T']"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of temperature probe input mode"} },     
    
@@ -318,7 +323,8 @@
                          "is_definition": false,
                          "template_ref": "ref/io/resistance-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 120.000 }
+                          { "name": "value",     "float_value": 120.000 },
+                          { "name": "error",     "string_value": "none" }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 5, 'template_ref' values = 'ref/io/..'"} },
 
@@ -330,7 +336,8 @@
                          "metrics":[
                           { "name": "value",     "boolean_value": false },
                           { "name": "threshold", "float_value": 8.4 },
-                          { "name": "debounce",  "float_value": 9 }
+                          { "name": "debounce",  "float_value": 9 },
+                          { "name": "error",     "string_value": "none" }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 6, 'template_ref' values = 'ref/io/..'"} },
 
