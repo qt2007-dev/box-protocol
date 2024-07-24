@@ -56,7 +56,7 @@
                          "metrics":[
                           { "name": "enable",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable PID for specified channels"} },
                           { "name": "in",          "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Input io channel, values = [0-7]"} },
-                          { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"} },
+                          { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"}, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 400}, {"type": 9, "float_value": 5000}]} },
                           { "name": "target",      "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel"} },
                           { "name": "kp",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Proportional coefficient of PID"} },
                           { "name": "ki",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Integral coefficient of PID"} },
@@ -195,7 +195,7 @@
                          "metrics":[
                           { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 0 },
-                          { "name": "out",        "int_value": 1 },
+                          { "name": "out",        "int_value": 1, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 400}, {"type": 9, "float_value": 5000}]} },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
@@ -212,7 +212,7 @@
                          "metrics":[
                           { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 2 },
-                          { "name": "out",        "int_value": 3 },
+                          { "name": "out",        "int_value": 3, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 400}, {"type": 9, "float_value": 5000}]} },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
@@ -229,7 +229,7 @@
                          "metrics":[
                           { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 4 },
-                          { "name": "out",        "int_value": 5 },
+                          { "name": "out",        "int_value": 5, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 400}, {"type": 9, "float_value": 5000}]} },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
@@ -246,7 +246,7 @@
                          "metrics":[
                           { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 6 },
-                          { "name": "out",        "int_value": 7 },
+                          { "name": "out",        "int_value": 7, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 400}, {"type": 9, "float_value": 5000}]} },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
@@ -271,8 +271,8 @@
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-output",
                          "metrics":[
-                          { "name": "value",     "float_value": 1332 },
-                          { "name": "current",   "float_value": 12.5 },
+                          { "name": "value",     "float_value": 1332  },
+                          { "name": "current",   "float_value": 12.5, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "limit",     "string_value": "30mA" },
                           { "name": "slew",      "string_value": "4ms" },
                           { "name": "error",     "string_value": "none" }        
@@ -286,7 +286,7 @@
                          "template_ref": "ref/io/current-output",
                          "metrics":[
                           { "name": "value",     "float_value": 13.32 },
-                          { "name": "voltage",   "float_value": 5000 },
+                          { "name": "voltage",   "float_value": 5000, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]} },
                           { "name": "hart",      "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
                         ] }, 
@@ -298,7 +298,7 @@
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 1332 },
+                          { "name": "value",     "float_value": 1332, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]} },
                           { "name": "range",     "string_value": "auto" },          
                           { "name": "pulldown",  "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
@@ -311,7 +311,7 @@
                          "is_definition": false,
                          "template_ref": "ref/io/current-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 13.32 },
+                          { "name": "value",     "float_value": 13.32, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "hart",      "boolean_value": false },
                           { "name": "error",     "string_value": "none" }
                         ] }, 
@@ -323,7 +323,7 @@
                          "is_definition": false,
                          "template_ref": "ref/io/resistance-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 120.000 },
+                          { "name": "value",     "float_value": 120.000, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
                           { "name": "error",     "string_value": "none" }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 5, 'template_ref' values = 'ref/io/..'"} },
