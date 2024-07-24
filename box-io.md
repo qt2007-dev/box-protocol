@@ -56,7 +56,7 @@
                          "metrics":[
                           { "name": "enable",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable PID for specified channels"} },
                           { "name": "in",          "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Input io channel, values = [0-7]"} },
-                          { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"},},
+                          { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"} },
                           { "name": "target",      "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel"} },
                           { "name": "kp",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Proportional coefficient of PID"} },
                           { "name": "ki",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Integral coefficient of PID"} },
