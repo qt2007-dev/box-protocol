@@ -34,7 +34,7 @@
     { "name": "diagnostic/0/dvcc",        "dataType": 9/* Float */,    "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 0, value in mV"} },      
     { "name": "diagnostic/0/iovdd",       "dataType": 9/* Float */,    "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 0, value in mV"} },      
     { "name": "diagnostic/0/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 0, value in mV"} },
-    { "name": "diagnostic/0/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch0 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },      
+    { "name": "diagnostic/0/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 0 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },      
 
     { "name": "diagnostic/1/agnd",        "dataType": 9/* Float */,    "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 1, value in Celsius"} },      
@@ -47,7 +47,7 @@
     { "name": "diagnostic/1/dvcc",        "dataType": 9/* Float */,    "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/iovdd",       "dataType": 9/* Float */,    "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },
-    { "name": "diagnostic/1/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch1 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },            
+    { "name": "diagnostic/1/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 1 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },            
 
     { "name": "ref/pid",
       "dataType": 19, /* Template */
@@ -94,7 +94,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values - [0.0 - 25.0] mA"},  "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 25}]} },
-                          { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
+                          { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail']"} }        
                         ] }, 
@@ -117,7 +117,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]}  },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
                         ] }, 
@@ -128,7 +128,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "limit",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Current limit from io, values = [0.0 - 25.0] mA"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
                         ] }, 
@@ -139,7 +139,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values - [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered with HART compatibility"} },   
@@ -149,7 +149,7 @@
        "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,    "metadata":{"description":"[R]IO pin state, range of values - [0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
+                          { "name": "value",     "dataType": 9/* Float */,    "metadata":{"description":"[R]IO pin state, range of values - [0.0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of resistance measure mode"} },     
@@ -160,7 +160,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[R]IO pin state, range of values - ['true' - if input is high, 'false' - if input is low]"} },
-                          { "name": "threshold", "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0 - 16000] mV"} },
+                          { "name": "threshold", "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0.0 - 16000] mV"} },
                           { "name": "debounce",  "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input debounce time, values = [0.0 - 75.0] ms"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
                         ] }, 
