@@ -16,36 +16,18 @@
 
     { "name": "info/hardware/vendor",     "dataType": 12/* String */,  "string_value": "QuintTech" ,       "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
     { "name": "info/hardware/model",      "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
-    { "name": "info/firmware/version",    "dataType": 12/* String */,  "string_value": "0.1.220527", "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.buildOrCommit"} },
+    { "name": "info/firmware/version",    "dataType": 12/* String */,  "string_value": "0.1.220527",       "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.buildOrCommit"} },
     { "name": "info/type",                "dataType": 12/* String */,  "string_value": "8 IO",             "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
     { "name": "info/id",                  "dataType": 12/* String */,  "string_value": "deba0004",         "metadata":{"description":"[R]Short device id"} },
     { "name": "info/error",               "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
-    { "name": "diagnostic/0/agnd",        "dataType": 9/* Float */,    "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 0, value in mV"} },      
     { "name": "diagnostic/0/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 0, value in Celsius"} },      
-    { "name": "diagnostic/0/avdd",        "dataType": 9/* Float */,    "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/avss",        "dataType": 9/* Float */,    "float_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/refout",      "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/aldo5v",      "dataType": 9/* Float */,    "float_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/aldo1v8",     "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/dldo1v8",     "dataType": 9/* Float */,    "float_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/dvcc",        "dataType": 9/* Float */,    "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 0, value in mV"} },      
-    { "name": "diagnostic/0/iovdd",       "dataType": 9/* Float */,    "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 0, value in mV"} },      
     { "name": "diagnostic/0/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 0, value in mV"} },
     { "name": "diagnostic/0/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 0 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },      
 
-    { "name": "diagnostic/1/agnd",        "dataType": 9/* Float */,    "float_value":0.1,                  "metadata":{"description":"[R]Voltage AGND afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 1, value in Celsius"} },      
-    { "name": "diagnostic/1/avdd",        "dataType": 9/* Float */,    "float_value":3.30,                 "metadata":{"description":"[R]Voltage AVDD afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/avss",        "dataType": 9/* Float */,    "float_value":0.01,                 "metadata":{"description":"[R]Voltage AVSS afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/refout",      "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage REFOUT afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/aldo5v",      "dataType": 9/* Float */,    "float_value":5.08,                 "metadata":{"description":"[R]Voltage ALDO5V afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/aldo1v8",     "dataType": 9/* Float */,    "float_value":1.83,                 "metadata":{"description":"[R]Voltage ALDO1V8 afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/dldo1v8",     "dataType": 9/* Float */,    "float_value":1.82,                 "metadata":{"description":"[R]Voltage DLDO1V8 afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/dvcc",        "dataType": 9/* Float */,    "float_value":3.35,                 "metadata":{"description":"[R]Voltage DVCC afe ch 1, value in mV"} },      
-    { "name": "diagnostic/1/iovdd",       "dataType": 9/* Float */,    "float_value":3.31,                 "metadata":{"description":"[R]Voltage IOVDD afe ch 1, value in mV"} },      
     { "name": "diagnostic/1/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },
     { "name": "diagnostic/1/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 1 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },            
 
@@ -149,7 +131,7 @@
        "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,    "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of resistance measure mode"} },     
@@ -183,7 +165,7 @@
                          "metrics":[
                           { "name": "value",    "dataType": 9/* Float */,      "metadata":{"description":"[R]IO pin state, range of values = [-200.0 - 2000.0] Celsius"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "type",     "dataType": 12/* String */,    "metadata":{"description":"[RWP]Temperature RTD type, values = ['PT100', 'PT1000', 'TC-TYPE-B', 'TC-TYPE-E', 'TC-TYPE-J', 'TC-TYPE-K', 'TC-TYPE-N', 'TC-TYPE-R', 'TC-TYPE-S', 'TC-TYPE-T']"} },
-                          { "name": "error",    "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range', 'afe-fail']"} }
+                          { "name": "error",    "dataType": 12/* String */,    "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range', 'afe-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of temperature probe input mode"} },     
    
