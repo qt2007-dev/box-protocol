@@ -25,11 +25,13 @@
 
     { "name": "diagnostic/0/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 0, value in Celsius"} },      
     { "name": "diagnostic/0/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 0, value in mV"} },
-    { "name": "diagnostic/0/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 0 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },      
+    { "name": "diagnostic/0/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 0 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail'],
+                                                                                                                                      can be multiple error at the same time ('high-temperature|ldo-fail')"} },      
 
     { "name": "diagnostic/1/temperature", "dataType": 9/* Float */,    "float_value":25.7,                 "metadata":{"description":"[R]Temperature sensor afe ch 1, value in Celsius"} },      
     { "name": "diagnostic/1/lvin",        "dataType": 9/* Float */,    "float_value":1.81,                 "metadata":{"description":"[R]Voltage LVIN afe ch 1, value in mV"} },
-    { "name": "diagnostic/1/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 1 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail']"} },            
+    { "name": "diagnostic/1/error",       "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[R]AFE ch 1 error conditions, values = ['none', 'high-temperature', 'charge-pump-fail', 'ldo-fail', 'vdd-fail', 'vcc-fail'],
+                                                                                                                                      can be multiple error at the same time ('high-temperature|ldo-fail')"} },            
 
     { "name": "ref/pid",
       "dataType": 19, /* Template */
