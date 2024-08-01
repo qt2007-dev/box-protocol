@@ -53,7 +53,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable 200kOhm pulldown resistor"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of high impedance mode"} },
 
@@ -66,7 +66,7 @@
                           { "name": "current",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]}  },
                           { "name": "limit",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"} },
                           { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off', '38.6us', '40.1us', '73.6us', '75.8us', '113us', '259us', '280us', '459us', '520us', '858us', '1ms', '1.1ms', '2ms', '4ms', '17ms', '31.7ms']"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }        
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of voltage output mode"} },
 
@@ -78,7 +78,7 @@
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},  "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 25}]} },
                           { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail']"} }        
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail', 'operation-fail']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of current output mode"} },
 
@@ -90,7 +90,7 @@
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [-2500.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
                           { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V', '-2.5V to 2.5V', '-104mV to 104mV']"} },          
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Voltage input 200kOhm pulldown resistor"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage', 'afe-fail']"} }        
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage', 'afe-fail', 'operation-fail']"} }        
                         ] }, 
       "metadata":{"description":"Template definition of voltage input mode"} },
 
@@ -101,7 +101,7 @@
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, external powered"} },        
       
@@ -112,7 +112,7 @@
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "limit",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Current limit from io, values = [0.0 - 25.0] mA"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered"} },         
 
@@ -122,7 +122,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of current input mode, loop powered with HART compatibility"} },   
 
@@ -132,7 +132,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of resistance measure mode"} },     
 
@@ -144,7 +144,7 @@
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[R]IO pin state, range of values = ['true' - if input is high, 'false' - if input is low]"} },
                           { "name": "threshold", "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0.0 - 16000] mV"} },
                           { "name": "debounce",  "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Digital input debounce time, values = [0.0 - 75.0] ms"} },
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital input mode"} },     
 
@@ -154,7 +154,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]IO pin state, range of values = ['true' - if input is high, 'false' - if input is low]"} }, 
-                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail']"} }
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of digital output mode"} },  
 
@@ -165,7 +165,7 @@
                          "metrics":[
                           { "name": "value",    "dataType": 9/* Float */,      "metadata":{"description":"[R]IO pin state, range of values = [-200.0 - 2000.0] Celsius"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "type",     "dataType": 12/* String */,    "metadata":{"description":"[RWP]Temperature RTD type, values = ['PT100', 'PT1000', 'TC-TYPE-B', 'TC-TYPE-E', 'TC-TYPE-J', 'TC-TYPE-K', 'TC-TYPE-N', 'TC-TYPE-R', 'TC-TYPE-S', 'TC-TYPE-T']"} },
-                          { "name": "error",    "dataType": 12/* String */,    "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range', 'afe-fail']"} }
+                          { "name": "error",    "dataType": 12/* String */,    "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'out-of-range', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of temperature probe input mode"} },     
    
