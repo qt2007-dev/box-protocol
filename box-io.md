@@ -62,7 +62,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 10000}]} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 10000},{"type": 9, "float_value": 100}]} },
                           { "name": "current",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.25}]}  },
                           { "name": "limit",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"} },
                           { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off', '38.6us', '40.1us', '73.6us', '75.8us', '113us', '259us', '280us', '459us', '520us', '858us', '1ms', '1.1ms', '2ms', '4ms', '17ms', '31.7ms']"} },
@@ -75,7 +75,7 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},  "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 25}]} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},  "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 25},{"type": 9, "float_value": 0.25}]} },
                           { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 100}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail', 'operation-fail']"} }        
