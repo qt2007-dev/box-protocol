@@ -25,35 +25,97 @@
 
     { "name": "settings/transformer",           "dataType": 7/* Int32 */,    "int_value": 2000,                  "metadata":{"description":"[RWP]Current transformer ratio"} },
 
-    { "name": "phase/a/voltage",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A rms voltage, value in mV"} },
-    { "name": "phase/a/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A rms current, value in mA"} },
-    { "name": "phase/a/power/active",           "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A active power, value in mW"} },
-    { "name": "phase/a/power/reactive",         "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A reactive power, value in mVAR"} },
-    { "name": "phase/a/power/apparent",         "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A apparent power, value in mVA"} },
-    { "name": "phase/a/power/factor",           "dataType": 9/* Float */,    "float_value": 0.1,                 "metadata":{"description":"[R]Phase A power factor"} },
-    { "name": "phase/a/energy/active",          "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A active energy"} },
-    { "name": "phase/a/energy/reactive",        "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A reactive energy"} },
-    { "name": "phase/a/energy/apparent",        "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase A apparent energy"} },
+    { "name": "ref/phase",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "voltage",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms voltage, value in V"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "current",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms current, value in A"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
 
-    { "name": "phase/b/voltage",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B rms voltage, value in mV"} },
-    { "name": "phase/b/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B rms current, value in mA"} },
-    { "name": "phase/b/power/active",           "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B active power, value in mW"} },
-    { "name": "phase/b/power/reactive",         "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B reactive power, value in mVAR"} },
-    { "name": "phase/b/power/apparent",         "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B apparent power, value in mVA"} },
-    { "name": "phase/b/power/factor",           "dataType": 9/* Float */,    "float_value": 0.1,                 "metadata":{"description":"[R]Phase B power factor"} },
-    { "name": "phase/b/energy/active",          "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B active energy"} },
-    { "name": "phase/b/energy/reactive",        "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B reactive energy"} },
-    { "name": "phase/b/energy/apparent",        "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase B apparent energy"} },
+                          { "name": "power/active",       "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A active power, value in W"},       "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/reactive",     "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A reactive power, value in VAR"},   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/apparent",     "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A apparent power, value in VA"},    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/factor",       "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A power factor"},                   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
 
-    { "name": "phase/c/voltage",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C rms voltage, value in mV"} },
-    { "name": "phase/c/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C rms current, value in mA"} },
-    { "name": "phase/c/power/active",           "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C active power, value in mW"} },
-    { "name": "phase/c/power/reactive",         "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C reactive power, value in mVAR"} },
-    { "name": "phase/c/power/apparent",         "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C apparent power, value in mVA"} },
-    { "name": "phase/c/power/factor",           "dataType": 9/* Float */,    "float_value": 0.1,                 "metadata":{"description":"[R]Phase C power factor"} },
-    { "name": "phase/c/energy/active",          "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C active energy"} },
-    { "name": "phase/c/energy/reactive",        "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C reactive energy"} },
-    { "name": "phase/c/energy/apparent",        "dataType": 4/* Int64 */,    "int_value": 5,                     "metadata":{"description":"[R]Phase C apparent energy"} },
+                          { "name": "energy/active",      "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A active energy, value in Wh"},     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A reactive energy, value in VARh"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A apparent energy, value in VAh"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+
+                          { "name": "distortion/voltage", "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A voltage total harmonic distortion, value in %"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "distortion/current", "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A current total harmonic distortion, value in %"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                                  
+                        ] }, 
+      "metadata":{"description":"Template definition of phase measurements"} },
+
+    { "name": "phase/a",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "metrics":[
+                          { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+
+                          { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/reactive",     "float_value": 100.3,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/apparent",     "float_value": 50.7,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/factor",       "float_value": 2200.8,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
+
+                          { "name": "energy/active",      "float_value": 712340.4, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "float_value": 1057.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "float_value": 564.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+
+                          { "name": "distortion/voltage", "float_value": 3.2,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "distortion/current", "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                                  
+                        ] }, 
+      "metadata":{"description":"[R]Phase A, 'template_ref' values = 'ref/phase'"} },
+
+    { "name": "phase/b",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "metrics":[
+                          { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+
+                          { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/reactive",     "float_value": 100.3,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/apparent",     "float_value": 50.7,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/factor",       "float_value": 2200.8,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
+
+                          { "name": "energy/active",      "float_value": 712340.4, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "float_value": 1057.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "float_value": 564.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+
+                          { "name": "distortion/voltage", "float_value": 3.2,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "distortion/current", "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                                  
+                        ] }, 
+      "metadata":{"description":"[R]Phase B, 'template_ref' values = 'ref/phase'"} },
+
+    { "name": "phase/c",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "metrics":[
+                          { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+
+                          { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/reactive",     "float_value": 100.3,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/apparent",     "float_value": 50.7,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "power/factor",       "float_value": 2200.8,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
+
+                          { "name": "energy/active",      "float_value": 712340.4, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "float_value": 1057.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "float_value": 564.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+
+                          { "name": "distortion/voltage", "float_value": 3.2,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                          { "name": "distortion/current", "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
+                                  
+                        ] }, 
+      "metadata":{"description":"[R]Phase C, 'template_ref' values = 'ref/phase'"} },
 
     { "name": "neutral/current",                "dataType": 7/* Int32 */,    "int_value": 5,                     "metadata":{"description":"[R]Neutral rms current, value in mA"} },
 
