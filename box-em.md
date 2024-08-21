@@ -52,6 +52,7 @@
       "dataType": 19, /* Template */
       "template_value":{ "version": "1",
                          "is_definition": false,
+                         "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
@@ -75,6 +76,7 @@
       "dataType": 19, /* Template */
       "template_value":{ "version": "1",
                          "is_definition": false,
+                         "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
@@ -98,6 +100,7 @@
       "dataType": 19, /* Template */
       "template_value":{ "version": "1",
                          "is_definition": false,
+                         "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
