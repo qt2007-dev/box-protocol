@@ -36,14 +36,14 @@
       "template_value":{ "version": "1",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "enable",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable PID for specified channels"} },
                           { "name": "in",          "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Input io channel, values = [0-7]"} },
                           { "name": "out",         "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Control io channel, values = [0-7]"} },
                           { "name": "target",      "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel"} },
                           { "name": "kp",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Proportional coefficient of PID"} },
                           { "name": "ki",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Integral coefficient of PID"} },
                           { "name": "kd",          "dataType": 9/* Float */,     "metadata":{"description":"[RWP]Differential coefficient of PID"} },                          
-                          { "name": "direction",   "dataType": 12/* String */,   "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"} }                
+                          { "name": "direction",   "dataType": 12/* String */,   "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"} },                
+                          { "name": "enable",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable PID for specified channels"} }
                         ] }, 
       "metadata":{"description":"Template definition of PID"} },
 
@@ -175,14 +175,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 0 },
                           { "name": "out",        "int_value": 1 },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
                           { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "direct" }
+                          { "name": "direction",  "string_value": "direct" },
+                          { "name": "enable",     "boolean_value": false }
                         ] }, 
       "metadata":{"description":"PID controller channel 0"} },
 
@@ -192,14 +192,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 2 },
                           { "name": "out",        "int_value": 3 },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
                           { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "direct" }
+                          { "name": "direction",  "string_value": "direct" },
+                          { "name": "enable",     "boolean_value": false }
                         ] }, 
       "metadata":{"description":"PID controller channel 1"} },
 
@@ -209,14 +209,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 4 },
                           { "name": "out",        "int_value": 5 },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
                           { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "reverse" }
+                          { "name": "direction",  "string_value": "reverse" },
+                          { "name": "enable",     "boolean_value": false }
                         ] }, 
       "metadata":{"description":"PID controller channel 2"} },
 
@@ -226,14 +226,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "enable",     "boolean_value": false },
                           { "name": "in",         "int_value": 6 },
                           { "name": "out",        "int_value": 7 },
                           { "name": "target",     "float_value": 100 },
                           { "name": "kp",         "float_value": 1 },
                           { "name": "ki",         "float_value": 1 },
                           { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "reverse" }
+                          { "name": "direction",  "string_value": "reverse" },
+                          { "name": "enable",     "boolean_value": false }
                         ] }, 
       "metadata":{"description":"PID controller channel 3"} },
 
