@@ -32,15 +32,16 @@
                          "metrics":[
                           { "name": "voltage",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms voltage, value in V"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "current",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms current, value in A"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
-
+                          { "name": "frequency",          "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A frequency, value in Hz"},         "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
+                    
                           { "name": "power/active",       "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A active power, value in W"},       "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/reactive",     "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A reactive power, value in VAR"},   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/apparent",     "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A apparent power, value in VA"},    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/factor",       "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A power factor"},                   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
 
-                          { "name": "energy/active",      "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A active energy, value in Wh"},     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/reactive",    "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A reactive energy, value in VARh"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/apparent",    "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A apparent energy, value in VAh"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/active",      "dataType": 10/* Double */,   "metadata":{"description":"[R]Phase A active energy, value in Wh"},     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "dataType": 10/* Double */,   "metadata":{"description":"[R]Phase A reactive energy, value in VARh"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "dataType": 10/* Double */,   "metadata":{"description":"[R]Phase A apparent energy, value in VAh"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
 
                           { "name": "distortion/voltage", "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A voltage total harmonic distortion, value in %"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "distortion/current", "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A current total harmonic distortion, value in %"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
@@ -55,16 +56,17 @@
                          "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },                          
+                          { "name": "frequency",          "float_value": 50.0,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
 
                           { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/reactive",     "float_value": 100.3,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/apparent",     "float_value": 50.7,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/factor",       "float_value": 2200.8,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
 
-                          { "name": "energy/active",      "float_value": 712340.4, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/reactive",    "float_value": 1057.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/apparent",    "float_value": 564.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/active",      "double_value": 712340.4,"properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "double_value": 1057.4,  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "double_value": 564.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
 
                           { "name": "distortion/voltage", "float_value": 3.2,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "distortion/current", "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
@@ -79,16 +81,17 @@
                          "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },                         
+                          { "name": "frequency",          "float_value": 50.0,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
 
                           { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/reactive",     "float_value": 100.3,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/apparent",     "float_value": 50.7,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/factor",       "float_value": 2200.8,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
 
-                          { "name": "energy/active",      "float_value": 712340.4, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/reactive",    "float_value": 1057.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/apparent",    "float_value": 564.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/active",      "double_value": 712340.4,"properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "double_value": 1057.4,  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "double_value": 564.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
 
                           { "name": "distortion/voltage", "float_value": 3.2,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "distortion/current", "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
@@ -103,16 +106,17 @@
                          "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },                         
+                          { "name": "frequency",          "float_value": 50.0,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
 
                           { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/reactive",     "float_value": 100.3,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/apparent",     "float_value": 50.7,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/factor",       "float_value": 2200.8,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
 
-                          { "name": "energy/active",      "float_value": 712340.4, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/reactive",    "float_value": 1057.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/apparent",    "float_value": 564.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/active",      "double_value": 712340.4,"properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "double_value": 1057.4,  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "double_value": 564.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
 
                           { "name": "distortion/voltage", "float_value": 3.2,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "distortion/current", "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
