@@ -39,9 +39,9 @@
                           { "name": "power/apparent",     "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A apparent power, value in VA"},    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
                           { "name": "power/factor",       "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A power factor"},                   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
 
-                          { "name": "energy/active",      "dataType": 10/* Double */,   "metadata":{"description":"[R]Phase A active energy, value in Wh"},     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/reactive",    "dataType": 10/* Double */,   "metadata":{"description":"[R]Phase A reactive energy, value in VARh"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
-                          { "name": "energy/apparent",    "dataType": 10/* Double */,   "metadata":{"description":"[R]Phase A apparent energy, value in VAh"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/active",      "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Phase A active energy, value in Wh"},     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/reactive",    "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Phase A reactive energy, value in VARh"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
+                          { "name": "energy/apparent",    "dataType": 10/* Double */,   "metadata":{"description":"[RWP]Phase A apparent energy, value in VAh"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
 
                           { "name": "distortion/voltage", "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A voltage total harmonic distortion, value in %"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
                           { "name": "distortion/current", "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A current total harmonic distortion, value in %"},  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} }
