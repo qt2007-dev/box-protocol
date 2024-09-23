@@ -31,7 +31,7 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "voltage",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms voltage, value in V"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms current, value in A"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },
+                          { "name": "current",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms current, value in A"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },
                           { "name": "frequency",          "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A frequency, value in Hz"},         "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
                     
                           { "name": "power/active",       "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A active power, value in W"},       "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
@@ -56,7 +56,7 @@
                          "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },                          
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },                          
                           { "name": "frequency",          "float_value": 50.0,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
 
                           { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
@@ -81,7 +81,7 @@
                          "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },                         
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },                         
                           { "name": "frequency",          "float_value": 50.0,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
 
                           { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
@@ -106,7 +106,7 @@
                          "template_ref": "ref/phase",
                          "metrics":[
                           { "name": "voltage",            "float_value": 220.4,    "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.2}]} },                         
+                          { "name": "current",            "float_value": 10.4,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]} },                         
                           { "name": "frequency",          "float_value": 50.0,     "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.1}]} },
 
                           { "name": "power/active",       "float_value": 2000.4,   "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1}]} },
@@ -124,13 +124,13 @@
                         ] }, 
       "metadata":{"description":"[R]Phase C, 'template_ref' values = 'ref/phase'"} },
 
-    { "name": "neutral/current",                "dataType": 9/* Float */,    "float_value": 5.1,                 "metadata":{"description":"[R]Neutral rms current, value in A"} },
+    { "name": "neutral/current",  "dataType": 9/* Float */,    "float_value": 5.1,      "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.01}]}, "metadata":{"description":"[R]Neutral rms current, value in A"} },
 
-    { "name": "out/0",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 0 control"} },
-    { "name": "out/1",                          "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[RWP]Solid state relay output 1 control"} },
+    { "name": "out/0",            "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RWP]Solid state relay output 0 control"} },
+    { "name": "out/1",            "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RWP]Solid state relay output 1 control"} },
 
-    { "name": "in/0",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[R]Digital input 0 state"} },
-    { "name": "in/1",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[R]Digital input 1 state"} }
+    { "name": "in/0",             "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[R]Digital input 0 state"} },
+    { "name": "in/1",             "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[R]Digital input 1 state"} }
 
   ]
 }
