@@ -23,42 +23,132 @@
 
     { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
-    { "name": "motor/0/mode",                           "dataType": 12/* String */,  "string_value": "velocity",         "metadata":{"description":"[RWP]Motor motion type - ['velocity', 'position']"} },
-    { "name": "motor/0/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },
 
-    { "name": "motor/0/current/boost",                  "dataType": 5/* UInt8 */,    "int_value": 160,                   "metadata":{"description":"[RWP]Motor boost current [0-254] 254 - max current (100%)"} },  
-    { "name": "motor/0/current/drive",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor drive current [0-254] 254 - max current (100%)"} },  
-    { "name": "motor/0/current/hold",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },  
-        
-    { "name": "motor/0/ramp/acceleration",              "dataType": 7/* UInt32 */,  "int_value": 80000,                  "metadata":{"description":"[RWP]Maxium motor acceleration value"} },                     
-    { "name": "motor/0/ramp/deceleration",              "dataType": 7/* UInt32 */,  "int_value": 120000,                 "metadata":{"description":"[RWP]Maxium motor deceleration value"} },                     
-    { "name": "motor/0/ramp/bow/1",                     "dataType": 7/* UInt32 */,  "int_value": 40000,                  "metadata":{"description":"[RWP]Determines the value which increases the absolute acceleration value"} },                     
-    { "name": "motor/0/ramp/bow/2",                     "dataType": 7/* UInt32 */,  "int_value": 20000,                  "metadata":{"description":"[RWP]Determines the value which decreases the absolute acceleration value"} },  
-    { "name": "motor/0/ramp/bow/3",                     "dataType": 7/* UInt32 */,  "int_value": 20000,                  "metadata":{"description":"[RWP]Determines the value which increases the absolute deceleration value"} },  
-    { "name": "motor/0/ramp/bow/4",                     "dataType": 7/* UInt32 */,  "int_value": 40000,                  "metadata":{"description":"[RWP]Determines the value which decreases the absolute deceleration value"} },  
+    { "name": "ref/control/velocity",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                              { "name": "velocity",     "dataType": 3/* Int32 */,    "metadata":{"description":"[RWP]Motor velocity"} },         
+                              { "name": "enable",       "dataType": 11/* Boolean */, "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} },     
+                        ] }, 
+      "metadata":{"description":"Template definition of motor velocity mode"} },
 
-    { "name": "motor/0/velocity",                       "dataType": 3/* Int32 */,   "int_value": 100000,                 "metadata":{"description":"[RWP]Motor velocity"} },                        
-    { "name": "motor/0/enable",                         "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} },                       
+    { "name": "ref/control/position",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                              { "name": "home",         "dataType": 3/* Int32 */,    "metadata":{"description":"[RWP]Motor home position"} },
+                              { "name": "position",     "dataType": 3/* Int32 */,    "metadata":{"description":"[RWP]Motor position"} },                        
+                              { "name": "enable",       "dataType": 11/* Boolean */, "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} },              
+                        ] }, 
+      "metadata":{"description":"Template definition of motor position mode"} },
 
-    { "name": "motor/1/mode",                           "dataType": 12/* String */,  "string_value": "position",         "metadata":{"description":"[RWP]Motor motion type - ['velocity', 'position']"} },
+    { "name": "ref/settings/current",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                              { "name": "boost",        "dataType": 5/* UInt8 */,    "metadata":{"description":"[RWP]Motor boost current [0-254] 254 - max current (100%)"} },  
+                              { "name": "drive",        "dataType": 5/* UInt8 */,    "metadata":{"description":"[RWP]Motor drive current [0-254] 254 - max current (100%)"} },  
+                              { "name": "hold",         "dataType": 5/* UInt8 */,    "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },             
+                        ] }, 
+      "metadata":{"description":"Template definition of motor current settings"} },
+
+    { "name": "ref/settings/ramp",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": true,
+                         "metrics":[
+                              { "name": "acceleration", "dataType": 7/* UInt32 */,   "metadata":{"description":"[RWP]Maximum motor acceleration value"} },                     
+                              { "name": "deceleration", "dataType": 7/* UInt32 */,   "metadata":{"description":"[RWP]Maximum motor deceleration value"} },                     
+                              { "name": "bow/1",        "dataType": 7/* UInt32 */,   "metadata":{"description":"[RWP]Determines the value which increases the absolute acceleration value"} },                     
+                              { "name": "bow/2",        "dataType": 7/* UInt32 */,   "metadata":{"description":"[RWP]Determines the value which decreases the absolute acceleration value"} },  
+                              { "name": "bow/3",        "dataType": 7/* UInt32 */,   "metadata":{"description":"[RWP]Determines the value which increases the absolute deceleration value"} },  
+                              { "name": "bow/4",        "dataType": 7/* UInt32 */,   "metadata":{"description":"[RWP]Determines the value which decreases the absolute deceleration value"} },      
+                        ] }, 
+      "metadata":{"description":"Template definition of motor ramp settings"} },
+
+
+    { "name": "motor/0/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },    
+    { "name": "motor/0/current",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/settings/current",
+                         "metrics":[
+                              { "name": "boost",        "int_value": 160,},
+                              { "name": "drive",        "int_value": 128 },                        
+                              { "name": "hold",         "int_value": 128  },    
+                        ] }, 
+      "metadata":{"description":"[RWP]Motor current settings, 'template_ref' values = 'ref/settings/current'"} },
+
+    { "name": "motor/0/ramp",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/settings/ramp",
+                         "metrics":[
+                              { "name": "acceleration", "int_value": 80000 },                     
+                              { "name": "deceleration", "int_value": 120000 },                     
+                              { "name": "bow/1",        "int_value": 40000 },                     
+                              { "name": "bow/2",        "int_value": 20000 },  
+                              { "name": "bow/3",        "int_value": 20000 },  
+                              { "name": "bow/4",        "int_value": 40000 },   
+                        ] }, 
+      "metadata":{"description":"[RWP]Motor ramp settings, 'template_ref' values = 'ref/settings/ramp'"} },
+
+    { "name": "motor/0/control",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/control/velocity",
+                         "metrics":[
+                              { "name": "velocity",    "int_value": 100000 },                        
+                              { "name": "enable",      "boolean_value": true }
+                        ] }, 
+      "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} },
+
     { "name": "motor/1/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },
+    { "name": "motor/1/current",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/settings/current",
+                         "metrics":[
+                              { "name": "boost",        "int_value": 160,},
+                              { "name": "drive",        "int_value": 128 },                        
+                              { "name": "hold",         "int_value": 128  },    
+                        ] }, 
+      "metadata":{"description":"[RWP]Motor current settings, 'template_ref' values = 'ref/settings/current'"} },
 
-    { "name": "motor/1/current/boost",                  "dataType": 5/* UInt8 */,    "int_value": 160,                   "metadata":{"description":"[RWP]Motor boost current [0-254] 254 - max current (100%)"} },  
-    { "name": "motor/1/current/drive",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor drive current [0-254] 254 - max current (100%)"} },  
-    { "name": "motor/1/current/hold",                  "dataType": 5/* UInt8 */,    "int_value": 128,                   "metadata":{"description":"[RWP]Motor hold current [0-254] 254 - max current (100%)"} },  
-        
-    { "name": "motor/1/ramp/acceleration",              "dataType": 7/* UInt32 */,  "int_value": 80000,                  "metadata":{"description":"[RWP]Maxium motor acceleration value"} },                     
-    { "name": "motor/1/ramp/deceleration",              "dataType": 7/* UInt32 */,  "int_value": 120000,                 "metadata":{"description":"[RWP]Maxium motor deceleration value"} },                     
-    { "name": "motor/1/ramp/bow/1",                     "dataType": 7/* UInt32 */,  "int_value": 40000,                  "metadata":{"description":"[RWP]Determines the value which increases the absolute acceleration value"} },                     
-    { "name": "motor/1/ramp/bow/2",                     "dataType": 7/* UInt32 */,  "int_value": 20000,                  "metadata":{"description":"[RWP]Determines the value which decreases the absolute acceleration value"} },  
-    { "name": "motor/1/ramp/bow/3",                     "dataType": 7/* UInt32 */,  "int_value": 20000,                  "metadata":{"description":"[RWP]Determines the value which increases the absolute deceleration value"} },  
-    { "name": "motor/1/ramp/bow/4",                     "dataType": 7/* UInt32 */,  "int_value": 40000,                  "metadata":{"description":"[RWP]Determines the value which decreases the absolute deceleration value"} },  
+    { "name": "motor/1/ramp",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/settings/ramp",
+                         "metrics":[
+                              { "name": "acceleration", "int_value": 80000 },                     
+                              { "name": "deceleration", "int_value": 120000 },                     
+                              { "name": "bow/1",        "int_value": 40000 },                     
+                              { "name": "bow/2",        "int_value": 20000 },  
+                              { "name": "bow/3",        "int_value": 20000 },  
+                              { "name": "bow/4",        "int_value": 40000 },   
+                        ] }, 
+      "metadata":{"description":"[RWP]Motor ramp settings, 'template_ref' values = 'ref/settings/ramp'"} },
 
-    { "name": "motor/1/home",                           "dataType": 3/* Int32 */,   "int_value": 0,                      "metadata":{"description":"[RWP]Motor home position"} },
-    { "name": "motor/1/position",                       "dataType": 3/* Int32 */,   "int_value": 100000,                 "metadata":{"description":"[RWP]Motor position"} },                        
-    { "name": "motor/1/enable",                         "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} },    
-
-
+    { "name": "motor/1/control",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "1",
+                         "is_definition": false,
+                         "template_ref": "ref/control/position",
+                         "metrics":[
+                              { "name": "home",         "int_value": 0 },
+                              { "name": "position",     "int_value": 100000 },                        
+                              { "name": "enable",       "boolean_value": true },    
+                        ] }, 
+      "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} },      
   ]
          
 }
