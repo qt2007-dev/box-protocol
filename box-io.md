@@ -33,7 +33,7 @@
 
     { "name": "ref/pid",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "pid",
                          "is_definition": true,
                          "metrics":[
                           { "name": "in",          "dataType": 5/* UInt8 */,     "metadata":{"description":"[RWP]Input io channel, values = [0-7]"} },
@@ -49,7 +49,7 @@
 
     { "name": "ref/io/high-impedance",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Enable 200kOhm pulldown resistor"} },
@@ -59,7 +59,7 @@
 
     { "name": "ref/io/voltage-output",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 10000},{"type": 9, "float_value": 100}]} },
@@ -72,7 +72,7 @@
 
     { "name": "ref/io/current-output",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},  "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 25},{"type": 9, "float_value": 0.25}]} },
@@ -84,7 +84,7 @@
 
     { "name": "ref/io/voltage-input",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [-2500.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
@@ -96,7 +96,7 @@
 
      { "name": "ref/io/current-input",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.025}]}  },
@@ -107,7 +107,7 @@
       
       { "name": "ref/io/current-input-loop",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.025}]} },
@@ -118,7 +118,7 @@
 
       { "name": "ref/io/current-input-loop-hart",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.025}]} },
@@ -128,7 +128,7 @@
 
      { "name": "ref/io/resistance-input",
        "dataType": 19, /* Template */
-       "template_value":{ "version": "1",
+       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
@@ -138,7 +138,7 @@
 
      { "name": "ref/io/digital-input",
        "dataType": 19, /* Template */
-       "template_value":{ "version": "1",
+       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[R]IO pin state, range of values = ['true' - if input is high, 'false' - if input is low]"} },
@@ -150,7 +150,7 @@
 
      { "name": "ref/io/digital-output",
        "dataType": 19, /* Template */
-       "template_value":{ "version": "1",
+       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",     "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]IO pin state, range of values = ['true' - if input is high, 'false' - if input is low]"} }, 
@@ -160,7 +160,7 @@
 
      { "name": "ref/io/temperature",
        "dataType": 19, /* Template */
-       "template_value":{ "version": "1",
+       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
                           { "name": "value",    "dataType": 9/* Float */,      "metadata":{"description":"[R]IO pin state, range of values = [-200.0 - 2000.0] Celsius"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
@@ -171,7 +171,7 @@
    
     { "name": "pid/0",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "pid",
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
@@ -188,7 +188,7 @@
 
     { "name": "pid/1",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "pid",
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
@@ -205,7 +205,7 @@
 
     { "name": "pid/2",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "pid",
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
@@ -222,7 +222,7 @@
 
     { "name": "pid/3",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "pid",
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
@@ -239,7 +239,7 @@
 
     { "name": "io/0",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/high-impedance",
                          "metrics":[
@@ -249,7 +249,7 @@
 
     { "name": "io/1",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-output",
                          "metrics":[
@@ -263,7 +263,7 @@
 
     { "name": "io/2",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/current-output",
                          "metrics":[
@@ -276,7 +276,7 @@
 
     { "name": "io/3",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-input",
                          "metrics":[
@@ -289,7 +289,7 @@
 
     { "name": "io/4",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/current-input",
                          "metrics":[
@@ -301,7 +301,7 @@
 
     { "name": "io/5",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/resistance-input",
                          "metrics":[
@@ -312,7 +312,7 @@
 
     { "name": "io/6",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/digital-input",
                          "metrics":[
@@ -325,7 +325,7 @@
 
     { "name": "io/7",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "io",
                          "is_definition": false,
                          "template_ref": "ref/io/digital-output",
                          "metrics":[
