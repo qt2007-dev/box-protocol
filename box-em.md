@@ -27,7 +27,7 @@
 
     { "name": "ref/phase",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "phase",
                          "is_definition": true,
                          "metrics":[
                           { "name": "voltage",            "dataType": 9/* Float */,     "metadata":{"description":"[R]Phase A rms voltage, value in V"},        "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
@@ -51,7 +51,7 @@
 
     { "name": "phase/a",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "phase",
                          "is_definition": false,
                          "template_ref": "ref/phase",
                          "metrics":[
@@ -76,7 +76,7 @@
 
     { "name": "phase/b",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "phase",
                          "is_definition": false,
                          "template_ref": "ref/phase",
                          "metrics":[
@@ -101,7 +101,7 @@
 
     { "name": "phase/c",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "1",
+      "template_value":{ "version": "phase",
                          "is_definition": false,
                          "template_ref": "ref/phase",
                          "metrics":[
