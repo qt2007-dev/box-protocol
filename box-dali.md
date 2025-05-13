@@ -23,6 +23,87 @@
 
     { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
+
+
+    { "name": "ref/dali/color/xy",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "color",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "x",            "dataType": 6  /* UInt16 */},
+                          { "name": "y",            "dataType": 6  /* UInt16 */}
+                        ] }, 
+        "metadata":{"description":"Template definition xy color type"} },
+
+    { "name": "ref/dali/color/temperature",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "color",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"type":6},{"type":6},{"type":6}] }},
+                        ] }, 
+        "metadata":{"description":"Template definition temperature color type"} },
+
+    { "name": "ref/dali/color/rgbwaf",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "color",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "red",          "dataType": 5  /* UInt8 */},
+                          { "name": "green",        "dataType": 5  /* UInt8 */},
+                          { "name": "blue",         "dataType": 5  /* UInt8 */},
+                          { "name": "white",        "dataType": 5  /* UInt8 */},
+                          { "name": "amber",        "dataType": 5  /* UInt8 */},
+                          { "name": "free",         "dataType": 5  /* UInt8 */}
+                        ] }, 
+        "metadata":{"description":"Template definition rgbwaf color type"} },                   
+
+    { "name": "ref/dali/level",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "level",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "dim",          "dataType": 5   /* UInt8 */, "properties":{ "keys": ["phy","min","max"], "values": [{"type":5},{"type":5},{"type":5}] } },
+                          { "name": "color",        "dataType": 19  /* Template - ref/dali/color/... */}
+                        ] }, 
+        "metadata":{"description":"Template definition driver current levels"} },
+
+    { "name": "ref/dali/fade",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "fade",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "time",        "dataType": 5  /* UInt8 */, "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },
+                          { "name": "rate",        "dataType": 5  /* UInt8 */, "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} }
+                        ] }, 
+        "metadata":{"description":"Template definition driver fade"} },
+
+
+    { "name": "ref/dali/scenes",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "scenes",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "0",        "dataType": 19  /* Template - ref/dali/level */, "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"}},
+                          { "name": "1",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "2",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "3",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "4",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "5",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "6",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "7",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "8",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "9",        "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "10",       "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "11",       "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "12",       "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "13",       "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "14",       "dataType": 19  /* Template - ref/dali/level */},
+                          { "name": "15",       "dataType": 19  /* Template - ref/dali/level */}
+                        ] }, 
+        "metadata":{"description":"Template definition driver scenes"} },
+
+
     /* Bus 0 control metrics */
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
     { "name": "dali/0/source/shortCurrent",             "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[R]Dali bus power source short current"} },    
@@ -74,38 +155,936 @@
                                                                                                                                                      'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'],
                                                                                                                                                     dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
                                                                                                                                                     can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
-    { "name": "dali/0/gear/0/dim",                      "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade. 
-                                                                                                                                                    For read actual dim level using dali cmd 'QUERY ACTUAL LEVEL'"} },    
-    { "name": "dali/0/gear/0/dim/phyMin",               "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[R]Gear physical minimum dim level, dali cmd 'QUERY PHYSICAL MINIMUM'"} },  
-    { "name": "dali/0/gear/0/dim/min",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear minimum dim level, dali cmd 'QUERY MIN LEVEL', 'SET MIN LEVEL'"} },  
-    { "name": "dali/0/gear/0/dim/max",                  "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear maximum dim level, dali cmd 'QUERY MAX LEVEL', 'SET MAX LEVEL'"} },  
-    { "name": "dali/0/gear/0/dim/powerOn",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL'"} },  
-    { "name": "dali/0/gear/0/dim/failure",              "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL',
-                                                                                                                                                    value 255(MASK) disable react to bus failure"} },
-    { "name": "dali/0/gear/0/fade/time",                "dataType": 5/* UInt8 */,    "int_value": 0,                     "metadata":{"description":"[RWP]Gear fade time, dali cmd 'SET FADE TIME', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },    
-    { "name": "dali/0/gear/0/fade/rate",                "dataType": 5/* UInt8 */,    "int_value": 1,                     "metadata":{"description":"[RWP]Gear fade rate, dali cmd 'SET FADE RATE', 'QUERY FADE TIME/FADE RATE', values = [0-15]"} },  
-    { "name": "dali/0/gear/0/scenes",
-      "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1, 
-                        "columns": ["dim"],
-                        "types": [5], /* UInt8 */
-                        "rows": [ {"elements":[{"int_value": 128}]},     /* Scene 0 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 1 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 2 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 3 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 4 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 5 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 6 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 7 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 8 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 9 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 10 */ 
-                                  {"elements":[{"int_value": 128}]},     /* Scene 11 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 12 */ 
-                                  {"elements":[{"int_value": 128}]},     /* Scene 13 */
-                                  {"elements":[{"int_value": 128}]},     /* Scene 14 */  
-                                  {"elements":[{"int_value": 128}]} ] }, /* Scene 15 */                                  
-      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} }, 
+    { "name": "dali/0/gear/0/level",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "metrics":[
+                          { "name": "dim",  "int_value": 0, "properties":{ "keys": ["phy","min","max"], "values": [{"int_value":78},{"int_value":78},{"int_value":254}] } }
+                        ] }, 
+      "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade, 
+                                'QUERY ACTUAL LEVEL', 'QUERY PHYSICAL MINIMUM','QUERY MIN LEVEL', 'SET MIN LEVEL','QUERY MAX LEVEL', 'SET MAX LEVEL'"} },
+
+    { "name": "dali/0/gear/0/level/powerOn",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "metrics":[
+                          { "name": "dim",  "int_value": 254 }
+                        ] }, 
+      "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL', value 255(MASK) equal last light level"} },
+
+    { "name": "dali/0/gear/0/level/failure",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "metrics":[
+                          { "name": "dim",  "int_value": 254 }
+                        ] }, 
+      "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL', value 255(MASK) disable react to bus failure"} },      
+
+    { "name": "dali/0/gear/0/fade",    
+      "dataType": 19 /* Template - ref/dali/fade */,
+      "template_value":{  "version": "fade",
+                          "is_definition": false,
+                          "template_ref": "ref/dali/fade",
+                          "metrics":[
+                          { "name": "time",  "int_value": 1},
+                          { "name": "rate",  "int_value": 5} ] } },
+
+    { "name": "dali/0/gear/0/scenes",  "dataType": 19 /* Template - ref/dali/scenes */,
+      "template_value":{ "version": "scenes",
+      "is_definition": false,
+      "metrics":[
+        { "name": "0",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "1",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "2",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "3",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "4",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "5",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "6",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "7",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "8",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "9",        
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "10",       
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "11",       
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "12",       
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "13",       
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "14",       
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }},
+        { "name": "15",       
+          "dataType": 19  /* Template - ref/dali/level */,
+          "template_value":{ "version": "level",
+                             "is_definition": false,
+                             "template_ref": "ref/dali/level",
+                             "metrics":[
+                              { "name": "dim", "int_value": 254 } ] }}, ] },
+      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} }
+
+    /*DALI Color Temperature control gear*/
+    { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/1/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
+    { "name": "dali/0/gear/1/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
+                                                                                                                                                    values = ['NONE', 'FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                    'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
+                                                                                                                                                    can be multiple types at the same time ('LED|COLOR')"} }, 
+    { "name": "dali/0/gear/1/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit',
+                                                                                                                                                     'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
+                                                                                                                                                    can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
+    { "name": "dali/0/gear/1/level",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/level",
+                         "metrics":[
+                          { "name": "dim",  "int_value": 0, "properties":{ "keys": ["phy","min","max"], "values": [{"int_value":78},{"int_value":78},{"int_value":254}] } },
+                          { "name": "color",
+                            "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                            "template_value":{ "version": "color",
+                                               "is_definition": false,
+                                               "template_ref": "ref/dali/color/temperature",
+                                               "metrics":[
+                                                { "name": "temperature",  "int_value": 2700, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"int_value":2300},{"int_value":2300},{"int_value":5000}] }},
+                                              ] } },
+                        ] }, 
+      "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade, 
+                                'QUERY ACTUAL LEVEL', 'QUERY PHYSICAL MINIMUM','QUERY MIN LEVEL', 'SET MIN LEVEL','QUERY MAX LEVEL', 'SET MAX LEVEL'"} },
+
+    { "name": "dali/0/gear/1/level/powerOn",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/level",
+                         "metrics":[
+                          { "name": "dim",  "int_value": 254 },
+                          { "name": "color",
+                            "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                            "template_value":{ "version": "color",
+                                               "is_definition": false,
+                                               "template_ref": "ref/dali/color/temperature",
+                                               "metrics":[
+                                                { "name": "temperature",  "int_value": 2700 },
+                                              ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL', value 255(MASK) equal last light level"} },
+
+    { "name": "dali/0/gear/1/level/failure",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/level",
+                         "metrics":[
+                          { "name": "dim",  "int_value": 254 },
+                          { "name": "color",
+                            "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                            "template_value":{ "version": "color",
+                                               "is_definition": false,
+                                               "template_ref": "ref/dali/color/temperature",
+                                               "metrics":[
+                                                { "name": "temperature",  "int_value": 2700 },
+                                              ] } },
+
+                        ] }, 
+      "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL', value 255(MASK) disable react to bus failure"} },      
+
+    { "name": "dali/0/gear/1/fade",    
+      "dataType": 19 /* Template - ref/dali/fade */,
+      "template_value":{  "version": "fade",
+                          "is_definition": false,
+                          "template_ref": "ref/dali/fade",
+                          "metrics":[
+                          { "name": "time",  "int_value": 1},
+                          { "name": "rate",  "int_value": 5} ] } },
+
+    { "name": "dali/0/gear/1/scenes",  
+      "dataType": 19 /* Template - ref/dali/scenes */,
+      "template_value":{ "version": "scenes",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/scenes",
+                         "metrics":[
+                           { "name": "0",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "1",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "2",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "3",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "4",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "5",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "6",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "7",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "8",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "9",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "10",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "11",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "12",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "13",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "14",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }},
+                           { "name": "15",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/temperature*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/temperature",
+                                                                      "metrics":[
+                                                                        { "name": "temperature",  "int_value": 2700 },
+                                                                     ] } } 
+                                                             ] }} ] },
+                         "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} },
+
+    /*DALI Color RGBWAF control gear*/
+    { "name": "dali/0/gear/2/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/2/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
+    { "name": "dali/0/gear/2/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE',
+                                                                                                                                                    values = ['NONE', 'FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN',
+                                                                                                                                                    'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'],
+                                                                                                                                                    can be multiple types at the same time ('LED|COLOR')"} }, 
+    { "name": "dali/0/gear/2/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit',
+                                                                                                                                                     'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'],
+                                                                                                                                                    dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS',
+                                                                                                                                                    can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
+    { "name": "dali/0/gear/2/level",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/level",
+                         "metrics":[
+                          { "name": "dim",  "int_value": 0, "properties":{ "keys": ["phy","min","max"], "values": [{"int_value":78},{"int_value":78},{"int_value":254}] } },
+                          { "name": "color",
+                            "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                            "template_value":{ "version": "color",
+                                               "is_definition": false,
+                                               "template_ref": "ref/dali/color/rgbwaf",
+                                               "metrics":[
+                                                { "name": "red",    "int_value": 254},
+                                                { "name": "green",  "int_value": 0},
+                                                { "name": "blue",   "int_value": 0},
+                                                { "name": "white",  "int_value": 0},
+                                                { "name": "amber",  "int_value": 0},
+                                                { "name": "free",   "int_value": 0}
+                                              ] } },
+                        ] }, 
+      "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade, 
+                                'QUERY ACTUAL LEVEL', 'QUERY PHYSICAL MINIMUM','QUERY MIN LEVEL', 'SET MIN LEVEL','QUERY MAX LEVEL', 'SET MAX LEVEL'"} },
+
+    { "name": "dali/0/gear/2/level/powerOn",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/level",
+                         "metrics":[
+                          { "name": "dim",  "int_value": 254 },
+                          { "name": "color",
+                            "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                            "template_value":{ "version": "color",
+                                               "is_definition": false,
+                                               "template_ref": "ref/dali/color/rgbwaf",
+                                               "metrics":[
+                                                { "name": "red",    "int_value": 254},
+                                                { "name": "green",  "int_value": 0},
+                                                { "name": "blue",   "int_value": 0},
+                                                { "name": "white",  "int_value": 0},
+                                                { "name": "amber",  "int_value": 0},
+                                                { "name": "free",   "int_value": 0}
+                                              ] } },
+                        ] }, 
+      "metadata":{"description":"[RWP]Gear power on dim level, dali cmd 'QUERY POWER ON LEVEL', 'SET POWER ON LEVEL', value 255(MASK) equal last light level"} },
+
+    { "name": "dali/0/gear/2/level/failure",
+      "dataType": 19, /* Template - ref/dali/level */
+      "template_value":{ "version": "level",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/level",
+                         "metrics":[
+                          { "name": "dim",  "int_value": 254 },
+                          { "name": "color",
+                            "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                            "template_value":{ "version": "color",
+                                               "is_definition": false,
+                                               "template_ref": "ref/dali/color/rgbwaf",
+                                               "metrics":[
+                                                { "name": "red",    "int_value": 254},
+                                                { "name": "green",  "int_value": 0},
+                                                { "name": "blue",   "int_value": 0},
+                                                { "name": "white",  "int_value": 0},
+                                                { "name": "amber",  "int_value": 0},
+                                                { "name": "free",   "int_value": 0}
+                                              ] } },
+
+                        ] }, 
+      "metadata":{"description":"[RWP]Gear bus failure dim level, dali cmd 'QUERY SYSTEM FAILURE LEVEL', 'SET SYSTEM FAILURE LEVEL', value 255(MASK) disable react to bus failure"} },      
+
+    { "name": "dali/0/gear/2/fade",    
+      "dataType": 19 /* Template - ref/dali/fade */,
+      "template_value":{  "version": "fade",
+                          "is_definition": false,
+                          "template_ref": "ref/dali/fade",
+                          "metrics":[
+                          { "name": "time",  "int_value": 1},
+                          { "name": "rate",  "int_value": 5} ] } },
+
+    { "name": "dali/0/gear/2/scenes",  
+      "dataType": 19 /* Template - ref/dali/scenes */,
+      "template_value":{ "version": "scenes",
+                         "is_definition": false,
+                         "template_ref": "ref/dali/scenes",
+                         "metrics":[
+                           { "name": "0",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "1",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "2",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "3",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "4",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "5",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "6",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "7",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "8",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "9",        
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "10",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "11",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "12",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "13",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "14",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }},
+                           { "name": "15",       
+                             "dataType": 19  /* Template - ref/dali/level */,
+                             "template_value":{ "version": "level",
+                                                "is_definition": false,
+                                                "template_ref": "ref/dali/level",
+                                                "metrics":[
+                                                  { "name": "dim", "int_value": 254 },
+                                                  { "name": "color",
+                                                    "dataType": 19, /* Template  - ref/dali/color/rgbwaf*/
+                                                    "template_value":{ "version": "color",
+                                                                      "is_definition": false,
+                                                                      "template_ref": "ref/dali/color/rgbwaf",
+                                                                      "metrics":[
+                                                                        { "name": "red",    "int_value": 254},
+                                                                        { "name": "green",  "int_value": 0},
+                                                                        { "name": "blue",   "int_value": 0},
+                                                                        { "name": "white",  "int_value": 0},
+                                                                        { "name": "amber",  "int_value": 0},
+                                                                        { "name": "free",   "int_value": 0}
+                                                                      ] } }
+                                                             ] }} ] },
+                         "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} },
+
 
     /* Control device metrics */
     /* dali/{bus}/device/{device}/instance/{instance}  */ 
