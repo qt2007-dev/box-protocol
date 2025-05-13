@@ -30,8 +30,10 @@
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "x",            "dataType": 6  /* UInt16 */},
-                          { "name": "y",            "dataType": 6  /* UInt16 */}
+                          { "name": "x",            "dataType": 6  /* UInt16 */, "metadata":{"description":"[RW]Gear x color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 
+                                                                                                            'QUERY COLOUR STATUS', 'SET TEMPORARY x-COORDINATE', 'ACTIVATE '"}},
+                          { "name": "y",            "dataType": 6  /* UInt16 */, "metadata":{"description":"[RW]Gear y color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 
+                                                                                                            'QUERY COLOUR STATUS', 'SET TEMPORARY y-COORDINATE', 'ACTIVATE '"}}
                         ] }, 
         "metadata":{"description":"Template definition xy color type"} },
 
@@ -40,7 +42,9 @@
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"type":6},{"type":6},{"type":6}] }},
+                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"type":6},{"type":6},{"type":6}] }, 
+                            "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                      'SET TEMPORARY COLOUR TEMPERATURE', 'ACTIVATE ', 'QUERY COLOUR VALUE', 'STORE COLOUR TEMPERATURE TC LIMIT'"}},
                         ] }, 
         "metadata":{"description":"Template definition temperature color type"} },
 
@@ -49,12 +53,18 @@
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "red",          "dataType": 5  /* UInt8 */},
-                          { "name": "green",        "dataType": 5  /* UInt8 */},
-                          { "name": "blue",         "dataType": 5  /* UInt8 */},
-                          { "name": "white",        "dataType": 5  /* UInt8 */},
-                          { "name": "amber",        "dataType": 5  /* UInt8 */},
-                          { "name": "free",         "dataType": 5  /* UInt8 */}
+                          { "name": "red",          "dataType": 5  /* UInt8 */, "metadata":{"description":"[RW]Gear red color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                                                                           'SET TEMPORARY RGB DIMLEVEL','ACTIVATE '"} },
+                          { "name": "green",        "dataType": 5  /* UInt8 */, "metadata":{"description":"[RW]Gear green color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                                                                           'SET TEMPORARY RGB DIMLEVEL','ACTIVATE '"} },
+                          { "name": "blue",         "dataType": 5  /* UInt8 */, "metadata":{"description":"[RW]Gear blue color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                                                                           'SET TEMPORARY RGB DIMLEVEL','ACTIVATE '"} },
+                          { "name": "white",        "dataType": 5  /* UInt8 */, "metadata":{"description":"[RW]Gear white color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                                                                           'SET TEMPORARY WAF DIMLEVEL','ACTIVATE '"} },
+                          { "name": "amber",        "dataType": 5  /* UInt8 */, "metadata":{"description":"[RW]Gear amber color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                                                                           'SET TEMPORARY WAF DIMLEVEL','ACTIVATE '"} },
+                          { "name": "free",         "dataType": 5  /* UInt8 */, "metadata":{"description":"[RW]Gear free color, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS',
+                                                                                                           'SET TEMPORARY WAF DIMLEVEL','ACTIVATE '"} }
                         ] }, 
         "metadata":{"description":"Template definition rgbwaf color type"} },                   
 
@@ -84,7 +94,7 @@
       "template_value":{ "version": "scenes",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "0",        "dataType": 19  /* Template - ref/dali/level */, "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"}},
+                          { "name": "0",        "dataType": 19  /* Template - ref/dali/level */},
                           { "name": "1",        "dataType": 19  /* Template - ref/dali/level */},
                           { "name": "2",        "dataType": 19  /* Template - ref/dali/level */},
                           { "name": "3",        "dataType": 19  /* Template - ref/dali/level */},
@@ -1083,7 +1093,7 @@
                                                                         { "name": "free",   "int_value": 0}
                                                                       ] } }
                                                              ] }} ] },
-                         "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} },
+      "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} },
 
 
     /* Control device metrics */
