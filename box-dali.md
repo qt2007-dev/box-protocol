@@ -38,7 +38,7 @@
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"type":6},{"type":6},{"type":6}] }, 
+                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"type":6, "int_value": 0},{"type":6, "int_value": 65535},{"type":6, "int_value": 65535}] }, 
                             "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS', 'SET TEMPORARY COLOUR TEMPERATURE', 'ACTIVATE ', 'QUERY COLOUR VALUE', 'STORE COLOUR TEMPERATURE TC LIMIT'"}}
                         ] }, 
         "metadata":{"description":"Template definition temperature color type"} },
@@ -62,8 +62,16 @@
       "template_value":{ "version": "level",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "dim",          "dataType": 5   /* UInt8 */, "properties":{ "keys": ["phy","min","max"], "values": [{"type":5},{"type":5},{"type":5}] } },
-                          { "name": "color",        "dataType": 19  /* Template - ref/dali/color/... */}
+                          { "name": "dim",          "dataType": 5   /* UInt8 */, "properties":{ "keys": ["phy","min","max"], "values": [{"type":5, "int_value": 0},{"type":5, "int_value": 0},{"type":5, "int_value": 254}] },
+                                                    "metadata": {"description":""}},
+                          { "name": "color",        "dataType": 19  /* Template - ref/dali/color/... */, 
+                            "template_value": {
+                              "version" : "color",
+                              "template_ref": "ref/dali/color/temperature",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":""}}
                         ] }, 
         "metadata":{"description":"Template definition driver current levels"} },
 
@@ -82,22 +90,134 @@
       "template_value":{ "version": "scenes",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "0",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "1",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "2",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "3",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "4",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "5",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "6",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "7",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "8",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "9",        "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "10",       "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "11",       "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "12",       "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "13",       "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "14",       "dataType": 19  /* Template - ref/dali/level */},
-                          { "name": "15",       "dataType": 19  /* Template - ref/dali/level */}
+                          { "name": "0",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "1",        "dataType": 19  /* Template - ref/dali/level */, 
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "2",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "3",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "4",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "5",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "6",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "7",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "8",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "9",        "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "10",       "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "11",       "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "12",       "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "13",       "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "14",       "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}},
+                          { "name": "15",       "dataType": 19  /* Template - ref/dali/level */,
+                            "template_value": {
+                              "version" : "level",
+                              "template_ref": "ref/dali/level",
+                              "is_definition": false,
+                              "metrics": []
+                            },
+                            "metadata":{"description":"Template definition driver current levels"}}
                         ] }, 
         "metadata":{"description":"Template definition driver scenes"} },
 
@@ -109,10 +229,10 @@
 
     { "name": "dali/0/swap",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 1,
+      "dataset_value":{ "num_of_columns": 2,
                         "columns": ["from", "target"],
                         "types": [5,5], /* UInt8, UInt8 */
-                        "rows": [ {"elements":[{"int_value": 23,"int_value": 34}]} ] },                                 
+                        "rows": [ {"elements":[{"int_value": 23}, {"int_value": 34}]} ] },                                 
       "metadata":{"description":"[W]Dali swap short address on bus"} },
     
     { "name": "dali/0/cmd",
@@ -148,8 +268,10 @@
       "dataType": 19, /* Template - ref/dali/level */
       "template_value":{ "version": "level",
                          "is_definition": false,
+                         "template_ref": "ref/dali/level",
                          "metrics":[
-                          { "name": "dim",  "int_value": 0, "properties":{ "keys": ["phy","min","max"], "values": [{"int_value":78},{"int_value":78},{"int_value":254}] } }
+                          { "name": "dim",  "int_value": 0, "properties":{ "keys": ["phy","min","max"], "values": [{"int_value":78},{"int_value":78},{"int_value":254}] }, 
+                            "metadata":{"description":"Template definition driver current levels"} }
                         ] }, 
       "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade, 'QUERY ACTUAL LEVEL', 'QUERY PHYSICAL MINIMUM','QUERY MIN LEVEL', 'SET MIN LEVEL','QUERY MAX LEVEL', 'SET MAX LEVEL'"} },
 
@@ -157,6 +279,7 @@
       "dataType": 19, /* Template - ref/dali/level */
       "template_value":{ "version": "level",
                          "is_definition": false,
+                         "template_ref": "ref/dali/level",
                          "metrics":[
                           { "name": "dim",  "int_value": 254 }
                         ] }, 
@@ -166,6 +289,7 @@
       "dataType": 19, /* Template - ref/dali/level */
       "template_value":{ "version": "level",
                          "is_definition": false,
+                         "template_ref": "ref/dali/level",
                          "metrics":[
                           { "name": "dim",  "int_value": 254 }
                         ] }, 
@@ -178,11 +302,13 @@
                           "template_ref": "ref/dali/fade",
                           "metrics":[
                           { "name": "time",  "int_value": 1},
-                          { "name": "rate",  "int_value": 5} ] } },
+                          { "name": "rate",  "int_value": 5} ] },
+      "metadata":{"description":""} },
 
     { "name": "dali/0/gear/0/scenes",  "dataType": 19 /* Template - ref/dali/scenes */,
       "template_value":{ "version": "scenes",
       "is_definition": false,
+      "template_ref": "ref/dali/scenes",
       "metrics":[
         { "name": "0",        
           "dataType": 19  /* Template - ref/dali/level */,
@@ -365,7 +491,8 @@
                           "template_ref": "ref/dali/fade",
                           "metrics":[
                           { "name": "time",  "int_value": 1},
-                          { "name": "rate",  "int_value": 5} ] } },
+                          { "name": "rate",  "int_value": 5} ] },
+      "metadata":{"description":""} },
 
     { "name": "dali/0/gear/1/scenes",  
       "dataType": 19 /* Template - ref/dali/scenes */,
@@ -490,7 +617,8 @@
                           "template_ref": "ref/dali/fade",
                           "metrics":[
                           { "name": "time",  "int_value": 1},
-                          { "name": "rate",  "int_value": 5} ] } },
+                          { "name": "rate",  "int_value": 5} ] },
+      "metadata":{"description":""} },
 
     { "name": "dali/0/gear/2/scenes",  
       "dataType": 19 /* Template - ref/dali/scenes */,
