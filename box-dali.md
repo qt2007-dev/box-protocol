@@ -38,7 +38,7 @@
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"type":6, "int_value": 0},{"type":6, "int_value": 65535},{"type":6, "int_value": 65535}] }, 
+                          { "name": "temperature",  "dataType": 6  /* UInt16 */, "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], "values": [{"type":6, "int_value": 0},{"type":6, "int_value": 0},{"type":6, "int_value": 65535},{"type":6, "int_value": 65535}] }, 
                             "metadata":{"description":"[RW]Gear color, columns depends on color type, dali cmd 'STORE ACTUAL LEVEL IN THE DTR', 'REPORT COLOUR TYPE', 'REPORT COLOUR VALUE', 'QUERY COLOUR STATUS', 'SET TEMPORARY COLOUR TEMPERATURE', 'ACTIVATE ', 'QUERY COLOUR VALUE', 'STORE COLOUR TEMPERATURE TC LIMIT'"}}
                         ] }, 
         "metadata":{"description":"Template definition temperature color type"} },
