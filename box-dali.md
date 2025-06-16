@@ -257,6 +257,111 @@
                                   {"elements":[{"int_value": 4}]},
                                   {"elements":[{"int_value": 5}]}  ] },                                                  
       "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/1",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/2",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/3",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/4",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/5",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/6",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/7",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/8",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/9",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/10",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/11",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/12",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/13",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/14",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
+    { "name": "dali/0/group/15",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 1,
+                        "columns": ["gear"],
+                        "types": [5], /* UInt8 */
+                        "rows": [ ] },                                                  
+      "metadata":{"description":"[RWP]Dali group contained gear list, dali cmd 'ADD TO GROUP','REMOVE FROM GROUP','QUERY GROUPS'"} }, 
    
     /* Control gear metrics */
     /* dali/{bus}/gear/{gear}  */  
@@ -425,7 +530,7 @@
       "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} },
 
     /*DALI Color Temperature control gear*/
-    { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1122",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/gear/1/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
     { "name": "dali/0/gear/1/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE', values = ['NONE', 'FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN', 'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'], can be multiple types at the same time ('LED|COLOR')"} }, 
     { "name": "dali/0/gear/1/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit', 'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'], dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS', can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
@@ -536,7 +641,7 @@
                          "metadata":{"description":"[RWP]Dali gear scenes, dali cmd 'QUERY SCENE LEVEL', 'SET SCENE'"} },
 
     /*DALI Color RGBWAF control gear*/
-    { "name": "dali/0/gear/2/id",                       "dataType": 12/* String */,  "string_value": "0000-1121",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/gear/2/id",                       "dataType": 12/* String */,  "string_value": "0000-1123",        "metadata":{"description":"[R]Gear id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/gear/2/identify",                 "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Start gear 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
     { "name": "dali/0/gear/2/type",                     "dataType": 12/* String */,  "string_value": "COLOR",            "metadata":{"description":"[R]Gear type, dali cmd 'QUERY DEVICE TYPE','QUERY NEXT DEVICE TYPE', values = ['NONE', 'FLUORESCENT', 'EMERGENCY', 'HID', 'HALOGEN', 'INCANDESCENT', 'CONVERTOR', 'LED', 'RELAY', 'COLOR'], can be multiple types at the same time ('LED|COLOR')"} }, 
     { "name": "dali/0/gear/2/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit', 'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'], dali cmd 'QUERY STATUS', LED - 'QUERY FAILURE STATUS', can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
@@ -674,7 +779,7 @@
 
     /* Control device metrics */
     /* dali/{bus}/device/{device}/instance/{instance}  */ 
-    { "name": "dali/0/device/0/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/device/0/id",                           "dataType": 12/* String */,  "string_value": "0000-0121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/device/0/identify",                     "dataType": 11/* Boolean */, "boolean_value": false,                    "metadata":{"description":"[W]Start device 10s identification procedure, dali cmd 'IDENTIFY DEVICE'"} },
     { "name": "dali/0/device/0/instance/0/type",              "dataType": 12/* String */,  "string_value": "PUSH-BUTTON",             "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE', values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/0/instance/0/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
@@ -703,7 +808,7 @@
     { "name": "dali/0/device/0/instance/1/timer/deadtime",    "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the deadtime timer is set, the instance shall not send out an event until the deadtime timer has expired, dali cmd 'SET DEADTIME TIMER', 'QUERY DEADTIME TIMER'"} },  
     { "name": "dali/0/device/0/instance/1/timer/report",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the report timer is set, it shall trigger an event every tReport even if the value has not changed, dali cmd 'SET REPORT TIMER', 'QUERY REPORT TIMER'"} },  
 
-    { "name": "dali/0/device/1/id",                           "dataType": 12/* String */,  "string_value": "0000-1121",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
+    { "name": "dali/0/device/1/id",                           "dataType": 12/* String */,  "string_value": "0000-0122",               "metadata":{"description":"[R]Device id stored in memory bank 0, dali cmd 'READ MEMORY LOCATION'"} },
     { "name": "dali/0/device/1/instance/0/type",              "dataType": 12/* String */,  "string_value": "OCCUPANCY-SENSOR",        "metadata":{"description":"[R]Device instance type, dali cmd 'QUERY INSTANCE TYPE', values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/1/instance/0/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled, dali cmd 'ENABLE INSTANCE', 'DISABLE INSTANCE', 'QUERY INSTANCE ENABLED'"} },
     { "name": "dali/0/device/1/instance/0/value",             "dataType": 12/* String */,  "string_value": "vacant",                  "metadata":{"description":"[R]Last occupancy event, values = ['vacant', 'occupied'], dali cmd 'QUERY INPUT VALUE'"} },
