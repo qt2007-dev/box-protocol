@@ -548,7 +548,7 @@
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
-                                                { "name": "temperature",  "int_value": 2700, "properties":{ "keys": ["phy","warmest","coolest"], "values": [{"int_value":2300},{"int_value":2300},{"int_value":5000}] }}
+                                                { "name": "temperature",  "int_value": 2700, "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], "values": [{"int_value":2300},{"int_value":2300},{"int_value":5000}, {"int_value":5000}] }}
                                               ] } }
                         ] }, 
       "metadata":{"description":"[RW]Gear dim level, dali cmd 'DAPC', values = [0-255], value 255(MASK) stop running fade, 'QUERY ACTUAL LEVEL', 'QUERY PHYSICAL MINIMUM','QUERY MIN LEVEL', 'SET MIN LEVEL','QUERY MAX LEVEL', 'SET MAX LEVEL'"} },
