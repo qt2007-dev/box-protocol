@@ -405,7 +405,7 @@
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
                             "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
                         ] }, 
-      "metadata":{"description":"[RWP]Gear bus failure dim level, value 255(MASK) disable react to bus failure"} },      
+      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"} },      
 
     { "name": "dali/0/gear/0/fade",    
       "dataType": 19 /* Template */,
@@ -597,7 +597,7 @@
                                                "metrics":[
                                                 { "name": "temperature",  "dataType": 6  /* UInt16 */, "int_value": 2700, 
                                                   "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], 
-                                                    "values": [{"type": 6, "int_value":2300},{"type": 6, "int_value":2300},{"type": 6, "int_value":5000}, {"type": 6, "int_value":5000}] },
+                                                    "values": [{"type": 6, "int_value":1000},{"type": 6, "int_value":1000},{"type": 6, "int_value":7042}, {"type": 6, "int_value":7042}] },
                                                   "metadata":{"description":"Gear color temperature"}}
                                               ] } }
                         ] }, 
