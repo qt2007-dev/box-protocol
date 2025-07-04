@@ -31,7 +31,7 @@
                          "metrics":[
                           { "name": "x",            "dataType": 6  /* UInt16 */, "metadata":{"description":"Gear x color"}},
                           { "name": "y",            "dataType": 6  /* UInt16 */, "metadata":{"description":"Gear y color"}}
-                        ] }, },
+                        ] } },
 
     { "name": "ref/dali/color/temperature",
       "dataType": 19, /* Template */
@@ -43,7 +43,7 @@
                             "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], 
                               "values": [{"type":6, "int_value": 1},{"type":6, "int_value": 1},{"type":6, "int_value": 65535},{"type":6, "int_value": 65535}] }, 
                             "metadata":{"description":"Gear color temperature"}}
-                        ] }, },
+                        ] } },
 
     { "name": "ref/dali/color/rgbwaf",
       "dataType": 19, /* Template */
@@ -57,7 +57,7 @@
                           { "name": "white",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear white color"} },
                           { "name": "amber",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear amber color"} },
                           { "name": "free",         "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear free color"}  }
-                        ] }, },                   
+                        ] } },                   
 
     { "name": "ref/dali/level",
       "dataType": 19, /* Template */
@@ -76,7 +76,7 @@
                              "is_definition": false,
                              "metrics": []
                             }}
-                        ] }, },
+                        ] } },
 
     { "name": "ref/dali/fade",
       "dataType": 19, /* Template */
@@ -86,7 +86,7 @@
                          "metrics":[
                             { "name": "time",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear fade time, values = [0-15]"} },
                             { "name": "rate",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear fade rate, values = [1-15]"} }
-                        ] }, },
+                        ] } },
 
     { "name": "ref/dali/scenes",
       "dataType": 19, /* Template */
@@ -222,7 +222,7 @@
                               "metrics": []
                             },
                             "metadata":{"description":"Scene 15 level"}}
-                        ] }, },
+                        ] } },
 
     /* Bus 0 control metrics */
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
@@ -383,7 +383,7 @@
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
                             "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
-                        ] }, },
+                        ] } },
 
     { "name": "dali/0/gear/0/level/powerOn",
       "dataType": 19, /* Template */
@@ -394,18 +394,18 @@
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
                             "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"} }
-                        ] }, },
+                        ] } },
 
     { "name": "dali/0/gear/0/level/failure",
       "dataType": 19, /* Template */
-      "metadata":{"description":"[RWP]Gear bus failure level"},
+      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"},
       "template_value":{ "version": "level",
                          "is_definition": false,
                          "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
                             "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"} }
-                        ] }, },      
+                        ] } },      
 
     { "name": "dali/0/gear/0/fade",    
       "dataType": 19 /* Template */,
@@ -417,7 +417,7 @@
                             { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1,
                               "metadata":{"description":"Gear fade time, values = [0-15]"}},
                             { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5,
-                              "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] }, },
+                              "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] } },
 
     { "name": "dali/0/gear/0/scenes",  
       "dataType": 19 /* Template */,
@@ -570,7 +570,7 @@
                               "template_ref": "ref/dali/level",
                               "metrics":[
                                 { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }} ] }, },
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }} ] } },
 
     /*DALI Color Temperature control gear*/
     { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1122",        "metadata":{"description":"[R]Gear id stored in memory bank 0"} },
@@ -600,7 +600,7 @@
                                                     "values": [{"type": 6, "int_value":1000},{"type": 6, "int_value":1000},{"type": 6, "int_value":7042}, {"type": 6, "int_value":7042}] },
                                                   "metadata":{"description":"Gear color temperature"}}
                                               ] } }
-                        ] }, },
+                        ] } },
 
     { "name": "dali/0/gear/1/level/powerOn",
       "dataType": 19, /* Template */
@@ -621,7 +621,7 @@
                                                 { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
                                                   "metadata":{"description":"Gear color temperature"} }
                                               ] } }
-                        ] }, },
+                        ] } },
 
     { "name": "dali/0/gear/1/level/failure",
       "dataType": 19, /* Template */
@@ -644,7 +644,7 @@
                                               ] }
                                              }
 
-                        ] }, },      
+                        ] } },      
 
     { "name": "dali/0/gear/1/fade",    
       "dataType": 19 /* Template  */,
@@ -654,7 +654,7 @@
                           "template_ref": "ref/dali/fade",
                           "metrics":[
                           { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"Gear fade time, values = [0-15]"}},
-                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] }, },
+                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] } },
 
     { "name": "dali/0/gear/1/scenes",  
       "dataType": 19 /* Template  */,
@@ -703,7 +703,7 @@
                                                                         { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
                                                                           "metadata":{"description":"Gear color temperature"}}
                                                                      ] } } 
-                                                             ] }} ] }, },
+                                                             ] }} ] } },
 
     /*DALI Color RGBWAF control gear*/
     { "name": "dali/0/gear/2/id",                       "dataType": 12/* String */,  "string_value": "0000-1123",        "metadata":{"description":"[R]Gear id stored in memory bank 0"} },
@@ -713,7 +713,7 @@
     { "name": "dali/0/gear/2/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit', 'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'], can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
     { "name": "dali/0/gear/2/level",
       "dataType": 19, /* Template */
-      "metadata":{"description":"[RW]Gear current level, values = [0-255], value 255(MASK) stop running fade"},
+      "metadata":{"description":"[RW]Gear current level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
                          "template_ref": "ref/dali/level",                         
@@ -741,11 +741,11 @@
                                                 { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
                                                   "metadata":{"description":"Gear free color"}  }
                                               ] } }
-                        ] }, },
+                        ] } },
 
     { "name": "dali/0/gear/2/level/powerOn",
       "dataType": 19, /* Template */
-      "metadata":{"description":"[RWP]Gear power on level, value 255(MASK) equal last light level"},
+      "metadata":{"description":"[RWP]Gear power on level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
                          "template_ref": "ref/dali/level",
@@ -773,7 +773,7 @@
                                                 { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
                                                   "metadata":{"description":"Gear free color"}  }
                                               ] } }
-                        ] }, },
+                        ] } },
 
     { "name": "dali/0/gear/2/level/failure",
       "dataType": 19, /* Template */
@@ -805,7 +805,7 @@
                                                   "metadata":{"description":"Gear free color"}  }
                                               ] } }
 
-                        ] }, },      
+                        ] } },      
 
     { "name": "dali/0/gear/2/fade",    
       "dataType": 19 /* Template  */,
@@ -815,7 +815,7 @@
                           "template_ref": "ref/dali/fade",                          
                           "metrics":[
                           { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"Gear fade time, values = [0-15]"}},
-                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] }, },
+                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] } },
 
     { "name": "dali/0/gear/2/scenes",  
       "dataType": 19 /* Template  */,
@@ -884,7 +884,7 @@
                                                                         { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
                                                                           "metadata":{"description":"Gear free color"}  }
                                                                       ] } }
-                                                             ] }} ] }, },
+                                                             ] }} ] } },
 
 
     /* Control device metrics */
@@ -919,6 +919,7 @@
     { "name": "dali/0/device/0/instance/1/timer/report",      "dataType": 5/* UInt8 */,    "int_value": 0,                            "metadata":{"description":"[RWP]If the report timer is set, it shall trigger an event every tReport even if the value has not changed"} },  
 
     { "name": "dali/0/device/1/id",                           "dataType": 12/* String */,  "string_value": "0000-0122",               "metadata":{"description":"[R]Device id stored in memory bank 0"} },
+    { "name": "dali/0/device/1/identify",                     "dataType": 11/* Boolean */, "boolean_value": false,                    "metadata":{"description":"[W]Start device 10s identification procedure"} },
     { "name": "dali/0/device/1/instance/0/type",              "dataType": 12/* String */,  "string_value": "OCCUPANCY-SENSOR",        "metadata":{"description":"[R]Device instance type, values = ['GENERIC', 'PUSH-BUTTON', 'ABSOLUTE-INPUT-DEVICE', 'OCCUPANCY-SENSOR', 'LIGHT-SENSOR']"} },
     { "name": "dali/0/device/1/instance/0/enable",            "dataType": 11/* Boolean */, "boolean_value": true,                     "metadata":{"description":"[RWP]Device instance enabled/disabled"} },
     { "name": "dali/0/device/1/instance/0/value",             "dataType": 12/* String */,  "string_value": "vacant",                  "metadata":{"description":"[R]Last occupancy event, values = ['vacant', 'occupied']"} },
