@@ -25,16 +25,17 @@
 
     { "name": "ref/dali/color/xy",
       "dataType": 19, /* Template */
+      "metadata":{"description":"Template definition xy color type"},
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
                           { "name": "x",            "dataType": 6  /* UInt16 */, "metadata":{"description":"Gear x color"}},
                           { "name": "y",            "dataType": 6  /* UInt16 */, "metadata":{"description":"Gear y color"}}
-                        ] }, 
-        "metadata":{"description":"Template definition xy color type"} },
+                        ] }, },
 
     { "name": "ref/dali/color/temperature",
       "dataType": 19, /* Template */
+      "metadata":{"description":"Template definition temperature color type"},
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
@@ -42,11 +43,11 @@
                             "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], 
                               "values": [{"type":6, "int_value": 1},{"type":6, "int_value": 1},{"type":6, "int_value": 65535},{"type":6, "int_value": 65535}] }, 
                             "metadata":{"description":"Gear color temperature"}}
-                        ] }, 
-        "metadata":{"description":"Template definition temperature color type"} },
+                        ] }, },
 
     { "name": "ref/dali/color/rgbwaf",
       "dataType": 19, /* Template */
+      "metadata":{"description":"Template definition rgbwaf color type"},
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
@@ -56,11 +57,11 @@
                           { "name": "white",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear white color"} },
                           { "name": "amber",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear amber color"} },
                           { "name": "free",         "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear free color"}  }
-                        ] }, 
-        "metadata":{"description":"Template definition rgbwaf color type"} },                   
+                        ] }, },                   
 
     { "name": "ref/dali/level",
       "dataType": 19, /* Template */
+      "metadata":{"description":"Template definition gear current levels"},
       "template_value":{ "version": "level",
                          "is_definition": true,
                          "metrics":[
@@ -75,21 +76,21 @@
                              "is_definition": false,
                              "metrics": []
                             }}
-                        ] }, 
-        "metadata":{"description":"Template definition gear current levels"} },
+                        ] }, },
 
     { "name": "ref/dali/fade",
       "dataType": 19, /* Template */
+      "metadata":{"description":"Template definition gear fade"},
       "template_value":{ "version": "fade",
                          "is_definition": true,
                          "metrics":[
                             { "name": "time",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear fade time, values = [0-15]"} },
                             { "name": "rate",        "dataType": 5  /* UInt8 */, "metadata":{"description":"Gear fade rate, values = [1-15]"} }
-                        ] }, 
-        "metadata":{"description":"Template definition gear fade"} },
+                        ] }, },
 
     { "name": "ref/dali/scenes",
       "dataType": 19, /* Template */
+      "metadata":{"description":"Template definition gear scenes control"},
       "template_value":{ "version": "scenes",
                          "is_definition": true,
                          "metrics":[
@@ -221,8 +222,7 @@
                               "metrics": []
                             },
                             "metadata":{"description":"Scene 15 level"}}
-                        ] }, 
-        "metadata":{"description":"Template definition gear scenes control"} },
+                        ] }, },
 
     /* Bus 0 control metrics */
     { "name": "dali/0/source",                          "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Dali bus power source state, 'true' - enabled, 'false' - disabled"} },    
@@ -247,7 +247,7 @@
       "metadata":{"description":"[W]Dali send command to bus, 'addr-type' list of values = ['broadcast', 'group', 'gear'], 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down', 'on-and-step-up', 'step-down-and-off']"} },                    
 
     /* Group control metrics */
-    /* dali/{bus}/group/{group}    */ 
+    /* dali/{bus}/group/{group} */ 
     { "name": "dali/0/group/0",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 1,
@@ -375,203 +375,202 @@
     { "name": "dali/0/gear/0/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit', 'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'], can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
     { "name": "dali/0/gear/0/level",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RW]Gear current level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
                             "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
-                        ] }, 
-      "metadata":{"description":"[RW]Gear current level"} },
+                        ] }, },
 
     { "name": "dali/0/gear/0/level/powerOn",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RWP]Gear power on level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
-                        ] }, 
-      "metadata":{"description":"[RWP]Gear power on level, value 255(MASK) equal last light level"} },
+                            "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"} }
+                        ] }, },
 
     { "name": "dali/0/gear/0/level/failure",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RWP]Gear bus failure level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
-                        ] }, 
-      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"} },      
+                            "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"} }
+                        ] }, },      
 
     { "name": "dali/0/gear/0/fade",    
       "dataType": 19 /* Template */,
+      "metadata":{"description":"[RWP]Gear fade"},
       "template_value":{  "version": "fade",
                           "is_definition": false,
-                          "template_ref": "ref/dali/fade",
+                          "template_ref": "ref/dali/fade",                          
                           "metrics":[
                             { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1,
                               "metadata":{"description":"Gear fade time, values = [0-15]"}},
                             { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5,
-                              "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] },
-      "metadata":{"description":"[RWP]Gear fade"} },
+                              "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] }, },
 
     { "name": "dali/0/gear/0/scenes",  
       "dataType": 19 /* Template */,
-      "metadata":{"description":"Template definition gear scenes control"},
+      "metadata":{"description":"[RWP]Dali gear scenes"},
       "template_value":{ 
-      "version": "scenes",
-      "is_definition": false,
-      "template_ref": "ref/dali/scenes",
-      "metrics":[
-        { "name": "0",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 0 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "1",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 1 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "2",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 2 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "3",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 3 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "4",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 4 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "5",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 5 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "6",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 6 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "7",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 7 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "8",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 8 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "9",        
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 9 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "10",       
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 10 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "11",       
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 11 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "12",       
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 12 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "13",       
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 13 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "14",       
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 14 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }},
-        { "name": "15",       
-          "dataType": 19  /* Template */,
-          "metadata":{"description":"Scene 15 level"},
-          "template_value":{ "version": "level",
-                             "is_definition": false,
-                             "template_ref": "ref/dali/level",
-                             "metrics":[
-                              { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} } ] }} ] },
-      "metadata":{"description":"[RWP]Dali gear scenes"} },
+        "version": "scenes",
+        "is_definition": false,
+        "template_ref": "ref/dali/scenes",        
+        "metrics":[
+          { "name": "0",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 0 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "1",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 1 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "2",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 2 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "3",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 3 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) signore scene"} } ] }},
+          { "name": "4",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 4 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "5",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 5 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "6",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 6 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "7",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 7 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "8",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 8 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "9",        
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 9 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "10",       
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 10 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "11",       
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 11 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "12",       
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 12 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "13",       
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 13 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "14",       
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 14 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+          { "name": "15",       
+            "dataType": 19  /* Template */,
+            "metadata":{"description":"Scene 15 level"},
+            "template_value":{ "version": "level",
+                              "is_definition": false,
+                              "template_ref": "ref/dali/level",
+                              "metrics":[
+                                { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }} ] }, },
 
     /*DALI Color Temperature control gear*/
     { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "0000-1122",        "metadata":{"description":"[R]Gear id stored in memory bank 0"} },
@@ -581,16 +580,17 @@
     { "name": "dali/0/gear/1/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit', 'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'], can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
     { "name": "dali/0/gear/1/level",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RW]Gear current level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
                             "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
@@ -600,20 +600,20 @@
                                                     "values": [{"type": 6, "int_value":1000},{"type": 6, "int_value":1000},{"type": 6, "int_value":7042}, {"type": 6, "int_value":7042}] },
                                                   "metadata":{"description":"Gear color temperature"}}
                                               ] } }
-                        ] }, 
-      "metadata":{"description":"[RW]Gear current level"} },
+                        ] }, },
 
     { "name": "dali/0/gear/1/level/powerOn",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RWP]Gear power on level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254,
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
+                            "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear power on color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
@@ -621,20 +621,20 @@
                                                 { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
                                                   "metadata":{"description":"Gear color temperature"} }
                                               ] } }
-                        ] }, 
-      "metadata":{"description":"[RWP]Gear power on level, value 255(MASK) equal last light level"} },
+                        ] }, },
 
     { "name": "dali/0/gear/1/level/failure",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 254,
-                             "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
+                             "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear failure color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
@@ -644,25 +644,24 @@
                                               ] }
                                              }
 
-                        ] }, 
-      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"} },      
+                        ] }, },      
 
     { "name": "dali/0/gear/1/fade",    
-      "dataType": 19 /* Template - ref/dali/fade */,
+      "dataType": 19 /* Template  */,
+      "metadata":{"description":"[RWP]Gear fade"},
       "template_value":{  "version": "fade",
                           "is_definition": false,
                           "template_ref": "ref/dali/fade",
                           "metrics":[
                           { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"Gear fade time, values = [0-15]"}},
-                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] },
-      "metadata":{"description":"[RWP]Gear fade"} },
+                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] }, },
 
     { "name": "dali/0/gear/1/scenes",  
-      "dataType": 19 /* Template - ref/dali/scenes */,
-      "metadata":{"description":"Template definition gear scenes control"},
+      "dataType": 19 /* Template  */,
+      "metadata":{"description":"[RWP]Dali gear scenes"},
       "template_value":{ "version": "scenes",
                          "is_definition": false,
-                         "template_ref": "ref/dali/scenes",
+                         "template_ref": "ref/dali/scenes",                         
                          "metrics":[
                            { "name": "0",        
                              "dataType": 19  /* Template */,
@@ -672,10 +671,10 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
@@ -693,10 +692,10 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
@@ -704,8 +703,7 @@
                                                                         { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
                                                                           "metadata":{"description":"Gear color temperature"}}
                                                                      ] } } 
-                                                             ] }} ] },
-                         "metadata":{"description":"[RWP]Dali gear scenes"} },
+                                                             ] }} ] }, },
 
     /*DALI Color RGBWAF control gear*/
     { "name": "dali/0/gear/2/id",                       "dataType": 12/* String */,  "string_value": "0000-1123",        "metadata":{"description":"[R]Gear id stored in memory bank 0"} },
@@ -715,16 +713,17 @@
     { "name": "dali/0/gear/2/status",                   "dataType": 12/* String */,  "string_value": "ok",               "metadata":{"description":"[R]Control gear status, values = ['ok', 'control-failure', 'lamp-failure', 'short-circuit', 'open-circuit', 'current-protector', 'thermal-shutdown', 'thermal-overload', 'fading'], can be multiple status at the same time ('lamp-failure|open-circuit')"} }, 
     { "name": "dali/0/gear/2/level",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RW]Gear current level, values = [0-255], value 255(MASK) stop running fade"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
                             "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
@@ -742,20 +741,21 @@
                                                 { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
                                                   "metadata":{"description":"Gear free color"}  }
                                               ] } }
-                        ] }, 
-      "metadata":{"description":"[RW]Gear current level, values = [0-255], value 255(MASK) stop running fade"} },
+                        ] }, },
 
     { "name": "dali/0/gear/2/level/powerOn",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RWP]Gear power on level, value 255(MASK) equal last light level"},
       "template_value":{ "version": "level",
                          "is_definition": false,
                          "template_ref": "ref/dali/level",
+                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 254,
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
+                            "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"} },
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear power on color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
@@ -773,20 +773,20 @@
                                                 { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
                                                   "metadata":{"description":"Gear free color"}  }
                                               ] } }
-                        ] }, 
-      "metadata":{"description":"[RWP]Gear power on level, value 255(MASK) equal last light level"} },
+                        ] }, },
 
     { "name": "dali/0/gear/2/level/failure",
       "dataType": 19, /* Template */
+      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"},
       "template_value":{ "version": "level",
                          "is_definition": false,
-                         "template_ref": "ref/dali/level",
+                         "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 254, 
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
+                            "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"MGear failure color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
@@ -805,25 +805,24 @@
                                                   "metadata":{"description":"Gear free color"}  }
                                               ] } }
 
-                        ] }, 
-      "metadata":{"description":"[RWP]Gear bus failure level, value 255(MASK) disable react to bus failure"} },      
+                        ] }, },      
 
     { "name": "dali/0/gear/2/fade",    
-      "dataType": 19 /* Template - ref/dali/fade */,
+      "dataType": 19 /* Template  */,
+      "metadata":{"description":"[RWP]Gear fade"},
       "template_value":{  "version": "fade",
                           "is_definition": false,
-                          "template_ref": "ref/dali/fade",
+                          "template_ref": "ref/dali/fade",                          
                           "metrics":[
                           { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"Gear fade time, values = [0-15]"}},
-                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] },
-      "metadata":{"description":"[RWP]Gear fade"} },
+                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] }, },
 
     { "name": "dali/0/gear/2/scenes",  
-      "dataType": 19 /* Template - ref/dali/scenes */,
-      "metadata":{"description":"Template definition gear scenes control"},
+      "dataType": 19 /* Template  */,
+      "metadata":{"description":"[RWP]Dali gear scenes"},
       "template_value":{ "version": "scenes",
                          "is_definition": false,
-                         "template_ref": "ref/dali/scenes",
+                         "template_ref": "ref/dali/scenes",                         
                          "metrics":[
                            { "name": "0",        
                              "dataType": 19  /* Template */,
@@ -833,10 +832,10 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/rgbwaf",
@@ -864,10 +863,10 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/rgbwaf",
@@ -885,8 +884,7 @@
                                                                         { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
                                                                           "metadata":{"description":"Gear free color"}  }
                                                                       ] } }
-                                                             ] }} ] },
-      "metadata":{"description":"[RWP]Dali gear scenes"} },
+                                                             ] }} ] }, },
 
 
     /* Control device metrics */
