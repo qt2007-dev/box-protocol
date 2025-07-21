@@ -62,8 +62,10 @@
       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 10000},{"type": 9, "float_value": 100}]} },
-                          { "name": "current",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.25}]}  },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 10000.0] mV"}, 
+                            "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 10000},{"type": 9, "float_value": 100}]} },
+                          { "name": "current",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"}, 
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.25}]}  },
                           { "name": "limit",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"} },
                           { "name": "slew",      "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage output slew time, values = ['off', '38.6us', '40.1us', '73.6us', '75.8us', '113us', '259us', '280us', '459us', '520us', '858us', '1ms', '1.1ms', '2ms', '4ms', '17ms', '31.7ms']"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }        
@@ -75,8 +77,10 @@
       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},  "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 25},{"type": 9, "float_value": 0.25}]} },
-                          { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 100}]}  },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},  
+                            "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0},{"type": 9, "float_value": 25},{"type": 9, "float_value": 0.25}]} },
+                          { "name": "voltage",   "dataType": 9/* Float */,     "metadata":{"description":"[R]Current output voltage, values = [0.0 - 10000.0] mV"},
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 100}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail', 'operation-fail']"} }        
                         ] }, 
@@ -87,7 +91,8 @@
       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [-2500.0 - 10000.0] mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [-2500.0 - 10000.0] mV"}, 
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]}  },
                           { "name": "range",     "dataType": 12/* String */,   "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V', '-2.5V to 2.5V', '-104mV to 104mV']"} },          
                           { "name": "pulldown",  "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]Voltage input 200kOhm pulldown resistor"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage', 'afe-fail', 'operation-fail']"} }        
@@ -99,7 +104,8 @@
       "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.025}]}  },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"}, 
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.025}]}  },
                           { "name": "hart",      "dataType": 11/* Boolean */,  "metadata":{"description":"[RWP]HART compatibility mode enable"} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }
                         ] }, 
@@ -131,7 +137,8 @@
        "template_value":{ "version": "io",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"}, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
+                          { "name": "value",     "dataType": 9/* Float */,     "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"}, 
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
                           { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"Template definition of resistance measure mode"} },     
@@ -175,14 +182,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "in",         "int_value": 0 },
-                          { "name": "out",        "int_value": 1 },
-                          { "name": "target",     "float_value": 100 },
-                          { "name": "kp",         "float_value": 1 },
-                          { "name": "ki",         "float_value": 1 },
-                          { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "direct" },
-                          { "name": "enable",     "boolean_value": false }
+                          { "name": "in",         "dataType": 5/* UInt8 */   ,"int_value": 0           , "metadata":{"description":"[RWP]Input io channel, values = [0-7]"                          }},
+                          { "name": "out",        "dataType": 5/* UInt8 */   ,"int_value": 1           , "metadata":{"description":"[RWP]Control io channel, values = [0-7]"                        }},
+                          { "name": "target",     "dataType": 9/* Float */   ,"float_value": 100       , "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel" }},
+                          { "name": "kp",         "dataType": 9/* Float */   ,"float_value": 1         , "metadata":{"description":"[RWP]Proportional coefficient of PID"                           }},
+                          { "name": "ki",         "dataType": 9/* Float */   ,"float_value": 1         , "metadata":{"description":"[RWP]Integral coefficient of PID"                               }},
+                          { "name": "kd",         "dataType": 9/* Float */   ,"float_value": 1         , "metadata":{"description":"[RWP]Differential coefficient of PID"                           }},
+                          { "name": "direction",  "dataType": 12/* String */ ,"string_value": "direct" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
+                          { "name": "enable",     "dataType": 11/* Boolean */,"boolean_value": false   , "metadata":{"description":"[RWP]Enable PID for specified channels"                         }}
                         ] }, 
       "metadata":{"description":"PID controller channel 0"} },
 
@@ -192,14 +199,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "in",         "int_value": 2 },
-                          { "name": "out",        "int_value": 3 },
-                          { "name": "target",     "float_value": 100 },
-                          { "name": "kp",         "float_value": 1 },
-                          { "name": "ki",         "float_value": 1 },
-                          { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "direct" },
-                          { "name": "enable",     "boolean_value": false }
+                          { "name": "in",         "dataType": 5/* UInt8 */    ,"int_value": 2           , "metadata":{"description":"[RWP]Input io channel, values = [0-7]"                          }},
+                          { "name": "out",        "dataType": 5/* UInt8 */    ,"int_value": 3           , "metadata":{"description":"[RWP]Control io channel, values = [0-7]"                        }},
+                          { "name": "target",     "dataType": 9/* Float */    ,"float_value": 100       , "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel" }},
+                          { "name": "kp",         "dataType": 9/* Float */    ,"float_value": 1         , "metadata":{"description":"[RWP]Proportional coefficient of PID"                           }},
+                          { "name": "ki",         "dataType": 9/* Float */    ,"float_value": 1         , "metadata":{"description":"[RWP]Integral coefficient of PID"                               }},
+                          { "name": "kd",         "dataType": 9/* Float */    ,"float_value": 1         , "metadata":{"description":"[RWP]Differential coefficient of PID"                           }},
+                          { "name": "direction",  "dataType": 12/* String */  ,"string_value": "direct" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
+                          { "name": "enable",     "dataType": 11/* Boolean */ ,"boolean_value": false   , "metadata":{"description":"[RWP]Enable PID for specified channels"                         }}
                         ] }, 
       "metadata":{"description":"PID controller channel 1"} },
 
@@ -209,14 +216,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "in",         "int_value": 4 },
-                          { "name": "out",        "int_value": 5 },
-                          { "name": "target",     "float_value": 100 },
-                          { "name": "kp",         "float_value": 1 },
-                          { "name": "ki",         "float_value": 1 },
-                          { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "reverse" },
-                          { "name": "enable",     "boolean_value": false }
+                          { "name": "in",         "dataType": 5/* UInt8 */   , "int_value": 4            , "metadata":{"description":"[RWP]Input io channel, values = [0-7]"                          }},
+                          { "name": "out",        "dataType": 5/* UInt8 */   , "int_value": 5            , "metadata":{"description":"[RWP]Control io channel, values = [0-7]"                        }},
+                          { "name": "target",     "dataType": 9/* Float */   , "float_value": 100        , "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel" }},
+                          { "name": "kp",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Proportional coefficient of PID"                           }},
+                          { "name": "ki",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Integral coefficient of PID"                               }},
+                          { "name": "kd",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Differential coefficient of PID"                           }},
+                          { "name": "direction",  "dataType": 12/* String */ , "string_value": "reverse" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
+                          { "name": "enable",     "dataType": 11/* Boolean */, "boolean_value": false    , "metadata":{"description":"[RWP]Enable PID for specified channels"                         }}
                         ] }, 
       "metadata":{"description":"PID controller channel 2"} },
 
@@ -226,14 +233,14 @@
                          "is_definition": false,
                          "template_ref": "ref/pid",
                          "metrics":[
-                          { "name": "in",         "int_value": 6 },
-                          { "name": "out",        "int_value": 7 },
-                          { "name": "target",     "float_value": 100 },
-                          { "name": "kp",         "float_value": 1 },
-                          { "name": "ki",         "float_value": 1 },
-                          { "name": "kd",         "float_value": 1 },
-                          { "name": "direction",  "string_value": "reverse" },
-                          { "name": "enable",     "boolean_value": false }
+                          { "name": "in",         "dataType": 5/* UInt8 */   , "int_value": 6            , "metadata":{"description":"[RWP]Input io channel, values = [0-7]"                          }},
+                          { "name": "out",        "dataType": 5/* UInt8 */   , "int_value": 7            , "metadata":{"description":"[RWP]Control io channel, values = [0-7]"                        }},
+                          { "name": "target",     "dataType": 9/* Float */   , "float_value": 100        , "metadata":{"description":"[RWP]Target value, PID will try reach this value on in channel" }},
+                          { "name": "kp",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Proportional coefficient of PID"                           }},
+                          { "name": "ki",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Integral coefficient of PID"                               }},
+                          { "name": "kd",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Differential coefficient of PID"                           }},
+                          { "name": "direction",  "dataType": 12/* String */ , "string_value": "reverse" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
+                          { "name": "enable",     "dataType": 11/* Boolean */, "boolean_value": false    , "metadata":{"description":"[RWP]Enable PID for specified channels"                         }}
                         ] }, 
       "metadata":{"description":"PID controller channel 3"} },
 
@@ -243,7 +250,8 @@
                          "is_definition": false,
                          "template_ref": "ref/io/high-impedance",
                          "metrics":[
-                          { "name": "pulldown",  "boolean_value": true }
+                          { "name": "pulldown",  "dataType": 11/* Boolean */,  "boolean_value": true, "metadata":{"description":"[RWP]Enable 200kOhm pulldown resistor"} },
+                          { "name": "error",     "dataType": 12/* String */,   "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 0, 'template_ref' values = 'ref/io/..'"} },
 
@@ -253,11 +261,13 @@
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-output",
                          "metrics":[
-                          { "name": "value",     "float_value": 1332, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 10000}]}  },
-                          { "name": "current",   "float_value": 12.5, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "limit",     "string_value": "30mA" },
-                          { "name": "slew",      "string_value": "4ms" },
-                          { "name": "error",     "string_value": "none" }        
+                          { "name": "value",     "dataType": 9/* Float */,   "float_value": 1332, "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 10000.0] mV"},
+                            "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 888}, {"type": 9, "float_value": 2} ]}  },
+                          { "name": "current",   "dataType": 9/* Float */,   "float_value": 12.5, "metadata":{"description":"[R]Voltage output current consumption, values = [-25.0 - 25.0] mA"},
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.25}]} },
+                          { "name": "limit",     "dataType": 12/* String */, "string_value": "30mA" , "metadata":{"description":"[RWP]Voltage output current limit, values = ['30mA', '7.5mA']"}},
+                          { "name": "slew",      "dataType": 12/* String */, "string_value": "4ms" , "metadata":{"description":"[RWP]Voltage output slew time, values = ['off', '38.6us', '40.1us', '73.6us', '75.8us', '113us', '259us', '280us', '459us', '520us', '858us', '1ms', '1.1ms', '2ms', '4ms', '17ms', '31.7ms']"}},
+                          { "name": "error",     "dataType": 12/* String */, "string_value": "none" , "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"}}        
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 1, 'template_ref' values = 'ref/io/..'"} },
 
@@ -267,10 +277,12 @@
                          "is_definition": false,
                          "template_ref": "ref/io/current-output",
                          "metrics":[
-                          { "name": "value",     "float_value": 13.32, "properties":{ "keys": ["min","max"], "values": [{"type": 9, "float_value": 0}, {"type": 9, "float_value": 25}]}},
-                          { "name": "voltage",   "float_value": 5000,  "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]} },
-                          { "name": "hart",      "boolean_value": false },
-                          { "name": "error",     "string_value": "none" }
+                          { "name": "value",   "dataType": 9/* Float */,     "float_value": 13.32, "metadata":{"description":"[RWP]IO pin state, range of values = [0.0 - 25.0] mA"},
+                            "properties":{ "keys": ["min","max","threshold"], "values": [{"type": 9, "float_value": 1.0}, {"type": 9, "float_value": 2.0}, {"type": 9, "float_value": 0.25}]}},
+                          { "name": "voltage", "dataType": 9/* Float */,     "float_value": 5000,  "metadata":{"description":"[R]Current output voltage, values = [0.0 - 10000.0] mV"},
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 100.0}]} },
+                          { "name": "hart",    "dataType": 11/* Boolean */,  "boolean_value": false, "metadata":{"description":"[RWP]HART compatibility mode enable"}  },
+                          { "name": "error",   "dataType": 12/* String */,   "string_value": "none", "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'open-circuit', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 2, 'template_ref' values = 'ref/io/..'"} },
 
@@ -280,10 +292,11 @@
                          "is_definition": false,
                          "template_ref": "ref/io/voltage-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 1332, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 10}]} },
-                          { "name": "range",     "string_value": "auto" },          
-                          { "name": "pulldown",  "boolean_value": false },
-                          { "name": "error",     "string_value": "none" }
+                          { "name": "value",    "dataType": 9/* Float */,     "float_value": 1332, "metadata":{"description":"[R]IO pin state, range of values = [-2500.0 - 10000.0] mV"}, 
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 100.0}]} },
+                          { "name": "range",    "dataType": 12/* String */,   "string_value": "auto", "metadata":{"description":"[RWP]Voltage input range select, list of values = ['0V to 10V', '-2.5V to 2.5V', '-104mV to 104mV']"} },          
+                          { "name": "pulldown", "dataType": 11/* Boolean */,  "boolean_value": false, "metadata":{"description":"[RWP]Voltage input 200kOhm pulldown resistor"} },
+                          { "name": "error",    "dataType": 12/* String */,   "string_value": "none", "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-voltage', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 3, 'template_ref' values = 'ref/io/..'"} },
 
@@ -293,9 +306,10 @@
                          "is_definition": false,
                          "template_ref": "ref/io/current-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 13.32, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 0.5}]} },
-                          { "name": "hart",      "boolean_value": false },
-                          { "name": "error",     "string_value": "none" }
+                          { "name": "value",  "dataType": 9/* Float */,      "float_value": 13.32, "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 25.0] mA"},
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 1.0}]} },
+                          { "name": "hart",   "dataType": 11/* Boolean */,   "boolean_value": false, "metadata":{"description":"[RWP]HART compatibility mode enable"} },
+                          { "name": "error",  "dataType": 12/* String */,    "string_value": "none", "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 4, 'template_ref' values = 'ref/io/..'"} },
 
@@ -305,8 +319,9 @@
                          "is_definition": false,
                          "template_ref": "ref/io/resistance-input",
                          "metrics":[
-                          { "name": "value",     "float_value": 120.000, "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 5}]} },
-                          { "name": "error",     "string_value": "none" }
+                          { "name": "value",  "dataType": 9/* Float */,     "float_value": 120.000, "metadata":{"description":"[R]IO pin state, range of values = [0.0 - 1000000.0] Ohm"},
+                            "properties":{ "keys": ["threshold"], "values": [{"type": 9, "float_value": 4.0}]} },
+                          { "name": "error",  "dataType": 12/* String */,   "string_value": "none", "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 5, 'template_ref' values = 'ref/io/..'"} },
 
@@ -316,10 +331,10 @@
                          "is_definition": false,
                          "template_ref": "ref/io/digital-input",
                          "metrics":[
-                          { "name": "value",     "boolean_value": false },
-                          { "name": "threshold", "float_value": 8.4 },
-                          { "name": "debounce",  "float_value": 9 },
-                          { "name": "error",     "string_value": "none" }
+                          { "name": "value",     "dataType": 11/* Boolean */, "boolean_value": false ,"metadata":{"description":"[R]IO pin state, range of values = ['true' - if input is high, 'false' - if input is low]"} },
+                          { "name": "threshold", "dataType": 9/* Float */,    "float_value": 8.4 ,"metadata":{"description":"[RWP]Digital input high threshold voltage, values = [0.0 - 16000] mV"} },
+                          { "name": "debounce",  "dataType": 9/* Float */,    "float_value": 9 ,"metadata":{"description":"[RWP]Digital input debounce time, values = [0.0 - 75.0] ms"} },
+                          { "name": "error",     "dataType": 12/* String */,  "string_value": "none" ,"metadata":{"description":"[R]IO pin error conditions, values = ['none', 'afe-fail', 'operation-fail']"} }
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 6, 'template_ref' values = 'ref/io/..'"} },
 
@@ -329,8 +344,8 @@
                          "is_definition": false,
                          "template_ref": "ref/io/digital-output",
                          "metrics":[
-                          { "name": "value",     "boolean_value": false},
-                          { "name": "error",     "string_value": "none" }
+                          { "name": "value",  "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RWP]IO pin state, range of values = ['true' - if input is high, 'false' - if input is low]"} },
+                          { "name": "error",  "dataType": 12/* String */,  "string_value": "none", "metadata":{"description":"[R]IO pin error conditions, values = ['none', 'over-current', 'afe-fail', 'operation-fail']"} }    
                         ] }, 
       "metadata":{"description":"[RWP]Multifunctional IO pin 7, 'template_ref' values = 'ref/io/..'"} }                
 
