@@ -246,6 +246,8 @@
                         "rows": [ {"elements":[{"string_value": "group","int_value": 10,"string_value": "dim","int_value": 240}]} ] }, 
       "metadata":{"description":"[W]Dali send command to bus, 'addr-type' list of values = ['broadcast', 'group', 'gear'], 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down', 'on-and-step-up', 'step-down-and-off']"} },                    
 
+    { "name": "dali/0/scan",                            "dataType": 12/* String */,  "string_value": "all",        "metadata":{"description":"[W]Start scan dali bus, values = ['all', 'new', 'gears', 'devices', 'status']"} },
+
     /* Group control metrics */
     /* dali/{bus}/group/{group} */ 
     { "name": "dali/0/group/0",
