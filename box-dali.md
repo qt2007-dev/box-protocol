@@ -247,11 +247,7 @@
       "metadata":{"description":"[W]Dali send command to bus, 'addr-type' list of values = ['broadcast', 'group', 'gear'], 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down', 'on-and-step-up', 'step-down-and-off']"} },                    
 
     { "name": "dali/0/scan",                            "dataType": 12/* String */,  "string_value": "all",        
-      "metadata":{"description":"[W]Start scan dali bus, values = ['all', 'new', 'update', 'status'], 
-                                 'all' - delete all gears and devices addresses, and start new addressing and update all info,
-                                 'new' - find and addressing new gears and devices, include duplicates,
-                                 'update' - update all info from know gears and devices,
-                                 'status' - update online status of known gears and devices"} },
+      "metadata":{"description":"[W]Start scan dali bus, values = ['all', 'new', 'update', 'status'], 'all' - delete all gears and devices addresses, and start new addressing and update all info, 'new' - find and addressing new gears and devices, include duplicates, 'update' - update all info from know gears and devices, 'status' - update online status of known gears and devices"} },
 
     /* Group control metrics */
     /* dali/{bus}/group/{group} */ 
