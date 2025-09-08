@@ -40,8 +40,8 @@
                          "is_definition": true,
                          "metrics":[
                           { "name": "temperature",  "dataType": 6  /* UInt16 */, 
-                            "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], 
-                              "values": [{"type":6, "int_value": 1},{"type":6, "int_value": 1},{"type":6, "int_value": 65535},{"type":6, "int_value": 65535}] }, 
+                            "properties":{ "keys": ["warmest", "coolest"], 
+                              "values": [{"type":6, "int_value": 1},{"type":6, "int_value": 65535}] }, 
                             "metadata":{"description":"Gear color temperature"}}
                         ] } },
 
@@ -242,9 +242,9 @@
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 4,
                         "columns": ["addr-type", "addr", "cmd", "value"],
-                        "types": [12,5,12,5], /* String, UInt8, String, UInt8 */
+                        "types": [12,5,12,6], /* String, UInt8, String, UInt16 */
                         "rows": [ {"elements":[{"string_value": "group","int_value": 10,"string_value": "dim","int_value": 240}]} ] }, 
-      "metadata":{"description":"[W]Dali send command to bus, 'addr-type' list of values = ['broadcast', 'group', 'gear'], 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down', 'on-and-step-up', 'step-down-and-off']"} },                    
+      "metadata":{"description":"[W]Dali send command to bus, 'addr-type' list of values = ['broadcast', 'group', 'gear'], 'cmd' list of values = ['dim', 'scene', 'fade-time', 'fade-rate', 'step-up', 'step-down', 'on-and-step-up', 'step-down-and-off', 'temperature', 'step-cooler, 'step-warmer', 'red', 'green', 'blue', 'white', 'amber', 'free'']"} },                    
 
     { "name": "dali/0/scan",                            "dataType": 12/* String */,  "string_value": "all",        
       "metadata":{"description":"[W]Start scan dali bus, values = ['all', 'new', 'update', 'status'], 'all' - delete all gears and devices addresses, and start new addressing and update all info, 'new' - find and addressing new gears and devices, include duplicates, 'update' - update all info from know gears and devices, 'status' - update online status of known gears and devices"} },
