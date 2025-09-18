@@ -599,7 +599,7 @@
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
                                                 { "name": "temperature",  "dataType": 6  /* UInt16 */, "int_value": 2700, 
-                                                  "properties":{ "keys": ["phy-warmest","warmest","phy-coolest","coolest"], 
+                                                  "properties":{ "keys": ["warmest","coolest"], 
                                                     "values": [{"type": 6, "int_value":1000},{"type": 6, "int_value":1000},{"type": 6, "int_value":7042}, {"type": 6, "int_value":7042}] },
                                                   "metadata":{"description":"Gear color temperature"}}
                                               ] } }
