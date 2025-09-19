@@ -249,6 +249,9 @@
     { "name": "dali/0/scan",                            "dataType": 12/* String */,  "string_value": "all",        
       "metadata":{"description":"[W]Start scan dali bus, values = ['all', 'new', 'update', 'status'], 'all' - delete all gears and devices addresses, and start new addressing and update all info, 'new' - find and addressing new gears and devices, include duplicates, 'update' - update all info from know gears and devices, 'status' - update online status of known gears and devices"} },
 
+    { "name": "dali/0/scan/status",                     "dataType": 12/* String */,  "string_value": "",        
+      "metadata":{"description":"[R]Scan status, show progress of scanning gears and devices, Values=['Start', 'Scanning new {gears/devices}]', 'Addressing {gear/device} {id}', 'Update {gear/device} {id}', 'Found x {gears/devices}', 'Finish']"} },      
+
     /* Group control metrics */
     /* dali/{bus}/group/{group} */ 
     { "name": "dali/0/group/0",
