@@ -69,7 +69,7 @@
                                                     "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
                           { "name": "color",        
                             "dataType": 19  /* Template */, 
-                            "metadata":{"description":"Multi template color control metric, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
                             "template_value": {
                              "version" : "color",
                              "template_ref": null,
@@ -468,7 +468,7 @@
                               "template_ref": "ref/dali/level",
                               "metrics":[
                                 { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) signore scene"} } ] }},
+                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
           { "name": "4",        
             "dataType": 19  /* Template */,
             "metadata":{"description":"Scene 4 level"},
@@ -698,7 +698,7 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], ignore scene"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
                                                     "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
@@ -792,7 +792,7 @@
                             "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"MGear failure color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"Gear failure color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
@@ -838,7 +838,7 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], ignore scene"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
                                                     "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
@@ -869,7 +869,7 @@
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], ignore scene"} },
+                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
                                                     "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
