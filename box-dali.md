@@ -39,9 +39,9 @@
       "template_value":{ "version": "color",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "temperature",  "dataType": 6  /* UInt16 */, 
+                          { "name": "temperature",  "dataType": 7  /* UInt32 */, 
                             "properties":{ "keys": ["warmest", "coolest"], 
-                              "values": [{"type":6, "int_value": 1},{"type":6, "int_value": 65535}] }, 
+                              "values": [{"type":7, "int_value": 1},{"type":7, "int_value": 65535}] }, 
                             "metadata":{"description":"Gear color temperature"}}
                         ] } },
 
@@ -601,9 +601,9 @@
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
-                                                { "name": "temperature",  "dataType": 6  /* UInt16 */, "int_value": 2700, 
+                                                { "name": "temperature",  "dataType": 7  /* UInt32 */, "int_value": 2700, 
                                                   "properties":{ "keys": ["warmest","coolest"], 
-                                                    "values": [{"type": 6, "int_value":1000},{"type": 6, "int_value":1000},{"type": 6, "int_value":7042}, {"type": 6, "int_value":7042}] },
+                                                    "values": [{"type": 7, "int_value":1000},{"type": 7, "int_value":1000},{"type": 6, "int_value":7042}, {"type": 6, "int_value":7042}] },
                                                   "metadata":{"description":"Gear color temperature"}}
                                               ] } }
                         ] } },
