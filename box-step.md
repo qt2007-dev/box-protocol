@@ -126,6 +126,7 @@
                               
                               { "name": "polarity",  "string_value": "low" },
                               { "name": "edge",      "string_value": "rising" },
+                              { "name": "direction", "string_value": "negative" },
                               { "name": "offset",    "int_value": 0 },
 
                         ] }, 
@@ -194,6 +195,7 @@
                               
                               { "name": "polarity",  "string_value": "low" },
                               { "name": "edge",      "string_value": "rising" },
+                              { "name": "direction", "string_value": "negative" },
                               { "name": "offset",    "int_value": 0 },
 
                         ] }, 
