@@ -624,7 +624,7 @@
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
-                                                { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
+                                                { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
                                                   "metadata":{"description":"Gear color temperature"} }
                                               ] } }
                         ] } },
@@ -645,7 +645,7 @@
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
-                                                { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
+                                                { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
                                                   "metadata":{"description":"Gear color temperature"} }
                                               ] }
                                              }
@@ -685,7 +685,7 @@
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
                                                                       "metrics":[
-                                                                        { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
+                                                                        { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
                                                                           "metadata":{"description":"Gear color temperature"} }
                                                                      ] } } 
                                                              ] }},
@@ -706,7 +706,7 @@
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
                                                                       "metrics":[
-                                                                        { "name": "temperature", "dataType": 6  /* UInt16 */, "int_value": 2700,
+                                                                        { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
                                                                           "metadata":{"description":"Gear color temperature"}}
                                                                      ] } } 
                                                              ] }} ] } },
