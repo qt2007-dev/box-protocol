@@ -41,7 +41,7 @@
                          "is_definition": true,
                          "metrics":[
                               { "name": "homing",       "dataType": 12/* String */,                           "metadata":{"description":"[W]Search motor home position, values = ['set', 'search']"} },     
-                              { "name": "speed",        "dataType": 5/* UInt32 */,   "int_value": 0,          "metadata":{"description":"[RWP]Motor speed"} },
+                              { "name": "speed",        "dataType": 7/* UInt32 */,   "int_value": 0,          "metadata":{"description":"[RWP]Motor speed"} },
                               { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[RW]Motor target position"} },
                               { "name": "position",     "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[R]Motor position"} },                        
                               { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} }             
