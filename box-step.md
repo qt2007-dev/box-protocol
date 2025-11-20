@@ -29,7 +29,8 @@
       "template_value":{ "version": "control",
                          "is_definition": true,
                          "metrics":[
-                              { "name": "velocity",     "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[RWP]Motor velocity"} },         
+                              { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[RWP]Motor target velocity"} }, 
+                              { "name": "velocity",     "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[R]Motor current velocity"} },           
                               { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} }    
                         ] }, 
       "metadata":{"description":"Template definition of motor velocity mode"} },
