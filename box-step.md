@@ -29,9 +29,9 @@
       "template_value":{ "version": "control",
                          "is_definition": true,
                          "metrics":[
-                              { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[RWP]Motor target velocity"} }, 
+                              { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[RW]Motor target velocity"} }, 
                               { "name": "velocity",     "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[R]Motor current velocity"} },           
-                              { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} }    
+                              { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} }    
                         ] }, 
       "metadata":{"description":"Template definition of motor velocity mode"} },
 
@@ -41,10 +41,10 @@
                          "is_definition": true,
                          "metrics":[
                               { "name": "homing",       "dataType": 12/* String */,                           "metadata":{"description":"[W]Search motor home position, values = ['set', 'search']"} },     
-                              { "name": "speed",        "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[RWP]Motor speed"} },
-                              { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[RWP]Motor target position"} },
+                              { "name": "speed",        "dataType": 5/* UInt32 */,   "int_value": 0,          "metadata":{"description":"[RWP]Motor speed"} },
+                              { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[RW]Motor target position"} },
                               { "name": "position",     "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[R]Motor position"} },                        
-                              { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} }             
+                              { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} }             
                         ] }, 
       "metadata":{"description":"Template definition of motor position mode"} },
 
@@ -162,8 +162,9 @@
                          "is_definition": false,
                          "template_ref": "ref/control/velocity",
                          "metrics":[
-                              { "name": "velocity", "dataType": 3/* Int32 */,    "int_value": 0         ,"metadata":{"description":"[RWP]Motor velocity"} },                                 
-                              { "name": "enable",   "dataType": 11/* Boolean */, "boolean_value": false ,"metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} } 
+                              { "name": "target",   "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[RW]Motor target velocity"} },
+                              { "name": "velocity", "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[R]Motor velocity"} },                                 
+                              { "name": "enable",   "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} } 
                         ] }, 
       "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} },
 
@@ -230,10 +231,10 @@
                          "template_ref": "ref/control/position",
                          "metrics":[
                               { "name": "homing",   "dataType": 12/* String */,    "string_value": "",       "metadata":{"description":"[W]Search motor home position, values = ['set', 'search']"} },       
-                              { "name": "speed",    "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[RWP]Motor speed"} },    
-                              { "name": "target",   "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[RWP]Motor target position"} },    
+                              { "name": "speed",    "dataType": 7/* UInt32 */,     "int_value": 0,           "metadata":{"description":"[RWP]Motor speed"} },    
+                              { "name": "target",   "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[RW]Motor target position"} },    
                               { "name": "position", "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[R]Motor position"} },                                                   
-                              { "name": "enable",   "dataType": 11/* Boolean */,   "boolean_value": false,   "metadata":{"description":"[RWP]Enable motor driver, send 'true' for enable"} }                  
+                              { "name": "enable",   "dataType": 11/* Boolean */,   "boolean_value": false,   "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} }                  
                         ] }, 
       "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} }     
   ]
