@@ -55,7 +55,8 @@
                          "metrics":[
                               { "name": "encoder",      "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RWP]Use motor encoder"} },
                               { "name": "ppr",          "dataType": 7/* UInt32 */,   "int_value": 1000,       "metadata":{"description":"[RWP]Encoder pulses per revolution"} },         
-                              { "name": "fullsteps",    "dataType": 7/* UInt32 */,   "int_value": 200,        "metadata":{"description":"[RWP]Motor steps per revolution"} }
+                              { "name": "fullsteps",    "dataType": 7/* UInt32 */,   "int_value": 200,        "metadata":{"description":"[RWP]Motor steps per revolution"} },
+                              { "name": "microsteps",   "dataType": 7/* UInt32 */,   "int_value": 256,        "metadata":{"description":"[RWP]Motor microsteps mode"} }
                         ] }, 
       "metadata":{"description":"Template definition of motor settings"} },
 
@@ -65,9 +66,9 @@
                          "is_definition": true,
                          "metrics":[
                               
-                              { "name": "polarity",   "dataType": 12/* String */,  "string_value": "low",      "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
+                              { "name": "polarity",   "dataType": 12/* String */,  "string_value": "high",      "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
                               { "name": "edge",       "dataType": 12/* String */,  "string_value": "rising",   "metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
-                              { "name": "direction",  "dataType": 12/* String */,  "string_value": "negative", "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
+                              { "name": "direction",  "dataType": 12/* String */,  "string_value": "positive", "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
                               { "name": "offset",     "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home sensor position offset"} }
 
                         ] }, 
@@ -100,8 +101,8 @@
 
 
     { "name": "motor/0/temperature",   "dataType": 1/* Int8 */,     "int_value": 22,          "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },    
-    { "name": "motor/0/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'positioning', 'positioned', 'homing_coarse', 'homing_fine']"} },
-    { "name": "motor/0/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder_fail' 'over_temperature', 'short_to_ground', 'open_load']"} },
+    { "name": "motor/0/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'positioning', 'positioned', 'homing']"} },
+    { "name": "motor/0/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder-fail' 'over-temperature', 'short-to-ground', 'open-load']"} },
 
 
     { "name": "motor/0/settings",
@@ -111,8 +112,9 @@
                          "template_ref": "ref/settings",
                          "metrics":[
                               { "name": "encoder",    "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RWP]Use motor encoder"} },
-                              { "name": "ppr",        "dataType": 7/* UInt32 */,   "int_value": 1000     , "metadata":{"description":"[RWP]Encoder pulses per revolution"} },            
-                              { "name": "fullsteps",  "dataType": 7/* UInt32 */,   "int_value": 200      , "metadata":{"description":"[RWP]Motor steps per revolution"} }                              
+                              { "name": "ppr",        "dataType": 7/* UInt32 */,   "int_value": 1000,      "metadata":{"description":"[RWP]Encoder pulses per revolution"} },            
+                              { "name": "fullsteps",  "dataType": 7/* UInt32 */,   "int_value": 200,       "metadata":{"description":"[RWP]Motor steps per revolution"} },
+                              { "name": "microsteps",   "dataType": 7/* UInt32 */, "int_value": 256,       "metadata":{"description":"[RWP]Motor microsteps mode"} }                              
                         ] }, 
       "metadata":{"description":"[RWP]Motor settings, 'template_ref' values = 'ref/settings'"} },
 
@@ -122,9 +124,9 @@
                          "is_definition": false,
                          "template_ref": "ref/settings/home",
                          "metrics":[
-                              { "name": "polarity",  "dataType": 12/* String */,  "string_value": "low"      ,"metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
+                              { "name": "polarity",  "dataType": 12/* String */,  "string_value": "high"      ,"metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
                               { "name": "edge",      "dataType": 12/* String */,  "string_value": "rising"   ,"metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
-                              { "name": "direction", "dataType": 12/* String */,  "string_value": "negative" ,"metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
+                              { "name": "direction", "dataType": 12/* String */,  "string_value": "positive" ,"metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
                               { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0             ,"metadata":{"description":"[RWP]Motor home sensor position offset"} }
                         ] }, 
       "metadata":{"description":"Template definition of home sensor settings"} },
@@ -168,9 +170,9 @@
                         ] }, 
       "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} },
 
-    { "name": "motor/1/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },
-    { "name": "motor/1/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'moving_to_position', 'target_reached', 'homing_coarse', 'homing_fine']"} },
-    { "name": "motor/1/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder_fail' 'over_temperature', 'short_to_ground', 'open_load']"} },
+    { "name": "motor/1/temperature",   "dataType": 1/* Int8 */,     "int_value": 22,          "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },
+    { "name": "motor/1/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'positioning', 'positioned', 'homing']"} },
+    { "name": "motor/1/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder-fail' 'over-temperature', 'short-to-ground', 'open-load']"} },
 
     { "name": "motor/1/settings",
       "dataType": 19, /* Template */
@@ -180,7 +182,8 @@
                          "metrics":[
                               { "name": "encoder",   "dataType": 11/* Boolean */,  "boolean_value": false ,"metadata":{"description":"[RWP]Use motor encoder"} },
                               { "name": "ppr",       "dataType": 7/* UInt32 */,    "int_value": 1000      ,"metadata":{"description":"[RWP]Encoder pulses per revolution"} },            
-                              { "name": "fullsteps", "dataType": 7/* UInt32 */,    "int_value": 200       ,"metadata":{"description":"[RWP]Motor steps per revolution"} }                            
+                              { "name": "fullsteps", "dataType": 7/* UInt32 */,    "int_value": 200       ,"metadata":{"description":"[RWP]Motor steps per revolution"} },
+                              { "name": "microsteps","dataType": 7/* UInt32 */,    "int_value": 256       ,"metadata":{"description":"[RWP]Motor microsteps mode"} }                            
                         ] }, 
       "metadata":{"description":"[RWP]Motor settings, 'template_ref' values = 'ref/settings'"} },
 
@@ -190,9 +193,9 @@
                          "is_definition": false,
                          "template_ref": "ref/settings/home",
                          "metrics":[
-                              { "name": "polarity",  "dataType": 12/* String */,  "string_value": "low"      , "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
+                              { "name": "polarity",  "dataType": 12/* String */,  "string_value": "high"     , "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
                               { "name": "edge",      "dataType": 12/* String */,  "string_value": "rising"   , "metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
-                              { "name": "direction", "dataType": 12/* String */,  "string_value": "negative" , "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
+                              { "name": "direction", "dataType": 12/* String */,  "string_value": "positive" , "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
                               { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0             , "metadata":{"description":"[RWP]Motor home sensor position offset"} }
                         ] }, 
       "metadata":{"description":"Template definition of home sensor settings"} },
