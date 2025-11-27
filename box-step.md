@@ -100,8 +100,8 @@
 
 
     { "name": "motor/0/temperature",   "dataType": 1/* Int8 */,     "int_value": 22,          "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },    
-    { "name": "motor/0/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'moving-to-position', 'target-reached', 'homing-coarse', 'homing-fine']"} },
-    { "name": "motor/0/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder-fail' 'over-temperature', 'short-to-ground', 'open-load']"} },
+    { "name": "motor/0/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'positioning', 'positioned', 'homing_coarse', 'homing_fine']"} },
+    { "name": "motor/0/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder_fail' 'over_temperature', 'short_to_ground', 'open_load']"} },
 
 
     { "name": "motor/0/settings",
@@ -169,8 +169,8 @@
       "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} },
 
     { "name": "motor/1/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in motor driver, value in Celsius"} },
-    { "name": "motor/1/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'moving-to-position', 'target-reached', 'homing-coarse', 'homing-fine']"} },
-    { "name": "motor/1/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder-fail' 'over-temperature', 'short-to-ground', 'open-load']"} },
+    { "name": "motor/1/state",         "dataType": 12/* String */,  "string_value": "idle",   "metadata":{"description":"[R]Motor state, values = ['idle', 'rotating', 'stopping' 'moving_to_position', 'target_reached', 'homing_coarse', 'homing_fine']"} },
+    { "name": "motor/1/status",        "dataType": 12/* String */,  "string_value": "ok",     "metadata":{"description":"[R]Motor status, values = ['ok', 'stall', 'encoder_fail' 'over_temperature', 'short_to_ground', 'open_load']"} },
 
     { "name": "motor/1/settings",
       "dataType": 19, /* Template */
