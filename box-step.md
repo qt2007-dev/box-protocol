@@ -6,19 +6,19 @@
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH], 'offline' - [DBIRTH <= DDEATH]  "} },
-    { "name": "control/reboot",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Software reboot device, send 'true' for reboot"} },
-    { "name": "control/rebirth",                        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Rebirth device, send 'true' for receive dbirth message again"} },
-    { "name": "control/firmware/new",                   "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"[W]Receive new device firmware, firmware send in Base64 format, in birth always null"} },
+    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [BIRTH > DEATH], 'offline' - [BIRTH <= DEATH]"} },
+    { "name": "control/reboot",                         "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Software reboot, send 'true' for reboot"} },
+    { "name": "control/rebirth",                        "dataType": 11/* Boolean */, "boolean_value": false,             "metadata":{"description":"[W]Rebirth, send 'true' for receive birth message again"} },
+    { "name": "control/firmware/new",                   "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,  "metadata":{"description":"[W]Receive new firmware, firmware send in Base64 format, in birth always null"} },
     { "name": "control/metrics/save",                   "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
     { "name": "control/metrics/metadata",               "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Show metrics metadata in birth, send 'true' for enable"} },
-    { "name": "control/group",                          "dataType": 12/* String */,  "string_value": "step",             "metadata":{"description":"[RWP]Global group for device, can be used instead id in topics and scenarios"} },
+    { "name": "control/group",                          "dataType": 12/* String */,  "string_value": "step",             "metadata":{"description":"[RWP]Global group, can be used instead id in topics and scenarios"} },
 
     { "name": "info/hardware/vendor",                   "dataType": 12/* String */,  "string_value": "QuintTech" ,       "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
     { "name": "info/hardware/model",                    "dataType": 12/* String */,  "string_value": "stm32g474ce",      "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
     { "name": "info/firmware/version",                  "dataType": 12/* String */,  "string_value": "0.1.220527",       "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.buildOrCommit"} },
     { "name": "info/type",                              "dataType": 12/* String */,  "string_value": "STEP 2",           "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
-    { "name": "info/id",                                "dataType": 12/* String */,  "string_value": "deba0008",         "metadata":{"description":"[R]Short id calculated by a hash from mcu uid"} },
+    { "name": "info/id",                                "dataType": 12/* String */,  "string_value": "deba0008",         "metadata":{"description":"[R]Short device id"} },
     { "name": "info/error",                             "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
 
     { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
@@ -44,7 +44,7 @@
                               { "name": "speed",        "dataType": 7/* UInt32 */,   "int_value": 0,          "metadata":{"description":"[RWP]Motor speed"} },
                               { "name": "target",       "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[RW]Motor target position"} },
                               { "name": "position",     "dataType": 3/* Int32 */,    "int_value": 0,          "metadata":{"description":"[R]Motor position"} },         
-                              { "name": "stop",         "dataType": 11/* Boolean */, "is_null": true,         "metadata":{"description":"[W]Stop motor, send 'true' for soft stop"} }               
+                              { "name": "stop",         "dataType": 11/* Boolean */, "is_null": true,         "metadata":{"description":"[W]Stop motor, send 'true' for soft stop"} },               
                               { "name": "enable",       "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} }             
                         ] }, 
       "metadata":{"description":"Template definition of motor position mode"} },
@@ -166,7 +166,7 @@
                          "template_ref": "ref/control/velocity",
                          "metrics":[
                               { "name": "target",   "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[RW]Motor target velocity"} },
-                              { "name": "velocity", "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[R]Motor velocity"} },                                 
+                              { "name": "velocity", "dataType": 3/* Int32 */,    "int_value": 0,         "metadata":{"description":"[R]Motor current velocity"} },                                 
                               { "name": "enable",   "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} } 
                         ] }, 
       "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} },
@@ -237,7 +237,8 @@
                               { "name": "homing",   "dataType": 12/* String */,    "string_value": "",       "metadata":{"description":"[W]Search motor home position, values = ['set', 'search']"} },       
                               { "name": "speed",    "dataType": 7/* UInt32 */,     "int_value": 0,           "metadata":{"description":"[RWP]Motor speed"} },    
                               { "name": "target",   "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[RW]Motor target position"} },    
-                              { "name": "position", "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[R]Motor position"} },                                                   
+                              { "name": "position", "dataType": 3/* Int32 */,      "int_value": 0,           "metadata":{"description":"[R]Motor position"} },   
+                              { "name": "stop",     "dataType": 11/* Boolean */,   "is_null": true,          "metadata":{"description":"[W]Stop motor, send 'true' for soft stop"} },                                                 
                               { "name": "enable",   "dataType": 11/* Boolean */,   "boolean_value": false,   "metadata":{"description":"[RW]Enable motor driver, send 'true' for enable"} }                  
                         ] }, 
       "metadata":{"description":"[RWP]Motor control, 'template_ref' values = 'ref/control/..'"} }     
@@ -253,7 +254,7 @@
 {
 "timestamp": 1486144502122,
 "metrics": [  
-    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [DBIRTH > DDEATH], 'offline' - [DBIRTH <= DDEATH]  "} },  
+    { "name": "bdSeq",                                  "dataType": 8/* Uint64 */,   "long_value": 0,                    "metadata":{"description":"[R]Birth-death sequence, 'online' - [BIRTH > DEATH], 'offline' - [BIRTH <= DEATH]"} },  
 ]
 }
 ```
