@@ -49,7 +49,7 @@
 
     { "name": "chip/0/type",                         "dataType": 12/* String */,   "string_value": "ION314",            "metadata":{"description":"[R]Chip type installed on board"} },
 
-    { "name": "chip/0/frame/settings/number",        "dataType": 6 /* UInt16 */,   "int_value": 30,                     "metadata":{"description":"[RWP]Number of frames to record"} },
+    { "name": "chip/0/frame/settings/quantity",      "dataType": 6 /* UInt16 */,   "int_value": 30,                     "metadata":{"description":"[RWP]Quantity of frames to record"} },
     { "name": "chip/0/frame/settings/delay",         "dataType": 6 /* UInt16 */,   "int_value": 0,                      "metadata":{"description":"[RWP]Delay between frames of record"} },
     { "name": "chip/0/frame/record",                 "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Start record frame"} },
     { "name": "chip/0/frame/get",                    "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Request one frame from chip"} },
@@ -104,7 +104,7 @@
 
     { "name": "chip/0/heater/enable",                "dataType": 11/* Boolean */,  "boolean_value": false,              "metadata":{"description":"[RW]Chip 0 heater state, send 'true' for enable"} },
     { "name": "chip/0/heater/target",                "dataType": 6 /* UInt16 */,   "int_value": 45,                     "metadata":{"description":"[RWP]Chip 0 heater target temperature, value in Celsius"} },
-    { "name": "chip/0/heater/current",               "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Chip 0 heater current temperature, value in Celsius"} },
+    { "name": "chip/0/heater/current",               "dataType": 9 /* Float */,    "float_value": 22.35,                "metadata":{"description":"[R]Chip 0 heater current temperature, value in Celsius"} },
 
 
 

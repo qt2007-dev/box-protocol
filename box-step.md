@@ -67,7 +67,7 @@
                          "is_definition": true,
                          "metrics":[
                               
-                              { "name": "polarity",   "dataType": 12/* String */,  "string_value": "high",      "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
+                              { "name": "polarity",   "dataType": 12/* String */,  "string_value": "high",     "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
                               { "name": "edge",       "dataType": 12/* String */,  "string_value": "rising",   "metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
                               { "name": "direction",  "dataType": 12/* String */,  "string_value": "positive", "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
                               { "name": "offset",     "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home sensor position offset"} }
@@ -113,7 +113,8 @@
                          "template_ref": "ref/settings",
                          "metrics":[
                               { "name": "encoder",    "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[RWP]Use motor encoder"} },
-                              { "name": "ppr",        "dataType": 7/* UInt32 */,   "int_value": 1000,      "metadata":{"description":"[RWP]Encoder pulses per revolution"} },            
+                              { "name": "ppr",        "dataType": 7/* UInt32 */,   "int_value": 1000,      "metadata":{"description":"[RWP]Encoder pulses per revolution"} },          
+                              { "name": "tolerance",  "dataType": 7/* UInt32 */,   "int_value": 500,       "metadata":{"description":"[RWP]Tolerance between internal and encoder position"} },    
                               { "name": "fullsteps",  "dataType": 7/* UInt32 */,   "int_value": 200,       "metadata":{"description":"[RWP]Motor steps per revolution"} },
                               { "name": "microsteps",   "dataType": 7/* UInt32 */, "int_value": 256,       "metadata":{"description":"[RWP]Motor microsteps mode"} }                              
                         ] }, 
