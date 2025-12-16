@@ -1,4 +1,4 @@
-## BOX node birth example
+current## BOX node birth example
 > spBv1.0/box/NBIRTH/abba2020
 
 ```json
@@ -33,12 +33,12 @@
     { "name": "sensors/voltage/sys3v3",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System 3.3V voltage, value in mV"} },
     { "name": "sensors/voltage/sys1v8",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System 1.8V voltage, value in mV"} },
 
-    { "name": "sensors/current/vin12v",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System input current, value in mA"} },
-    { "name": "sensors/current/vout12v",             "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System output 12V current, value in mA"} },
-    { "name": "sensors/current/vout5v",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System output 5V current, value in mA"} },
-    { "name": "sensors/current/sys5v",               "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System 5V current, value in mA"} },
-    { "name": "sensors/current/sys3v3",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System 3.3V current, value in mA"} },
-    { "name": "sensors/current/sys1v8",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System 1.8V current, value in mA"} },
+    { "name": "sensors/current/vin12v",              "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]System input current, value in mA"} },
+    { "name": "sensors/current/vout12v",             "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]System output 12V current, value in mA"} },
+    { "name": "sensors/current/vout5v",              "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]System output 5V current, value in mA"} },
+    { "name": "sensors/current/sys5v",               "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]System 5V current, value in mA"} },
+    { "name": "sensors/current/sys3v3",              "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]System 3.3V current, value in mA"} },
+    { "name": "sensors/current/sys1v8",              "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]System 1.8V current, value in mA"} },
 
     { "name": "sensors/fan/0/rpm",                   "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System fan 0 RPM"} },
     { "name": "sensors/fan/1/rpm",                   "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System fan 1 RPM"} },
@@ -74,12 +74,12 @@
     { "name": "chip/0/sensors/voltage/vid1",         "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system VID1 voltage, value in mV"} },
     { "name": "chip/0/sensors/voltage/vid2",         "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system VID2 voltage, value in mV"} },
 
-    { "name": "chip/0/sensors/current/vin",          "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system input current, value in mA"} },
-    { "name": "chip/0/sensors/current/n5v4in",       "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system input current for negative 5.4V dcdc, value in mA"} },
-    { "name": "chip/0/sensors/current/5v3",          "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 5.3V current, value in mA"} },
-    { "name": "chip/0/sensors/current/3v3",          "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 3.3V current, value in mA"} },
-    { "name": "chip/0/sensors/current/3v3a",         "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 5.3VA current, value in mA"} },
-    { "name": "chip/0/sensors/current/3v3ca",        "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 5.3VCA current, value in mA"} },
+    { "name": "chip/0/sensors/current/vin",          "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system input current, value in mA"} },
+    { "name": "chip/0/sensors/current/n5v4in",       "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system input current for negative 5.4V dcdc, value in mA"} },
+    { "name": "chip/0/sensors/current/5v3",          "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 5.3V current, value in mA"} },
+    { "name": "chip/0/sensors/current/3v3",          "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 3.3V current, value in mA"} },
+    { "name": "chip/0/sensors/current/3v3a",         "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 5.3VA current, value in mA"} },
+    { "name": "chip/0/sensors/current/3v3ca",        "dataType": 7 /* UInt32 */,   "int_value": 22,                     "metadata":{"description":"[R]Chip 0 system 5.3VCA current, value in mA"} },
 
     { "name": "chip/0/settings/v0",                  "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[RWP]Chip 0 V0 voltage, value in mV"} },
     { "name": "chip/0/settings/v1",                  "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[RWP]Chip 0 V1 voltage, value in mV"} },
