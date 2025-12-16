@@ -181,8 +181,24 @@ current## BOX node birth example
                                   {"elements":[{"string_value":"eventName2"},{"type": 7, "int_value": 1},{"boolean_value": false} ]}  ] }, 
       "metadata":{"description":"[R]List of events names exist in node"} },      
 
-    { "name": "virtual/add",                        "dataType": 16/* DataSet */,"dataset_value":{},  "is_null": true,   "metadata":{"description":"[W]Add virtual metric to specific device or node"} },
-    { "name": "virtual/delete",                     "dataType": 16/* DataSet */,"dataset_value":{},  "is_null": true,   "metadata":{"description":"[W]Delete virtual metric from specific device or node"} },  
+    { "name": "virtual/add",                        "dataType": 16/* DataSet */,
+      "dataset_value":{
+        "num_of_columns": 4,
+        "columns": ["id", "name", "dataType", "description"],
+        "types": [12,12,7,12], /* String, String, UInt32, String*/
+        "rows":[]
+      },  
+      "is_null": true,   
+      "metadata":{"description":"[W]Add virtual metric to specific device or node"} },
+    { "name": "virtual/delete",                     "dataType": 16/* DataSet */,
+      "dataset_value":{
+        "num_of_columns": 2,
+        "columns": ["id", "name"],
+        "types": [12, 12], /* String, String*/
+        "rows": [] 
+        }, 
+      "is_null": true,   
+      "metadata":{"description":"[W]Delete virtual metric from specific device or node"} }  
 
   ]
 }
