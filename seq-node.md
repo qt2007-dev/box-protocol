@@ -51,6 +51,7 @@ current## BOX node birth example
 
     { "name": "chip/0/frame/settings/quantity",      "dataType": 6 /* UInt16 */,   "int_value": 30,                     "metadata":{"description":"[RWP]Quantity of frames to record"} },
     { "name": "chip/0/frame/settings/delay",         "dataType": 6 /* UInt16 */,   "int_value": 0,                      "metadata":{"description":"[RWP]Delay between frames of record"} },
+    { "name": "chip/0/frame/sync",                   "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Sync time for record frames"} },
     { "name": "chip/0/frame/record",                 "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Start record frame"} },
     { "name": "chip/0/frame/get",                    "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Request one frame from chip"} },
     { "name": "chip/0/frame",                        "dataType": 17/* Bytes */,    "bytes_value": "",                   "metadata":{"description":"[R]Last frame in base64 format"} }, 
