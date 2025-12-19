@@ -145,13 +145,6 @@ current## BOX node birth example
       "metadata":{"description":"[RWP]mqtt broker"} },
 
     { "name": "schedule",                            "dataType": 12/* String */, "string_value": "on",                  "metadata":{"description":"[RWP]Schedule control metric, list of values = ['on', 'off', 'set', 'get'], schedule set and get in properties"} }, 
-    { "name": "schedule/info",              
-      "dataType": 16/* DataSet */, 
-      "dataset_value":{ "num_of_columns": 3,
-                        "columns": ["description", "version", "points"],
-                        "types": [12, 7, 7], /* String, Uint32, Uint32 */
-                        "rows": [ {"elements":[{"string_value":"scheduleDescription1"},{"type": 7, "int_value": 1},{"int_value": 18} ]} ] },                                  
-      "metadata":{"description":"[R]Schedule info metric"} },     
 
     { "name": "scenario/add",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario add to list, value = scenario name, scenario sent in properties"} },
     { "name": "scenario/execute",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[RW]Execute scenario, value = scenario name, after execution the value is reset to null"} },
@@ -182,8 +175,24 @@ current## BOX node birth example
                                   {"elements":[{"string_value":"eventName2"},{"type": 7, "int_value": 1},{"boolean_value": false} ]}  ] }, 
       "metadata":{"description":"[R]List of events names exist in node"} },      
 
-    { "name": "virtual/add",                        "dataType": 16/* DataSet */,"dataset_value":{},  "is_null": true,   "metadata":{"description":"[W]Add virtual metric to specific device or node"} },
-    { "name": "virtual/delete",                     "dataType": 16/* DataSet */,"dataset_value":{},  "is_null": true,   "metadata":{"description":"[W]Delete virtual metric from specific device or node"} },  
+    { "name": "virtual/add",                        "dataType": 16/* DataSet */,
+      "dataset_value":{
+        "num_of_columns": 4,
+        "columns": ["id", "name", "dataType", "description"],
+        "types": [12,12,7,12], /* String, String, UInt32, String*/
+        "rows":[]
+      },  
+      "is_null": true,   
+      "metadata":{"description":"[W]Add virtual metric to specific device or node"} },
+    { "name": "virtual/delete",                     "dataType": 16/* DataSet */,
+      "dataset_value":{
+        "num_of_columns": 2,
+        "columns": ["id", "name"],
+        "types": [12, 12], /* String, String*/
+        "rows": [] 
+        }, 
+      "is_null": true,   
+      "metadata":{"description":"[W]Delete virtual metric from specific device or node"} }  
 
   ]
 }
