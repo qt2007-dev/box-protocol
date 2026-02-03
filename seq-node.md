@@ -46,7 +46,6 @@ current## BOX node birth example
     { "name": "sensors/fan/3/rpm",                   "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System fan 3 RPM"} },
     { "name": "sensors/fan/4/rpm",                   "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System fan 4 RPM"} },
 
-
     { "name": "chip/0/type",                         "dataType": 12/* String */,   "string_value": "ION314",            "metadata":{"description":"[R]Chip type installed on board"} },
 
     { "name": "chip/0/frame/settings/quantity",      "dataType": 6 /* UInt16 */,   "int_value": 30,                     "metadata":{"description":"[RWP]Quantity of frames to record"} },
@@ -54,7 +53,6 @@ current## BOX node birth example
     { "name": "chip/0/frame/sync",                   "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Sync time for record frames"} },
     { "name": "chip/0/frame/record",                 "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Start record frame"} },
     { "name": "chip/0/frame/get",                    "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Request one frame from chip"} },
-    { "name": "chip/0/frame",                        "dataType": 17/* Bytes */,    "bytes_value": "",                   "metadata":{"description":"[R]Last frame in base64 format"} }, 
 
     { "name": "chip/0/sensors/temperature",          "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Chip 0 sensor in mcu, value in Celsius"} },
     
@@ -106,7 +104,6 @@ current## BOX node birth example
     { "name": "chip/0/heater/enable",                "dataType": 11/* Boolean */,  "boolean_value": false,              "metadata":{"description":"[RW]Chip 0 heater state, send 'true' for enable"} },
     { "name": "chip/0/heater/target",                "dataType": 6 /* UInt16 */,   "int_value": 45,                     "metadata":{"description":"[RWP]Chip 0 heater target temperature, value in Celsius"} },
     { "name": "chip/0/heater/current",               "dataType": 9 /* Float */,    "float_value": 22.35,                "metadata":{"description":"[R]Chip 0 heater current temperature, value in Celsius"} },
-
 
 
     { "name": "RS485/0/settings/baudrate",           "dataType": 7/* UInt32*/,     "int_value": 9600,                   "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
