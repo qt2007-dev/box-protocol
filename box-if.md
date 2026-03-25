@@ -23,40 +23,243 @@
 
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
-    { "name": "RS485/0/settings/baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
-    { "name": "RS485/0/settings/databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
-    { "name": "RS485/0/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
-    { "name": "RS485/0/settings/parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
-    { "name": "RS485/0/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                         
-    { "name": "RS485/0/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} }, 
-    { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]Mode, list of values = ['raw']"} }, 
-    { "name": "RS485/0/in",                     "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
-    { "name": "RS485/0/out",                    "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },        
-    
-    { "name": "RS485/1/settings/baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
-    { "name": "RS485/1/settings/databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
-    { "name": "RS485/1/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
-    { "name": "RS485/1/settings/parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
-    { "name": "RS485/1/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                         
-    { "name": "RS485/1/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} },
-    { "name": "RS485/1/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]Mode, list of values = ['raw']"} },                 
-    { "name": "RS485/1/in",                     "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
-    { "name": "RS485/1/out",                    "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
 
-    { "name": "RS232/settings/baudrate",        "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
-    { "name": "RS232/settings/databits",        "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
-    { "name": "RS232/settings/stopbits",        "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                         
-    { "name": "RS232/settings/parity",          "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
-    { "name": "RS232/settings/timeout",         "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                        
-    { "name": "RS232/in",                       "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },
-    { "name": "RS232/out",                      "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
+    { "name": "ref/settings",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "settings",
+                         "is_definition": true,
+                         "metrics":[
+                            { "name": "baudrate",      "dataType": 7/* UInt32*/,    "metadata":{"description":"[RWP]Baudrate"} },
+                            { "name": "databits",      "dataType": 7/* UInt32*/,    "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
+                            { "name": "stopbits",      "dataType": 9/* Float */,    "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
+                            { "name": "parity",        "dataType": 12/* String */,  "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
+                            { "name": "timeout",       "dataType": 7/* UInt32*/,    "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                         
+                            { "name": "terminator",    "dataType": 11/* Boolean */, "metadata":{"description":"[RWP]Bus terminator control"} }, 
+                        ] }, 
+      "metadata":{"description":"Template definition of interface settings"} },
 
-    { "name": "CAN/settings/baudrate",          "dataType": 7/* UInt32*/,    "int_value": 500,                   "metadata":{"description":"[RWP]Baudrate, specified values = [50, 100, 125, 250, 500, 1000] kbps"} },
-    { "name": "CAN/settings/terminator",        "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} },    
+    { "name": "ref/data/raw",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "data",
+                         "is_definition": true,
+                         "metrics":[
+                            { "name": "in",                   "dataType": 17/* Bytes */,   "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
+                            { "name": "out",                  "dataType": 17/* Bytes */,   "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
+                        ] }, 
+      "metadata":{"description":"Template definition of interface data in raw mode"} },
+
+
+
+    { "name": "ref/dmx512/control/simple",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "control",
+                         "is_definition": true,
+                         "metrics":[
+                            { "name": "value",                "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Simple 8-bit value"} },  
+                        ] }, 
+      "metadata":{"description":"Template definition of simple control"} },
+
+    { "name": "ref/dmx512/control/rgbw",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "control",
+                         "is_definition": true,
+                         "metrics":[
+                            { "name": "red",                  "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Red value"} }, 
+                            { "name": "green",                "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Green value"} },  
+                            { "name": "blue",                 "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Blue value"} },  
+                            { "name": "white",                "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]White value"} },   
+                        ] }, 
+      "metadata":{"description":"Template definition of rgbw control"} },      
+
+
+    { "name": "ref/dmx512/fixture",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "fixture",
+                         "is_definition": true,
+                         "metrics":[
+                            { "name": "uid",                    "dataType": 12/* String */,  "metadata":{"description":"[R]Unique device id, format mmmm:dddddddd"} },  
+                            { "name": "manufacturer",           "dataType": 12/* String */,  "metadata":{"description":"[R]Manufacturer name"} }, 
+                            { "name": "model",                  "dataType": 12/* String */,  "metadata":{"description":"[R]Device model"} },                              
+                            { "name": "category",               "dataType": 12/* String */,  "metadata":{"description":"[R]Device category"} },  
+                            
+                            { "name": "footprint",              "dataType": 6/* UInt16 */,   "metadata":{"description":"[R]Number of consecutive occupied addresses"} },  
+
+                            { "name": "identify",               "dataType": 11/* Boolean */, "metadata":{"description":"[W]Identify device"} }, 
+
+                            { "name": "control",                "dataType": 19/* Template */,"metadata":{"description":"[RW]Control values"} },
+                        ] }, 
+      "metadata":{"description":"Template definition of interface data in raw mode"} },
+
+
+    { "name": "ref/data/dmx512",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "data",
+                         "is_definition": true,
+                         "metrics":[
+                            { "name": "universe",               "dataType": 17/* Bytes */,   "metadata":{"description":"[W]Send message in base64 format. Max frame 512"} },  
+                            { "name": "scan",                   "dataType": 11/* Boolean */, "metadata":{"description":"[W]Scan and addressing all fixtures"} },  
+
+                            { "name": "fixture/0",              "dataType": 19/* Template */,"metadata":{"description":"[RW]Fixture with start address 0"} },  
+                            { "name": "fixture/1",              "dataType": 19/* Template */,"metadata":{"description":"[RW]Fixture with start address 1"} },
+                            { "name": "fixture/2",              "dataType": 19/* Template */,"metadata":{"description":"[RW]Fixture with start address 2"} },
+
+                            { "name": "fixture/512",              "dataType": 19/* Template */,"metadata":{"description":"[RW]Fixture with start address 512"} },
+                        ] }, 
+      "metadata":{"description":"Template definition of interface data in raw mode"} },
+
+
+    { "name": "RS485/0/settings",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "settings",
+                         "is_definition": false,
+                         "template_ref": "ref/settings",
+                         "metrics":[
+                            { "name": "baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,250000,460800,921600]"} },
+                            { "name": "databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
+                            { "name": "stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
+                            { "name": "parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
+                            { "name": "timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                         
+                            { "name": "terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} }, 
+                        ] }, 
+      "metadata":{"description":"RS485 channel 0 settings"} },
+
+    { "name": "RS485/0/data",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "data",
+                         "is_definition": false,
+                         "template_ref": "ref/data/raw",
+                         "metrics":[
+                            { "name": "in",                     "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
+                            { "name": "out",                    "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
+                        ] }, 
+      "metadata":{"description":"RS485 channel 0 data"} },
+
+
+    { "name": "RS485/1/settings",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "settings",
+                         "is_definition": false,
+                         "template_ref": "ref/settings",
+                         "metrics":[
+                            { "name": "baudrate",      "dataType": 7/* UInt32*/,    "int_value": 250000,                "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,250000,460800,921600]"} },
+                            { "name": "databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
+                            { "name": "stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
+                            { "name": "parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
+                            { "name": "timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                         
+                            { "name": "terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} }, 
+                        ] }, 
+      "metadata":{"description":"RS485 channel 1 settings"} },
+
+    { "name": "RS485/1/data",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "data",
+                         "is_definition": false,
+                         "template_ref": "ref/data/dmx512",
+                         "metrics":[
+                            { "name": "universe",               "dataType": 17/* Bytes */,   "bytes_value": "",      "metadata":{"description":"[W]Send message in base64 format. Max frame 512"} },  
+                            { "name": "scan",                   "dataType": 11/* Boolean */, "boolean_value": false, "metadata":{"description":"[W]Scan and addressing all fixtures"} },  
+
+                            { "name": "fixture/0",              
+                              "dataType": 19/* Template */,
+                              "template_value":{  "version": "fixture",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/fixture",
+                                                  "metrics":[
+                                                      { "name": "uid",             "dataType": 12/* String */, "string_value": "abcd:01234567" , "metadata":{"description":"[R]Unique device id, format mmmm:dddddddd"} },  
+                                                      { "name": "manufacturer",    "dataType": 12/* String */, "string_value": "Manufacturer",   "metadata":{"description":"[R]Manufacturer name"} }, 
+                                                      { "name": "model",           "dataType": 12/* String */, "string_value": "Model",          "metadata":{"description":"[R]Device model"} },                              
+                                                      { "name": "category",        "dataType": 12/* String */, "string_value": "Simple",         "metadata":{"description":"[R]Device category"} },  
+                                                      
+                                                      { "name": "footprint",       "dataType": 6/* UInt16 */,  "int_value": 1,  "metadata":{"description":"[R]Number of consecutive occupied addresses"} },  
+
+                                                      { "name": "identify",        "dataType": 11/* Boolean */,"boolean_value": false, "metadata":{"description":"[W]Identify device"} }, 
+
+                                                      { "name": "control",         
+                                                        "dataType": 19/* Template */,
+                                                        "template_value":{ "version": "control",
+                                                                           "is_definition": false,
+                                                                           "template_ref": "ref/dmx512/control/simple",
+                                                                           "metrics":[
+                                                                               { "name": "value",  "dataType": 5/* UInt8 */, "int_value": 0,  "metadata":{"description":"[W]Simple 8-bit value"} },  
+                                                                        ] }, 
+                                                        "metadata":{"description":"[RW]Control values"} },
+                                                  ] }, 
+                              "metadata":{"description":"[RW]Fixture with start address 0"} },  
+
+                            { "name": "fixture/1",              
+                              "dataType": 19/* Template */,
+                              "template_value":{  "version": "fixture",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/fixture",
+                                                  "metrics":[
+                                                      { "name": "uid",             "dataType": 12/* String */, "string_value": "abcd:01234567" , "metadata":{"description":"[R]Unique device id, format mmmm:dddddddd"} },  
+                                                      { "name": "manufacturer",    "dataType": 12/* String */, "string_value": "Manufacturer",   "metadata":{"description":"[R]Manufacturer name"} }, 
+                                                      { "name": "model",           "dataType": 12/* String */, "string_value": "Model",          "metadata":{"description":"[R]Device model"} },                              
+                                                      { "name": "category",        "dataType": 12/* String */, "string_value": "RGBW",           "metadata":{"description":"[R]Device category"} },  
+                                                       
+                                                      { "name": "footprint",       "dataType": 6/* UInt16 */,  "int_value": 4,  "metadata":{"description":"[R]Number of consecutive occupied addresses"} },  
+
+                                                      { "name": "identify",        "dataType": 11/* Boolean */,"boolean_value": false, "metadata":{"description":"[W]Identify device"} }, 
+
+                                                      { "name": "control",         
+                                                        "dataType": 19/* Template */,
+                                                        "template_value":{ "version": "control",
+                                                                           "is_definition": false,
+                                                                           "template_ref": "ref/dmx512/control/rgbw",
+                                                                           "metrics":[
+                                                                                { "name": "red",    "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Red value"} }, 
+                                                                                { "name": "green",  "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Green value"} },  
+                                                                                { "name": "blue",   "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Blue value"} },  
+                                                                                { "name": "white",  "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]White value"} },   
+                                                                        ] }, 
+                                                        "metadata":{"description":"[RW]Control values"} },
+                                                  ] }, 
+                              "metadata":{"description":"[RW]Fixture with start address 1"} },  
+                        ] }, 
+      "metadata":{"description":"RS485 channel 1 data"} },
+
+
+    { "name": "RS232/settings",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "settings",
+                         "is_definition": false,
+                         "metrics":[
+                            { "name": "baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,250000,460800,921600]"} },
+                            { "name": "databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
+                            { "name": "stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
+                            { "name": "parity",        "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
+                            { "name": "timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },
+                        ] }, 
+      "metadata":{"description":"RS232 settings"} },
+
+
+    { "name": "RS232/data",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "data",
+                         "is_definition": false,
+                         "template_ref": "ref/data/raw",
+                         "metrics":[
+                            { "name": "in",                     "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
+                            { "name": "out",                    "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
+                        ] }, 
+      "metadata":{"description":"RS232 data"} },
+                 
+    { "name": "CAN/settings",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "settings",
+                         "is_definition": false,
+                         "template_ref": "ref/settings",
+                         "metrics":[
+                            { "name": "CAN/settings/baudrate",          "dataType": 7/* UInt32*/,    "int_value": 500,                   "metadata":{"description":"[RWP]Baudrate, specified values = [50, 100, 125, 250, 500, 1000] kbps"} },
+                            { "name": "CAN/settings/terminator",        "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} },    
+                        ] }, 
+      "metadata":{"description":"CAN settings"} },
+
     { "name": "CAN/in/identifier",             "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[R]Received identifier of the data frame"} },  
     { "name": "CAN/in/identifier/extended",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received identifier format, 'true' - 29-bit format, 'false' - 11-bit format"} },  
     { "name": "CAN/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frame type"} },                     
     { "name": "CAN/in",                         "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received data in base64 format"} },
+
     { "name": "CAN/out/identifier",            "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RW]Set identifier of the data frame"} },  
     { "name": "CAN/out/identifier/extended",   "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Set identifier format, 'true' - 29-bit format, 'false' - 11-bit format"} },  
     { "name": "CAN/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Set remote transmission request, define the frame type"} },                 
