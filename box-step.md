@@ -55,7 +55,8 @@
                          "is_definition": true,
                          "metrics":[
                               { "name": "encoder",      "dataType": 11/* Boolean */, "boolean_value": false,  "metadata":{"description":"[RWP]Use motor encoder"} },
-                              { "name": "ppr",          "dataType": 7/* UInt32 */,   "int_value": 1000,       "metadata":{"description":"[RWP]Encoder pulses per revolution"} },         
+                              { "name": "ppr",          "dataType": 7/* UInt32 */,   "int_value": 1000,       "metadata":{"description":"[RWP]Encoder pulses per revolution"} },                                   
+                              { "name": "tolerance",    "dataType": 7/* UInt32 */,   "int_value": 500,        "metadata":{"description":"[RWP]Encoder tolerance between encoder and internal position"} },                
                               { "name": "fullsteps",    "dataType": 7/* UInt32 */,   "int_value": 200,        "metadata":{"description":"[RWP]Motor steps per revolution"} },
                               { "name": "microsteps",   "dataType": 7/* UInt32 */,   "int_value": 256,        "metadata":{"description":"[RWP]Motor microsteps mode"} }
                         ] }, 
@@ -183,7 +184,8 @@
                          "template_ref": "ref/settings",
                          "metrics":[
                               { "name": "encoder",   "dataType": 11/* Boolean */,  "boolean_value": false ,"metadata":{"description":"[RWP]Use motor encoder"} },
-                              { "name": "ppr",       "dataType": 7/* UInt32 */,    "int_value": 1000      ,"metadata":{"description":"[RWP]Encoder pulses per revolution"} },            
+                              { "name": "ppr",       "dataType": 7/* UInt32 */,    "int_value": 1000      ,"metadata":{"description":"[RWP]Encoder pulses per revolution"} },      
+                              { "name": "tolerance", "dataType": 7/* UInt32 */,    "int_value": 500       ,"metadata":{"description":"[RWP]Encoder tolerance between encoder and internal position"} },           
                               { "name": "fullsteps", "dataType": 7/* UInt32 */,    "int_value": 200       ,"metadata":{"description":"[RWP]Motor steps per revolution"} },
                               { "name": "microsteps","dataType": 7/* UInt32 */,    "int_value": 256       ,"metadata":{"description":"[RWP]Motor microsteps mode"} }                            
                         ] }, 
