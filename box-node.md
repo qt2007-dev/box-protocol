@@ -13,6 +13,7 @@
     { "name": "control/metrics/save",                "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
     { "name": "control/metrics/metadata",            "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Show metrics metadata in birth, send 'true' for enable"} },
     { "name": "control/group",                       "dataType": 12/* String */,  "string_value": "plc",                "metadata":{"description":"[RWP]Global group, can be used instead id in topics and scenarios"} },
+    { "name": "control/host",                        "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[RWP]Primary host id, node sends its birth if the specified host or host 'ALL' comes online"} },
  
     { "name": "info/hardware/vendor",                "dataType": 12/* String */,  "string_value": "QuintTech",          "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
     { "name": "info/hardware/model",                 "dataType": 12/* String */,  "string_value": "rpi4",               "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
