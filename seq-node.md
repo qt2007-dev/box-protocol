@@ -23,6 +23,8 @@ current## BOX node birth example
     { "name": "info/error",                          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Last error message"} },
     { "name": "info/daytime",                        "dataType": 12/* String */,  "string_value": "day",                "metadata":{"description":"[R]Current daytime, values = ['day','night']"} },
 
+    { "name": "sensors/load/mpu",                    "dataType": 1 /* Int8 */,     "int_value": 10,                     "metadata":{"description":"[R]Mpu average load in percent"} },
+
     { "name": "sensors/temperature/mpu",             "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mpu, value in Celsius"} },
     { "name": "sensors/temperature/fpga",            "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in fpga, value in Celsius"} },
     { "name": "sensors/temperature/ambient",         "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor on motherboard, value in Celsius"} },
@@ -48,6 +50,7 @@ current## BOX node birth example
     { "name": "sensors/fan/4/rpm",                   "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System fan 4 RPM"} },
 
     { "name": "chip/0/type",                         "dataType": 12/* String */,   "string_value": "ION314",            "metadata":{"description":"[R]Chip type installed on board"} },
+    { "name": "chip/0/reset",                        "dataType": 11/* Boolean */,  "is_null": true,                     "metadata":{"description":"[W]Reset chip board and chip service"} },
 
     { "name": "chip/0/frame/settings/quantity",      "dataType": 6 /* UInt16 */,   "int_value": 30,                     "metadata":{"description":"[RWP]Quantity of frames to record"} },
     { "name": "chip/0/frame/settings/delay",         "dataType": 6 /* UInt16 */,   "int_value": 0,                      "metadata":{"description":"[RWP]Delay between frames of record"} },
