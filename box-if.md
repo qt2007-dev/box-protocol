@@ -23,26 +23,31 @@
 
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
-    { "name": "ref/dmx/control/simple",
+    { "name": "ref/dmx/slot",
       "dataType": 19, /* Template */
-      "template_value":{ "version": "control",
+      "template_value":{ "version": "slot",
                          "is_definition": true,
                          "metrics":[
-                            { "name": "value",                "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Simple 8-bit value"} },  
+                            { "name": "value",            "dataType": 5/* UInt8 */,    "metadata":{"description":"[RW]Simple 8-bit value"} }, 
+                            { "name": "description",      "dataType": 12/* String */,  "metadata":{"description":"[R]Slot description"} }, 
                         ] }, 
-      "metadata":{"description":"Template definition of simple control"} },
+      "metadata":{"description":"Template definition of slot"} },
 
-    { "name": "ref/dmx/control/rgbw",
+    { "name": "ref/dmx/control",
       "dataType": 19, /* Template */
       "template_value":{ "version": "control",
                          "is_definition": true,
                          "metrics":[
-                            { "name": "red",                  "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Red value"} }, 
-                            { "name": "green",                "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Green value"} },  
-                            { "name": "blue",                 "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Blue value"} },  
-                            { "name": "white",                "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]White value"} },   
+                            { "name": "0",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 0 control"} },
+                            { "name": "1",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 1 control"} },
+                            { "name": "2",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 2 control"} }, 
+                            { "name": "3",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 3 control"} }, 
+                            { "name": "4",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 4 control"} }, 
+                            { "name": "5",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 5 control"} }, 
+                            { "name": "6",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 6 control"} }, 
+                            { "name": "7",                "dataType": 19, /* Template */  "metadata":{"description":"[RW]Slot 7 control"} },  
                         ] }, 
-      "metadata":{"description":"Template definition of rgbw control"} },      
+      "metadata":{"description":"Template definition of control"} },      
 
 
     { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]Mode, list of values = ['raw']"} }, 
@@ -75,9 +80,17 @@
       "dataType": 19/* Template */,
       "template_value":{  "version": "control",
                           "is_definition": false,
-                          "template_ref": "ref/dmx512/control/simple",
+                          "template_ref": "ref/dmx512/control",
                           "metrics":[
-                            { "name": "value",  "dataType": 5/* UInt8 */, "int_value": 0,  "metadata":{"description":"[W]Simple 8-bit value"} },  
+                            { "name": "0",  
+                              "dataType": 19, /* Template */  
+                              "template_value":{  "version": "slot",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/slot",  
+                                                  "metrics":[
+                                                    { "name": "value",            "dataType": 5/* UInt8 */,   "int_value": 0,     "metadata":{"description":"[RW]Simple 8-bit value"} }
+                                                  ] },                             
+                              "metadata":{"description":"[RW]Slot 0 control"} },
                       ] }, 
       "metadata":{"description":"[RW]Control values"} },
 
@@ -91,14 +104,51 @@
     { "name": "RS485/1/dmx/fixture/beef00000002/identify",        "dataType": 11/* Boolean */,"boolean_value": false, "metadata":{"description":"[W]Identify device"} }, 
     { "name": "RS485/1/dmx/fixture/beef00000002/control",         
       "dataType": 19/* Template */,
-      "template_value":{ "version": "control",
+      "template_value":{  "version": "control",
                           "is_definition": false,
-                          "template_ref": "ref/dmx512/control/rgbw",
+                          "template_ref": "ref/dmx512/control",
                           "metrics":[
-                              { "name": "red",    "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Red value"} }, 
-                              { "name": "green",  "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Green value"} },  
-                              { "name": "blue",   "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]Blue value"} },  
-                              { "name": "white",  "dataType": 5/* UInt8 */,  "metadata":{"description":"[W]White value"} },   
+                            { "name": "0",  
+                              "dataType": 19, /* Template */  
+                              "template_value":{  "version": "slot",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/slot",  
+                                                  "metrics":[
+                                                    { "name": "value",            "dataType": 5/* UInt8 */,   "int_value": 0,     "metadata":{"description":"[RW]Simple 8-bit value"} }, 
+                                                    { "name": "description",      "dataType": 12/* String */, "string_value": "", "metadata":{"description":"[R]Slot description"} }, 
+                                                  ] },                             
+                              "metadata":{"description":"[RW]Slot 0 control"} },
+                            { "name": "1",  
+                              "dataType": 19, /* Template */  
+                              "template_value":{  "version": "slot",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/slot",  
+                                                  "metrics":[
+                                                    { "name": "value",            "dataType": 5/* UInt8 */,   "int_value": 0,     "metadata":{"description":"[RW]Simple 8-bit value"} }, 
+                                                    { "name": "description",      "dataType": 12/* String */, "string_value": "", "metadata":{"description":"[R]Slot description"} }, 
+                                                  ] },                             
+                              "metadata":{"description":"[RW]Slot 1 control"} },
+                            { "name": "2",  
+                              "dataType": 19, /* Template */  
+                              "template_value":{  "version": "slot",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/slot",  
+                                                  "metrics":[
+                                                    { "name": "value",            "dataType": 5/* UInt8 */,   "int_value": 0,     "metadata":{"description":"[RW]Simple 8-bit value"} }, 
+                                                    { "name": "description",      "dataType": 12/* String */, "string_value": "", "metadata":{"description":"[R]Slot description"} }, 
+                                                  ] },                             
+                              "metadata":{"description":"[RW]Slot 2 control"} },
+                            { "name": "3",  
+                              "dataType": 19, /* Template */  
+                              "template_value":{  "version": "slot",
+                                                  "is_definition": false,
+                                                  "template_ref": "ref/dmx512/slot",  
+                                                  "metrics":[
+                                                    { "name": "value",            "dataType": 5/* UInt8 */,   "int_value": 0,     "metadata":{"description":"[RW]Simple 8-bit value"} }, 
+                                                    { "name": "description",      "dataType": 12/* String */, "string_value": "", "metadata":{"description":"[R]Slot description"} }, 
+                                                  ] },                             
+                              "metadata":{"description":"[RW]Slot 3 control"} },      
+
                       ] }, 
       "metadata":{"description":"[RW]Control values"} },
 
