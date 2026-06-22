@@ -50,7 +50,7 @@
       "metadata":{"description":"Template definition of control"} },      
 
 
-    { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]Mode, list of values = ['raw']"} }, 
+    { "name": "RS485/0/settings/mode",          "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]Mode, list of values = ['raw', 'dmx']"} }, 
     { "name": "RS485/0/settings/baudrate",      "dataType": 7/* UInt32*/,    "int_value": 9600,                  "metadata":{"description":"[RWP]Baudrate, specified values = [1200,2400,4800,9600,14400,19200,28800,38400,57600,115200,230400,460800,921600]"} },
     { "name": "RS485/0/settings/databits",      "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RWP]Databits, specified values = [7,8,9]"} },
     { "name": "RS485/0/settings/stopbits",      "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                      
@@ -58,8 +58,8 @@
     { "name": "RS485/0/settings/timeout",       "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                         
     { "name": "RS485/0/settings/terminator",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} }, 
 
-    { "name": "RS485/0/in",                     "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
-    { "name": "RS485/0/out",                    "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },    
+    { "name": "RS485/0/raw/in",                     "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },       
+    { "name": "RS485/0/raw/out",                    "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },    
 
 
     { "name": "RS485/1/settings/mode",          "dataType": 12/* String */,  "string_value": "dmx",              "metadata":{"description":"[RWP]Mode, list of values = ['raw', 'dmx']"} },                        
@@ -159,21 +159,22 @@
     { "name": "RS232/settings/stopbits",        "dataType": 9/* Float */,    "float_value": 1,                   "metadata":{"description":"[RWP]Stopbits, specified values = [1,1.5,2]"} },                         
     { "name": "RS232/settings/parity",          "dataType": 12/* String */,  "string_value": "none",             "metadata":{"description":"[RWP]Parity, list of values = ['none','even','odd']"} },                
     { "name": "RS232/settings/timeout",         "dataType": 7/* UInt32*/,    "int_value": 0,                     "metadata":{"description":"[RWP]Timeout, wait time after last byte received before send to metric, value in ms"} },                        
-    { "name": "RS232/in",                       "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },
-    { "name": "RS232/out",                      "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
+    { "name": "RS232/raw/in",                   "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received message in base64 format. Max frame 1024"} },
+    { "name": "RS232/raw/out",                  "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format. Max frame 1024"} },  
 
+    { "name": "CAN/settings/mode",              "dataType": 12/* String */,  "string_value": "raw",              "metadata":{"description":"[RWP]Mode, list of values = ['raw']"} }, 
     { "name": "CAN/settings/baudrate",          "dataType": 7/* UInt32*/,    "int_value": 500,                   "metadata":{"description":"[RWP]Baudrate, specified values = [50, 100, 125, 250, 500, 1000] kbps"} },
     { "name": "CAN/settings/terminator",        "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RWP]Bus terminator control"} },   
 
-    { "name": "CAN/in/identifier",              "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[R]Received identifier of the data frame"} },  
-    { "name": "CAN/in/identifier/extended",     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received identifier format, 'true' - 29-bit format, 'false' - 11-bit format"} },  
-    { "name": "CAN/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frame type"} },                     
-    { "name": "CAN/in",                         "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received data in base64 format"} },
+    { "name": "CAN/raw/in/identifier",              "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[R]Received identifier of the data frame"} },  
+    { "name": "CAN/raw/in/identifier/extended",     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received identifier format, 'true' - 29-bit format, 'false' - 11-bit format"} },  
+    { "name": "CAN/raw/in/rtr",                     "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[R]Received remote transmission request, define the frame type"} },                     
+    { "name": "CAN/raw/in",                         "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[R]Received data in base64 format"} },
 
-    { "name": "CAN/out/identifier",             "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RW]Set identifier of the data frame"} },  
-    { "name": "CAN/out/identifier/extended",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Set identifier format, 'true' - 29-bit format, 'false' - 11-bit format"} },  
-    { "name": "CAN/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Set remote transmission request, define the frame type"} },                 
-    { "name": "CAN/out",                        "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format"} }
+    { "name": "CAN/raw/out/identifier",             "dataType": 7/* UInt32*/,    "int_value": 8,                     "metadata":{"description":"[RW]Set identifier of the data frame"} },  
+    { "name": "CAN/raw/out/identifier/extended",    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Set identifier format, 'true' - 29-bit format, 'false' - 11-bit format"} },  
+    { "name": "CAN/raw/out/rtr",                    "dataType": 11/* Boolean */, "boolean_value": true,              "metadata":{"description":"[RW]Set remote transmission request, define the frame type"} },                 
+    { "name": "CAN/raw/out",                        "dataType": 17/* Bytes */,   "bytes_value": "",                  "metadata":{"description":"[W]Send message in base64 format"} }
   ]
 }
 
