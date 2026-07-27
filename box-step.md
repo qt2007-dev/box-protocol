@@ -127,10 +127,11 @@
                          "is_definition": false,
                          "template_ref": "ref/settings/home",
                          "metrics":[
-                              { "name": "polarity",  "dataType": 12/* String */,  "string_value": "high"      ,"metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
-                              { "name": "edge",      "dataType": 12/* String */,  "string_value": "rising"   ,"metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
-                              { "name": "direction", "dataType": 12/* String */,  "string_value": "positive" ,"metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
-                              { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0             ,"metadata":{"description":"[RWP]Motor home sensor position offset"} }
+                              { "name": "polarity",  "dataType": 12/* String */,  "string_value": "high",     "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
+                              { "name": "edge",      "dataType": 12/* String */,  "string_value": "rising",   "metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
+                              { "name": "direction", "dataType": 12/* String */,  "string_value": "positive", "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
+                              { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home sensor position offset"} },
+                              { "name": "speed",     "dataType": 7/* UInt32 */,   "int_value": 0,             "metadata":{"description":"[RWP]Motor home search speed"} },
                         ] }, 
       "metadata":{"description":"Template definition of home sensor settings"} },
 
