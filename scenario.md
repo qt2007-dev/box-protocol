@@ -147,7 +147,7 @@ for o in out:
   { "keys":["object", "name", "value"],
     "values":[ {"type": 12, "string_value": "1245abcd"}, {"type": 12, "string_value": "out/12"}, {"type": 11, "boolean_value": true}  ] },
 
-  { "ke/*  */ys":["object", "name", "value"],
+  { "keys":["object", "name", "value"],
     "values":[ {"type": 12, "string_value": "1245abcd"}, {"type": 12, "string_value": "out/13"}, {"type": 11, "boolean_value": true}  ] },
 
   { "keys":["object", "name", "value"],
