@@ -47,6 +47,15 @@
       "metadata":{"description":"[RWP]GNSS coordinates, values in degree"} },     
 
     { "name": "connection/type",                     "dataType": 12/* String */,  "string_value": "ethernet",           "metadata":{"description":"[RWP]Active connection type, list of values = ['ethernet', 'modem']"} },
+
+    { "name": "connection/static",
+      "dataType": 16, /* DataSet */
+      "dataset_value":{ "num_of_columns": 8,
+                        "columns": ["address", "mask", "gateway", "dns-0", "dns-1",
+                        "types": [12, 12, 12, 12, 12], /* String, String, String, String, String */
+                        "rows": [ {"elements":[{"string_value":"192.168.10.10"},{"string_value":"255.255.255.0"},{"string_value":"192.168.10.1"},{"string_value":"1.1.1.1"},{"string_value":"8.8.8.8"}]} ] }, 
+      "metadata":{"description":"[RWP]Static ip address, if dhcp failed, set static ip"} },
+
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 8,
