@@ -389,7 +389,7 @@
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
+                            "metadata": {"description":"[RW]Gear dim level, values = [0-255], value 255(MASK) stop running fade"} }
                         ] } },
 
     { "name": "dali/0/gear/0/level/powerOn",
@@ -400,7 +400,7 @@
                          "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                            "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"} }
+                            "metadata": {"description":"[RWP]Gear power on dim, value 255(MASK) equal last light level"} }
                         ] } },
 
     { "name": "dali/0/gear/0/level/failure",
@@ -411,7 +411,7 @@
                          "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                            "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"} }
+                            "metadata": {"description":"[RWP]Gear failure dim , value 255(MASK) disable react to bus failure"} }
                         ] } },      
 
     { "name": "dali/0/gear/0/fade",    
@@ -422,9 +422,9 @@
                           "template_ref": "ref/dali/fade",                          
                           "metrics":[
                             { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1,
-                              "metadata":{"description":"Gear fade time, values = [0-15]"}},
+                              "metadata":{"description":"[RWP]Gear fade time, values = [0-15]"}},
                             { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5,
-                              "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] } },
+                              "metadata":{"description":"[RWP]Gear fade rate, values = [1-15]"}} ] } },
 
     { "name": "dali/0/gear/0/scenes",  
       "dataType": 19 /* Template */,
@@ -436,34 +436,34 @@
         "metrics":[
           { "name": "0",        
             "dataType": 19  /* Template */,
-            "metadata":{"description":"Scene 0 level"},
+            "metadata":{"description":"[RWP]Scene 0 level"},
             "template_value":{ "version": "level",
                               "is_definition": false,
                               "template_ref": "ref/dali/level",
                               "metrics":[
                                 { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+                                  "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
           /* 1...14 repeated */ 
           //{% for scene_number in range(1,15) %}
           { "name": "${scene_number}$",        
             "dataType": 19  /* Template */,
-            "metadata":{"description":"Scene ${scene_number}$ level"},
+            "metadata":{"description":"[RWP]Scene ${scene_number}$ level"},
             "template_value":{ "version": "level",
                               "is_definition": false,
                               "template_ref": "ref/dali/level",
                               "metrics":[
                                 { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
+                                  "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }},
         //{% endfor %}
           { "name": "15",       
             "dataType": 19  /* Template */,
-            "metadata":{"description":"Scene 15 level"},
+            "metadata":{"description":"[RWP]Scene 15 level"},
             "template_value":{ "version": "level",
                               "is_definition": false,
                               "template_ref": "ref/dali/level",
                               "metrics":[
                                 { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                  "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }} ] } },
+                                  "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} } ] }} ] } },
 
     /*DALI Color Temperature control gear*/
     { "name": "dali/0/gear/1/id",                       "dataType": 12/* String */,  "string_value": "1",                "metadata":{"description":"[R]Gear id stored in memory bank 0"} },
@@ -480,10 +480,10 @@
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
+                            "metadata": {"description":"[RW]Gear dim level, values = [0-255], value 255(MASK) stop running fade"} },
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"[RW]Gear color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
@@ -491,7 +491,7 @@
                                                 { "name": "temperature",  "dataType": 7  /* UInt32 */, "int_value": 2700, 
                                                   "properties":{ "keys": ["warmest","coolest"], 
                                                     "values": [{"type": 7, "int_value":1000}, {"type": 7, "int_value":7042}] },
-                                                  "metadata":{"description":"Gear color temperature"}}
+                                                  "metadata":{"description":"[RW]Gear color temperature"}}
                                               ] } }
                         ] } },
 
@@ -503,16 +503,16 @@
                          "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254,
-                            "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"}},
+                            "metadata": {"description":"[RWP]Gear power on dim, value 255(MASK) equal last light level"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Gear power on color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"[RWP]Gear power on color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
                                                 { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
-                                                  "metadata":{"description":"Gear color temperature"} }
+                                                  "metadata":{"description":"[RWP]Gear color temperature"} }
                                               ] } }
                         ] } },
 
@@ -524,16 +524,16 @@
                          "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 254,
-                             "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"}},
+                             "metadata": {"description":"[RWP]Gear failure dim , value 255(MASK) disable react to bus failure"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Gear failure color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"[RWP]Gear failure color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/temperature",
                                                "metrics":[
                                                 { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
-                                                  "metadata":{"description":"Gear color temperature"} }
+                                                  "metadata":{"description":"[RWP]Gear color temperature"} }
                                               ] }
                                              }
 
@@ -546,8 +546,8 @@
                           "is_definition": false,
                           "template_ref": "ref/dali/fade",
                           "metrics":[
-                          { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"Gear fade time, values = [0-15]"}},
-                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] } },
+                          { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"[RWP]Gear fade time, values = [0-15]"}},
+                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"[RWP]Gear fade rate, values = [1-15]"}} ] } },
 
     { "name": "dali/0/gear/1/scenes",  
       "dataType": 19 /* Template  */,
@@ -558,65 +558,65 @@
                          "metrics":[
                            { "name": "0",        
                              "dataType": 19  /* Template */,
-                             "metadata":{"description":"Scene 0 level"},
+                             "metadata":{"description":"[RWP]Scene 0 level"},
                              "template_value":{ "version": "level",
                                                 "is_definition": false,
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
+                                                    "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"[RWP]Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
                                                                       "metrics":[
                                                                         { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
-                                                                          "metadata":{"description":"Gear color temperature"} }
+                                                                          "metadata":{"description":"[RWP]Gear color temperature"} }
                                                                      ] } } 
                                                              ] }},
                             /* 1...14 repeated */ 
                            //{% for scene_number in range(1,15) %}
                            { "name": "${scene_number}$",        
                              "dataType": 19  /* Template */,
-                             "metadata":{"description":"Scene ${scene_number}$ level"},
+                             "metadata":{"description":"[RWP]Scene ${scene_number}$ level"},
                              "template_value":{ "version": "level",
                                                 "is_definition": false,
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
+                                                    "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"[RWP]Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
                                                                       "metrics":[
                                                                         { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
-                                                                          "metadata":{"description":"Gear color temperature"} }
+                                                                          "metadata":{"description":"[RWP]Gear color temperature"} }
                                                                      ] } }
                                                                     ]}}, 
                           //{% endfor %}
                            { "name": "15",       
                              "dataType": 19  /* Template */,
-                             "metadata":{"description":"Scene 15 level"},
+                             "metadata":{"description":"[RWP]Scene 15 level"},
                              "template_value":{ "version": "level",
                                                 "is_definition": false,
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
+                                                    "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"[RWP]Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/temperature",
                                                                       "metrics":[
                                                                         { "name": "temperature", "dataType": 7  /* UInt32 */, "int_value": 2700,
-                                                                          "metadata":{"description":"Gear color temperature"}}
+                                                                          "metadata":{"description":"[RWP]Gear color temperature"}}
                                                                      ] } } 
                                                              ] }} ] } },
 
@@ -635,26 +635,26 @@
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 0, 
                             "properties":{ "keys": ["phy","min","max"], "values": [{"type": 5, "int_value":78},{"type": 5, "int_value":100},{"type": 5, "int_value":254}] },
-                            "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
+                            "metadata": {"description":"[RW]Gear dim level, values = [0-255], value 255(MASK) stop running fade"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"[RW]Gear color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
                                                "metrics":[
                                                 { "name": "red",   "dataType": 5  /* UInt8 */, "int_value": 254,
-                                                  "metadata":{"description":"Gear red color"}   },
+                                                  "metadata":{"description":"[RW]Gear red color"}   },
                                                 { "name": "green", "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear green color"} },
+                                                  "metadata":{"description":"[RW]Gear green color"} },
                                                 { "name": "blue",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear blue color"}  },
+                                                  "metadata":{"description":"[RW]Gear blue color"}  },
                                                 { "name": "white", "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear white color"} },
+                                                  "metadata":{"description":"[RW]Gear white color"} },
                                                 { "name": "amber", "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear amber color"} },
+                                                  "metadata":{"description":"[RW]Gear amber color"} },
                                                 { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear free color"}  }
+                                                  "metadata":{"description":"[RW]Gear free color"}  }
                                               ] } }
                         ] } },
 
@@ -667,26 +667,26 @@
                          
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 254,
-                            "metadata": {"description":"Gear power on dim, value 255(MASK) equal last light level"} },
+                            "metadata": {"description":"[RWP]Gear power on dim, value 255(MASK) equal last light level"} },
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Gear power on color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"[RWP]Gear power on color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
                                                "metrics":[
                                                 { "name": "red",   "dataType": 5  /* UInt8 */, "int_value": 254,
-                                                  "metadata":{"description":"Gear red color"}   },
+                                                  "metadata":{"description":"[RWP]Gear red color"}   },
                                                 { "name": "green", "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear green color"} },
+                                                  "metadata":{"description":"[RWP]Gear green color"} },
                                                 { "name": "blue",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear blue color"}  },
+                                                  "metadata":{"description":"[RWP]Gear blue color"}  },
                                                 { "name": "white", "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear white color"} },
+                                                  "metadata":{"description":"[RWP]Gear white color"} },
                                                 { "name": "amber", "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear amber color"} },
+                                                  "metadata":{"description":"[RWP]Gear amber color"} },
                                                 { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  ,
-                                                  "metadata":{"description":"Gear free color"}  }
+                                                  "metadata":{"description":"[RWP]Gear free color"}  }
                                               ] } }
                         ] } },
 
@@ -698,26 +698,26 @@
                          "template_ref": "ref/dali/level",                         
                          "metrics":[
                           { "name": "dim", "dataType": 5   /* UInt8 */, "int_value": 254, 
-                            "metadata": {"description":"Gear failure dim , value 255(MASK) disable react to bus failure"}},
+                            "metadata": {"description":"[RWP]Gear failure dim , value 255(MASK) disable react to bus failure"}},
                           { "name": "color",
                             "dataType": 19, /* Template */
-                            "metadata":{"description":"Gear failure color, allow ref/dali/color/* template types"},
+                            "metadata":{"description":"[RWP]Gear failure color, allow ref/dali/color/* template types"},
                             "template_value":{ "version": "color",
                                                "is_definition": false,
                                                "template_ref": "ref/dali/color/rgbwaf",
                                                "metrics":[
                                                 { "name": "red",   "dataType": 5  /* UInt8 */,  "int_value": 254,
-                                                  "metadata":{"description":"Gear red color"}   },
+                                                  "metadata":{"description":"[RWP]Gear red color"}   },
                                                 { "name": "green", "dataType": 5  /* UInt8 */,  "int_value": 0  ,
-                                                  "metadata":{"description":"Gear green color"} },
+                                                  "metadata":{"description":"[RWP]Gear green color"} },
                                                 { "name": "blue",  "dataType": 5  /* UInt8 */,  "int_value": 0  ,
-                                                  "metadata":{"description":"Gear blue color"}  },
+                                                  "metadata":{"description":"[RWP]Gear blue color"}  },
                                                 { "name": "white", "dataType": 5  /* UInt8 */,  "int_value": 0  ,
-                                                  "metadata":{"description":"Gear white color"} },
+                                                  "metadata":{"description":"[RWP]Gear white color"} },
                                                 { "name": "amber", "dataType": 5  /* UInt8 */,  "int_value": 0  ,
-                                                  "metadata":{"description":"Gear amber color"} },
+                                                  "metadata":{"description":"[RWP]Gear amber color"} },
                                                 { "name": "free",  "dataType": 5  /* UInt8 */,  "int_value": 0  ,
-                                                  "metadata":{"description":"Gear free color"}  }
+                                                  "metadata":{"description":"[RWP]Gear free color"}  }
                                               ] } }
 
                         ] } },      
@@ -729,8 +729,8 @@
                           "is_definition": false,
                           "template_ref": "ref/dali/fade",                          
                           "metrics":[
-                          { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"Gear fade time, values = [0-15]"}},
-                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"Gear fade rate, values = [1-15]"}} ] } },
+                          { "name": "time", "dataType": 5  /* UInt8 */, "int_value": 1, "metadata":{"description":"[RWP]Gear fade time, values = [0-15]"}},
+                          { "name": "rate", "dataType": 5  /* UInt8 */, "int_value": 5, "metadata":{"description":"[RWP]Gear fade rate, values = [1-15]"}} ] } },
 
     { "name": "dali/0/gear/2/scenes",  
       "dataType": 19 /* Template  */,
@@ -741,32 +741,32 @@
                          "metrics":[
                            { "name": "0",        
                              "dataType": 19  /* Template */,
-                             "metadata":{"description":"Scene 0 level"},
+                             "metadata":{"description":"[RWP]Scene 0 level"},
                              "template_value":{ "version": "level",
                                                 "is_definition": false,
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
+                                                    "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"[RWP]Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/rgbwaf",
                                                                       "metrics":[
                                                                         { "name": "red",   "dataType": 5  /* UInt8 */, "int_value": 254, 
-                                                                          "metadata":{"description":"Gear red color"}   },
+                                                                          "metadata":{"description":"[RWP]Gear red color"}   },
                                                                         { "name": "green", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear green color"} },
+                                                                          "metadata":{"description":"[RWP]Gear green color"} },
                                                                         { "name": "blue",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear blue color"}  },
+                                                                          "metadata":{"description":"[RWP]Gear blue color"}  },
                                                                         { "name": "white", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear white color"} },
+                                                                          "metadata":{"description":"[RWP]Gear white color"} },
                                                                         { "name": "amber", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear amber color"} },
+                                                                          "metadata":{"description":"[RWP]Gear amber color"} },
                                                                         { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear free color"}  }
+                                                                          "metadata":{"description":"[RWP]Gear free color"}  }
                                                                       ] } }
                                                              ] }},
                                                              
@@ -774,63 +774,63 @@
                            //{% for scene_number in range(1,15) %}
                            { "name": "${scene_number}$",        
                              "dataType": 19  /* Template */,
-                             "metadata":{"description":"Scene ${scene_number}$ level"},
+                             "metadata":{"description":"[RWP]Scene ${scene_number}$ level"},
                              "template_value":{ "version": "level",
                                                 "is_definition": false,
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
+                                                    "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"[RWP]Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/rgbwaf",
                                                                       "metrics":[
                                                                         { "name": "red",   "dataType": 5  /* UInt8 */, "int_value": 254, 
-                                                                          "metadata":{"description":"Gear red color"}   },
+                                                                          "metadata":{"description":"[RWP]Gear red color"}   },
                                                                         { "name": "green", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear green color"} },
+                                                                          "metadata":{"description":"[RWP]Gear green color"} },
                                                                         { "name": "blue",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear blue color"}  },
+                                                                          "metadata":{"description":"[RWP]Gear blue color"}  },
                                                                         { "name": "white", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear white color"} },
+                                                                          "metadata":{"description":"[RWP]Gear white color"} },
                                                                         { "name": "amber", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear amber color"} },
+                                                                          "metadata":{"description":"[RWP]Gear amber color"} },
                                                                         { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear free color"}  }
+                                                                          "metadata":{"description":"[RWP]Gear free color"}  }
                                                                       ] } }
                                                                       ] }},
                           //{% endfor %}
                            { "name": "15",       
                              "dataType": 19  /* Template */,
-                             "metadata":{"description":"Scene 15 level"},
+                             "metadata":{"description":"[RWP]Scene 15 level"},
                              "template_value":{ "version": "level",
                                                 "is_definition": false,
                                                 "template_ref": "ref/dali/level",
                                                 "metrics":[
                                                   { "name": "dim",  "dataType": 5   /* UInt8 */, "int_value": 254, 
-                                                    "metadata": {"description":"Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
+                                                    "metadata": {"description":"[RWP]Gear dim level, values = [0-255], value 255(MASK) ignore scene"} },
                                                   { "name": "color",
                                                     "dataType": 19, /* Template */
-                                                    "metadata":{"description":"Gear color, allow ref/dali/color/* template types"},
+                                                    "metadata":{"description":"[RWP]Gear color, allow ref/dali/color/* template types"},
                                                     "template_value":{ "version": "color",
                                                                       "is_definition": false,
                                                                       "template_ref": "ref/dali/color/rgbwaf",
                                                                       "metrics":[
                                                                         { "name": "red",   "dataType": 5  /* UInt8 */, "int_value": 254, 
-                                                                          "metadata":{"description":"Gear red color"}   },
+                                                                          "metadata":{"description":"[RWP]Gear red color"}   },
                                                                         { "name": "green", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear green color"} },
+                                                                          "metadata":{"description":"[RWP]Gear green color"} },
                                                                         { "name": "blue",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear blue color"}  },
+                                                                          "metadata":{"description":"[RWP]Gear blue color"}  },
                                                                         { "name": "white", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear white color"} },
+                                                                          "metadata":{"description":"[RWP]Gear white color"} },
                                                                         { "name": "amber", "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear amber color"} },
+                                                                          "metadata":{"description":"[RWP]Gear amber color"} },
                                                                         { "name": "free",  "dataType": 5  /* UInt8 */, "int_value": 0  , 
-                                                                          "metadata":{"description":"Gear free color"}  }
+                                                                          "metadata":{"description":"[RWP]Gear free color"}  }
                                                                       ] } }
                                                              ] }} 
                                                              ] } },
