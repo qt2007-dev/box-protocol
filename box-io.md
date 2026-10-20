@@ -20,6 +20,7 @@
     { "name": "info/type",                "dataType": 12/* String */,  "string_value": "8 IO",             "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
     { "name": "info/id",                  "dataType": 12/* String */,  "string_value": "deba0004",         "metadata":{"description":"[R]Short device id"} },
     { "name": "info/error",               "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
+    { "name": "info/warning",             "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last warning message"} },
 
     { "name": "sensors/temperature",      "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
