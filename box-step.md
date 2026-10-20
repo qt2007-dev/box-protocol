@@ -20,6 +20,7 @@
     { "name": "info/type",                              "dataType": 12/* String */,  "string_value": "STEP 2",           "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
     { "name": "info/id",                                "dataType": 12/* String */,  "string_value": "deba0008",         "metadata":{"description":"[R]Short device id"} },
     { "name": "info/error",                             "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last error message"} },
+    { "name": "info/warning",                           "dataType": 12/* String */,  "string_value": "",                 "metadata":{"description":"[R]Last warning message"} },
 
     { "name": "sensors/temperature",                    "dataType": 1/* Int8 */,     "int_value": 22,                    "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },
 
@@ -71,7 +72,9 @@
                               { "name": "polarity",   "dataType": 12/* String */,  "string_value": "high",     "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
                               { "name": "edge",       "dataType": 12/* String */,  "string_value": "rising",   "metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
                               { "name": "direction",  "dataType": 12/* String */,  "string_value": "positive", "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
-                              { "name": "offset",     "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home sensor position offset"} }
+                              { "name": "offset",     "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home sensor position offset"} },
+                              { "name": "escape",     "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home escape before start search"} },
+                              { "name": "speed",      "dataType": 7/* UInt32 */,   "int_value": 0,             "metadata":{"description":"[RWP]Motor home search speed"} }
 
                         ] }, 
       "metadata":{"description":"Template definition of home sensor settings"} },
@@ -132,7 +135,7 @@
                               { "name": "direction", "dataType": 12/* String */,  "string_value": "positive", "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
                               { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home sensor position offset"} },
                               { "name": "escape",    "dataType": 3/* Int32 */,    "int_value": 0,             "metadata":{"description":"[RWP]Motor home escape before start search"} },
-                              { "name": "speed",     "dataType": 7/* UInt32 */,   "int_value": 0,             "metadata":{"description":"[RWP]Motor home search speed"} },
+                              { "name": "speed",     "dataType": 7/* UInt32 */,   "int_value": 0,             "metadata":{"description":"[RWP]Motor home search speed"} }
                         ] }, 
       "metadata":{"description":"Template definition of home sensor settings"} },
 
@@ -202,7 +205,9 @@
                               { "name": "polarity",  "dataType": 12/* String */,  "string_value": "high"     , "metadata":{"description":"[RWP]Motor home sensor polarity in home, values = ['high', 'low']"} },
                               { "name": "edge",      "dataType": 12/* String */,  "string_value": "rising"   , "metadata":{"description":"[RWP]Motor home sensor edge, values = ['rising', 'falling']"} },
                               { "name": "direction", "dataType": 12/* String */,  "string_value": "positive" , "metadata":{"description":"[RWP]Motor home search direction, values = ['negative', 'positive']"} },
-                              { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0             , "metadata":{"description":"[RWP]Motor home sensor position offset"} }
+                              { "name": "offset",    "dataType": 3/* Int32 */,    "int_value": 0             , "metadata":{"description":"[RWP]Motor home sensor position offset"} },
+                              { "name": "escape",    "dataType": 3/* Int32 */,    "int_value": 0             , "metadata":{"description":"[RWP]Motor home escape before start search"} },
+                              { "name": "speed",     "dataType": 7/* UInt32 */,   "int_value": 0             , "metadata":{"description":"[RWP]Motor home search speed"} }
                         ] }, 
       "metadata":{"description":"Template definition of home sensor settings"} },
 
