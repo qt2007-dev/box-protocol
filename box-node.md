@@ -12,7 +12,8 @@
     { "name": "control/firmware/new",                "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,    "metadata":{"description":"[W]Receive new firmware, firmware send in Base64 format, in birth always null"} },
     { "name": "control/metrics/save",                "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
     { "name": "control/metrics/metadata",            "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Show metrics metadata in birth, send 'true' for enable"} },
-    { "name": "control/group",                       "dataType": 12/* String */,  "string_value": "plc",                "metadata":{"description":"[RWP]Global group, can be used instead id in topics and scenarios"} },
+    { "name": "control/group",                       "dataType": 12/* String */,  "string_value": "box",                "metadata":{"description":"[RWP]Sparkplug group, used in mqtt topics"} },
+    { "name": "control/alias",                       "dataType": 12/* String */,  "string_value": "node",               "metadata":{"description":"[RWP]Global alias, can be used instead id in topics and scenarios"} },    
     { "name": "control/host",                        "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[RWP]Primary host id, node sends its birth if the specified host or host 'ALL' comes online"} },
  
     { "name": "info/hardware/vendor",                "dataType": 12/* String */,  "string_value": "QuintTech",          "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
@@ -26,10 +27,13 @@
     { "name": "sensors/temperature",                 "dataType": 1 /* Int8 */,     "int_value": 22,                     "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },
     { "name": "sensors/system/voltage",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System voltage, value in mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 10}]} },
     { "name": "sensors/system/current",              "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]System current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },  
-    { "name": "sensors/modules/voltage",             "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Modules voltage, value in mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 10}]} },
-    { "name": "sensors/modules/current",             "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Modules current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },  
+    { "name": "sensors/extension/voltage",           "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Extensions voltage, value in mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 10}]} },
+    { "name": "sensors/extension/current",           "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Extensions current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },  
+    { "name": "sensors/bus/modules/quantity",        "dataType": 6 /* UInt16 */,   "int_value": 5,                      "metadata":{"description":"[R]Quantity modules connected to node"} },    
     { "name": "sensors/bus/voltage",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus voltage, value in mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 10}]} },
     { "name": "sensors/bus/current",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },    
+    { "name": "sensors/bus/current",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },    
+    
 
     { "name": "timezone/auto",                       "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Enable/disable auto timezone from coordinates"} },         
     { "name": "timezone",                            "dataType": 12/* String */,  "string_value": "UTC+0",              "metadata":{"description":"[RWP]Current timezone"} },         
@@ -47,7 +51,7 @@
       "metadata":{"description":"[RWP]GNSS coordinates, values in degree"} },     
 
     { "name": "connection/type",                     "dataType": 12/* String */,  "string_value": "ethernet",           "metadata":{"description":"[RWP]Active connection type, list of values = ['ethernet', 'modem']"} },
-
+    
     { "name": "connection/static",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 8,
@@ -56,6 +60,7 @@
                         "rows": [ {"elements":[{"string_value":"192.168.10.10"},{"string_value":"255.255.255.0"},{"string_value":"192.168.10.1"},{"string_value":"1.1.1.1"},{"string_value":"8.8.8.8"}]} ] }, 
       "metadata":{"description":"[RWP]Static ip address, if dhcp failed, set static ip"} },
 
+    { "name": "connection/server/online",             "dataType": 11/* Boolean */, "boolean_value": true,               "metadata":{"description":"[R]Mqtt broker connection status"} },
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
       "dataset_value":{ "num_of_columns": 8,
@@ -63,6 +68,13 @@
                         "types": [12, 6, 11 , 12, 12, 12, 12, 12], /* String, UInt16, Boolean, String, String, String, String, String   */
                         "rows": [ {"elements":[{"string_value":"some.broker.com"},{"int_value":1883},{"boolean_value":true},{"string_value":"cert"},{"string_value":"cert"},{"string_value":"key"},{"string_value":"mqtt-username"},{"string_value":"mqtt-password"}]} ] }, 
       "metadata":{"description":"[RWP]mqtt broker"} },
+
+
+
+    { "name": "integration/jupyter-notebook",        "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]JupyterNotebook url"} },
+    { "name": "integration/home-assistant",          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]HomeAssistant url"} },
+    { "name": "integration/node-red",                "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Node-RED url"} },
+    { "name": "integration/open-plc",                "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]OpenPLC url"} },    
 
     { "name": "connection/modem/operator",           "dataType": 12/* String */,  "string_value": "Beeline",            "metadata":{"description":"[R]Operator name"} },  
     { "name": "connection/modem/iccid",              "dataType": 12/* String */,  "string_value": "897010269709192239", "metadata":{"description":"[R]Show sim card iccid number"} },
@@ -74,7 +86,6 @@
     { "name": "scenario/get",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} }, 
     { "name": "scenario/enable",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable scenario, enabled scenario do actions on execute"} }, 
     { "name": "scenario/disable",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario don't do any actions on execute"} },   
-    { "name": "scenario/debug/url",                        "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]The ide's url"} },
     { "name": "scenario/list",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 3,

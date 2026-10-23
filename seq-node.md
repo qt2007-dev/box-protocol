@@ -12,7 +12,7 @@ current## BOX node birth example
     { "name": "control/firmware/new",                "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,    "metadata":{"description":"[W]Receive new firmware, firmware send in Base64 format, in birth always null"} },
     { "name": "control/metrics/save",                "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Save metrics states after reboot, send 'true' for enable"} },
     { "name": "control/metrics/metadata",            "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Show metrics metadata in birth, send 'true' for enable"} },
-    { "name": "control/group",                       "dataType": 12/* String */,  "string_value": "plc",                "metadata":{"description":"[RWP]Global group, can be used instead id in topics and scenarios"} },
+    { "name": "control/alias",                       "dataType": 12/* String */,  "string_value": "plc",                "metadata":{"description":"[RWP]Global alias, can be used instead id in topics and scenarios"} },
     { "name": "control/host",                        "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[RWP]Primary host id, node sends its birth if the specified host or host 'ALL' comes online"} },
  
     { "name": "info/hardware/vendor",                "dataType": 12/* String */,  "string_value": "QuintTech",          "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
