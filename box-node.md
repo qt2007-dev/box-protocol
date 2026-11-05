@@ -19,8 +19,8 @@
     { "name": "info/hardware/vendor",                "dataType": 12/* String */,  "string_value": "QuintTech",          "metadata":{"description":"[R]Vendor name, hardcoded by vendor"} },
     { "name": "info/hardware/model",                 "dataType": 12/* String */,  "string_value": "rpi4",               "metadata":{"description":"[R]Mcu model, hardcoded by vendor"} },
     { "name": "info/firmware/version",               "dataType": 12/* String */,  "string_value": "0.1.2",              "metadata":{"description":"[R]Firmware version, MAJOR.MINOR.PATCH"} },
-    { "name": "info/firmware/update",                "dataType": 11/* Boolean */, "is_null": true,                      "metadata":{"description":"[W]Firmware start firmware update"} },
-    { "name": "info/firmware/update/status",         "dataType": 12/* String */,  "string_value": "ready",              "metadata":{"description":"[R]Firmware update status,list of values=['ready', 'downloading','updating','complete']"} },
+    { "name": "info/firmware/update",                "dataType": 11/* Boolean */, "is_null": true,                      "metadata":{"description":"[W]Start firmware update"} },
+    { "name": "info/firmware/update/status",         "dataType": 12/* String */,  "string_value": "available",          "metadata":{"description":"[R]Firmware update status, list of values=['available', 'downloading','updating','complete']"} },
     
     { "name": "info/type",                           "dataType": 12/* String */,  "string_value": "BOX",                "metadata":{"description":"[R]Device type, hardcoded by vendor"} },
     { "name": "info/id",                             "dataType": 12/* String */,  "string_value": "abba2020",           "metadata":{"description":"[R]Short device id"} },
