@@ -223,7 +223,7 @@
                           { "name": "kp",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Proportional coefficient of PID"                           }},
                           { "name": "ki",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Integral coefficient of PID"                               }},
                           { "name": "kd",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Differential coefficient of PID"                           }},
-                          { "name": "direction",  "dataType": 12/* String */ , "string_value": "reverse" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
+                          { "name": "direction",  "dataType": 12/* String */ , "string_value": "inverse" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
                           { "name": "enable",     "dataType": 11/* Boolean */, "boolean_value": false    , "metadata":{"description":"[RWP]Enable PID for specified channels"                         }}
                         ] }, 
       "metadata":{"description":"PID controller channel 2"} },
@@ -240,7 +240,7 @@
                           { "name": "kp",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Proportional coefficient of PID"                           }},
                           { "name": "ki",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Integral coefficient of PID"                               }},
                           { "name": "kd",         "dataType": 9/* Float */   , "float_value": 1          , "metadata":{"description":"[RWP]Differential coefficient of PID"                           }},
-                          { "name": "direction",  "dataType": 12/* String */ , "string_value": "reverse" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
+                          { "name": "direction",  "dataType": 12/* String */ , "string_value": "inverse" , "metadata":{"description":"[RWP]Direction of PID regulation, values=['direct','inverse']"  }},
                           { "name": "enable",     "dataType": 11/* Boolean */, "boolean_value": false    , "metadata":{"description":"[RWP]Enable PID for specified channels"                         }}
                         ] }, 
       "metadata":{"description":"PID controller channel 3"} },

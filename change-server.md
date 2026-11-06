@@ -6,7 +6,7 @@
 "metrics": [
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 8,
+      "dataset_value":{ "num_of_columns": 3,
                         "columns": ["address", "port", "tls"],
                         "types": [12, 6, 11], /* String, UInt16, Boolean   */
                         "rows": [ {"elements":[{"string_value":"some.broker.com"},{"int_value":1883},{"boolean_value":false}]} ] }, 
@@ -21,7 +21,7 @@
 "metrics": [
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 8,
+      "dataset_value":{ "num_of_columns": 5,
                         "columns": ["address", "port", "tls", "username", "password"],
                         "types": [12, 6, 11, 12, 12,], /* String, UInt16, Boolean, String, String  */
                         "rows": [ {"elements":[{"string_value":"some.broker.com"},{"int_value":1883},{"boolean_value":false},
@@ -36,7 +36,7 @@
 "metrics": [
     { "name": "connection/server",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 8,
+      "dataset_value":{ "num_of_columns": 6,
                         "columns": ["address", "port", "tls", "ca-certificate", "username", "password"],
                         "types": [12, 6, 11, 12, 12, 12], /* String, UInt16, Boolean, String, String, String */
                         "rows": [ {"elements":[{"string_value":"some.broker.com"},{"int_value":1883},{"boolean_value":true},

@@ -35,8 +35,6 @@
     { "name": "sensors/bus/modules/quantity",        "dataType": 6 /* UInt16 */,   "int_value": 5,                      "metadata":{"description":"[R]Quantity modules connected to node"} },    
     { "name": "sensors/bus/voltage",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus voltage, value in mV"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 10}]} },
     { "name": "sensors/bus/current",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },    
-    { "name": "sensors/bus/current",                 "dataType": 6 /* UInt16 */,   "int_value": 22,                     "metadata":{"description":"[R]Bus current, value in mA"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },    
-    
 
     { "name": "timezone/auto",                       "dataType": 11/* Boolean */, "boolean_value": true,                "metadata":{"description":"[RWP]Enable/disable auto timezone from coordinates"} },         
     { "name": "timezone",                            "dataType": 12/* String */,  "string_value": "UTC+0",              "metadata":{"description":"[RWP]Current timezone"} },         
@@ -57,7 +55,7 @@
     
     { "name": "connection/static",
       "dataType": 16, /* DataSet */
-      "dataset_value":{ "num_of_columns": 8,
+      "dataset_value":{ "num_of_columns": 5,
                         "columns": ["address", "mask", "gateway", "dns-0", "dns-1"],
                         "types": [12, 12, 12, 12, 12], /* String, String, String, String, String */
                         "rows": [ {"elements":[{"string_value":"192.168.10.10"},{"string_value":"255.255.255.0"},{"string_value":"192.168.10.1"},{"string_value":"1.1.1.1"},{"string_value":"8.8.8.8"}]} ] }, 
@@ -74,21 +72,21 @@
 
 
 
-    { "name": "integration/jupyter-notebook",        "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]JupyterNotebook url"} },
-    { "name": "integration/home-assistant",          "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]HomeAssistant url"} },
-    { "name": "integration/node-red",                "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]Node-RED url"} },
-    { "name": "integration/open-plc",                "dataType": 12/* String */,  "string_value": "",                   "metadata":{"description":"[R]OpenPLC url"} },    
+    { "name": "integration/jupyter-notebook",        "dataType": 12/* String */,  "string_value": "",                    "metadata":{"description":"[R]JupyterNotebook url"} },
+    { "name": "integration/home-assistant",          "dataType": 12/* String */,  "string_value": "",                    "metadata":{"description":"[R]HomeAssistant url"} },
+    { "name": "integration/node-red",                "dataType": 12/* String */,  "string_value": "",                    "metadata":{"description":"[R]Node-RED url"} },
+    { "name": "integration/open-plc",                "dataType": 12/* String */,  "string_value": "",                    "metadata":{"description":"[R]OpenPLC url"} },    
 
-    { "name": "connection/modem/operator",           "dataType": 12/* String */,  "string_value": "Beeline",            "metadata":{"description":"[R]Operator name"} },  
-    { "name": "connection/modem/iccid",              "dataType": 12/* String */,  "string_value": "897010269709192239", "metadata":{"description":"[R]Show sim card iccid number"} },
-    { "name": "connection/modem/rssi",               "dataType": 3 /* Int32 */,    "string_value": -60,                 "metadata":{"description":"[R]Cellular signal strength"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },
-    { "name": "schedule",                            "dataType": 12/* String */, "string_value": "on",                  "metadata":{"description":"[RWP]Schedule control metric, list of values = ['on', 'off', 'set', 'get'], schedule set and get in properties"} }, 
-    { "name": "scenario/add",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario add to list, value = scenario name, scenario sent in properties"} },
-    { "name": "scenario/execute",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[RW]Execute scenario, value = scenario name, after execution the value is reset to null"} },
-    { "name": "scenario/delete",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario delete from list. Special value '_all' delete all scenario from list"} }, 
-    { "name": "scenario/get",                        "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} }, 
-    { "name": "scenario/enable",                     "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable scenario, enabled scenario do actions on execute"} }, 
-    { "name": "scenario/disable",                    "dataType": 12/* String */, "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario don't do any actions on execute"} },   
+    { "name": "connection/modem/operator",           "dataType": 12/* String */,  "string_value": "Beeline",             "metadata":{"description":"[R]Operator name"} },  
+    { "name": "connection/modem/iccid",              "dataType": 12/* String */,  "string_value": "897010269709192239",  "metadata":{"description":"[R]Show sim card iccid number"} },
+    { "name": "connection/modem/rssi",               "dataType": 3 /* Int32 */,   "int_value": -60,                      "metadata":{"description":"[R]Cellular signal strength"}, "properties":{ "keys": ["threshold"], "values": [{"type": 6, "int_value": 2}]} },
+    { "name": "schedule",                            "dataType": 12/* String */,  "string_value": "on",                  "metadata":{"description":"[RWP]Schedule control metric, list of values = ['on', 'off', 'set', 'get'], schedule set and get in properties"} }, 
+    { "name": "scenario/add",                        "dataType": 12/* String */,  "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario add to list, value = scenario name, scenario sent in properties"} },
+    { "name": "scenario/execute",                    "dataType": 12/* String */,  "string_value":"", "is_null": true,    "metadata":{"description":"[RW]Execute scenario, value = scenario name, after execution the value is reset to null"} },
+    { "name": "scenario/delete",                     "dataType": 12/* String */,  "string_value":"", "is_null": true,    "metadata":{"description":"[W]Scenario delete from list. Special value '_all' delete all scenario from list"} }, 
+    { "name": "scenario/get",                        "dataType": 12/* String */,  "string_value":"", "is_null": true,    "metadata":{"description":"[W]Read scenario from list, scenario sent in properties"} }, 
+    { "name": "scenario/enable",                     "dataType": 12/* String */,  "string_value":"", "is_null": true,    "metadata":{"description":"[W]Enable scenario, enabled scenario do actions on execute"} }, 
+    { "name": "scenario/disable",                    "dataType": 12/* String */,  "string_value":"", "is_null": true,    "metadata":{"description":"[W]Disable scenario, disabled scenario don't do any actions on execute"} },   
     { "name": "scenario/list",              
       "dataType": 16/* DataSet */, 
       "dataset_value":{ "num_of_columns": 3,
