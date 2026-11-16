@@ -25,23 +25,99 @@
     { "name": "sensors/temperature",            "dataType": 1/* Int8 */,     "int_value": 22,                      "metadata":{"description":"[R]Temperature sensor in mcu, value in Celsius"} },  
   
     { "name": "bitmask",                        "dataType": 6/* UInt16 */,   "int_value": 0,                       "metadata":{"description":"[RWP]Bitmask of digital outputs, [0-15] out"} },  
-  
+
+    { "name": "ref/mode/const",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]Pin polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of const mode"} },
+
+    { "name": "ref/mode/pulse",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "duration",  "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]Pulse duration"} },
+                          { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]Pulse polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of pulse mode"} },
+
+    { "name": "ref/mode/pwm",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "period",    "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM period, in ms"} },7
+                          { "name": "duty",      "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM duty, in percent"} },
+                          { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of pwm mode"} },
+
     { "name": "out/0",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 0 control"} },
+    { "name": "out/0/mode",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "template_ref": "ref/mode/const",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "polarity",  "dataType": 12/* String */, "string_value": "high",               "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of const mode"} },
+    
     { "name": "out/1",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 1 control"} },
+    { "name": "out/1/mode",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "template_ref": "ref/mode/pulse",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "duration",  "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]Pulse duration"} },
+                          { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]Pulse polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of pulse mode"} },
+
     { "name": "out/2",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 2 control"} },
-    { "name": "out/3",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 3 control"} },
-    { "name": "out/4",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 4 control"} },
-    { "name": "out/5",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 5 control"} },
-    { "name": "out/6",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 6 control"} },
-    { "name": "out/7",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 7 control"} },
-    { "name": "out/8",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 8 control"} },
-    { "name": "out/9",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 9 control"} },
-    { "name": "out/10",                         "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 10 control"} },
-    { "name": "out/11",                         "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 11 control"} },
-    { "name": "out/12",                         "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 12 control"} },
-    { "name": "out/13",                         "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 13 control"} },
-    { "name": "out/14",                         "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 14 control"} },
-    { "name": "out/15",                         "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 15 control"} }    
+    { "name": "out/2/mode",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "template_ref": "ref/mode/pwm",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "period",    "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM period, in ms"} },7
+                          { "name": "duty",      "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM duty, in percent"} },
+                          { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of PWM mode"} },
+
+    /* 3...14 repeated */ 
+    //{% for do_number in range(1,15) %}
+    { "name": "out/${do_number}$",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output ${do_number}$ control"} },
+    { "name": "out/${do_number}$/mode",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "template_ref": "ref/mode/const",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "polarity",  "dataType": 12/* String */, "string_value": "high",               "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of const mode"} },
+    //{% endfor %}
+
+    { "name": "out/15",                          "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[RWP]Digital output 15 control"} },
+    { "name": "out/15/mode",
+      "dataType": 19, /* Template */
+      "template_value":{ "version": "mode",
+                         "template_ref": "ref/mode/const",
+                         "is_definition": true,
+                         "metrics":[
+                          { "name": "polarity",  "dataType": 12/* String */, "string_value": "high",               "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
+                        ] }, 
+      "metadata":{"description":"Template definition of const mode"} },
+
+    
   ]
 }
 ```
