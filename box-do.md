@@ -6,7 +6,7 @@
 "timestamp": 1486144502122,
 "seq": 0,
 "metrics": [
-    { "name": "bdSeq",                          "dataType": 8/* UInt64 */,   "long_value": 0,                      "metadata":{"description":"[R]Birth-death sequence, 'online' - [BIRTH > DEATH], 'offline' - [BIRTH <= DEATH]"} },
+    { "name": "bdSeq",                          "dataType": 4/* Int64 */,    "long_value": 0,                      "metadata":{"description":"[R]Birth-death sequence, 'online' - [BIRTH > DEATH], 'offline' - [BIRTH <= DEATH]"} },
     { "name": "control/reboot",                 "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[W]Software reboot, send 'true' for reboot"} },
     { "name": "control/rebirth",                "dataType": 11/* Boolean */, "boolean_value": false,               "metadata":{"description":"[W]Rebirth, send 'true' for receive birth message again"} },
     { "name": "control/firmware/new",           "dataType": 17/* Bytes */,   "bytes_value":"", "is_null": true,    "metadata":{"description":"[W]Receive new firmware, firmware send in Base64 format, in birth always null"} },
@@ -50,7 +50,7 @@
       "template_value":{ "version": "mode",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "period",    "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM period, in ms"} },7
+                          { "name": "period",    "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM period, in ms"} },
                           { "name": "duty",      "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM duty, in percent"} },
                           { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
                         ] }, 
@@ -86,7 +86,7 @@
                          "template_ref": "ref/mode/pwm",
                          "is_definition": true,
                          "metrics":[
-                          { "name": "period",    "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM period, in ms"} },7
+                          { "name": "period",    "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM period, in ms"} },
                           { "name": "duty",      "dataType": 7/* UInt32 */,    "metadata":{"description":"[RWP]PWM duty, in percent"} },
                           { "name": "polarity",  "dataType": 12/* String */,   "metadata":{"description":"[RWP]PWM polarity, values = ['high','low']"} }
                         ] }, 
